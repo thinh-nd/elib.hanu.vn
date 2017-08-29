@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QmlModelStoreContainer" CdmEntityContainer="ECommerceEntities">
+    <EntitySetMapping Name="Attributes">
+      <EntityTypeMapping TypeName="QmlModel.Attribute">
+        <MappingFragment StoreEntitySet="ec_Attributes">
+          <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Unit" ColumnName="Unit" />
+          <ScalarProperty Name="RegExValidation" ColumnName="RegExValidation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AttributeValues">
+      <EntityTypeMapping TypeName="QmlModel.AttributeValue">
+        <MappingFragment StoreEntitySet="ec_AttributeValues">
+          <ScalarProperty Name="AttributeValueId" ColumnName="AttributeValueId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="AttributeId" ColumnName="AttributeId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="QmlModel.Category">
+        <MappingFragment StoreEntitySet="ec_Categories">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="QmlModel.Product">
+        <MappingFragment StoreEntitySet="ec_Products">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="WarehousePosition" ColumnName="WarehousePosition" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="CodeManufacturer" ColumnName="CodeManufacturer" />
+          <ScalarProperty Name="CodeSystem" ColumnName="CodeSystem" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Businesses">
+      <EntityTypeMapping TypeName="QmlModel.Business">
+        <MappingFragment StoreEntitySet="ec_Businesses">
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TaxNumber" ColumnName="TaxNumber" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
+          <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BusinessTypes">
+      <EntityTypeMapping TypeName="QmlModel.BusinessType">
+        <MappingFragment StoreEntitySet="ec_BusinessTypes">
+          <ScalarProperty Name="BusinessTypeName" ColumnName="BusinessTypeName" />
+          <ScalarProperty Name="BusinessTypeId" ColumnName="BusinessTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Districts">
+      <EntityTypeMapping TypeName="QmlModel.District">
+        <MappingFragment StoreEntitySet="ec_Districts">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+          <ScalarProperty Name="DistrictId" ColumnName="DistrictId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="QmlModel.Province">
+        <MappingFragment StoreEntitySet="ec_Provinces">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sectors">
+      <EntityTypeMapping TypeName="QmlModel.Sector">
+        <MappingFragment StoreEntitySet="ec_Sectors">
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="SectorName" ColumnName="SectorName" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ec_BusinessesToCategories" TypeName="QmlModel.ec_BusinessesToCategories" StoreEntitySet="ec_BusinessesToCategories">
+      <EndProperty Name="Category">
+        <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+      </EndProperty>
+      <EndProperty Name="ec_Businesses">
+        <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ec_BusinessesToSectors" TypeName="QmlModel.ec_BusinessesToSectors" StoreEntitySet="ec_BusinessesToSectors">
+      <EndProperty Name="ec_Sectors">
+        <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+      </EndProperty>
+      <EndProperty Name="ec_Businesses">
+        <ScalarProperty Name="BusinessId" ColumnName="BusinessId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="Manufacturers">
+      <EntityTypeMapping TypeName="QmlModel.Manufacturer">
+        <MappingFragment StoreEntitySet="ec_Manufacturers">
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="FaxNumber" ColumnName="FaxNumber" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ec_ManufacturersToCategories" TypeName="QmlModel.ec_ManufacturersToCategories" StoreEntitySet="ec_ManufacturersToCategories">
+      <EndProperty Name="ec_Manufacturers">
+        <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+      </EndProperty>
+      <EndProperty Name="Category">
+        <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="ec_ManufacturersToSectors" TypeName="QmlModel.ec_ManufacturersToSectors" StoreEntitySet="ec_ManufacturersToSectors">
+      <EndProperty Name="Sector">
+        <ScalarProperty Name="SectorId" ColumnName="SectorId" />
+      </EndProperty>
+      <EndProperty Name="Manufacturers">
+        <ScalarProperty Name="ManufacturerId" ColumnName="ManufacturerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <EntitySetMapping Name="ProductMediaFiles">
+      <EntityTypeMapping TypeName="QmlModel.ProductMediaFile">
+        <MappingFragment StoreEntitySet="ec_ProductMediaFiles">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="MediaId" ColumnName="MediaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,118 @@
+﻿@model IEnumerable<QML.Web.UI.core_Controllers>
+@{
+    ViewBag.Title = "Role Permissions";
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+    int role = ViewBag.roleId;
+}
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" class="button button-green" value="@Html.Localize("Save")" />
+        <a href="@Url.Action("../User/RolesList")" class="button button-gray">@Html.Localize("Back")</a>
+    </p>       
+    <table class="datatable full">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Localize("Controller")
+                </th>
+                <th>
+                    @Html.Localize("Actions")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                var actions = Model.ElementAt(i).Name;
+                IEnumerable<string> ls = QML.Web.UI.Helpers.FrontLayoutHelper.getAction(Model.ElementAt(i).ControllerId);
+                long? id = QML.Web.UI.Helpers.FrontLayoutHelper.getArea(Model.ElementAt(i).ControllerId).AreaId;
+                <tr>
+                    <td>
+                        @Model.ElementAt(i).Name
+                        @Html.Hidden("Controllers[" + i + "].ControllerName", Model.ElementAt(i).Name)
+                        @Html.Hidden("Controllers[" + i + "].Area", QML.Web.UI.Helpers.FrontLayoutHelper.getArea1((long)id).Name)
+                    </td>
+                    <td>
+                        <table class="datatable full">
+                            <thead>
+                                <tr>
+                                    <th>
+                                    </th>
+                                    <th style="width: 20px;">                                        
+                                        @Html.CheckBox("checkAllBox",false,new {@class="checkAll",@id="check_"+i})
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- ienumerable<string> -->
+                                @for (int j = 0; j < ls.Count(); j++)
+                                {
+                                    bool hasPermission = QML.Web.UI.Helpers.FrontLayoutHelper.hasPermission(role, ls.ElementAt(j), Model.ElementAt(i).Name, QML.Web.UI.Helpers.FrontLayoutHelper.getArea1((long)id).Name);
+                                    <tr>
+                                        <td>
+                                            @(Html.Localize(ls.ElementAt(j)) + " (" + ls.ElementAt(j) + ")")
+                                        </td>
+                                        <td>
+                                            @Html.Hidden("Controllers[" + i + "].Actions[" + j + "].ActionName", ls.ElementAt(j))
+                                            <!-- lấy trong db xem đã có chưa-->
+                                            @if (hasPermission == true)
+                                            {
+                                                @Html.CheckBox("Controllers[" + i + "].Actions[" + j + "].IsAuthorized", new { value = ls.ElementAt(j), @checked = true, @class = "c" + i + "d" + j })
+                                                @Html.Hidden("ca" + i + "db" + j, "1", new { @class = "ca" + i + "db" + j })
+                                            }
+                                            else
+                                            {
+                                                @Html.CheckBox("Controllers[" + i + "].Actions[" + j + "].IsAuthorized", new { value = ls.ElementAt(j), @class = "c" + i + "d" + j })
+                                                @Html.Hidden("ca" + i + "db" + j, "0", new { @class = "ca" + i + "db" + j })
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <input type="hidden" id="PermissionID" />
+        <input type="submit" class="button button-green" value="@Html.Localize("Save")" />
+        <a href="@Url.Action("../User/RolesList")" class="button button-gray">@Html.Localize("Back")</a>
+    </p>
+}
+<script type="text/javascript">
+    $(function () {    
+        $('.checkAll').change(function () {
+            var chk = $(this);
+            $(this).closest('table').find('input[type=checkbox]').attr('checked', chk.is(':checked'));            
+        });       
+                                        
+                                 
+        @for (int i = 0; i < Model.Count(); i++)
+        {            
+            IEnumerable<string> ls = QML.Web.UI.Helpers.FrontLayoutHelper.getAction(Model.ElementAt(i).ControllerId);
+            for (int j = 0; j < ls.Count(); j++)
+            {         
+            <text>    
+            $("#check_"+@i).click(function(){
+                if($(this).is(":checked")){
+                    $(".ca"+@i+"db"+@j).val('1');
+                }else{
+                    $(".ca"+@i+"db"+@j).val('0');
+                }
+            });
+                                                                                                                                                        
+                $(".c"+@i+"d"+@j).click(function(){
+                    if($(this).is(":checked")){
+                    $(".ca"+@i+"db"+@j).val('1');
+                    }else{
+                    $(".ca"+@i+"db"+@j).val('0');
+                    }
+                });                
+                </text>
+            }
+        }
+    });
+</script>

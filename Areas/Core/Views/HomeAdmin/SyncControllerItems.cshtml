@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "SyncControllerItems";
+}
+<br />
+@if ((ViewData["Messages"] as List<string>).Count > 0)
+{
+    <h5>
+        Logs</h5>
+    <br />
+    foreach (var msg in ViewData["Messages"] as List<string>)
+    { 
+    <p>@msg</p>
+    }
+}

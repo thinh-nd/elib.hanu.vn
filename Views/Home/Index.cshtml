@@ -1,0 +1,142 @@
+﻿@{
+    ViewBag.Title = "Đọc sách Online - Hanoi University | E-Library";
+    Layout = "../Shared/_IndexLayout.cshtml";
+}
+@helper TruncateString(string input, int length)
+{
+    if (input != null)
+    {
+        if (input.Length <= length)
+        {
+            @input
+        }
+        else
+        {
+            @input.Substring(0, length)<text>...</text>
+        }
+    }
+}
+@using (Html.BeginForm("NormalSearch", "Home", FormMethod.Post))
+{
+    <div style="margin: 20px">
+        <center>
+            <span style="font-family:'Book Antiqua'; font-weight:bold; font-size:large; text-shadow: 3px 3px 14px #800c17;">Tìm tài liệu </span>
+            <input type="text" name="keyword" style="width:300px; height:23px" />
+            <input type="submit" value="Search" />
+        </center>
+    </div>
+}
+
+<!-- Bookshelf (Max 16 books) -->
+<div id="bookshelf">
+    <h1>
+        Tài liệu đọc nhiều nhất
+    </h1>
+    <!-- function for most-viewed title-->
+    <ul>
+        @foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetMostViewBooks())
+        {
+            if (Html.GetAuthManager().GetUser() != null)
+            {
+                <li>
+                    <!-- đóng dialog box nếu tài đã đọc -->
+                    @if (QML.Web.UI.Helpers.FrontLayoutHelper.getViewHistory(Html.GetAuthManager().GetUser().UserId, item.DocumentID) == true)
+                    {
+                        <a href="@Url.Action("ViewBook", new { id = item.DocumentID })">
+                            <img src="@Url.Content("~/uploads/" + @item.Thumbnail)" alt="document" />
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("ViewBook", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                            <img src="@Url.Content("~/uploads/" + @item.Thumbnail)" alt="document" />
+                        </a>
+                    }
+                    <h4 id="tieude">@TruncateString(item.Title, 20)</h4>
+                    <div class="book_info">
+                        <h5 class="title">
+                            @if (QML.Web.UI.Helpers.FrontLayoutHelper.getViewHistory(Html.GetAuthManager().GetUser().UserId, item.DocumentID) == true)
+                            {
+                                <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">@item.Title</a>
+                            }
+                            else
+                            {
+                                <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })">@item.Title</a>
+                            }
+                        </h5>
+                        <p class="descriptions">
+                            @TruncateString(item.Description, 25)
+                        </p>
+                        <div class="book_fee">@String.Format("{0:0,0.0}", item.BookFee) (VNĐ)</div>
+                    </div>
+                </li>
+            }
+            else
+            {
+                if (item.BookFee == 0)
+                {
+                    <li>
+                        <a href="@Url.Action("ViewBook", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                            <img src="@Url.Content("~/uploads/" + @item.Thumbnail)" alt="document" />
+                        </a>
+                        <h4 id="tieude">@TruncateString(item.Title, 20)</h4>
+                        <div class="book_info">
+                            <h5 class="title">
+                                <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">@item.Title</a>
+                            </h5>
+                            <p class="descriptions">
+                                @TruncateString(item.Description, 25)
+                            </p>
+                            <div class="book_fee">@String.Format("{0:0,0.0}", item.BookFee) (VNĐ)</div>
+                        </div>
+                    </li>
+                }
+            }//end else
+        }
+    </ul>
+    <!-- end function -->
+    <h1>
+        Tài liệu mới cập nhật
+    </h1>
+    <ul>
+        @foreach (var item in @ViewBag.BookLatest)
+        {
+            <li>
+                @if (Html.GetAuthManager().GetUser() != null)
+                {
+                    if (QML.Web.UI.Helpers.FrontLayoutHelper.getViewHistory(Html.GetAuthManager().GetUser().UserId, item.DocumentID) == true)
+                    {
+                        <a href="@Url.Action("ViewBook", new { id = item.DocumentID })">
+                            <img src="@Url.Content("~/uploads/" + @item.Thumbnail)"
+                                 alt="document" />
+                        </a>
+
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("ViewBook", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                            <img src="@Url.Content("~/uploads/" + @item.Thumbnail)" alt="document" />
+                        </a>
+                    }
+                }
+                else
+                {
+                    <a href="@Url.Action("ViewBook", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                        <img src="@Url.Content("~/uploads/" + @item.Thumbnail)" alt="document" />
+                    </a>
+                }
+                <h4 id="tieude">@TruncateString(item.Title, 20)</h4>
+                <div class="book_info">
+                    <h5 class="title">
+                        <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">@item.Title</a>
+                    </h5>
+                    <p class="descriptions">
+                        @TruncateString(item.Description, 25)
+                    </p>
+                    <div class="book_fee">@String.Format("{0:0,0.0}", item.BookFee) (VNĐ)</div>
+                </div>
+            </li>
+        }
+        }
+    </ul>
+</div>

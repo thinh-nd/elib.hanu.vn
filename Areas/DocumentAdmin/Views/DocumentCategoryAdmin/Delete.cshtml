@@ -1,0 +1,16 @@
+﻿@model QML.Web.UI.Areas.DocumentAdmin.Models.DocumentCategoriesModel
+
+@{
+    ViewBag.Title = "QUẢN LÝ BỘ SƯU TẬP TÀI LIỆU";
+}
+
+<fieldset>
+    <legend>Xóa bỏ bộ sưu tập tài liệu</legend>
+<h3>Bạn có chắc chắn muốn xóa bộ sưu tập này?</h3>
+@using (Html.BeginForm()) {
+    <p>
+        <button class="button button-red">@Html.Localize("Xóa")</button>
+        @Html.ActionLink("Trở về danh sách", "Index")
+    </p>
+}
+</fieldset>

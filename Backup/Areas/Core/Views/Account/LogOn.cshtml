@@ -1,0 +1,89 @@
+@using QML.Web.UI.Areas.Core.Helpers
+@model QML.Web.UI.Areas.Core.Models.LogOnModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>Login</title>
+    <link href="@Url.Content("~/Content/Admin/css/reset.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/grid.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/style.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/messages.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/forms.css")" media="screen" rel="stylesheet" />
+    <!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<script src="js/PIE.js"></script>
+<![endif]-->
+    <!-- jquerytools -->
+    <script src="js/jquery.tools.min.js"></script>
+    <script src="js/jquery.ui.min.js"></script>
+    <!--[if lte IE 9]>
+<link rel="stylesheet" media="screen" href="css/ie.css" />
+<script type="text/javascript" src="js/ie.js"></script>
+<![endif]-->
+    <script src="js/global.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.tools.validator.fn("#username", function (input, value) {
+                return value != 'Username' ? true : {
+                    en: "Please complete this mandatory field"
+                };
+            });
+
+            $.tools.validator.fn("#password", function (input, value) {
+                return value != 'Password' ? true : {
+                    en: "Please complete this mandatory field"
+                };
+            });
+
+            $("#form").validator({
+                position: 'top',
+                offset: [25, 10],
+                messageClass: 'form-error',
+                message: '<div><em/></div>' // em element is the arrow
+            }).attr('novalidate', 'novalidate');
+        });
+    </script>
+</head>
+<body class="login">
+    <div class="login-box main-content">
+        <header><h2>QML Login</h2></header>
+        <section>
+            @using (Html.BeginForm())
+            {
+			<p>
+                @Html.TextBoxFor(m => m.UserName, new { @class = "full", required = "required", placeholder = Html.Localize("Username") })
+			</p>
+			<p>
+                @Html.PasswordFor(m => m.Password, new { @class = "full", required = "required", placeholder = Html.Localize("Password") })
+			</p>
+            <p>
+                                                    @{
+           var locales = QML.Library.Helpers.LanguageHelper.GetLocaleDropDownData().ToList();
+           var config = Html.GetConfig();
+           var currentLocale = locales.Where(l => l.Value == config.LocaleId.ToString()).SingleOrDefault();
+           if (currentLocale != null)
+           {
+               currentLocale.Selected = true;
+           }
+                                               }
+                                                    @Html.DropDownListFor(m => m.LocaleId, locales)
+                                                    				<span class="fr">
+					@Html.CheckBoxFor(m => m.RememberMe, new { id = "rememberMe" })<label for="rememberMe"> @Html.Localize("Remember me?")</label>
+                                                    
+				</span>
+            </p>
+			<p class="clearfix">
+
+
+				<button class="button button-green fr" type="submit">Login</button>
+			</p>
+            }
+		<ul><li><strong>HELP!</strong>&nbsp;<a href="#">I forgot my password!</a></li></ul>
+    	</section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!-- User informations-->
+
+<label>@(Html.GetAuthManager().GetUser() != null ? Html.GetAuthManager().GetUser().Username : "Guest")</label><br/>
+@if (Html.GetAuthManager().GetUser() != null)
+{
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+    string username = Html.GetAuthManager().GetUser().Username;
+    QML.Web.UI.auth_Users user = db.auth_Users.FirstOrDefault(p => p.Username == username);
+    QML.Web.UI.Controllers.EssentialController ec = new QML.Web.UI.Controllers.EssentialController();
+    if(!Html.GetAuthManager().GetUser().IsSuperUser && ec.IsPremium())
+    {
+        if (user.Profile != null)
+        {
+        <label>@String.Format("{0:0,0.0}", user.Profile.Balance) VNĐ</label><br />
+        }
+        else { 
+        <label>0 VNĐ</label><br />
+        }
+    }
+    <a href="@Url.Action("Logoff", "Home")">Đăng xuất</a>
+}
+else
+{    
+    <label style="text-shadow: 0px 0px 3px red;">Bạn cần đăng nhập!</label><br />
+    <a href="@Url.Action("LogOn", "Account", new { area = "Core" })">Đăng nhập</a>
+}

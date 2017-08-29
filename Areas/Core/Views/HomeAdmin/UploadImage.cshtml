@@ -1,0 +1,11 @@
+﻿@model string
+@{
+    ViewBag.Title = "UploadImage";
+    Layout = null;
+}
+@Model
+@using (Html.BeginForm("UploadImage", "HomeAdmin", FormMethod.Post, new { encType = "multipart/form-data" }))
+{ 
+    <input type="file" name="file" />
+    <input type="submit" />
+}

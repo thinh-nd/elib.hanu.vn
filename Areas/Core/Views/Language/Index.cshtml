@@ -1,0 +1,81 @@
+﻿@model IList<QML.Web.UI.Areas.Core.Models.TranslationModel>
+@{
+    ViewBag.Title = "Customize language";
+    int i = 0;
+}
+@*@using (Html.BeginSecuredForm("AddTranslation", "Language", "Core"))
+{
+    var locales = LanguageHelper.GetAllLocales(QML.Library.Base.CurrentApplication.ApplicationId).Select(l => new SelectListItem { Text = l.Name, Value = l.LocaleId.ToString() });
+    var config = Html.GetConfig();
+    if (config.LocaleId > 0)
+    {
+        locales.Where(l => l.Value == config.LocaleId.ToString()).SingleOrDefault().Selected = true;
+    }
+    <fieldset>
+        <legend>@Html.Localize("Add translation")</legend>
+        <p>
+            @Html.Localize("Leave the Value field empty to delete existing translation")</p>
+        @Html.DropDownList("locale", locales)
+        @Html.TextBox("key")
+        <span>&nbsp;→&nbsp;&nbsp;</span>
+        @Html.TextBox("value")
+        <button type="submit" class="button button-green no-fix">@Html.Localize("Add")</button>
+    </fieldset>
+}*@
+@using (Html.BeginForm())
+{
+    <p>
+        <button type="submit" class="button button-green">
+            <span class="accept"></span>@Html.Localize("Update")</button>
+        @Html.ActionLinkButtonSecured(Html.Localize("Delete all data"), null, "DeleteAllTranslations", "Language", "Core", new { area = "Core" }, "button-red confirm fr")
+        @Html.ActionLinkButtonSecured(Html.Localize("Locales management"), null, "Locales", "Language", "Core", new { area = "Core" }, "button-blue fr")
+    </p>
+    <table class="datatable full">
+        <thead>
+            <tr>
+                <th class="first-col">
+                    @Html.Localize("No.")
+                </th>
+                <th>
+                    @Html.Localize("Value")
+                </th>
+                <th style="width: 245px;">
+                    @Html.Localize("New value")
+                </th>
+                <th style="width: 10px;">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @(i + 1)
+                    </td>
+                    <td>
+                        @item.Translation.Value
+                    </td>
+                    <td style="padding: 0 0 5px 5px;">
+                        @Html.HiddenFor(m => m[i].Translation.Key)
+                        @Html.TextBoxFor(m => m[i].NewValue, new { style = "width: 230px; top: 2px;", tabindex = i + 1 })
+                    </td>
+                    <td>
+                        <ul class="action-buttons">
+                            <li>
+                                @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "bin", "DeleteTranslation", "Language", "Core", new { area = "Core", id = item.Translation.TranslationId }, "confirm no-text")
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                           i++;
+            }
+        </tbody>
+    </table>
+    <p>
+        <button type="submit" class="button button-green">
+            <span class="accept"></span>@Html.Localize("Update")</button>
+        @Html.ActionLinkButtonSecured(Html.Localize("Delete all data"), null, "DeleteAllTranslations", "Language", "Core", new { area = "Core" }, "button-red confirm fr")
+        @Html.ActionLinkButtonSecured(Html.Localize("Locales management"), null, "Locales", "Language", "Core", new { area = "Core" }, "button-blue fr")
+    </p>
+}

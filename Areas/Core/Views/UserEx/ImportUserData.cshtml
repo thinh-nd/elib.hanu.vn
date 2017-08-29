@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "ImportUserData";
+}
+
+<fieldset>
+    <legend>Import dữ liệu bạn đọc</legend>
+    @using (Html.BeginForm("ImportUserData", "UserEx", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <label>@Html.Localize("Excel file để import")</label><br />
+        <input type="file" name="excelFile" />
+        <br /><br />
+        <div class="action">
+            <button class="button button-green">@Html.Localize("Import")</button>
+            @Html.ActionLinkButtonSecured(Html.Localize("Quay lại"), null, "UsersList", "User", "Core")
+        </div>
+    }
+</fieldset>
+<br /><br />
+
+<p>
+    Để import được dũ liệu bạn đọc từ file excel vào hệ thống, cần lưu ý:<br />
+    <ul>
+        <li>File excel phải có định dạng .xlsx (Excel 2007 trở lên)</li>
+        <li>Tên khoa chuyên ngành khớp với tên trong danh sách chuyên ngành của hệ thống, tham khảo danh sách khoa chuyên ngành @Html.ActionLink("tại đây", "Faculty")</li>
+        <li>Ngày hết hạn thẻ cần theo format d/M/yyyy, ví dụ: 1/1/2016 (01/01/2016 không hợp lệ)</li>
+        <li>
+            File có 7 cột như mẫu dưới đây, dữ liệu được ghi bắt đầu từ ô A2<br />
+            <img src="~/images/excel_sample.png" alt="excel_sample" />
+        </li>
+    </ul>
+</p>

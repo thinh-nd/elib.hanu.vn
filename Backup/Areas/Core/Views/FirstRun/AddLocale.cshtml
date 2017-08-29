@@ -1,0 +1,23 @@
+﻿@model Locale
+@{
+    ViewBag.Title = (Model.LocaleId > 0 ? "Edit" : "Add") + " locale";
+}
+@using (Html.BeginForm("AddLocale", "FirstRun", FormMethod.Post, new { encType = "multipart/form-data" }))
+{
+    @Html.HiddenFor(m => m.LocaleId)
+    @Html.HiddenFor(m => m.ApplicationId)
+    @Html.HiddenFor(m => m.Icon)
+    <fieldset class="form">
+        <legend>@Html.Localize((Model.LocaleId > 0 ? "Edit" : "Add") + " locale")</legend>
+        <label>@Html.Localize("Locale")
+        </label>
+        @Html.TextBoxFor(m => m.Name)
+        <label>@Html.Localize("Icon")</label>
+        <input type="file" name="iconFile" />
+        <label>@Html.Localize("Is Global")<small>@Html.Localize("Availabe in all applications")</small></label>
+        @Html.CheckBox("isGlobal")
+        <div class="action">
+            <button class="button button-green">@Html.Localize(Model.LocaleId > 0 ? "Save" : "Add")</button>
+        </div>
+    </fieldset>
+}

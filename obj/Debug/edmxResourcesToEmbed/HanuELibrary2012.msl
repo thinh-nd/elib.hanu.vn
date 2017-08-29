@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HanuElibrary2012ModelStoreContainer" CdmEntityContainer="HanuELibraryEntities">
+    <EntitySetMapping Name="app_Applications">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.app_Applications">
+        <MappingFragment StoreEntitySet="app_Applications">
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+          <ScalarProperty Name="CurrentTheme" ColumnName="CurrentTheme" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_Features">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.app_Features">
+        <MappingFragment StoreEntitySet="app_Features">
+          <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_PageModules">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.app_PageModules">
+        <MappingFragment StoreEntitySet="app_PageModules">
+          <ScalarProperty Name="PageModuleId" ColumnName="PageModuleId" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="PositionCode" ColumnName="PositionCode" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_Pages">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.app_Pages">
+        <MappingFragment StoreEntitySet="app_Pages">
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="CustomUrl" ColumnName="CustomUrl" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_PartialViews">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.app_PartialViews">
+        <MappingFragment StoreEntitySet="app_PartialViews">
+          <ScalarProperty Name="PartialViewId" ColumnName="PartialViewId" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_StaticItems">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.app_StaticItems">
+        <MappingFragment StoreEntitySet="app_StaticItems">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_RolePermissions">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.auth_RolePermissions">
+        <MappingFragment StoreEntitySet="auth_RolePermissions">
+          <ScalarProperty Name="RolePermissionId" ColumnName="RolePermissionId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_Roles">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.auth_Roles">
+        <MappingFragment StoreEntitySet="auth_Roles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_Users">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.auth_Users">
+        <MappingFragment StoreEntitySet="auth_Users">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Actions">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Actions">
+        <MappingFragment StoreEntitySet="core_Actions">
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Areas">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Areas">
+        <MappingFragment StoreEntitySet="core_Areas">
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Configs">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Configs">
+        <MappingFragment StoreEntitySet="core_Configs">
+          <ScalarProperty Name="ConfigId" ColumnName="ConfigId" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Controllers">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Controllers">
+        <MappingFragment StoreEntitySet="core_Controllers">
+          <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Frontend_Menu">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Frontend_Menu">
+        <MappingFragment StoreEntitySet="core_Frontend_Menu">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Frontend_MenuItems">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Frontend_MenuItems">
+        <MappingFragment StoreEntitySet="core_Frontend_MenuItems">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="CustomUrl" ColumnName="CustomUrl" />
+          <ScalarProperty Name="IsCutom" ColumnName="IsCutom" />
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Locales">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Locales">
+        <MappingFragment StoreEntitySet="core_Locales">
+          <ScalarProperty Name="LocaleId" ColumnName="LocaleId" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Translations">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.core_Translations">
+        <MappingFragment StoreEntitySet="core_Translations">
+          <ScalarProperty Name="TranslationId" ColumnName="TranslationId" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="LocaleId" ColumnName="LocaleId" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentCategories">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.DocumentCategory">
+        <MappingFragment StoreEntitySet="DocumentCategories">
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentFormats">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.DocumentFormat">
+        <MappingFragment StoreEntitySet="DocumentFormat">
+          <ScalarProperty Name="DocumentFormatID" ColumnName="DocumentFormatID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MIME" ColumnName="MIME" />
+          <ScalarProperty Name="FileFormat" ColumnName="FileFormat" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentOrders">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.DocumentOrder">
+        <MappingFragment StoreEntitySet="DocumentOrders">
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OrderContent" ColumnName="OrderContent" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Contributor" ColumnName="Contributor" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Resource" ColumnName="Resource" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Coverage" ColumnName="Coverage" />
+          <ScalarProperty Name="Right" ColumnName="Right" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentsFiles">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.DocumentsFile">
+        <MappingFragment StoreEntitySet="DocumentsFile">
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="FormatID" ColumnName="FormatID" />
+          <ScalarProperty Name="FileSource" ColumnName="FileSource" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="BookFee" ColumnName="BookFee" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IsHasInfo" ColumnName="IsHasInfo" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentStatistics">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.DocumentStatistic">
+        <MappingFragment StoreEntitySet="DocumentStatistic">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.Profile">
+        <MappingFragment StoreEntitySet="Profile">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchHistories">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.SearchHistory">
+        <MappingFragment StoreEntitySet="SearchHistory">
+          <ScalarProperty Name="SearchHistoryId" ColumnName="SearchHistoryId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="SearchDate" ColumnName="SearchDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewHistories">
+      <EntityTypeMapping TypeName="HanuElibrary2012Model.ViewHistory">
+        <MappingFragment StoreEntitySet="ViewHistory">
+          <ScalarProperty Name="ViewHistoryId" ColumnName="ViewHistoryId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="ViewDate" ColumnName="ViewDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="app_ApplicationFeatures" TypeName="HanuElibrary2012Model.app_ApplicationFeatures" StoreEntitySet="app_ApplicationFeatures">
+      <EndProperty Name="app_Applications">
+        <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+      </EndProperty>
+      <EndProperty Name="app_Features">
+        <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="app_FeatureControllers" TypeName="HanuElibrary2012Model.app_FeatureControllers" StoreEntitySet="app_FeatureControllers">
+      <EndProperty Name="app_Features">
+        <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+      </EndProperty>
+      <EndProperty Name="core_Controllers">
+        <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="auth_UsersInRoles" TypeName="HanuElibrary2012Model.auth_UsersInRoles" StoreEntitySet="auth_UsersInRoles">
+      <EndProperty Name="auth_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="auth_Users">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

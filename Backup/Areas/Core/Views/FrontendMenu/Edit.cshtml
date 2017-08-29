@@ -1,0 +1,72 @@
+﻿@using Telerik.Web.Mvc.UI
+@model QML.Web.UI.Areas.Core.Models.FrontendMenuModel       
+
+@{
+    ViewBag.Title = "Sửa thông tin Menu";
+}
+
+<div class="portlet grid_12">
+    <header>
+        <h2>Sửa thông tin menu</h2>
+    </header>
+    <section>        
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form has-validation" })) 
+        {                   
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Tên menu <em>*</em><small>...</small></label>                
+                <div class="form-input">
+                    @Html.TextBoxFor(model => model.Name, new {})                    
+                </div>
+
+            </div> 
+
+            <div class="clearfix">
+
+                <label for="form-name" class="form-label">Mô tả menu<small>...</small></label>
+                
+                <div class="form-input">
+                    @{ 
+                    Html.Telerik().EditorFor(model => model.Description)
+                        .HtmlAttributes(new { style = "height:400px;" })
+                        .Encode(true)
+                        .FileBrowser(t => t.Browse("Browse", "ImageBrowser")
+                              .Thumbnail("Thumbnail", "ImageBrowser")
+                              .Upload("Upload", "ImageBrowser")
+                              .DeleteFile("DeleteFile", "ImageBrowser")
+                              .DeleteDirectory("DeleteDirectory", "ImageBrowser")
+                              .CreateDirectory("CreateDirectory", "ImageBrowser"))
+                        .Render();
+                       }  
+                </div>
+
+            </div>
+            
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Code<small>Mã của menu</small></label>                
+                <div class="form-input">
+                    @Html.TextAreaFor(model => model.Code)
+                </div>
+
+            </div>
+
+            <div class="form-action clearfix">
+
+                <button class="button" type="submit" data-icon-primary="ui-icon-circle-check">Cập nhật</button>                
+                <a href="@Url.Action("Index")"><button class="button" type="button" data-icon-primary="ui-icon-circle-check">Trở về</button></a>
+            </div>
+
+        }
+    </section>
+</div>
+
+@(Html.Telerik().ScriptRegistrar()
+                     .DefaultGroup(group => group
+                         .Add("telerik.common.js")
+                         .Add("telerik.editor.js")
+                         .Add("telerik.upload.js")                         
+                         .Compress(false))
+                     .OnDocumentReady(
+                     @<text>
+                         
+                     </text>)
+    )

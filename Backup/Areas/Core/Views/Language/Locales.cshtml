@@ -1,0 +1,51 @@
+﻿@model IEnumerable<QML.Library.Data.Locale>
+@{
+    ViewBag.Title = "Locales";
+}
+<table class="datatable normal">
+    <thead>
+        <tr>
+            <th>
+                @Html.Localize("No.")
+            </th>
+            <th>
+                @Html.Localize("Icon")
+            </th>
+            <th>
+                @Html.Localize("Locale")
+            </th>
+            <th>
+                @Html.Localize("Description")
+            </th>
+            <th>
+                @Html.Localize("Actions")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        { 
+            <tr>
+                <td>
+                    @(i + 1)
+                </td>
+                <td>
+                    @if (Model.ElementAt(i).Icon != null)
+                    {
+                        <img alt="@Model.ElementAt(i).Name" src="@Url.Content(Model.ElementAt(i).Icon)" />
+                    }
+                </td>
+                <td>
+                    @Model.ElementAt(i).Name
+                </td>
+                <td>
+                    @Model.ElementAt(i).Description
+                </td>
+                <td>
+                    @Html.ActionLinkButtonSecured(Html.Localize("Edit"), "pencil", "EditLocale", "Language", "Core", new { id = @Model.ElementAt(i).LocaleId })
+                    @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "bin", "DeleteLocale", "Language", "Core", new { id = @Model.ElementAt(i).LocaleId }, "confirm")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

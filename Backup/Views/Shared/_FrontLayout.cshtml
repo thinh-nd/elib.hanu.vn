@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="en" />
+    <meta name="robots" content="all,follow" />
+    <link rel="stylesheet" media="screen,projection" type="text/css" href="@Url.Content("~/Content/Document/css/main.css")" />
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/Document/css/main-msie.css")" /><![endif]-->
+    <link rel="stylesheet" media="print" type="text/css" href="@Url.Content("~/Content/Document/css/print.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/menu/menu_style.css")" type="text/css" />
+    <link href="@Url.Content("~/Content/Admin/css/style.css")" media="screen" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/js/flexpaper_flash.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/mediaplayer/jwplayer.js")"></script>
+    <script src="@Url.Content("~/mediaplayer/flowplayer-3.2.9.min.js")"></script>
+    <link type="text/css" href="@Url.Content("~/Content/jquery-ui/css/redmond/jquery-ui-1.8.16.custom.css")" rel="stylesheet" />
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-ui/js/jquery-1.6.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/jquery-ui/js/jquery-ui-1.8.16.custom.min.js")"></script>
+    <script type="text/javascript">
+        function view_confirmation(fee) {
+            if (fee != 0) {
+                alert('Tài liệu có giá ' + fee + ' VNĐ sẽ được trừ vào tài khoản của bạn.');
+            }
+        }
+    </script>
+    <title>THƯ VIỆN số ĐH Hà Nội | Đọc sách online</title>
+</head>
+<body>
+    <!-- Main -->
+    <div id="main" class="box">
+        <!-- Header -->
+        <div id="header">
+            <!-- Logotyp -->
+            <h1 id="logo">
+                <img src="@Url.Content("~/Content/Document/images/logo.png")" alt="Logo Hanu" />
+                <br />
+                <a href="#">Thư viện điện tử</a>
+            </h1>
+            <hr class="noscreen" />
+            <!-- Quick links -->
+            <div class="noscreen noprint">
+                <p>
+                    <em>Quick links: <a href="#content">content</a>, <a href="#tabs">navigation</a>, <a
+                        href="#search">search</a>.</em></p>
+                <hr />
+            </div>
+            @*        <div id="search" class="noprint">
+            <form action="" method="get">
+                <fieldset><legend>Search</legend>
+                    <label><span class="noscreen">Find:</span>
+                    <span id="search-input-out"><input type="text" name="" id="search-input" size="26" value="Tìm sách..." /></span></label>
+                    <input type="image" src="@Url.Content("~/Content/Document/images/search_submit.gif")" id="search-submit" value="OK" />
+                </fieldset>
+            </form>
+        </div> *@
+        </div>
+        <!-- /header -->
+        <!-- Main menu (tabs) -->
+        <div id="tabs" class="noprint">
+            <h3 class="noscreen">
+                Navigation</h3>
+            @Html.Partial("_MenuPartial")
+            <hr class="noscreen" />
+        </div>
+        <!-- /tabs -->
+        <!-- Page (2 columns) -->
+        <div id="page" class="box">
+            <div id="page-in" class="box">
+                <div id="strip" class="box noprint">
+                    @Html.Partial("_Breadcrumb")
+                </div>
+                <!-- /strip -->
+                <!-- Content -->
+                <div id="content">
+                    @RenderBody()
+                </div>
+                <!-- /content -->
+                <!-- Right column -->
+                <div id="col" class="noprint">
+                    <div id="col-in">
+                        <!-- About Me -->
+                        <h3>
+                            <span><a href="#">Xin chào</a></span></h3>
+                        <div id="about-me">
+                            <p>
+                                <strong>@(Html.GetAuthManager().GetUser() != null ? Html.GetAuthManager().GetUser().Username : "Khách vãng lai")</strong><br />
+                                <br />
+                                @if (Html.GetAuthManager().GetUser() != null)
+                                {
+                                    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+                                    string username = Html.GetAuthManager().GetUser().Username;
+                                    QML.Web.UI.auth_Users user = db.auth_Users.FirstOrDefault(p => p.Username == username);
+                                    QML.Web.UI.Controllers.EssentialController ec = new QML.Web.UI.Controllers.EssentialController();
+                                    if (!Html.GetAuthManager().GetUser().IsSuperUser && ec.IsPremium())
+                                    {<div>
+                                        Số dư tài khoản: @user.Profile.Balance VNĐ</div>
+                                    <br />
+                                    <br />}    
+                                    <a href="@Url.Action("Logoff", "Home")"
+                    style="display:box;
+                        border: 2px solid red;
+                        border-radius: 3px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        color: White;
+                        background-color: #FF4040;
+                        padding: 5px;">Thoát</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Logon", "Account", new { area = "Core" })"
+                        style="display:box;
+                        border: 2px solid #7E86FF;
+                        border-radius: 3px;
+                        text-decoration: none;
+                        font-weight: bold;
+                        color: White;
+                        background-color: #3542FE;
+                        padding: 5px;">Đăng nhập</a>
+                                }
+                            </p>
+                        </div>
+                        <!-- /about-me -->
+                        <hr class="noscreen" />
+                        <!-- Category -->
+                        <h3>
+                            <span>Danh mục sách</span></h3>
+                        <ul id="category">
+                            @{
+                                var str = QML.Web.UI.Helpers.FrontLayoutHelper.BuildRightCategoryTree(Url);
+                                WriteLiteral(str);                       
+                            }
+                        </ul>
+                        <hr class="noscreen" />
+                        <!-- Archive -->
+                        <h3>
+                            <span>Tài liệu mới cập nhật</span></h3>
+                        <ul id="archive">
+                            @foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetLatestBooks())
+                            {
+                                if (Html.GetAuthManager().GetUser() != null)
+                                {
+                                    if (Html.GetAuthManager().GetUser().Roles.Count != 0
+                                        && Html.GetAuthManager().GetUser().Roles.Single(p => p.RoleName == "Premium") != null
+                                        || Html.GetAuthManager().GetUser().IsSuperUser)
+                                    {
+                                        if (QML.Web.UI.Helpers.FrontLayoutHelper.getViewHistory(Html.GetAuthManager().GetUser().UserId, item.DocumentID) == true)
+                                        {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                                        }
+                                        else
+                                        {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">@item.Title</a></li>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (item.BookFee == 0)
+                                        {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (item.BookFee == 0)
+                                    {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <hr class="noscreen" />
+                        <!-- Links -->
+                        <h3>
+                            <span>Tài liệu đọc nhiều nhất</span></h3>
+                        <ul id="links">
+                            @foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetMostViewBooks())
+                            {
+                                if (Html.GetAuthManager().GetUser() != null)
+                                {
+                                    if (Html.GetAuthManager().GetUser().Roles.Count != 0
+                                        && Html.GetAuthManager().GetUser().Roles.Single(p => p.RoleName == "Premium") != null
+                                        || Html.GetAuthManager().GetUser().IsSuperUser)
+                                    {
+                                        if (QML.Web.UI.Helpers.FrontLayoutHelper.getViewHistory(Html.GetAuthManager().GetUser().UserId, item.DocumentID) == true)
+                                        {  
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                                        }
+                                        else
+                                        {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">@item.Title</a></li>        
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (item.BookFee == 0)
+                                        {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    if (item.BookFee == 0)
+                                    {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                                    }
+                                }
+                            }
+                        </ul>
+                        <hr class="noscreen" />
+                    </div>
+                    <!-- /col-in -->
+                </div>
+                <!-- /col -->
+            </div>
+            <!-- /page-in -->
+        </div>
+        <!-- /page -->
+        <!-- Footer -->
+        <div id="footer">
+            <div id="top" class="noprint">
+                <p>
+                    <span class="noscreen">Back on top</span> <a href="#header" title="Back on top ^">^<span></span></a></p>
+            </div>
+            <hr class="noscreen" />
+            <p id="copyright">
+                &copy; @DateTime.Now.Year <a href="mailto:my@mail.com">Khoa CNTT - Trường Đại học Hà
+                    Nội</a></p>
+        </div>
+        <!-- /footer -->
+    </div>
+    <!-- /main -->
+</body>
+</html>

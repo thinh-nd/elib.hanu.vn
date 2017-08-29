@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "ExecuteSQL";
+}
+<div class="portlet grid_12 form">
+    <section>
+        @using (Html.BeginForm())
+        { 
+            <div class="clearfix">
+                <label class="form-label">@Html.Localize("Command")</label>
+                <div class="form-input">
+                    @Html.TextArea("q")
+                </div>
+            </div>
+            <div class="clearfix form-action">
+                <input type="submit" value="@Html.Localize("Execute")" />
+            </div>
+        }
+    </section>
+</div>

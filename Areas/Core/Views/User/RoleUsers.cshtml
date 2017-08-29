@@ -1,0 +1,71 @@
+﻿@model IEnumerable<QML.Library.Data.User>
+@using System.Linq;
+@{
+    var role = ViewData["Role"] as QML.Library.Data.Role;
+    var roleId = role.RoleId;
+    ViewBag.Title = "Manage users for role " + role.RoleName;
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();    
+    IEnumerable<SelectListItem> ls = db.auth_Users.Select(c => new SelectListItem
+    {
+        Text = c.Username,
+        Value = System.Data.Objects.SqlClient.SqlFunctions.StringConvert((double)c.UserId),
+    });
+}
+
+@using (Html.BeginSecuredForm("AddUserToRole", "User", "Core"))
+{ 
+    @Html.Hidden("roleId", roleId)
+    <fieldset>
+        <legend>@Html.Localize("Add user")</legend>
+        <label>
+            @Html.Localize("Username")</label>
+        @Html.DropDownList("userId", ls);
+        <button class="button button-green" type="submit">@Html.Localize("Add")</button>
+    </fieldset>
+}
+<table class="datatable full">
+    <thead>
+        <tr>
+            <th>
+                @Html.Localize("No.")
+            </th>
+            <th style="width: 200px;">
+                @Html.Localize("Username")
+            </th>
+            <th>
+                @Html.Localize("Created date")
+            </th>
+            <th>
+                @Html.Localize("Last login date")
+            </th>
+            <th>
+                @Html.Localize("Action")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            <tr>
+                <td>
+                    @(i + 1)
+                </td>
+                <td>
+                    @Model.ElementAt(i).Username
+                </td>
+                <td>
+                    @Model.ElementAt(i).CreatedDate
+                </td>
+                <td>
+                    @Model.ElementAt(i).LastLoginDate
+                </td>
+                <td>
+                    @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "bin", "RemoveUserFromRole", "User", "Core", new { roleId = roleId, userId = Model.ElementAt(i).UserId, area = "Core" }, "confirm")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    @Html.ActionLinkButtonSecured(Html.Localize("Back"), null, "RolesList", "User", "Core")
+</p>

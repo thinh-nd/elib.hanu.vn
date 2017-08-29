@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+    // Adding front page layout for this page
+    // So that everytime an user log in
+    // it won't linger the Admin layout for a second
+    // (but linger the Index layout instead)
+    // before redirect back to the front page
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        window.location = "../Home/Index";
+    });    
+</script>
+
+@*<h3>
+    QML Framework Next Gen - New Features
+  </h3>
+<ul>
+    <li>Multi Frontend Themes. Mỗi Area sẽ implement 1 controller dạng _controllerNameFrontend,
+        chỉnh route cho đẹp. Tạo theme mới trong ~/Themes/. Mỗi theme có web.config và folder
+        structure như View thường.</li>
+    <li>Admin menu set bằng attribute: [Menu(Title="string", Order = int, Path="string")].
+        Order lớn xếp trước, < 0 thì collapsed. Path là cái HEAD của nhóm (System, eCommerce...)</li>
+    <li>Hỗ trợ Multi Apps. Lấy thông tin Application (chủ yếu cần ApplicationId): <strong>
+        CurrentApplication</strong> (static) </li>
+    <li>Viết lại Membership. Lấy User hiện tại từ Controller: <strong>AuthManager.GetUser()</strong>.
+        Từ View: <strong>Html.GetAuthManager().GetUser()</strong>.</li>
+</ul>
+*@

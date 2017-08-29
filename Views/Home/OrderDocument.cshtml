@@ -1,0 +1,87 @@
+﻿@{
+    ViewBag.Title = "Yêu cầu tài liệu";
+}
+<div id="common-wrapper">
+    <div>
+        <h2>
+            Nội dung yêu cầu </h2>
+        @using (Html.BeginForm("OrderDocument", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td style="width: 7em">
+                        <label>
+                            Dạng tài liệu:</label>
+                    </td>
+					<td>
+                        <select name="DocumentType" style="width: 243px">
+                            @foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetBookFormat())
+                            {
+                                <option>@Html.ActionLink(item.Name, "ViewByFormat", new { id = item.DocumentFormatID })</option>
+                            }
+                        </select>
+                    </td>
+                    <td>
+                        <label>
+                            Tác giả:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="DocumentCreator"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Tên tài liệu:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="DocumentName" required />
+                    </td>
+                    <td style="width: 7em">
+                        <label>
+                            Bộ sưu tập:</label>
+                   
+                    </td>
+                    <td>
+                        <input type="text" name="DocumentCategory"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Nhà xuất bản:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="DocumentPublisher"  />
+                    </td>
+                    <td>
+                        <label>
+                            Năm xuất bản:</label>
+                    </td>
+                    <td>
+                        <input type="text" name="PublishedYear"  />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Phương thức giao nhận:</label><br />
+                    </td>
+                    <td colspan="4">
+                        <textarea name="Delivery" rows="2" style="width: 98%;height:60px;"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label>
+                            Thông tin bổ sung:</label><br />
+                    </td>
+                    <td colspan="4">
+                        <textarea name="Content" rows="10" style="width: 98%"></textarea>
+                    </td>
+                </tr>
+            </table>
+            <center><input type="submit" name="submit" value="Gửi yêu cầu" /></center>
+        }
+    </div>
+</div>

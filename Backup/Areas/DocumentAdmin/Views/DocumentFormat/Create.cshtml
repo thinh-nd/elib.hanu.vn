@@ -1,0 +1,59 @@
+﻿@model QML.Web.UI.Areas.DocumentAdmin.Models.DocumentFormatModel
+
+@{
+    ViewBag.Title = "QUẢN LÝ ĐỊNH DẠNG TÀI LIỆU";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+						
+<fieldset class="form">
+    <legend>Thêm mới danh mục</legend>				
+	@using (Html.BeginForm("Create", "DocumentFormat", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+    {
+            @Html.ValidationSummary(true)     
+            <label>
+            @Html.Localize("Tên định dạng")
+            </label>
+            @Html.EditorFor(model => model.Name)
+			
+			<label>
+            @Html.Localize("Mô tả")
+            </label>
+            @Html.EditorFor(model => model.Description)
+
+			<label>
+            @Html.Localize("MIME")
+            </label>
+            @Html.EditorFor(model => model.MIME)
+
+			<label>
+            @Html.Localize("Đuôi định dạng")
+            </label>
+            @Html.EditorFor(model => model.FileFormat)
+
+			<label>
+            @Html.Localize("Icon(*)")
+            </label>
+            <input type="file" name="file" />
+
+            <label>
+            @Html.Localize("Trạng thái")	
+            </label>
+            @*Html.DropDownListFor(model => model.Status, new SelectList(new List<Object>{new {value = "True", text="True"},new {value = "False", text="False"}}, new { @Class = "styled" })*@
+            @Html.DropDownListFor(model => model.Status, new SelectList(
+                  new List<Object>{ 
+                       new { value = "True" , text = "True"  },
+                       new { value = "False" , text = "False" },                       
+                    },
+                  "value",
+                  "text",
+                   2))
+            <div class="action">
+                <button class="button button-green">@Html.Localize("Thêm mới")</button>
+                @Html.ActionLinkButtonSecured(Html.Localize("Hủy bỏ"), null, "Index", "DocumentFormat", "Document")
+            </div>
+            <span>Tuong (*) bat buoc</span>
+    }
+
+</fieldset>

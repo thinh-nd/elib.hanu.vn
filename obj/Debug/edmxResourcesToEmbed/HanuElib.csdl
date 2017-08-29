@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HanuELibraryModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="HanuELibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="DocumentCategories" EntityType="HanuELibraryModel.DocumentCategory" />
+    <EntitySet Name="DocumentMembers" EntityType="HanuELibraryModel.DocumentMember" />
+    <EntitySet Name="DocumentOrders" EntityType="HanuELibraryModel.DocumentOrder" />
+    <EntitySet Name="Documents" EntityType="HanuELibraryModel.Document" />
+    <EntitySet Name="DocumentsExtraInfoes" EntityType="HanuELibraryModel.DocumentsExtraInfo" />
+    <EntitySet Name="DocumentTypes" EntityType="HanuELibraryModel.DocumentType" />
+    <EntitySet Name="MemberAccounts" EntityType="HanuELibraryModel.MemberAccount" />
+    <EntitySet Name="MemberTypes" EntityType="HanuELibraryModel.MemberType" />
+    <AssociationSet Name="FK_Documents_DocumentCategories" Association="HanuELibraryModel.FK_Documents_DocumentCategories">
+      <End Role="DocumentCategory" EntitySet="DocumentCategories" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentMembers_MemberAccount" Association="HanuELibraryModel.FK_DocumentMembers_MemberAccount">
+      <End Role="MemberAccount" EntitySet="MemberAccounts" />
+      <End Role="DocumentMember" EntitySet="DocumentMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentMembers_MemberType" Association="HanuELibraryModel.FK_DocumentMembers_MemberType">
+      <End Role="MemberType" EntitySet="MemberTypes" />
+      <End Role="DocumentMember" EntitySet="DocumentMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentOrders_DocumentMembers" Association="HanuELibraryModel.FK_DocumentOrders_DocumentMembers">
+      <End Role="DocumentMember" EntitySet="DocumentMembers" />
+      <End Role="DocumentOrder" EntitySet="DocumentOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentType" Association="HanuELibraryModel.FK_Documents_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentTypes" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsExtraInfo_Documents" Association="HanuELibraryModel.FK_DocumentsExtraInfo_Documents">
+      <End Role="Document" EntitySet="Documents" />
+      <End Role="DocumentsExtraInfo" EntitySet="DocumentsExtraInfoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DocumentCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Type="Int32" Name="CategoryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ParentID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Position" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="Int64" Name="CreatedUser" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Int64" Name="LastModifiedUser" />
+    <NavigationProperty Name="Documents" Relationship="HanuELibraryModel.FK_Documents_DocumentCategories" FromRole="DocumentCategory" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="DocumentMember">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Type="Int64" Name="MemberID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="MemberName" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="MemberType" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="Int64" Name="CreatedUser" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Int64" Name="LastModifiedUser" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <NavigationProperty Name="MemberAccount" Relationship="HanuELibraryModel.FK_DocumentMembers_MemberAccount" FromRole="DocumentMember" ToRole="MemberAccount" />
+    <NavigationProperty Name="MemberType1" Relationship="HanuELibraryModel.FK_DocumentMembers_MemberType" FromRole="DocumentMember" ToRole="MemberType" />
+    <NavigationProperty Name="DocumentOrders" Relationship="HanuELibraryModel.FK_DocumentOrders_DocumentMembers" FromRole="DocumentMember" ToRole="DocumentOrder" />
+  </EntityType>
+  <EntityType Name="DocumentOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Type="Int64" Name="OrderID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="MemberID" Nullable="false" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <Property Type="String" Name="OrderContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="Int64" Name="CreatedUser" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Int64" Name="LastModifiedUser" />
+    <NavigationProperty Name="DocumentMember" Relationship="HanuELibraryModel.FK_DocumentOrders_DocumentMembers" FromRole="DocumentOrder" ToRole="DocumentMember" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Type="Int64" Name="DocumentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Creator" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SubjectId" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Publisher" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contributor" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="Int32" Name="TypeID" />
+    <Property Type="String" Name="Format" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Identifier" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Resource" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Language" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Relation" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Coverage" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CopyRight" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DocumentCategory" Relationship="HanuELibraryModel.FK_Documents_DocumentCategories" FromRole="Document" ToRole="DocumentCategory" />
+    <NavigationProperty Name="DocumentType" Relationship="HanuELibraryModel.FK_Documents_DocumentType" FromRole="Document" ToRole="DocumentType" />
+    <NavigationProperty Name="DocumentsExtraInfo" Relationship="HanuELibraryModel.FK_DocumentsExtraInfo_Documents" FromRole="Document" ToRole="DocumentsExtraInfo" />
+  </EntityType>
+  <EntityType Name="DocumentsExtraInfo">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Type="Int64" Name="DocumentID" Nullable="false" />
+    <Property Type="String" Name="Thumbnail" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="BookFee" />
+    <Property Type="Double" Name="Size" />
+    <Property Type="Int64" Name="ViewCount" />
+    <Property Type="Boolean" Name="Status" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="String" Name="CreatedUser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="String" Name="LastModifiedUser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Document" Relationship="HanuELibraryModel.FK_DocumentsExtraInfo_Documents" FromRole="DocumentsExtraInfo" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeID" />
+    </Key>
+    <Property Type="Int32" Name="DocumentTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MIME" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FileFormat" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Status" />
+    <NavigationProperty Name="Documents" Relationship="HanuELibraryModel.FK_Documents_DocumentType" FromRole="DocumentType" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="MemberAccount">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Type="Int64" Name="MemberID" Nullable="false" />
+    <Property Type="Double" Name="Balance" Nullable="false" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <NavigationProperty Name="DocumentMember" Relationship="HanuELibraryModel.FK_DocumentMembers_MemberAccount" FromRole="MemberAccount" ToRole="DocumentMember" />
+  </EntityType>
+  <EntityType Name="MemberType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <NavigationProperty Name="DocumentMembers" Relationship="HanuELibraryModel.FK_DocumentMembers_MemberType" FromRole="MemberType" ToRole="DocumentMember" />
+  </EntityType>
+  <Association Name="FK_Documents_DocumentCategories">
+    <End Type="HanuELibraryModel.DocumentCategory" Role="DocumentCategory" Multiplicity="0..1" />
+    <End Type="HanuELibraryModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentMembers_MemberAccount">
+    <End Type="HanuELibraryModel.MemberAccount" Role="MemberAccount" Multiplicity="1" />
+    <End Type="HanuELibraryModel.DocumentMember" Role="DocumentMember" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MemberAccount">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="DocumentMember">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentMembers_MemberType">
+    <End Type="HanuELibraryModel.MemberType" Role="MemberType" Multiplicity="1" />
+    <End Type="HanuELibraryModel.DocumentMember" Role="DocumentMember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentMember">
+        <PropertyRef Name="MemberType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentOrders_DocumentMembers">
+    <End Type="HanuELibraryModel.DocumentMember" Role="DocumentMember" Multiplicity="1" />
+    <End Type="HanuELibraryModel.DocumentOrder" Role="DocumentOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentMember">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="DocumentOrder">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentType">
+    <End Type="HanuELibraryModel.DocumentType" Role="DocumentType" Multiplicity="0..1" />
+    <End Type="HanuELibraryModel.Document" Role="Document" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsExtraInfo_Documents">
+    <End Type="HanuELibraryModel.Document" Role="Document" Multiplicity="1" />
+    <End Type="HanuELibraryModel.DocumentsExtraInfo" Role="DocumentsExtraInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Document">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="DocumentsExtraInfo">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

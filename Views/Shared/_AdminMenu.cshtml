@@ -1,0 +1,37 @@
+﻿@if (Html.ViewContext.RouteData.Values["controller"] as string != "FirstRun")
+{
+    <nav class="global">
+        <ul class="clearfix">
+            <li>@Html.ActionLinkSecured(Html.Localize("Trang chủ"), "Index", "Home", "Core", new { area = "" }, new { @class = "nav-icon icon-house" })</li>
+        </ul>
+    </nav>
+           foreach (var nav in HtmlHelpers.GetAdminMenu())
+           { 
+    <nav class="subnav">
+        <h4 @(nav.Order < 0 ? "class=collapsed" : "")>@Html.Localize(nav.Title)</h4>
+        <ul class="clearfix">
+            @foreach (var item in nav.Items)
+            { 
+                if(item.Action=="UsersList" && item.Controller=="User"){
+                <li>@Html.ActionLinkSecured(Html.Localize(item.Title), item.Action, item.Controller, item.Area, new {area = item.Area,pageSize = 20})</li>
+                }
+                else
+                {
+                <li>@Html.ActionLinkSecured(Html.Localize(item.Title), item.Action, item.Controller, item.Area, new { area = item.Area })</li>
+                }
+            }
+        </ul>
+    </nav>
+           }
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.subnav h4').each(function () {
+            if ($(this).text() == 'HỆ THỐNG') {
+                $(this).text("QUẢN TRỊ HỆ THỐNG");
+            }
+        });
+                 
+    });
+</script>

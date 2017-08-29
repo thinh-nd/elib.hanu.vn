@@ -1,0 +1,51 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocumentEssential>
+
+@{
+    ViewBag.Title = "Tài liệu được đọc nhiều nhất";
+    var id = 0;
+}
+@helper TruncateString(string input, int length)
+{
+    if(input != null)
+    {
+        if (input.Length <= length) {
+            @input
+        } else {
+            @input.Substring(0, length)<text>...</text>
+        }
+    }
+}
+<h2>Tài liệu được đọc nhiều nhất</h2>
+
+@using (Html.BeginForm("Index", "TopDocument", FormMethod.Post)){
+    <select name="top">
+        <option value="10" selected="selected">Danh sách 10</option>
+        <option value="20">Danh sách 20</option>
+        <option value="50">Danh sách 30</option>
+    </select>
+    <input type="submit" name="submit" value="Hiển thị" />
+}
+<hr />
+@{
+
+                var grid = new WebGrid(
+                    source: Model.ToList(), 
+                    rowsPerPage: 30
+                    );
+
+}
+@grid.GetHtml(
+    tableStyle: "datatable",                
+    columns: grid.Columns(
+        grid.Column(header: "Hình đại diện", format: @<text><img src="@Url.Content("~/uploads/" + @item.Thumbnail)" width="80px" height="100px" alt=""/></text>),
+        grid.Column(header: "Tiêu đề", format: @<text>@TruncateString(item.Title, 20)</text>),
+        grid.Column(header: "Tác giả", format: @<text>@item.Creator</text>),
+        grid.Column(header: "Danh mục", format: @<text>@item.CategoryName</text>),
+        grid.Column(header: "Nhà xuất bản", format: @<text>@item.Publisher</text>),
+        grid.Column(header: "Ngôn ngữ", format: @<text>@item.Language</text>), 
+        grid.Column(header: "Lượng truy cập", format: @<text>@item.ViewCount</text>),
+        grid.Column(header: "Giá", format: @<text>@String.Format("{0:0,0.0}", item.BookFee)</text>)
+    ),
+        htmlAttributes: new { cellpadding = "0", cellspacing = "0", width = "100%" },
+        footerStyle: "pagination"
+)

@@ -1,0 +1,427 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QMLWebUIStoreContainer" CdmEntityContainer="HanuELibraryEntities">
+    <EntitySetMapping Name="app_Applications">
+      <EntityTypeMapping TypeName="QML.Web.UI.app_Applications">
+        <MappingFragment StoreEntitySet="app_Applications">
+          <ScalarProperty Name="CurrentTheme" ColumnName="CurrentTheme" />
+          <ScalarProperty Name="DomainName" ColumnName="DomainName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_Features">
+      <EntityTypeMapping TypeName="QML.Web.UI.app_Features">
+        <MappingFragment StoreEntitySet="app_Features">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_PageModules">
+      <EntityTypeMapping TypeName="QML.Web.UI.app_PageModules">
+        <MappingFragment StoreEntitySet="app_PageModules">
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="PositionCode" ColumnName="PositionCode" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+          <ScalarProperty Name="PageModuleId" ColumnName="PageModuleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_Pages">
+      <EntityTypeMapping TypeName="QML.Web.UI.app_Pages">
+        <MappingFragment StoreEntitySet="app_Pages">
+          <ScalarProperty Name="Alias" ColumnName="Alias" />
+          <ScalarProperty Name="Order" ColumnName="Order" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="CustomUrl" ColumnName="CustomUrl" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+          <ScalarProperty Name="PageId" ColumnName="PageId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_PartialViews">
+      <EntityTypeMapping TypeName="QML.Web.UI.app_PartialViews">
+        <MappingFragment StoreEntitySet="app_PartialViews">
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Theme" ColumnName="Theme" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="PartialViewId" ColumnName="PartialViewId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="app_StaticItems">
+      <EntityTypeMapping TypeName="QML.Web.UI.app_StaticItems">
+        <MappingFragment StoreEntitySet="app_StaticItems">
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_RolePermissions">
+      <EntityTypeMapping TypeName="QML.Web.UI.auth_RolePermissions">
+        <MappingFragment StoreEntitySet="auth_RolePermissions">
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="Controller" ColumnName="Controller" />
+          <ScalarProperty Name="Action" ColumnName="Action" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RolePermissionId" ColumnName="RolePermissionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_Roles">
+      <EntityTypeMapping TypeName="QML.Web.UI.auth_Roles">
+        <MappingFragment StoreEntitySet="auth_Roles">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="auth_Users">
+      <EntityTypeMapping TypeName="QML.Web.UI.auth_Users">
+        <MappingFragment StoreEntitySet="auth_Users">
+          <ScalarProperty Name="UserGroup" ColumnName="UserGroup" />
+          <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+          <ScalarProperty Name="ActualName" ColumnName="ActualName" />
+          <ScalarProperty Name="StudentClass" ColumnName="StudentClass" />
+          <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+          <ScalarProperty Name="Faculty" ColumnName="Faculty" />
+          <ScalarProperty Name="AuthToken" ColumnName="AuthToken" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Actions">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Actions">
+        <MappingFragment StoreEntitySet="core_Actions">
+          <ScalarProperty Name="Template" ColumnName="Template" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Areas">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Areas">
+        <MappingFragment StoreEntitySet="core_Areas">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Configs">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Configs">
+        <MappingFragment StoreEntitySet="core_Configs">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="ConfigId" ColumnName="ConfigId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Controllers">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Controllers">
+        <MappingFragment StoreEntitySet="core_Controllers">
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+          <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Frontend_Menu">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Frontend_Menu">
+        <MappingFragment StoreEntitySet="core_Frontend_Menu">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Frontend_MenuItems">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Frontend_MenuItems">
+        <MappingFragment StoreEntitySet="core_Frontend_MenuItems">
+          <ScalarProperty Name="Parameters" ColumnName="Parameters" />
+          <ScalarProperty Name="IsCutom" ColumnName="IsCutom" />
+          <ScalarProperty Name="CustomUrl" ColumnName="CustomUrl" />
+          <ScalarProperty Name="ActionId" ColumnName="ActionId" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="MenuID" ColumnName="MenuID" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Locales">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Locales">
+        <MappingFragment StoreEntitySet="core_Locales">
+          <ScalarProperty Name="Icon" ColumnName="Icon" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+          <ScalarProperty Name="LocaleId" ColumnName="LocaleId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="core_Translations">
+      <EntityTypeMapping TypeName="QML.Web.UI.core_Translations">
+        <MappingFragment StoreEntitySet="core_Translations">
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="LocaleId" ColumnName="LocaleId" />
+          <ScalarProperty Name="Key" ColumnName="Key" />
+          <ScalarProperty Name="TranslationId" ColumnName="TranslationId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentCategories">
+      <EntityTypeMapping TypeName="QML.Web.UI.DocumentCategory">
+        <MappingFragment StoreEntitySet="DocumentCategories">
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentFormats">
+      <EntityTypeMapping TypeName="QML.Web.UI.DocumentFormat">
+        <MappingFragment StoreEntitySet="DocumentFormats">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="FileFormat" ColumnName="FileFormat" />
+          <ScalarProperty Name="MIME" ColumnName="MIME" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="DocumentFormatID" ColumnName="DocumentFormatID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentOrders">
+      <EntityTypeMapping TypeName="QML.Web.UI.DocumentOrder">
+        <MappingFragment StoreEntitySet="DocumentOrders">
+          <ScalarProperty Name="Delivery" ColumnName="Delivery" />
+          <ScalarProperty Name="PublishedYear" ColumnName="PublishedYear" />
+          <ScalarProperty Name="DocumentPublisher" ColumnName="DocumentPublisher" />
+          <ScalarProperty Name="DocumentCreator" ColumnName="DocumentCreator" />
+          <ScalarProperty Name="DocumentCategory" ColumnName="DocumentCategory" />
+          <ScalarProperty Name="DocumentType" ColumnName="DocumentType" />
+          <ScalarProperty Name="DocumentName" ColumnName="DocumentName" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="OrderContent" ColumnName="OrderContent" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documents">
+      <EntityTypeMapping TypeName="QML.Web.UI.Document">
+        <MappingFragment StoreEntitySet="Documents">
+          <ScalarProperty Name="Right" ColumnName="Right" />
+          <ScalarProperty Name="Coverage" ColumnName="Coverage" />
+          <ScalarProperty Name="Relation" ColumnName="Relation" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Resource" ColumnName="Resource" />
+          <ScalarProperty Name="Identifier" ColumnName="Identifier" />
+          <ScalarProperty Name="Format" ColumnName="Format" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Contributor" ColumnName="Contributor" />
+          <ScalarProperty Name="Publisher" ColumnName="Publisher" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Creator" ColumnName="Creator" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentsFiles">
+      <EntityTypeMapping TypeName="QML.Web.UI.DocumentsFile">
+        <MappingFragment StoreEntitySet="DocumentsFiles">
+          <ScalarProperty Name="IsIndexed" ColumnName="IsIndexed" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="IsHasInfo" ColumnName="IsHasInfo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="BookFee" ColumnName="BookFee" />
+          <ScalarProperty Name="Thumbnail" ColumnName="Thumbnail" />
+          <ScalarProperty Name="FileSource" ColumnName="FileSource" />
+          <ScalarProperty Name="FormatID" ColumnName="FormatID" />
+          <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+          <ScalarProperty Name="FileName" ColumnName="FileName" />
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocumentStatistics">
+      <EntityTypeMapping TypeName="QML.Web.UI.DocumentStatistic">
+        <MappingFragment StoreEntitySet="DocumentStatistic">
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CateID" ColumnName="CateID" />
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocWeights">
+      <EntityTypeMapping TypeName="QML.Web.UI.DocWeight">
+        <MappingFragment StoreEntitySet="DocWeight">
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="WordID" ColumnName="WordID" />
+          <ScalarProperty Name="DocID" ColumnName="DocID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DocWords">
+      <EntityTypeMapping TypeName="QML.Web.UI.DocWord">
+        <MappingFragment StoreEntitySet="DocWords">
+          <ScalarProperty Name="Word" ColumnName="Word" />
+          <ScalarProperty Name="WordID" ColumnName="WordID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FeeHistoryViews">
+      <EntityTypeMapping TypeName="QML.Web.UI.FeeHistoryView">
+        <MappingFragment StoreEntitySet="FeeHistoryView">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="TimeRecorded" ColumnName="TimeRecorded" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="DocumentID" ColumnName="DocumentID" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MoneyLogs">
+      <EntityTypeMapping TypeName="QML.Web.UI.MoneyLog">
+        <MappingFragment StoreEntitySet="MoneyLog">
+          <ScalarProperty Name="year" ColumnName="year" />
+          <ScalarProperty Name="month" ColumnName="month" />
+          <ScalarProperty Name="dateInput" ColumnName="dateInput" />
+          <ScalarProperty Name="feeLog" ColumnName="feeLog" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profiles">
+      <EntityTypeMapping TypeName="QML.Web.UI.Profile">
+        <MappingFragment StoreEntitySet="Profile">
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LastModifiedUser" ColumnName="LastModifiedUser" />
+          <ScalarProperty Name="LastModifiedDate" ColumnName="LastModifiedDate" />
+          <ScalarProperty Name="CreatedUser" ColumnName="CreatedUser" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SearchHistories">
+      <EntityTypeMapping TypeName="QML.Web.UI.SearchHistory">
+        <MappingFragment StoreEntitySet="SearchHistories">
+          <ScalarProperty Name="ResultSet" ColumnName="ResultSet" />
+          <ScalarProperty Name="SearchDate" ColumnName="SearchDate" />
+          <ScalarProperty Name="Keyword" ColumnName="Keyword" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SearchHistoryId" ColumnName="SearchHistoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="QML.Web.UI.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroups">
+      <EntityTypeMapping TypeName="QML.Web.UI.UserGroup">
+        <MappingFragment StoreEntitySet="UserGroup">
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+          <ScalarProperty Name="groupId" ColumnName="groupId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ViewHistories">
+      <EntityTypeMapping TypeName="QML.Web.UI.ViewHistory">
+        <MappingFragment StoreEntitySet="ViewHistory">
+          <ScalarProperty Name="Month" ColumnName="Month" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Fee" ColumnName="Fee" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="CatId" ColumnName="CatId" />
+          <ScalarProperty Name="DocumentPublisher" ColumnName="DocumentPublisher" />
+          <ScalarProperty Name="DocumentTitle" ColumnName="DocumentTitle" />
+          <ScalarProperty Name="ViewDate" ColumnName="ViewDate" />
+          <ScalarProperty Name="BookId" ColumnName="BookId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ViewHistoryId" ColumnName="ViewHistoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="app_ApplicationFeatures" TypeName="QML.Web.UI.app_ApplicationFeatures" StoreEntitySet="app_ApplicationFeatures">
+      <EndProperty Name="app_Features">
+        <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+      </EndProperty>
+      <EndProperty Name="app_Applications">
+        <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="app_FeatureControllers" TypeName="QML.Web.UI.app_FeatureControllers" StoreEntitySet="app_FeatureControllers">
+      <EndProperty Name="core_Controllers">
+        <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+      </EndProperty>
+      <EndProperty Name="app_Features">
+        <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="auth_UsersInRoles" TypeName="QML.Web.UI.auth_UsersInRoles" StoreEntitySet="auth_UsersInRoles">
+      <EndProperty Name="auth_Users">
+        <ScalarProperty Name="UserId" ColumnName="UserId" />
+      </EndProperty>
+      <EndProperty Name="auth_Roles">
+        <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

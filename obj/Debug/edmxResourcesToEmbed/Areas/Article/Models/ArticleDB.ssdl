@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QmlModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="QmlModelStoreContainer">
+    <EntitySet Name="article_Categories" EntityType="QmlModel.Store.article_Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="article_Items" EntityType="QmlModel.Store.article_Items" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_article_Categories_article_Categories" Association="QmlModel.Store.FK_article_Categories_article_Categories">
+      <End Role="article_Categories" EntitySet="article_Categories" />
+      <End Role="article_Categories1" EntitySet="article_Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_article_Items_article_Categories" Association="QmlModel.Store.FK_article_Items_article_Categories">
+      <End Role="article_Categories" EntitySet="article_Categories" />
+      <End Role="article_Items" EntitySet="article_Items" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="article_Categories">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Code" Type="nvarchar" MaxLength="100" />
+    <Property Name="Position" Type="bigint" />
+  </EntityType>
+  <EntityType Name="article_Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Teaser" Type="nvarchar(max)" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="PublishedDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <Association Name="FK_article_Categories_article_Categories">
+    <End Role="article_Categories" Type="QmlModel.Store.article_Categories" Multiplicity="0..1" />
+    <End Role="article_Categories1" Type="QmlModel.Store.article_Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="article_Categories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="article_Categories1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_article_Items_article_Categories">
+    <End Role="article_Categories" Type="QmlModel.Store.article_Categories" Multiplicity="1" />
+    <End Role="article_Items" Type="QmlModel.Store.article_Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="article_Categories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="article_Items">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

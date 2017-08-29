@@ -1,0 +1,83 @@
+D:\Projects\Personal\QmlFrameworkNextGen\Website\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\EntityFramework.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\Microsoft.Web.Helpers.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\QML.Library.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\QML.Web.Core.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\Telerik.Web.Mvc.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\ICSharpCode.SharpZipLib.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\QML.Library.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\QML.Web.Core.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\EntityFramework.xml
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\QML.Web.UI.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\bin\QML.Web.UI.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\Website\obj\Debug\QML.Web.UI.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Website\obj\Debug\QML.Web.UI.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\QML.Web.UI.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\QML.Web.UI.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\EntityFramework.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\Microsoft.Web.Helpers.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\QML.Library.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\QML.Web.Core.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\Telerik.Web.Mvc.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\ICSharpCode.SharpZipLib.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\QML.Library.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\QML.Web.Core.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\bin\EntityFramework.xml
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\obj\Debug\QML.Web.UI.dll
+D:\Projects\Personal\QmlFrameworkNextGen\QML.Web.UI\obj\Debug\QML.Web.UI.pdb
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\obj\Debug\QML.Web.UI.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\obj\Debug\QML.Web.UI.pdb
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Web.UI.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Web.UI.pdb
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\EntityFramework.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\Microsoft.Web.Helpers.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Library.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Web.Core.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\Telerik.Web.Mvc.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\ICSharpCode.SharpZipLib.dll
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Library.pdb
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Web.Core.pdb
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\EntityFramework.xml
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Web.UI.XML
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Library.xml
+D:\Projects\Personal\QmlFrameworkII\QML.Web.UI\bin\QML.Web.Core.xml
+D:\Web\ASP.NET\elibrary\QML.Web.UI\bin\QML.Web.UI.dll
+D:\Web\ASP.NET\elibrary\QML.Web.UI\bin\QML.Web.UI.pdb
+D:\Web\ASP.NET\elibrary\QML.Web.UI\bin\EntityFramework.dll
+D:\Web\ASP.NET\elibrary\QML.Web.UI\bin\Microsoft.Web.Helpers.dll
+D:\Web\ASP.NET\elibrary\QML.Web.UI\bin\Telerik.Web.Mvc.dll
+D:\Web\ASP.NET\elibrary\QML.Web.UI\bin\EntityFramework.xml
+D:\Web\ASP.NET\elibrary\QML.Web.UI\obj\Debug\ResolveAssemblyReference.cache
+D:\Web\ASP.NET\elibrary\QML.Web.UI\obj\Debug\QML.Web.UI.dll
+D:\Web\ASP.NET\elibrary\QML.Web.UI\obj\Debug\QML.Web.UI.pdb
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\bin\QML.Web.UI.dll
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\bin\QML.Web.UI.pdb
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\bin\EntityFramework.dll
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\bin\Microsoft.Web.Helpers.dll
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\bin\Telerik.Web.Mvc.dll
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\bin\EntityFramework.xml
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\obj\Debug\ResolveAssemblyReference.cache
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\obj\Debug\QML.Web.UI.dll
+C:\inetpub\wwwroot\WIN-2008R2\Elib\QML.Web.UI\obj\Debug\QML.Web.UI.pdb
+D:\Web\ASP.NET\elibrary\QML.Web.UI\bin\QML.Web.UI.XML
+C:\inetpub\wwwroot\WIN-2008R2\QML.Web.UI\bin\QML.Web.UI.dll
+C:\inetpub\wwwroot\WIN-2008R2\QML.Web.UI\bin\QML.Web.UI.pdb
+C:\inetpub\wwwroot\WIN-2008R2\QML.Web.UI\bin\EntityFramework.xml
+C:\inetpub\wwwroot\WIN-2008R2\QML.Web.UI\obj\Debug\ResolveAssemblyReference.cache
+C:\inetpub\wwwroot\WIN-2008R2\QML.Web.UI\obj\Debug\QML.Web.UI.dll
+C:\inetpub\wwwroot\WIN-2008R2\QML.Web.UI\obj\Debug\QML.Web.UI.pdb
+C:\inetpub\wwwroot\QML.Web.UI\bin\QML.Web.UI.dll
+C:\inetpub\wwwroot\QML.Web.UI\bin\QML.Web.UI.pdb
+C:\inetpub\wwwroot\QML.Web.UI\obj\Debug\ResolveAssemblyReference.cache
+C:\inetpub\wwwroot\QML.Web.UI\obj\Debug\QML.Web.UI.dll
+C:\inetpub\wwwroot\QML.Web.UI\obj\Debug\QML.Web.UI.pdb
+E:\code thư viện khoa\bin\QML.Web.UI.XML
+E:\code thư viện khoa\bin\QML.Web.UI.dll
+E:\code thư viện khoa\bin\QML.Web.UI.pdb
+E:\code thư viện khoa\bin\EntityFramework.dll
+E:\code thư viện khoa\bin\EntityFramework.xml
+E:\code thư viện khoa\obj\Debug\QML.Web.UI.csprojResolveAssemblyReference.cache
+E:\code thư viện khoa\obj\Debug\QML.Web.UI.dll
+E:\code thư viện khoa\obj\Debug\QML.Web.UI.pdb

@@ -1,0 +1,80 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocumentEssential>
+@{
+    ViewBag.Title = "Kết quả tìm kiếm";
+}
+
+<h2>Kết quả tìm kiếm</h2>
+<script type="text/javascript">
+    function view_confirmation(fee) {
+        if (fee != 0) {
+            alert('Tài liệu có giá ' + fee + ' VNĐ sẽ được trừ vào tài khoản của bạn.');
+        }
+    }
+</script>
+<div class="article">
+    <h2><span><a href="#">Kết quả tìm kiếm theo từ khoá<i> "@ViewBag.Search"</i></a></span></h2>
+    <p class="info noprint">
+    </p>
+    <div>
+    <center>
+        Các từ khoá tìm kiếm gần đây nhất: <br />
+        @foreach (var item in ViewBag.History)
+        {
+            <a href="@Url.Action("NormalSearch", new { keyword = item.Keyword })">@item.Keyword</a>
+        }
+    </center>
+    </div>
+    <div>
+    @foreach (var item in Model)
+    {
+            <table class="bookitem" width="275px" height="105px" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <td width="100px">
+                        <img src="@Url.Content("~/uploads/" + @item.Thumbnail)" width="80px" height="100px" alt="image"/>
+                    </td>            
+                    <td>
+                    @if (Html.GetAuthManager().GetUser() != null)
+                    {
+                        if (QML.Web.UI.Helpers.FrontLayoutHelper.getViewHistory(Html.GetAuthManager().GetUser().UserId, item.DocumentID) == true)
+                        {
+                        <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })"><span style="font-size:13px; font-weight:bold;">@item.Title</span></a>
+                        <br />
+                        <span style="font-size:10px">@item.Creator</span>
+                        <br />
+                        <span style="font-size:10px">@item.Publisher</span> 
+                        <br />
+                        <span style="font-size:10px">Giá: @item.BookFee (VNĐ)</span>
+                        <br />
+                        <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })"><img src="@Url.Content("~/images/button-xem.jpg")" border="0" /></a>
+                        }
+                        else
+                        { 
+                      <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)"><span style="font-size:13px; font-weight:bold;">@item.Title</span></a>
+                        <br />
+                        <span style="font-size:10px">@item.Creator</span>
+                        <br />
+                        <span style="font-size:10px">@item.Publisher</span> 
+                        <br />
+                        <span style="font-size:10px">Giá: @item.BookFee (VNĐ)</span>
+                        <br />
+                        <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)"><img src="@Url.Content("~/images/button-xem.jpg")" border="0" /></a>
+                        }
+                    }
+                    else
+                    { 
+                    <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)"><span style="font-size:13px; font-weight:bold;">@item.Title</span></a>
+                        <br />
+                        <span style="font-size:10px">@item.Creator</span>
+                        <br />
+                        <span style="font-size:10px">@item.Publisher</span> 
+                        <br />
+                        <span style="font-size:10px">Giá: @item.BookFee (VNĐ)</span>
+                        <br />
+                        <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)"><img src="@Url.Content("~/images/button-xem.jpg")" border="0" /></a>
+                    }
+                    </td>
+                </tr>
+            </table>         
+    }
+    </div>
+</div>

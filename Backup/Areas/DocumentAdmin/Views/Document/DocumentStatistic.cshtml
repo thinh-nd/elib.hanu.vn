@@ -1,0 +1,95 @@
+﻿@{
+    ViewBag.Title = "DocumentStatistic";
+}
+<script type="text/javascript">
+$(function () {
+    var chart;
+    $(document).ready(function() {
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'container',
+                type: 'bar'
+            },
+            title: {
+                text: 'Thống kê đầu mục tài liệu theo danh mục'
+            },
+            subtitle: {
+                text: 'Theo năm 2012'
+            },
+            xAxis: {
+                categories: ['2012'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Tài liệu (đầu mục)',
+                    align: 'high'
+                }
+            },
+            tooltip: {
+                formatter: function() {
+                    return ''+
+                        this.series.name +': '+ this.y +' millions';
+                }
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -100,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Văn học',
+                data: [107]
+            }, {
+                name: 'Công nghệ thông tin',
+                data: [156]
+            }, {
+                name: 'Tình yêu & giới tính',
+                data: [408]
+            }, {
+                name: 'Khoa học và đời sống',
+                data: [947]
+            }, {
+                name: 'Khoa học viễn tưởng',
+                data: [234]
+            }, {
+                name: 'Kỹ năng sống',
+                data: [342]
+            }, {
+                name: 'Triết học',
+                data: [189]
+            }, {
+                name: 'Ẩm thực',
+                data: [275]
+            }, {
+                name: 'Tiếng Anh',
+                data: [378]
+            }]
+        });
+    });
+    
+});
+</script>
+<script src="@Url.Content("~/Content/highchart/highcharts.js")"></script>
+<script src="@Url.Content("~/Content/highchart/modules/exporting.js")"></script>
+
+<div id="container" style="min-width: 400px; min-height: 500px; margin: 0 auto"></div>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocumentEssential>
+
+@{
+    ViewBag.Title = "Xem tài liệu theo danh mục";
+}
+<!-- Main contents -->
+<div id="main">
+	<!-- Insert content here -->
+    <h2>Danh sách tài liệu</h2>
+	<div id="left-panel">
+		<div>
+			<h3 class="categogies">Danh mục tài liệu</h3>
+			<ul class="cat_list">
+                @{
+                    var str = QML.Web.UI.Helpers.FrontLayoutHelper.BuildRightCategoryTree(Url);
+                    WriteLiteral(str);                       
+                }
+			</ul>
+		</div>
+        
+        <div>
+			<h3 class="formats">Dạng tài liệu</h3>
+			<ul class="format_list">
+					@foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetBookFormat())
+            {
+                <li>@Html.ActionLink(item.Name, "ViewByFormat", new { id = item.DocumentFormatID })</li>
+            }
+			</ul>
+		</div>		
+        <div>
+			<h3 class="mostviewed">Tài liệu đọc nhiều nhất</h3>            
+            <ul class="mv_list">
+                @foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetMostViewBooks())
+                {
+                    if (Html.GetAuthManager().GetUser() != null)
+                    {
+                        if (Html.GetAuthManager().GetUser().Roles.Count != 0)
+                        {
+                            <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">@item.Title</a></li>
+                        }
+                        else
+                        {
+                            if (item.BookFee == 0)
+                            {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.BookFee == 0)
+                        {
+                            <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                        }
+                    }
+                }
+            </ul>
+		</div>			
+	</div>    
+	<div id="right-panel">
+		<div>
+            <h3>Xem tài liệu theo danh mục <i>"@ViewBag.CategoryName"</i></h3>
+            @{
+                var grid = new WebGrid(source: Model.ToList(), rowsPerPage: 10);
+            }
+            @grid.GetHtml(
+            mode:WebGridPagerModes.All,
+            tableStyle: "sortable",
+            firstText:"first",
+            lastText:"last",
+            columns: grid.Columns(                    
+                    grid.Column(header: "Ảnh đại diện", format: @<text><img src="@Url.Content("~/uploads/" + @item.Thumbnail)" width="80px" height="100px" alt=""/></text>),
+                    grid.Column(columnName: "Title", header: "Tiêu đề sách"),
+                    grid.Column(columnName: "Creator", header: "Tác giả"),
+                    grid.Column(columnName: "Publisher", header: "Nhà xuất bản"),
+                    grid.Column(columnName: "BookFee", header: "Giá", format: @<text>@String.Format("{0:0,0.0}", item.BookFee)</text>),
+                    grid.Column(header: "Thao tác", format: @<text>
+                        <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)"><img src="@Url.Content("~/images/button-xem.jpg")" border="0" alt="" /></a>               
+                    </text>
+                    )
+                ),
+                footerStyle: "pagination"
+            )
+		</div>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<QML.Library.Data.FrontendMenu>
+
+@{
+    ViewBag.Title = "Quản lý menu";
+}
+<section class="portlet grid_12">
+    <section>
+        <table class="display">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.Localize("No.")
+                    </th>                    
+                    <th>
+                        @Html.Localize("Name")
+                    </th>
+                    <th>
+                        @Html.Localize("Code")
+                    </th>
+                    <th>
+                        @Html.Localize("Description")
+                    </th>  
+                    <th>
+                        @Html.Localize("IsMain")
+                    </th>                  
+                    <th>
+                        @Html.Localize("Actions")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr @(i % 2 == 1 ? "class=odd" : "class=even")>
+                        <td>
+                            @(i + 1)
+                        </td>                        
+                        <td>
+                            @Html.Localize(Model.ElementAt(i).Name, false)
+                        </td>
+                        <td>
+                            @Model.ElementAt(i).Code
+                        </td>
+                        <td>
+                            @Html.Localize(@Model.ElementAt(i).Description, false)
+                        </td>
+                        <td>
+                           @Model.ElementAt(i).IsMain
+                        </td>                         
+                        <td>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Items"), "ui-icon ui-icon-gear", "ItemList", "FrontendMenu", "Core", 
+                                new { id = Model.ElementAt(i).ID, area = "Core" })
+                            @Html.ActionLinkButtonSecured(Html.Localize("Edit"), "ui-icon ui-icon-gear", "Edit", "FrontendMenu", "Core", 
+                                new { id = Model.ElementAt(i).ID, area = "Core" })
+                            @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "ui-icon ui-icon-trash", "Delete", "FrontendMenu", "Core", 
+                                new { id = Model.ElementAt(i).ID, area = "Core" }, "confirm")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            @Html.Partial("_AdminPager", ViewData["Pager"] as QML.Website.Models.PagerModel)
+        </p>
+        <p>@Html.ActionLinkButtonSecured(Html.Localize("Add Menu"), "ui-icon ui-icon-gear", "Create", "FrontendMenu", "Core")</p>
+    </section>
+</section>

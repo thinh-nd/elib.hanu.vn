@@ -1,0 +1,9 @@
+﻿<!-- Breadcrumbs -->
+<p id="breadcrumbs">Bạn đang ở đây: 
+    <a href="@Url.Action("Index", "Home")">Trang chủ</a> &gt; 
+    @{
+        var action = ViewContext.RouteData.Values["action"].ToString(); 
+    }
+    <a href="@Url.Action(action,"Home")">@action</a>
+</p>
+<hr class="noscreen" />

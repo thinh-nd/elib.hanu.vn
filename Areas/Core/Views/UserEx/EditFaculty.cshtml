@@ -1,0 +1,23 @@
+﻿@model QML.Web.UI.Areas.Core.Models.FacultyModel
+@{
+    ViewBag.Title = "EditFaculty";
+}
+
+<fieldset>
+    <legend>Sửa thông tin khoa chuyên ngành</legend>
+    @using (Html.BeginForm())
+    {
+        <input name="Id" type="hidden" value="@Model.FacultyId" />
+        
+        <label style="margin-right: 23px">Tên cũ</label>
+        <input name="oldName" type="text" size="50" value="@Model.FacultyName" readonly />
+        <br /><br />
+        <label style="margin-right: 15px">Tên mới</label>
+        <input name="newName" type="text" size="50" />
+        <br /><br />
+        <div class="action">
+            <button class="button button-green">@Html.Localize("Sửa")</button>
+            @Html.ActionLinkButtonSecured(Html.Localize("Quay lại"), null, "Faculty", "UserEx", "Core")
+        </div>
+    }
+</fieldset>

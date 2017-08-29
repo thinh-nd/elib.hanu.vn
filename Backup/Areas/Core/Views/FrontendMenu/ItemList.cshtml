@@ -1,0 +1,49 @@
+﻿@model IEnumerable<QML.Library.Data.FrontendMenuItem>
+@{
+    ViewBag.Title = "Quản lý danh sách của menu";
+}
+<section class="portlet grid_12">
+    <section>
+        <table class="display">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.Localize("No.")
+                    </th>                    
+                    <th>
+                        @Html.Localize("Name")
+                    </th>          
+                    <th>
+                        @Html.Localize("Actions")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr @(i % 2 == 1 ? "class=odd" : "class=even")>
+                        <td>
+                            @(i + 1)
+                        </td>                        
+                        <td>
+                            @Html.Raw(Model.ElementAt(i).Name)
+                        </td>                         
+                        <td>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Edit"), "ui-icon ui-icon-gear", "ItemEdit", "FrontendMenu", "Core",
+                                new { id = Model.ElementAt(i).ID, area = "Core" })
+                            @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "ui-icon ui-icon-trash", "ItemDelete", "FrontendMenu", "Core",
+                             new { id = Model.ElementAt(i).ID, MenuID = Model.ElementAt(i).MenuID, area = "Core" }, "confirm")
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p>
+            @Html.Partial("_AdminPager", ViewData["Pager"] as QML.Website.Models.PagerModel)
+        </p>
+        <p>
+        @Html.ActionLinkButtonSecured(Html.Localize("Add Item"), "ui-icon ui-icon-gear", "ItemCreate", "FrontendMenu", "Core", new { id = ViewBag.MenuID })
+        @Html.ActionLinkButtonSecured(Html.Localize("Action parameters"), "ui-icon ui-icon-gear", "ActionParameters", "FrontendMenu", "Core", new { id = ViewBag.MenuID })
+        </p>
+    </section>
+</section>

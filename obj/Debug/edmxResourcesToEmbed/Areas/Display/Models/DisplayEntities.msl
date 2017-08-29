@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QmlModel1StoreContainer" CdmEntityContainer="DisplayEntities">
+    <EntitySetMapping Name="DisplayBanners">
+      <EntityTypeMapping TypeName="QmlModel1.DisplayBanner">
+        <MappingFragment StoreEntitySet="display_Banner">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DisplayBannerItems">
+      <EntityTypeMapping TypeName="QmlModel1.DisplayBannerItems">
+        <MappingFragment StoreEntitySet="display_BannerItems">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BannerID" ColumnName="BannerID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SideLogos">
+      <EntityTypeMapping TypeName="QmlModel1.SideLogos">
+        <MappingFragment StoreEntitySet="display_SideLogos">
+          <ScalarProperty Name="StaticArticleID" ColumnName="StaticArticleID" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ArticleStaticItems">
+      <EntityTypeMapping TypeName="QmlModel1.ArticleStaticItems">
+        <MappingFragment StoreEntitySet="Article_Static_Items">
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StaticTexts">
+      <EntityTypeMapping TypeName="QmlModel1.StaticTexts">
+        <MappingFragment StoreEntitySet="display_StaticTexts">
+          <ScalarProperty Name="Body" ColumnName="Body" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

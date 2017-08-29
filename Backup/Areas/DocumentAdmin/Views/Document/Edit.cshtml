@@ -1,0 +1,117 @@
+﻿@model QML.Web.UI.Document
+
+@{
+    ViewBag.Title = "QUẢN LÝ TÀI LIỆU";
+}
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Date").datepicker
+        ({
+            dateFormat: 'yy-mm-dd',
+            showStatus: true,
+            showWeeks: true,
+            currentText: 'Now',
+            autoSize: true,
+            gotoCurrent: true,
+            showAnim: 'blind',
+            highlightWeek: true
+        });
+
+    });
+</script>
+<style>
+#Title { width:500px; }
+</style>
+<fieldset class="form">
+        <legend>Chỉnh sửa</legend>
+@using (Html.BeginForm("Edit", "Document", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+            
+            <label style="padding-top:5px;">
+            @Html.Localize("Tiêu đề tài liệu")
+            </label>
+            @Html.EditorFor(model => model.Title, new { @width = "500px" })
+            
+            <label style="padding-top:5px;">
+            @Html.Localize("Tác giả")
+            </label>
+            @Html.EditorFor(model => model.Creator)
+            
+            <label style="padding-top:5px;">
+            @Html.Localize("Danh mục")
+            </label>
+            @Html.DropDownListFor(model => model.SubjectId, (IEnumerable<SelectListItem>)@ViewBag.ParentList, "Chọn danh mục")  
+            
+            <label style="padding-top:5px;">
+            @Html.Localize("Mô tả tóm tắt")
+            </label>
+            @Html.TextAreaFor(model => model.Description, new { cols = 50, rows = 5 })
+            
+            <label style="padding-top:5px;">
+            @Html.Localize("Nhà xuất bản")
+            </label>
+            @Html.EditorFor(model => model.Publisher)
+
+            <label style="padding-top:5px;">
+            @Html.Localize("Tác giả phụ")
+            </label>
+            @Html.EditorFor(model => model.Contributor)
+
+            <label style="padding-top:5px;">
+            @Html.Localize("Ngày ban hành")
+            </label>
+            @Html.EditorFor(model => model.Date, new { value = "0000-00-00" })
+            <label style="padding-top:5px;">
+            @Html.Localize("Kiểu tài liệu(Thể loại)")
+            </label>
+            @Html.EditorFor(model => model.Type)
+            
+            <label style="padding-top:5px;">
+            @Html.Localize("Khổ mẫu")
+            </label>
+            @Html.DropDownListFor(model => model.Format, (IEnumerable<SelectListItem>)@ViewBag.TypeList, "Chọn định dạng")
+
+            <label style="padding-top:5px;">
+            @Html.Localize("Định danh (File nguồn)")
+            </label>
+            <input type="file" name="file" />
+
+            <label style="padding-top:5px;">
+            @Html.Localize("Nguồn")
+            </label>
+            @Html.EditorFor(model => model.Resource)
+            
+            <label style="padding-top:5px;">
+            @Html.Localize("Ngôn ngữ")
+            </label>
+            @Html.EditorFor(model => model.Language)
+
+            <label style="padding-top:5px;">
+            @Html.Localize("Liên kết")
+            </label>
+            @Html.EditorFor(model => model.Relation)
+
+            <label style="padding-top:5px;">
+            @Html.Localize("Diện bao quát")
+            </label>
+            @Html.EditorFor(model => model.Coverage)
+
+            <label style="padding-top:5px;">
+            @Html.Localize("Bản quyền")
+            </label>
+            @Html.EditorFor(model => model.CopyRight)
+
+        <p>
+             <div class="action">
+                <button class="button button-green">@Html.Localize("Thay đổi")</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLinkButtonSecured(Html.Localize("Hủy bỏ"), null, "Index", "Document", "DocumentAdmin")
+            </div>
+        </p>    
+}
+</fieldset>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

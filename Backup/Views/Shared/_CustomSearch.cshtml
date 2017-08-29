@@ -1,0 +1,13 @@
+﻿<div id="google">
+    <div id="cse" style="width: 100%;">Loading</div>
+    <script src="http://www.google.com/jsapi" type="text/javascript"></script>
+    <script type="text/javascript">
+        google.load('search', '1', { language: 'vi' });
+        google.setOnLoadCallback(function () {
+            var customSearchOptions = {}; var customSearchControl = new google.search.CustomSearchControl(
+          '012145975469940947958:vry3je8ti3i', customSearchOptions);
+            customSearchControl.setResultSetSize(google.search.Search.FILTERED_CSE_RESULTSET);
+            customSearchControl.draw('cse');
+        }, true);
+    </script>
+</div>

@@ -1,0 +1,63 @@
+﻿@model QML.Web.UI.Areas.Core.Models.ExtendRegisterModel
+@{
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+    List<QML.Web.UI.UserGroup> ls = db.UserGroups.ToList();
+    var items = new SelectList(ls, "groupId", "group_name", 2);
+    List<QML.Web.UI.FacultyGroup> fl = db.FacultyGroups.ToList();
+    var faculty = new SelectList(fl, "fgroup_name", "fgroup_name");
+}
+
+@using (Html.BeginForm("CreateUser", "UserEx"))
+{ 
+    <fieldset class="form">
+        <label>
+            @Html.Localize("Tên đăng nhập")
+        </label>
+        @Html.EditorFor(m => m.UserName)
+        
+        <label>
+            @Html.Localize("Mật khẩu")
+        </label>
+        @Html.TextBoxFor(m => m.Password)
+
+        <label>
+            @Html.Localize("Nhập lại mật khẩu")
+        </label>
+        @Html.TextBoxFor(m => m.ConfirmPassword)
+
+        <label>
+            @Html.Localize("Họ và tên")
+        </label>
+        @Html.TextBoxFor(m => m.ActualName)
+
+        <label>
+            @Html.Localize("Nhóm người sử dụng")
+        </label>
+        @Html.DropDownListFor(x => x.UserGroup, @items);
+
+         <label>
+            @Html.Localize("Khoa chuyên ngành")
+        </label>
+        @Html.DropDownListFor(x => x.Faculty, @faculty)
+
+         <label>
+            @Html.Localize("Lớp")
+        </label>
+        @Html.EditorFor(m => m.StudentClass)
+
+         <label>
+            @Html.Localize("Hạn sử dụng thẻ")
+        </label>
+        @Html.EditorFor(m => m.DueDate)
+
+        <label>
+            @Html.Localize("Khóa")
+        </label>
+        @Html.TextBoxFor(m => m.YearLearnt)
+
+        <div class="action">
+            <button class="button button-green">@Html.Localize("Create")</button>
+            @Html.ActionLinkButtonSecured(Html.Localize("Back"), null, "UsersList", "User", "Core")
+        </div>
+    </fieldset>
+}

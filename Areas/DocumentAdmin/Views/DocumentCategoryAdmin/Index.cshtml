@@ -1,0 +1,52 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocumentCategoriesModel>
+
+@{
+    ViewBag.Title = "Quản lý bộ sưu tập";
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+    var CatId = (from m in db.DocumentCategories where m.ParentID==0
+                             select new {
+                                 CategoryId = m.CategoryID,
+                                CategoryName = m.CategoryName
+                             }).AsEnumerable()
+    .Select(x => new SelectListItem { Text = x.CategoryName.ToString(), Value = x.CategoryId.ToString() });
+}
+
+<h2>Danh sách bộ sưu tập</h2>
+
+@using (Html.BeginForm("Index","DocumentCategoryAdmin",FormMethod.Post))
+    {
+        <h4>Tên bộ sưu tập @Html.DropDownList("collectionId", CatId, new { onchange = "this.form.submit()"})</h4>
+    }
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create", "DocumentCategoryAdmin", null, new { @class = "link-button-green" })
+</p>
+
+					
+		    @{
+                var grid = new WebGrid(
+                    source: Model.ToList(), 
+                    rowsPerPage: 20
+                    );
+		    }
+
+            @grid.GetHtml(
+                tableStyle: "datatable",                
+                columns: grid.Columns(                                        
+                    grid.Column(columnName: "CategoryName", header:"Tên bộ sưu tập"),
+                    grid.Column(header:"Hành động", format: @<text>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.CategoryID })
+                        &nbsp;&nbsp;&nbsp;
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.CategoryID })
+                    </text>
+                    )     
+                ),                
+                htmlAttributes: new { cellpadding = "0", cellspacing = "0", width="100%" },
+                footerStyle: "pagination"                
+            )
+
+<script type="text/javascript">
+    $(function () {
+        $("#collectionId").val("@ViewBag.selectedVal");
+    });
+</script>

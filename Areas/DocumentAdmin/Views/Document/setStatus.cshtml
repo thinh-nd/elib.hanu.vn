@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "QUẢN LÝ TÀI LIỆU";
+}
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+<fieldset class="form">
+    <legend>Thực hiện chuyển trạng thái tài liệu</legend>
+    @using (Html.BeginForm("setStatus", "Document", FormMethod.Post))
+    {
+        <input type="hidden" name="DocumentID" value="@ViewBag.id" />
+        <input type="hidden" id="page" name="page" value="@ViewBag.IndexPage" />
+        <input type="hidden" id="cate" name="cate" value="@ViewBag.Category" />
+        <input type="hidden" id="keyword" name="keyword" value="@ViewBag.Keyword" />
+        <input type="hidden" id="attribute" name="attribute" value="@ViewBag.Attribute" />
+        <input type="hidden" id="value" name="value" value="@ViewBag.Value" />
+        <input type="hidden" name="listID" value="@ViewBag.ListID" />
+
+        <label>
+            @Html.Localize("Chọn danh mục:")
+        </label>
+        @Html.DropDownList("Status", (IEnumerable<SelectListItem>)@ViewBag.StatusList, new { @Class = "styled" })
+        <div class="action">
+            <button class="button button-green">@Html.Localize("Chuyển")</button>
+            @Html.ActionLinkButtonSecured(Html.Localize("Hủy bỏ"), null, "Index", "DocumentCategoryAdmin", "DocumentAdmin")
+        </div>
+    }
+</fieldset>

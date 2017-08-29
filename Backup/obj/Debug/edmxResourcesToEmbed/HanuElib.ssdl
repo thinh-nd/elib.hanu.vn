@@ -1,0 +1,262 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HanuELibraryModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="HanuELibraryModelStoreContainer">
+    <EntitySet Name="DocumentCategories" EntityType="HanuELibraryModel.Store.DocumentCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentMembers" EntityType="HanuELibraryModel.Store.DocumentMembers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentOrders" EntityType="HanuELibraryModel.Store.DocumentOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Documents" EntityType="HanuELibraryModel.Store.Documents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentsExtraInfo" EntityType="HanuELibraryModel.Store.DocumentsExtraInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentType" EntityType="HanuELibraryModel.Store.DocumentType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberAccount" EntityType="HanuELibraryModel.Store.MemberAccount" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MemberType" EntityType="HanuELibraryModel.Store.MemberType" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_DocumentMembers_MemberAccount" Association="HanuELibraryModel.Store.FK_DocumentMembers_MemberAccount">
+      <End Role="MemberAccount" EntitySet="MemberAccount" />
+      <End Role="DocumentMembers" EntitySet="DocumentMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentMembers_MemberType" Association="HanuELibraryModel.Store.FK_DocumentMembers_MemberType">
+      <End Role="MemberType" EntitySet="MemberType" />
+      <End Role="DocumentMembers" EntitySet="DocumentMembers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentOrders_DocumentMembers" Association="HanuELibraryModel.Store.FK_DocumentOrders_DocumentMembers">
+      <End Role="DocumentMembers" EntitySet="DocumentMembers" />
+      <End Role="DocumentOrders" EntitySet="DocumentOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentCategories" Association="HanuELibraryModel.Store.FK_Documents_DocumentCategories">
+      <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentType" Association="HanuELibraryModel.Store.FK_Documents_DocumentType">
+      <End Role="DocumentType" EntitySet="DocumentType" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsExtraInfo_Documents" Association="HanuELibraryModel.Store.FK_DocumentsExtraInfo_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="DocumentsExtraInfo" EntitySet="DocumentsExtraInfo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="DocumentCategories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Position" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DocumentMembers">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MemberName" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Password" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="MemberType" Type="int" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MemberID" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="OrderContent" Type="ntext" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="500" />
+    <Property Name="SubjectId" Type="int" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contributor" Type="nvarchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="TypeID" Type="int" />
+    <Property Name="Format" Type="varchar" MaxLength="100" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="500" />
+    <Property Name="Resource" Type="nvarchar" MaxLength="500" />
+    <Property Name="Language" Type="nvarchar" MaxLength="100" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="500" />
+    <Property Name="Coverage" Type="nvarchar" MaxLength="500" />
+    <Property Name="CopyRight" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DocumentsExtraInfo">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="bigint" Nullable="false" />
+    <Property Name="Thumbnail" Type="nvarchar" MaxLength="500" />
+    <Property Name="BookFee" Type="float" />
+    <Property Name="Size" Type="float" />
+    <Property Name="ViewCount" Type="bigint" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="DocumentType">
+    <Key>
+      <PropertyRef Name="DocumentTypeID" />
+    </Key>
+    <Property Name="DocumentTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="MIME" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileFormat" Type="varchar" MaxLength="250" />
+    <Property Name="Status" Type="int" />
+  </EntityType>
+  <EntityType Name="MemberAccount">
+    <Key>
+      <PropertyRef Name="MemberID" />
+    </Key>
+    <Property Name="MemberID" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="float" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MemberType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="varchar" Nullable="false" MaxLength="255" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_DocumentMembers_MemberAccount">
+    <End Role="MemberAccount" Type="HanuELibraryModel.Store.MemberAccount" Multiplicity="1" />
+    <End Role="DocumentMembers" Type="HanuELibraryModel.Store.DocumentMembers" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="MemberAccount">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="DocumentMembers">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentMembers_MemberType">
+    <End Role="MemberType" Type="HanuELibraryModel.Store.MemberType" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentMembers" Type="HanuELibraryModel.Store.DocumentMembers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DocumentMembers">
+        <PropertyRef Name="MemberType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentOrders_DocumentMembers">
+    <End Role="DocumentMembers" Type="HanuELibraryModel.Store.DocumentMembers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentOrders" Type="HanuELibraryModel.Store.DocumentOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentMembers">
+        <PropertyRef Name="MemberID" />
+      </Principal>
+      <Dependent Role="DocumentOrders">
+        <PropertyRef Name="MemberID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentCategories">
+    <End Role="DocumentCategories" Type="HanuELibraryModel.Store.DocumentCategories" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Documents" Type="HanuELibraryModel.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentType">
+    <End Role="DocumentType" Type="HanuELibraryModel.Store.DocumentType" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Documents" Type="HanuELibraryModel.Store.Documents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentType">
+        <PropertyRef Name="DocumentTypeID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="TypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsExtraInfo_Documents">
+    <End Role="Documents" Type="HanuELibraryModel.Store.Documents" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentsExtraInfo" Type="HanuELibraryModel.Store.DocumentsExtraInfo" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="DocumentsExtraInfo">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ec_FilterAttribute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="attributeIds" Type="varchar" Mode="In" />
+    <Parameter Name="command" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="bigint" Mode="In" />
+  </Function>
+  <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Search" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="text" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<QML.Web.UI.MoneyLog>
+@{
+    ViewBag.Title = "Lịch sử nạp tiền gần nhất";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#userForm").change(function () {
+            //on-change code goes in here.
+            //variable "this" references the state dropdown element
+            $("#userForm").submit();
+
+        });
+    });
+</script>
+
+<h2>Lịch sử nạp tiền gần nhất</h2>
+<!-- form -->
+<div id="ss_form">
+    @using (Html.BeginForm("MoneyLogHistory", "Document", FormMethod.Get, new { id = "userForm"}))
+    {
+        <p>
+            <span class="form_field">Người dùng: <input type="text" name="username" value="@ViewBag.uName"/></span>                        
+            <span class="form_field">Tháng: @Html.DropDownList("month", (IEnumerable<SelectListItem>)ViewBag.Month)</span>            
+            <span class="form_field">Năm: @Html.DropDownList("year", (IEnumerable<SelectListItem>)ViewBag.Year)</span>
+        </p>                                            
+    }
+</div>
+<!--end form -->
+
+           @{
+                var grid = new WebGrid(
+                    source: Model.ToList(), 
+                    rowsPerPage: 10
+                    );
+		    }
+
+            @grid.GetHtml(
+            tableStyle: "datatable",
+            columns: grid.Columns(
+                                     grid.Column(columnName: "userID", header: "Người nạp tiền", format: @<text> @Html.Label((string)QML.Web.UI.Helpers.FrontLayoutHelper.getUsername(item.userID)) </text>),
+                                     grid.Column(columnName: "feeLog", header: "Số tiền nạp(VNĐ)"),                                     
+                                     grid.Column(columnName: "dateInput", header: "Ngày nạp tiền")
+                                 ),
+                                     htmlAttributes: new { id = "hoho", cellpadding = "0", cellspacing = "0", width = "100%" },
+                                 footerStyle: "pagination"
+                             )

@@ -1,0 +1,33 @@
+﻿@model QML.Web.UI.DocumentOrder
+
+@{
+    ViewBag.Title = "Chi tiết yêu cầu tài liệu";
+}
+
+<h2>Chi tiết yêu cầu tài liệu</h2>
+
+<fieldset>
+    <legend><h3><p style="color: grey;font-size: 0.9em">Được gửi tới bởi</p>
+    <center><b style="color: blue; font-size: 1.2em;">@Html.DisplayFor(model => model.auth_Users.Username)</b></center></h3></legend>
+
+    <fieldset>
+    <legend><h3>Nội dung yêu cầu</h3></legend>
+    <div style="border:none;font-size: 1.5em; padding: 20px;" class="orderContent">
+        <label>Người gửi: <span class="labelValue">@Html.DisplayFor(model => model.auth_Users.Username)</span></label>
+        <label>Email người gửi:  <span class="labelValue"> @Html.DisplayFor(model => model.UserEmail)</span></label>
+        <label>Tên tài liệu:  <span class="labelValue">@Html.DisplayFor(model => model.DocumentName)</span></label>
+        <label>Tác giả:  <span class="labelValue">@Html.DisplayFor(model => model.DocumentCreator)</span></label>
+        <label>Thuộc danh mục: <span class="labelValue"> @Html.DisplayFor(model => model.DocumentCategory)</span></label>
+        <label>Nhà xuất bản:  <span class="labelValue">@Html.DisplayFor(model => model.DocumentPublisher)</span></label>
+         <label>Năm xuất bản:  <span class="labelValue">@Html.DisplayFor(model => model.PublishedYear)</span></label>
+        <label>Loại tài liệu:  <span class="labelValue">@Html.DisplayFor(model => model.DocumentType)</span></label>
+        <label>Phương thức giao nhận:  <span class="labelValue">@Html.DisplayFor(model => model.Delivery)</span></label>
+        <label>Thông tin bổ sung:  <span class="labelValue">@Html.DisplayFor(model => model.OrderContent)</span></label>
+    </div>
+    </fieldset>
+    <h3>Vào ngày: @Html.DisplayFor(model => model.CreatedDate)</h3>
+    
+</fieldset>
+<p>
+    @Html.ActionLink("Trở về danh sách", "Index")
+</p>

@@ -1,0 +1,28 @@
+﻿@model IQueryable<QML.Web.UI.Areas.Core.Models.FacultyModel>
+@{
+    ViewBag.Title = "Faculty";
+}
+
+@Html.ActionLink("Thêm mới", "CreateFaculty", "UserEx", null, new { @class = "button button-green" })
+@Html.ActionLinkButtonSecured(Html.Localize("Quay lại"), null, "UsersList", "User", "Core")
+<table class="datatable full">
+    <thead>
+        <tr>
+            <th>@Html.Localize("Khoa")</th>
+            <th>@Html.Localize("Thao tác")</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var faculty in Model.ToList())
+        {
+            <tr>
+                <td>@faculty.FacultyName</td>
+                <td>
+                    @Html.ActionLink("Sửa", "EditFaculty", "UserEx", new { @id = faculty.FacultyId }, new { @class = "button-gray button" })
+                    @Html.ActionLink("Xóa", "DeleteFaculty", "UserEx", new { @id = faculty.FacultyId }, new { @class = "button-gray button", @name = "deleteBtn" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

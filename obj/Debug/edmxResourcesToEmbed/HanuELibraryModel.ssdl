@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QML.Web.UI.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="QMLWebUIStoreContainer">
+    <EntitySet Name="app_ApplicationFeatures" EntityType="QML.Web.UI.Store.app_ApplicationFeatures" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="app_Applications" EntityType="QML.Web.UI.Store.app_Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="app_FeatureControllers" EntityType="QML.Web.UI.Store.app_FeatureControllers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="app_Features" EntityType="QML.Web.UI.Store.app_Features" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="app_PageModules" EntityType="QML.Web.UI.Store.app_PageModules" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="app_Pages" EntityType="QML.Web.UI.Store.app_Pages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="app_PartialViews" EntityType="QML.Web.UI.Store.app_PartialViews" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="app_StaticItems" EntityType="QML.Web.UI.Store.app_StaticItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="auth_RolePermissions" EntityType="QML.Web.UI.Store.auth_RolePermissions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="auth_Roles" EntityType="QML.Web.UI.Store.auth_Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="auth_Users" EntityType="QML.Web.UI.Store.auth_Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="auth_UsersInRoles" EntityType="QML.Web.UI.Store.auth_UsersInRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Actions" EntityType="QML.Web.UI.Store.core_Actions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Areas" EntityType="QML.Web.UI.Store.core_Areas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Configs" EntityType="QML.Web.UI.Store.core_Configs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Controllers" EntityType="QML.Web.UI.Store.core_Controllers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Frontend_Menu" EntityType="QML.Web.UI.Store.core_Frontend_Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Frontend_MenuItems" EntityType="QML.Web.UI.Store.core_Frontend_MenuItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Locales" EntityType="QML.Web.UI.Store.core_Locales" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="core_Translations" EntityType="QML.Web.UI.Store.core_Translations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentCategories" EntityType="QML.Web.UI.Store.DocumentCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentFormats" EntityType="QML.Web.UI.Store.DocumentFormats" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentOrders" EntityType="QML.Web.UI.Store.DocumentOrders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Documents" EntityType="QML.Web.UI.Store.Documents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentsFiles" EntityType="QML.Web.UI.Store.DocumentsFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocumentStatistic" EntityType="QML.Web.UI.Store.DocumentStatistic" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DocWeight" EntityType="QML.Web.UI.Store.DocWeight" store:Type="Tables" store:Schema="dbo" store:Name="DocWeight">
+      <DefiningQuery>SELECT 
+      [DocWeight].[DocID] AS [DocID], 
+      [DocWeight].[WordID] AS [WordID], 
+      [DocWeight].[Weight] AS [Weight]
+      FROM [dbo].[DocWeight] AS [DocWeight]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="DocWords" EntityType="QML.Web.UI.Store.DocWords" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FeeHistoryView" EntityType="QML.Web.UI.Store.FeeHistoryView" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MoneyLog" EntityType="QML.Web.UI.Store.MoneyLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Profile" EntityType="QML.Web.UI.Store.Profile" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SearchHistories" EntityType="QML.Web.UI.Store.SearchHistories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="QML.Web.UI.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UserGroup" EntityType="QML.Web.UI.Store.UserGroup" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ViewHistory" EntityType="QML.Web.UI.Store.ViewHistory" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_app_ApplicationFeatures_app_Applications" Association="QML.Web.UI.Store.FK_app_ApplicationFeatures_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_ApplicationFeatures" EntitySet="app_ApplicationFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_ApplicationFeatures_app_Features" Association="QML.Web.UI.Store.FK_app_ApplicationFeatures_app_Features">
+      <End Role="app_Features" EntitySet="app_Features" />
+      <End Role="app_ApplicationFeatures" EntitySet="app_ApplicationFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_FeatureControllers_app_Features" Association="QML.Web.UI.Store.FK_app_FeatureControllers_app_Features">
+      <End Role="app_Features" EntitySet="app_Features" />
+      <End Role="app_FeatureControllers" EntitySet="app_FeatureControllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_FeatureControllers_core_Controllers" Association="QML.Web.UI.Store.FK_app_FeatureControllers_core_Controllers">
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+      <End Role="app_FeatureControllers" EntitySet="app_FeatureControllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_app_Pages" Association="QML.Web.UI.Store.FK_app_PageModules_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_core_Actions" Association="QML.Web.UI.Store.FK_app_PageModules_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_Pages_app_Applications" Association="QML.Web.UI.Store.FK_app_Pages_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_Pages" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_Pages_app_Pages" Association="QML.Web.UI.Store.FK_app_Pages_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_Pages1" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PartialViews_core_Actions" Association="QML.Web.UI.Store.FK_app_PartialViews_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PartialViews" EntitySet="app_PartialViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_article_Static_Items_app_Applications" Association="QML.Web.UI.Store.FK_article_Static_Items_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_StaticItems" EntitySet="app_StaticItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Roles_core_Applications" Association="QML.Web.UI.Store.FK_auth_Roles_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Users_core_Applications" Association="QML.Web.UI.Store.FK_auth_Users_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Users" EntitySet="auth_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_UsersInRoles_auth_Roles" Association="QML.Web.UI.Store.FK_auth_UsersInRoles_auth_Roles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_UsersInRoles" EntitySet="auth_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_UsersInRoles_auth_Users" Association="QML.Web.UI.Store.FK_auth_UsersInRoles_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="auth_UsersInRoles" EntitySet="auth_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Actions_core_Controllers" Association="QML.Web.UI.Store.FK_core_Actions_core_Controllers">
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+      <End Role="core_Actions" EntitySet="core_Actions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Controllers_core_Areas" Association="QML.Web.UI.Store.FK_core_Controllers_core_Areas">
+      <End Role="core_Areas" EntitySet="core_Areas" />
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems" Association="QML.Web.UI.Store.FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+      <End Role="core_Frontend_MenuItems1" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Locales_core_Applications" Association="QML.Web.UI.Store.FK_core_Locales_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="core_Locales" EntitySet="core_Locales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_RolePermissions_auth_Roles" Association="QML.Web.UI.Store.FK_core_RolePermissions_auth_Roles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_RolePermissions" EntitySet="auth_RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentOrders_auth_Users" Association="QML.Web.UI.Store.FK_DocumentOrders_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="DocumentOrders" EntitySet="DocumentOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentsFile" Association="QML.Web.UI.Store.FK_Documents_DocumentsFile">
+      <End Role="DocumentsFiles" EntitySet="DocumentsFiles" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentCategories" Association="QML.Web.UI.Store.FK_DocumentsFile_DocumentCategories">
+      <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+      <End Role="DocumentsFiles" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentFormat" Association="QML.Web.UI.Store.FK_DocumentsFile_DocumentFormat">
+      <End Role="DocumentFormats" EntitySet="DocumentFormats" />
+      <End Role="DocumentsFiles" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentStatistic_DocumentCategories" Association="QML.Web.UI.Store.FK_DocumentStatistic_DocumentCategories">
+      <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+      <End Role="DocumentStatistic" EntitySet="DocumentStatistic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_core_Actions" Association="QML.Web.UI.Store.FK_Frontend_MenuItems_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_Frontend_Menu" Association="QML.Web.UI.Store.FK_Frontend_MenuItems_Frontend_Menu">
+      <End Role="core_Frontend_Menu" EntitySet="core_Frontend_Menu" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profile_auth_Users" Association="QML.Web.UI.Store.FK_Profile_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="Profile" EntitySet="Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Translations_Locales" Association="QML.Web.UI.Store.FK_Translations_Locales">
+      <End Role="core_Locales" EntitySet="core_Locales" />
+      <End Role="core_Translations" EntitySet="core_Translations" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="app_ApplicationFeatures">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="FeatureId" />
+    </Key>
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="FeatureId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DomainName" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="CurrentTheme" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="app_FeatureControllers">
+    <Key>
+      <PropertyRef Name="FeatureId" />
+      <PropertyRef Name="ControllerId" />
+    </Key>
+    <Property Name="FeatureId" Type="bigint" Nullable="false" />
+    <Property Name="ControllerId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_Features">
+    <Key>
+      <PropertyRef Name="FeatureId" />
+    </Key>
+    <Property Name="FeatureId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="app_PageModules">
+    <Key>
+      <PropertyRef Name="PageModuleId" />
+    </Key>
+    <Property Name="PageModuleId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PageId" Type="bigint" Nullable="false" />
+    <Property Name="ActionId" Type="bigint" Nullable="false" />
+    <Property Name="PositionCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="Order" Type="int" />
+  </EntityType>
+  <EntityType Name="app_Pages">
+    <Key>
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="PageId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="bigint" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="CustomUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Order" Type="int" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="app_PartialViews">
+    <Key>
+      <PropertyRef Name="PartialViewId" />
+    </Key>
+    <Property Name="PartialViewId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ActionId" Type="bigint" Nullable="false" />
+    <Property Name="Theme" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="app_StaticItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Position" Type="int" />
+  </EntityType>
+  <EntityType Name="auth_RolePermissions">
+    <Key>
+      <PropertyRef Name="RolePermissionId" />
+    </Key>
+    <Property Name="RolePermissionId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="bigint" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Controller" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="auth_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="bigint" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="auth_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="bigint" />
+    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastLoginDate" Type="datetime" />
+    <Property Name="AuthToken" Type="nvarchar" MaxLength="100" />
+    <Property Name="Faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudentID" Type="varchar" MaxLength="50" />
+    <Property Name="StudentClass" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActualName" Type="varchar" MaxLength="50" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="UserGroup" Type="int" />
+  </EntityType>
+  <EntityType Name="auth_UsersInRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RoleId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="core_Actions">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ControllerId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Template" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="core_Areas">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="core_Configs">
+    <Key>
+      <PropertyRef Name="ConfigId" />
+    </Key>
+    <Property Name="ConfigId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Value" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="core_Controllers">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+    </Key>
+    <Property Name="ControllerId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AreaId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="core_Frontend_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="IsMain" Type="bit" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="core_Frontend_MenuItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MenuID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="Position" Type="int" Nullable="false" />
+    <Property Name="ActionId" Type="bigint" />
+    <Property Name="CustomUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsCutom" Type="bit" />
+    <Property Name="Parameters" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="core_Locales">
+    <Key>
+      <PropertyRef Name="LocaleId" />
+    </Key>
+    <Property Name="LocaleId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="core_Translations">
+    <Key>
+      <PropertyRef Name="TranslationId" />
+    </Key>
+    <Property Name="TranslationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="LocaleId" Type="bigint" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DocumentCategories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Position" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DocumentFormats">
+    <Key>
+      <PropertyRef Name="DocumentFormatID" />
+    </Key>
+    <Property Name="DocumentFormatID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="MIME" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileFormat" Type="varchar" MaxLength="250" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="DocumentOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="OrderContent" Type="ntext" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentCreator" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentPublisher" Type="nvarchar" MaxLength="50" />
+    <Property Name="PublishedYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="Delivery" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="500" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contributor" Type="nvarchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Type" Type="nvarchar" MaxLength="500" />
+    <Property Name="Format" Type="nvarchar" MaxLength="500" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="500" />
+    <Property Name="Resource" Type="nvarchar" MaxLength="500" />
+    <Property Name="Language" Type="nvarchar" MaxLength="100" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="500" />
+    <Property Name="Coverage" Type="nvarchar" MaxLength="500" />
+    <Property Name="Right" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DocumentsFiles">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="FormatID" Type="int" />
+    <Property Name="FileSource" Type="nvarchar" MaxLength="500" />
+    <Property Name="Thumbnail" Type="nvarchar" MaxLength="500" />
+    <Property Name="BookFee" Type="float" />
+    <Property Name="Size" Type="float" />
+    <Property Name="ViewCount" Type="bigint" />
+    <Property Name="Status" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsHasInfo" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsIndexed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentStatistic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="float" />
+    <Property Name="CateID" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
+    <Property Name="Year" Type="bigint" />
+  </EntityType>
+  <!--Errors Found During Generation:
+      warning 6002: The table/view 'elib.dbo.DocWeight' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+  <EntityType Name="DocWeight">
+    <Key>
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="WordID" />
+      <PropertyRef Name="Weight" />
+    </Key>
+    <Property Name="DocID" Type="bigint" Nullable="false" />
+    <Property Name="WordID" Type="bigint" Nullable="false" />
+    <Property Name="Weight" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocWords">
+    <Key>
+      <PropertyRef Name="WordID" />
+    </Key>
+    <Property Name="WordID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Word" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="FeeHistoryView">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="DocumentID" Type="bigint" />
+    <Property Name="Fee" Type="float" />
+    <Property Name="TimeRecorded" Type="datetime" />
+    <Property Name="month" Type="int" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <EntityType Name="MoneyLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="userID" Type="bigint" />
+    <Property Name="feeLog" Type="float" />
+    <Property Name="dateInput" Type="datetime" />
+    <Property Name="month" Type="int" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="float" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SearchHistories">
+    <Key>
+      <PropertyRef Name="SearchHistoryId" />
+    </Key>
+    <Property Name="SearchHistoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Keyword" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="SearchDate" Type="datetime" Nullable="false" />
+    <Property Name="ResultSet" Type="text" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="groupId" />
+    </Key>
+    <Property Name="groupId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="group_name" Type="nchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ViewHistory">
+    <Key>
+      <PropertyRef Name="ViewHistoryId" />
+    </Key>
+    <Property Name="ViewHistoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="BookId" Type="bigint" Nullable="false" />
+    <Property Name="ViewDate" Type="datetime" Nullable="false" />
+    <Property Name="DocumentTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="DocumentPublisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="CatId" Type="int" />
+    <Property Name="Type" Type="nchar" Nullable="false" MaxLength="10" />
+    <Property Name="Fee" Type="float" Nullable="false" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Month" Type="int" />
+  </EntityType>
+  <Association Name="FK_app_ApplicationFeatures_app_Applications">
+    <End Role="app_Applications" Type="QML.Web.UI.Store.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_ApplicationFeatures" Type="QML.Web.UI.Store.app_ApplicationFeatures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_ApplicationFeatures">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_ApplicationFeatures_app_Features">
+    <End Role="app_Features" Type="QML.Web.UI.Store.app_Features" Multiplicity="1" />
+    <End Role="app_ApplicationFeatures" Type="QML.Web.UI.Store.app_ApplicationFeatures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Features">
+        <PropertyRef Name="FeatureId" />
+      </Principal>
+      <Dependent Role="app_ApplicationFeatures">
+        <PropertyRef Name="FeatureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_FeatureControllers_app_Features">
+    <End Role="app_Features" Type="QML.Web.UI.Store.app_Features" Multiplicity="1" />
+    <End Role="app_FeatureControllers" Type="QML.Web.UI.Store.app_FeatureControllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Features">
+        <PropertyRef Name="FeatureId" />
+      </Principal>
+      <Dependent Role="app_FeatureControllers">
+        <PropertyRef Name="FeatureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_FeatureControllers_core_Controllers">
+    <End Role="core_Controllers" Type="QML.Web.UI.Store.core_Controllers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_FeatureControllers" Type="QML.Web.UI.Store.app_FeatureControllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Controllers">
+        <PropertyRef Name="ControllerId" />
+      </Principal>
+      <Dependent Role="app_FeatureControllers">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_app_Pages">
+    <End Role="app_Pages" Type="QML.Web.UI.Store.app_Pages" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PageModules" Type="QML.Web.UI.Store.app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_core_Actions">
+    <End Role="core_Actions" Type="QML.Web.UI.Store.core_Actions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PageModules" Type="QML.Web.UI.Store.app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_Pages_app_Applications">
+    <End Role="app_Applications" Type="QML.Web.UI.Store.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_Pages" Type="QML.Web.UI.Store.app_Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_Pages">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_Pages_app_Pages">
+    <End Role="app_Pages" Type="QML.Web.UI.Store.app_Pages" Multiplicity="0..1" />
+    <End Role="app_Pages1" Type="QML.Web.UI.Store.app_Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_Pages1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PartialViews_core_Actions">
+    <End Role="core_Actions" Type="QML.Web.UI.Store.core_Actions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PartialViews" Type="QML.Web.UI.Store.app_PartialViews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PartialViews">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_article_Static_Items_app_Applications">
+    <End Role="app_Applications" Type="QML.Web.UI.Store.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_StaticItems" Type="QML.Web.UI.Store.app_StaticItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_StaticItems">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Roles_core_Applications">
+    <End Role="app_Applications" Type="QML.Web.UI.Store.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_Roles" Type="QML.Web.UI.Store.auth_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Users_core_Applications">
+    <End Role="app_Applications" Type="QML.Web.UI.Store.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_Users" Type="QML.Web.UI.Store.auth_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_UsersInRoles_auth_Roles">
+    <End Role="auth_Roles" Type="QML.Web.UI.Store.auth_Roles" Multiplicity="1" />
+    <End Role="auth_UsersInRoles" Type="QML.Web.UI.Store.auth_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="auth_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_UsersInRoles_auth_Users">
+    <End Role="auth_Users" Type="QML.Web.UI.Store.auth_Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_UsersInRoles" Type="QML.Web.UI.Store.auth_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="auth_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Actions_core_Controllers">
+    <End Role="core_Controllers" Type="QML.Web.UI.Store.core_Controllers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Actions" Type="QML.Web.UI.Store.core_Actions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Controllers">
+        <PropertyRef Name="ControllerId" />
+      </Principal>
+      <Dependent Role="core_Actions">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Controllers_core_Areas">
+    <End Role="core_Areas" Type="QML.Web.UI.Store.core_Areas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Controllers" Type="QML.Web.UI.Store.core_Controllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Areas">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="core_Controllers">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+    <End Role="core_Frontend_MenuItems" Type="QML.Web.UI.Store.core_Frontend_MenuItems" Multiplicity="0..1" />
+    <End Role="core_Frontend_MenuItems1" Type="QML.Web.UI.Store.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Locales_core_Applications">
+    <End Role="app_Applications" Type="QML.Web.UI.Store.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Locales" Type="QML.Web.UI.Store.core_Locales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="core_Locales">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_RolePermissions_auth_Roles">
+    <End Role="auth_Roles" Type="QML.Web.UI.Store.auth_Roles" Multiplicity="1" />
+    <End Role="auth_RolePermissions" Type="QML.Web.UI.Store.auth_RolePermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="auth_RolePermissions">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentOrders_auth_Users">
+    <End Role="auth_Users" Type="QML.Web.UI.Store.auth_Users" Multiplicity="1" />
+    <End Role="DocumentOrders" Type="QML.Web.UI.Store.DocumentOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DocumentOrders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentsFile">
+    <End Role="DocumentsFiles" Type="QML.Web.UI.Store.DocumentsFiles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Documents" Type="QML.Web.UI.Store.Documents" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentsFiles">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentCategories">
+    <End Role="DocumentCategories" Type="QML.Web.UI.Store.DocumentCategories" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentsFiles" Type="QML.Web.UI.Store.DocumentsFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentsFiles">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentFormat">
+    <End Role="DocumentFormats" Type="QML.Web.UI.Store.DocumentFormats" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentsFiles" Type="QML.Web.UI.Store.DocumentsFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentFormats">
+        <PropertyRef Name="DocumentFormatID" />
+      </Principal>
+      <Dependent Role="DocumentsFiles">
+        <PropertyRef Name="FormatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentStatistic_DocumentCategories">
+    <End Role="DocumentCategories" Type="QML.Web.UI.Store.DocumentCategories" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentStatistic" Type="QML.Web.UI.Store.DocumentStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentStatistic">
+        <PropertyRef Name="CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_core_Actions">
+    <End Role="core_Actions" Type="QML.Web.UI.Store.core_Actions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Frontend_MenuItems" Type="QML.Web.UI.Store.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_Frontend_Menu">
+    <End Role="core_Frontend_Menu" Type="QML.Web.UI.Store.core_Frontend_Menu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Frontend_MenuItems" Type="QML.Web.UI.Store.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profile_auth_Users">
+    <End Role="auth_Users" Type="QML.Web.UI.Store.auth_Users" Multiplicity="1" />
+    <End Role="Profile" Type="QML.Web.UI.Store.Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Translations_Locales">
+    <End Role="core_Locales" Type="QML.Web.UI.Store.core_Locales" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Translations" Type="QML.Web.UI.Store.core_Translations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Locales">
+        <PropertyRef Name="LocaleId" />
+      </Principal>
+      <Dependent Role="core_Translations">
+        <PropertyRef Name="LocaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

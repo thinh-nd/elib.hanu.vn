@@ -1,0 +1,108 @@
+﻿<script src='@Url.Content("~/js/jquery.min.js")'></script>
+<script src='@Url.Content("~/js/imtech_pager.js")'></script>
+@model QML.Web.UI.ViewModels.HanuElibrary2012
+@{
+    ViewBag.Title = "BoughtDocument";
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+}
+<div id="main">
+
+    <div class="search" style="display: block;">
+        <h2>
+            Tài liệu đã mua</h2>
+
+    @using (Html.BeginForm("BoughtDocument", "Home", FormMethod.Post))
+    {
+            <center>
+    <div>
+        <span>Tra cứu theo Bộ sưu tập:</span><br />  
+        <input type="hidden" name ="userID" value="@Html.GetAuthManager().GetUser().UserId" />
+        <select name="DocumentCategory">
+        @if (ViewBag.catId == 0)
+                                                      {
+            <option value="0" selected="selected">Toàn văn</option>
+            }
+            else{
+            <option value="0">Toàn văn</option>
+            }
+            @{       
+        foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.populateDropdown(0, 1).ToList())
+        {
+            
+                if (ViewBag.catId == item.CategoryID)
+                {
+                        <option value="@item.CategoryID" selected="selected">@item.CategoryName</option>
+                }
+                else
+                { 
+                        <option value="@item.CategoryID">@item.CategoryName</option>                              
+                }            
+        }
+            }
+        </select>
+        <input type="submit" name="submit" value="Tìm kiếm" />               
+    </div>
+            </center>
+    
+    }
+<br />
+        <div id="search-result">        
+        @if (Model.DocumentID.Count() > 0)
+        {
+            foreach (var item in Model.DocumentID.ToList())
+            {
+                
+                <table class="bookitem" width="275px" height="105px" cellpadding="0" cellspacing="0"
+                    border="0">
+                    <tbody>
+                        <tr>
+                            <td width="100px">
+                                <img src="@Url.Content("~/uploads/" + QML.Web.UI.Helpers.FrontLayoutHelper.getDocumentThumbnail(@item))" width="80px" height="100px" alt="image">
+                            </td>
+                            <td>
+                                <a href="@Url.Action("ViewBook", new { id = @item })" onclick="view_confirmation(0)">
+                                    <span style="font-size: 13px; font-weight: bold; color: #0094FF;">@QML.Web.UI.Helpers.FrontLayoutHelper.getDocumentTitle(@item)</span>
+                                    <span style="font-size: 11px; font-weight: normal; color: black;">/ @QML.Web.UI.Helpers.FrontLayoutHelper.getDocumentCreator(@item).
+                                        .-
+                                        @QML.Web.UI.Helpers.FrontLayoutHelper.getDocumentPublisher(@item), @QML.Web.UI.Helpers.FrontLayoutHelper.getDocumentDate(@item)
+                                    </span></a>
+                                <br>
+                                <span style="font-size: 10px"><b>Giá:</b> @QML.Web.UI.Helpers.FrontLayoutHelper.getDocumentPrice(@item)
+                                    (VNĐ)</span>
+                                <br>
+                                <a href="@Url.Action("ViewBook", new { id = @item })" onclick="view_confirmation(0)">
+                                    <img src="@Url.Content("~/images/button-xem.jpg")" border="0"></a> <a href="@Url.Action("ViewBookDetail", new { id = @item })" onclick="view_confirmation(0)">
+                                        <img src="@Url.Content("~/images/btn_detail.jpg")" border="0"></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }//end for()
+
+        }//end if()
+        else
+        {         
+            <span>Không tìm thấy kết quả nào</span>    
+        }            
+        </div>
+        <div id="pagingControls"></div>
+        <!-- end search-result-->
+    </div>
+    <!-- end .search-->
+</div>
+<!-- end #main-->
+
+<script type="text/javascript">
+    var pager = new Imtech.Pager();
+    $(document).ready(function () {
+        pager.paragraphsPerPage = 10; // set amount elements per page
+        pager.pagingContainer = $('#search-result'); // set of main container
+        pager.paragraphs = $('table.bookitem', pager.pagingContainer); // set of required containers
+        pager.showPage(1);
+    });
+</script>
+
+<style type="text/css">
+#pagingControls ul{display:inline;padding-left:0.5em}
+#pagingControls li{display:inline;padding:0 0.5em}
+</style>

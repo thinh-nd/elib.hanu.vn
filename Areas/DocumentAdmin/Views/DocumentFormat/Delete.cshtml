@@ -1,0 +1,16 @@
+﻿@model QML.Web.UI.Areas.DocumentAdmin.Models.DocumentFormatModel
+
+@{
+    ViewBag.Title = "QUẢN LÝ DANH MỤC TÀI LIỆU";
+}
+
+<fieldset>
+    <legend>Xóa bỏ định dạng tài liệu</legend>
+<h3>Bạn có chắc chắn muốn xóa định đạng tài liệu này?</h3>
+@using (Html.BeginForm()) {
+    <p>
+        <button class="button button-red">@Html.Localize("Xóa")</button>
+        @Html.ActionLink("Trở về danh sách", "Index")
+    </p>
+}
+</fieldset>

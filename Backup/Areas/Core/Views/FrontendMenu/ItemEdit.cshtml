@@ -1,0 +1,88 @@
+﻿@model QML.Web.UI.Areas.Core.Models.FrontendMenuItemsModel    
+@{
+    ViewBag.Title = "Sửa thông tin Menu con";
+}
+<div class="portlet grid_12">
+    <header>
+        <h2>Thông tin</h2>
+    </header>
+    <section>        
+        @using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form has-validation" }))
+        {                   
+            @Html.HiddenFor(m => m.MenuID)
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Tên menu <em>*</em><small>...</small></label>                
+                <div class="form-input">
+                    @Html.TextBoxFor(model => model.Name, new { })                    
+                </div>
+
+            </div>
+            
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Menu cha <small>...</small></label>                
+                <div class="form-input">
+                    @Html.DropDownListFor(model => model.ParentID, (IEnumerable<SelectListItem>)@ViewBag.ParentList, new { ID = @ViewBag.CurrentID })             
+                </div>
+
+            </div>
+            
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Vị trí<small>...</small></label>                
+                <div class="form-input">
+                    @Html.TextBoxFor(model => model.Position)                    
+                </div>
+
+            </div>
+            
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Đường dẫn nội bộ<small>...</small></label>                
+                <div class="form-input">
+                    @Html.DropDownListFor(model => model.ActionID, (IEnumerable<SelectListItem>)@ViewBag.MenuList, new { ActionId = @ViewBag.ActionID })             
+                </div>
+
+            </div>
+            
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Tham số<small>id=4&name=Test</small></label>                
+                <div class="form-input">
+                    @Html.TextBoxFor(model => model.Parameters, new { })                    
+                </div>
+
+            </div>
+            
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Đường dẫn tùy biến<small>...</small></label>                
+                <div class="form-input">
+                    @Html.TextBoxFor(model => model.CustomUrl, new { })                    
+                </div>
+
+            </div>
+            
+            <div class="clearfix">
+                <label for="form-name" class="form-label">Chọn tùy biến<small>...</small></label>                
+                <div class="form-input">
+                    @Html.CheckBoxFor(model => model.IsCustom)                 
+                </div>
+
+            </div>
+
+            <div class="form-action clearfix">
+
+                <button class="button" type="submit" data-icon-primary="ui-icon-circle-check">Cập nhật</button>                
+                <a href="@Url.Action("ItemList", new { id = ViewBag.MenuID })"><button class="button" type="button" data-icon-primary="ui-icon-circle-check">Trở về</button></a>
+            </div>
+
+        }
+    </section>
+</div>
+<script type="text/javascript">
+    $('#ActionID').change(function () {
+        $.ajax({
+            url: "@Url.Action("GetActionParameterTemplate")/" + $(this).val(),
+            dataType: 'html',
+            success: function(data){
+                $('#Parameters').val(data.toString());
+            }
+        });
+    });
+</script>

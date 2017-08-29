@@ -1,0 +1,527 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QML.Web.UI.Areas.eCommerce.Models" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ECommerceEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attributes" EntityType="QML.Web.UI.Areas.eCommerce.Models.Attribute" />
+    <EntitySet Name="AttributeValues" EntityType="QML.Web.UI.Areas.eCommerce.Models.AttributeValue" />
+    <AssociationSet Name="FK_ec_AttributeValues_ec_Attributes" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_AttributeValues_ec_Attributes">
+      <End Role="ec_Attributes" EntitySet="Attributes" />
+      <End Role="ec_AttributeValues" EntitySet="AttributeValues" />
+    </AssociationSet>
+    <EntitySet Name="Districts" EntityType="QML.Web.UI.Areas.eCommerce.Models.District" />
+    <EntitySet Name="Provinces" EntityType="QML.Web.UI.Areas.eCommerce.Models.Province" />
+    <AssociationSet Name="FK_ec_Districts_ec_Provinces" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Districts_ec_Provinces">
+      <End Role="ec_Provinces" EntitySet="Provinces" />
+      <End Role="ec_Districts" EntitySet="Districts" />
+    </AssociationSet>
+    <EntitySet Name="ProductMediaFiles" EntityType="QML.Web.UI.Areas.eCommerce.Models.ProductMediaFile" />
+    <FunctionImport Name="ec_FilterAttribute" EntitySet="AttributeValues" ReturnType="Collection(QML.Web.UI.Areas.eCommerce.Models.AttributeValue)">
+      <Parameter Name="attributeIds" Mode="In" Type="String" />
+      <Parameter Name="command" Mode="In" Type="String" />
+      <Parameter Name="value" Mode="In" Type="Int64" />
+    </FunctionImport>
+    <EntitySet Name="Businesses" EntityType="QML.Web.UI.Areas.eCommerce.Models.Business" />
+    <EntitySet Name="BusinessTypes" EntityType="QML.Web.UI.Areas.eCommerce.Models.BusinessType" />
+    <EntitySet Name="Manufacturers" EntityType="QML.Web.UI.Areas.eCommerce.Models.Manufacturer" />
+    <EntitySet Name="Sectors" EntityType="QML.Web.UI.Areas.eCommerce.Models.Sector" />
+    <AssociationSet Name="FK_ec_Businesses_ec_BusinessTypes" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_BusinessTypes">
+      <End Role="ec_BusinessTypes" EntitySet="BusinessTypes" />
+      <End Role="ec_Businesses" EntitySet="Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Businesses_ec_Districts" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_Districts">
+      <End Role="District" EntitySet="Districts" />
+      <End Role="ec_Businesses" EntitySet="Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Businesses_ec_Provinces" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_Provinces">
+      <End Role="Province" EntitySet="Provinces" />
+      <End Role="ec_Businesses" EntitySet="Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Sectors_ec_Sectors" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Sectors_ec_Sectors">
+      <End Role="ec_Sectors" EntitySet="Sectors" />
+      <End Role="ec_Sectors1" EntitySet="Sectors" />
+    </AssociationSet>
+    <AssociationSet Name="ec_BusinessesToSectors" Association="QML.Web.UI.Areas.eCommerce.Models.ec_BusinessesToSectors">
+      <End Role="ec_Businesses" EntitySet="Businesses" />
+      <End Role="ec_Sectors" EntitySet="Sectors" />
+    </AssociationSet>
+    <AssociationSet Name="ec_ManufacturersToSectors" Association="QML.Web.UI.Areas.eCommerce.Models.ec_ManufacturersToSectors">
+      <End Role="ec_Manufacturers" EntitySet="Manufacturers" />
+      <End Role="ec_Sectors" EntitySet="Sectors" />
+    </AssociationSet>
+    <EntitySet Name="Categories" EntityType="QML.Web.UI.Areas.eCommerce.Models.Category" />
+    <AssociationSet Name="FK_ec_Attributes_ec_Categories" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Attributes_ec_Categories">
+      <End Role="ec_Categories" EntitySet="Categories" />
+      <End Role="Attribute" EntitySet="Attributes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Categories_ec_Categories" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Categories_ec_Categories">
+      <End Role="ec_Categories" EntitySet="Categories" />
+      <End Role="ec_Categories1" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="ec_BusinessesToCategories" Association="QML.Web.UI.Areas.eCommerce.Models.ec_BusinessesToCategories">
+      <End Role="Business" EntitySet="Businesses" />
+      <End Role="ec_Categories" EntitySet="Categories" />
+    </AssociationSet>
+    <AssociationSet Name="ec_ManufacturersToCategories" Association="QML.Web.UI.Areas.eCommerce.Models.ec_ManufacturersToCategories">
+      <End Role="ec_Categories" EntitySet="Categories" />
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+    </AssociationSet>
+    <EntitySet Name="CategoryPermissions" EntityType="QML.Web.UI.Areas.eCommerce.Models.CategoryPermission" />
+    <AssociationSet Name="FK_ec_CategoryPermissions_ec_Categories" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_CategoryPermissions_ec_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="ec_CategoryPermissions" EntitySet="CategoryPermissions" />
+    </AssociationSet>
+    <EntitySet Name="Applications" EntityType="QML.Web.UI.Areas.eCommerce.Models.Application" />
+    <AssociationSet Name="FK_ec_Businesses_core_Applications" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_core_Applications">
+      <End Role="app_Applications" EntitySet="Applications" />
+      <End Role="Business" EntitySet="Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_BusinessTypes_core_Applications" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_BusinessTypes_core_Applications">
+      <End Role="app_Applications" EntitySet="Applications" />
+      <End Role="BusinessType" EntitySet="BusinessTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Manufacturers_core_Applications" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Manufacturers_core_Applications">
+      <End Role="app_Applications" EntitySet="Applications" />
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Sectors_core_Applications" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Sectors_core_Applications">
+      <End Role="app_Applications" EntitySet="Applications" />
+      <End Role="Sector" EntitySet="Sectors" />
+    </AssociationSet>
+    <EntitySet Name="Products" EntityType="QML.Web.UI.Areas.eCommerce.Models.Product" />
+    <AssociationSet Name="FK_ec_AttributeValues_ec_Products" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_AttributeValues_ec_Products">
+      <End Role="ec_Products" EntitySet="Products" />
+      <End Role="AttributeValue" EntitySet="AttributeValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Products_ec_Categories" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Products_ec_Categories">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="ec_Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Products_ec_Manufacturers" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Products_ec_Manufacturers">
+      <End Role="Manufacturer" EntitySet="Manufacturers" />
+      <End Role="ec_Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_ProductMediaFiles_ec_Products" Association="QML.Web.UI.Areas.eCommerce.Models.FK_ec_ProductMediaFiles_ec_Products">
+      <End Role="ec_Products" EntitySet="Products" />
+      <End Role="ProductMediaFile" EntitySet="ProductMediaFiles" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Attribute">
+    <Key>
+      <PropertyRef Name="AttributeId" />
+    </Key>
+    <Property Name="AttributeId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+    <Property Name="DataType" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="Unit" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="RegExValidation" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="AttributeValues" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_AttributeValues_ec_Attributes" FromRole="ec_Attributes" ToRole="ec_AttributeValues" />
+    <NavigationProperty Name="Category" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Attributes_ec_Categories" FromRole="Attribute" ToRole="ec_Categories" />
+  </EntityType>
+  <EntityType Name="AttributeValue">
+    <Key>
+      <PropertyRef Name="AttributeValueId" />
+    </Key>
+    <Property Name="AttributeValueId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="Int64" Nullable="false" />
+    <Property Name="AttributeId" Type="Int64" Nullable="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Attribute" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_AttributeValues_ec_Attributes" FromRole="ec_AttributeValues" ToRole="ec_Attributes" />
+    <NavigationProperty Name="Product" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_AttributeValues_ec_Products" FromRole="AttributeValue" ToRole="ec_Products" />
+  </EntityType>
+  <Association Name="FK_ec_AttributeValues_ec_Attributes">
+    <End Role="ec_Attributes" Type="QML.Web.UI.Areas.eCommerce.Models.Attribute" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_AttributeValues" Type="QML.Web.UI.Areas.eCommerce.Models.AttributeValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Attributes">
+        <PropertyRef Name="AttributeId" />
+      </Principal>
+      <Dependent Role="ec_AttributeValues">
+        <PropertyRef Name="AttributeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="District">
+    <Key>
+      <PropertyRef Name="DistrictId" />
+    </Key>
+    <Property Type="Int64" Name="DistrictId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ProvinceId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Province" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Districts_ec_Provinces" FromRole="ec_Districts" ToRole="ec_Provinces" />
+    <NavigationProperty Name="Businesses" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_Districts" FromRole="District" ToRole="ec_Businesses" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceId" />
+    </Key>
+    <Property Type="Int64" Name="ProvinceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Districts" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Districts_ec_Provinces" FromRole="ec_Provinces" ToRole="ec_Districts" />
+    <NavigationProperty Name="Businesses" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_Provinces" FromRole="Province" ToRole="ec_Businesses" />
+  </EntityType>
+  <Association Name="FK_ec_Districts_ec_Provinces">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Province" Role="ec_Provinces" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.District" Role="ec_Districts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Provinces">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="ec_Districts">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductMediaFile">
+    <Key>
+      <PropertyRef Name="MediaId" />
+    </Key>
+    <Property Type="Int64" Name="MediaId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ProductId" Nullable="false" />
+    <Property Type="String" Name="Name" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Path" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Type" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_ProductMediaFiles_ec_Products" FromRole="ProductMediaFile" ToRole="ec_Products" />
+  </EntityType>
+  <EntityType Name="Business">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+    </Key>
+    <Property Type="Int64" Name="BusinessId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="BusinessTypeId" Nullable="false" />
+    <Property Type="Int64" Name="ProvinceId" />
+    <Property Type="Int64" Name="DistrictId" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Logo" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FaxNumber" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Website" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="TaxNumber" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="String" Name="CreatedUser" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="String" Name="LastModifiedUser" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BusinessType" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_BusinessTypes" FromRole="ec_Businesses" ToRole="ec_BusinessTypes" />
+    <NavigationProperty Name="District" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_Districts" FromRole="ec_Businesses" ToRole="District" />
+    <NavigationProperty Name="Province" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_Provinces" FromRole="ec_Businesses" ToRole="Province" />
+    <NavigationProperty Name="Sectors" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_BusinessesToSectors" FromRole="ec_Businesses" ToRole="ec_Sectors" />
+    <NavigationProperty Name="Categories" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_BusinessesToCategories" FromRole="Business" ToRole="ec_Categories" />
+    <NavigationProperty Name="Application" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_core_Applications" FromRole="Business" ToRole="app_Applications" />
+  </EntityType>
+  <EntityType Name="BusinessType">
+    <Key>
+      <PropertyRef Name="BusinessTypeId" />
+    </Key>
+    <Property Type="Int64" Name="BusinessTypeId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="BusinessTypeName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Businesses" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_ec_BusinessTypes" FromRole="ec_BusinessTypes" ToRole="ec_Businesses" />
+    <NavigationProperty Name="Application" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_BusinessTypes_core_Applications" FromRole="BusinessType" ToRole="app_Applications" />
+  </EntityType>
+  <EntityType Name="Manufacturer">
+    <Key>
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Type="Int64" Name="ManufacturerId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhoneNumber" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FaxNumber" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Email" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Website" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Logo" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="String" Name="CreatedUser" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="String" Name="LastModifiedUser" MaxLength="256" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sectors" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_ManufacturersToSectors" FromRole="ec_Manufacturers" ToRole="ec_Sectors" />
+    <NavigationProperty Name="Categories" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_ManufacturersToCategories" FromRole="Manufacturer" ToRole="ec_Categories" />
+    <NavigationProperty Name="Application" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Manufacturers_core_Applications" FromRole="Manufacturer" ToRole="app_Applications" />
+    <NavigationProperty Name="Products" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Products_ec_Manufacturers" FromRole="Manufacturer" ToRole="ec_Products" />
+  </EntityType>
+  <EntityType Name="Sector">
+    <Key>
+      <PropertyRef Name="SectorId" />
+    </Key>
+    <Property Type="Int64" Name="SectorId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ParentId" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="SectorName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Position" />
+    <NavigationProperty Name="Children" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Sectors_ec_Sectors" FromRole="ec_Sectors" ToRole="ec_Sectors1" />
+    <NavigationProperty Name="Parent" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Sectors_ec_Sectors" FromRole="ec_Sectors1" ToRole="ec_Sectors" />
+    <NavigationProperty Name="Businesses" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_BusinessesToSectors" FromRole="ec_Sectors" ToRole="ec_Businesses" />
+    <NavigationProperty Name="Manufacturers" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_ManufacturersToSectors" FromRole="ec_Sectors" ToRole="ec_Manufacturers" />
+    <NavigationProperty Name="Application" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Sectors_core_Applications" FromRole="Sector" ToRole="app_Applications" />
+  </EntityType>
+  <Association Name="FK_ec_Businesses_ec_BusinessTypes">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.BusinessType" Role="ec_BusinessTypes" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Business" Role="ec_Businesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_BusinessTypes">
+        <PropertyRef Name="BusinessTypeId" />
+      </Principal>
+      <Dependent Role="ec_Businesses">
+        <PropertyRef Name="BusinessTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Businesses_ec_Districts">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.District" Role="District" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Business" Role="ec_Businesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="District">
+        <PropertyRef Name="DistrictId" />
+      </Principal>
+      <Dependent Role="ec_Businesses">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Businesses_ec_Provinces">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Province" Role="Province" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Business" Role="ec_Businesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Province">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="ec_Businesses">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Sectors_ec_Sectors">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Sector" Role="ec_Sectors" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Sector" Role="ec_Sectors1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Sectors">
+        <PropertyRef Name="SectorId" />
+      </Principal>
+      <Dependent Role="ec_Sectors1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ec_BusinessesToSectors">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Business" Role="ec_Businesses" Multiplicity="*" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Sector" Role="ec_Sectors" Multiplicity="*" />
+  </Association>
+  <Association Name="ec_ManufacturersToSectors">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Manufacturer" Role="ec_Manufacturers" Multiplicity="*" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Sector" Role="ec_Sectors" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Type="Int64" Name="CategoryId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ParentId" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Order" />
+    <NavigationProperty Name="Attributes" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Attributes_ec_Categories" FromRole="ec_Categories" ToRole="Attribute" />
+    <NavigationProperty Name="Children" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Categories_ec_Categories" FromRole="ec_Categories" ToRole="ec_Categories1" />
+    <NavigationProperty Name="Parent" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Categories_ec_Categories" FromRole="ec_Categories1" ToRole="ec_Categories" />
+    <NavigationProperty Name="Businesses" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_BusinessesToCategories" FromRole="ec_Categories" ToRole="Business" />
+    <NavigationProperty Name="Manufacturers" Relationship="QML.Web.UI.Areas.eCommerce.Models.ec_ManufacturersToCategories" FromRole="ec_Categories" ToRole="Manufacturer" />
+    <NavigationProperty Name="CategoryPermissions" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_CategoryPermissions_ec_Categories" FromRole="Category" ToRole="ec_CategoryPermissions" />
+    <NavigationProperty Name="Products" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Products_ec_Categories" FromRole="Category" ToRole="ec_Products" />
+    <Property Type="String" Name="Image" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_ec_Attributes_ec_Categories">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Category" Role="ec_Categories" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Attribute" Role="Attribute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="Attribute">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Categories_ec_Categories">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Category" Role="ec_Categories" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Category" Role="ec_Categories1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_Categories1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ec_BusinessesToCategories">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Business" Role="Business" Multiplicity="*" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Category" Role="ec_Categories" Multiplicity="*" />
+  </Association>
+  <Association Name="ec_ManufacturersToCategories">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Category" Role="ec_Categories" Multiplicity="*" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Manufacturer" Role="Manufacturer" Multiplicity="*" />
+  </Association>
+  <EntityType Name="CategoryPermission">
+    <Key>
+      <PropertyRef Name="CategoryPermissionId" />
+    </Key>
+    <Property Type="Int64" Name="CategoryPermissionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="CategoryId" Nullable="false" />
+    <Property Type="Int64" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="Permission" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Category" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_CategoryPermissions_ec_Categories" FromRole="ec_CategoryPermissions" ToRole="Category" />
+  </EntityType>
+  <Association Name="FK_ec_CategoryPermissions_ec_Categories">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Category" Role="Category" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.CategoryPermission" Role="ec_CategoryPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_CategoryPermissions">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Application">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="DomainName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Businesses" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Businesses_core_Applications" FromRole="app_Applications" ToRole="Business" />
+    <NavigationProperty Name="BusinessTypes" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_BusinessTypes_core_Applications" FromRole="app_Applications" ToRole="BusinessType" />
+    <NavigationProperty Name="Manufacturers" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Manufacturers_core_Applications" FromRole="app_Applications" ToRole="Manufacturer" />
+    <NavigationProperty Name="Sectors" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Sectors_core_Applications" FromRole="app_Applications" ToRole="Sector" />
+    <Property Type="String" Name="CurrentTheme" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_ec_Businesses_core_Applications">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Application" Role="app_Applications" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Business" Role="Business" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Business">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_BusinessTypes_core_Applications">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Application" Role="app_Applications" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.BusinessType" Role="BusinessType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="BusinessType">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Manufacturers_core_Applications">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Application" Role="app_Applications" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Manufacturer" Role="Manufacturer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Manufacturer">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Sectors_core_Applications">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Application" Role="app_Applications" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Sector" Role="Sector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="Sector">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Type="Int64" Name="ProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ManufacturerId" />
+    <Property Type="Int64" Name="CategoryId" Nullable="false" />
+    <Property Type="String" Name="CodeSystem" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CodeManufacturer" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Thumbnail" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="Cost" />
+    <Property Type="Double" Name="Price" />
+    <Property Type="Double" Name="Discount" />
+    <Property Type="Int32" Name="Position" />
+    <Property Type="String" Name="WarehousePosition" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CreatedUser" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="false" />
+    <Property Type="String" Name="LastModifiedUser" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Int32" Name="Quantity" />
+    <Property Type="DateTime" Name="StickyDate" />
+    <NavigationProperty Name="AttributeValues" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_AttributeValues_ec_Products" FromRole="ec_Products" ToRole="AttributeValue" />
+    <NavigationProperty Name="Category" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Products_ec_Categories" FromRole="ec_Products" ToRole="Category" />
+    <NavigationProperty Name="Manufacturer" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_Products_ec_Manufacturers" FromRole="ec_Products" ToRole="Manufacturer" />
+    <NavigationProperty Name="ProductMediaFiles" Relationship="QML.Web.UI.Areas.eCommerce.Models.FK_ec_ProductMediaFiles_ec_Products" FromRole="ec_Products" ToRole="ProductMediaFile" />
+  </EntityType>
+  <Association Name="FK_ec_AttributeValues_ec_Products">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Product" Role="ec_Products" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.AttributeValue" Role="AttributeValue" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="AttributeValue">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Products_ec_Categories">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Category" Role="Category" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Product" Role="ec_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_Products">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Products_ec_Manufacturers">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Manufacturer" Role="Manufacturer" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Product" Role="ec_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Manufacturer">
+        <PropertyRef Name="ManufacturerId" />
+      </Principal>
+      <Dependent Role="ec_Products">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_ProductMediaFiles_ec_Products">
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.Product" Role="ec_Products" Multiplicity="1" />
+    <End Type="QML.Web.UI.Areas.eCommerce.Models.ProductMediaFile" Role="ProductMediaFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ProductMediaFile">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

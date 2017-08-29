@@ -1,0 +1,129 @@
+﻿<div class="search">
+@{
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+}
+@{
+    ViewBag.Title = "Tìm kiếm tài liệu";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#searchGuide").click(function (event) {
+            alert("Hướng dẫn sử dụng chức năng tìm kiếm:\n"
+        + "1.Tim chính xác: Đặt từ chính xác trong \"\"(ngoặc kép) ví dụ: \"chó sục chuột\".\n"
+        + "2.Tìm nâng cao: (tương ứng với VÀ/AND): đặt dấu + giữa các thuật ngữ tìm kiếm. ví dụ: Khoa học máy tính + Chương trình \n "
+        + "3.Tìm nâng cao (Tương ứng với HOẶC/OR) : sử dụng dấu | giữa các thuật ngữ tìm kiếm. Ví dụ: Nguyễn Đình Chiểu | Nguyễn Tuân\n"
+        + "4.Tìm loại trừ : Đặt dấu – ngay trước thuật ngữ bạn không muốn tìm. Ví dụ: Văn học-Tiểu thuyết\n"
+        + "5.Khi không sử dụng các luật trên: kết quả hiện thị ưu tiên kết quả có chứa từ khóa.");
+            event.preventDefault();
+        });
+    });       
+    
+</script>
+
+<!-- Search in Elib -->
+<h3>Tra cứu tài nguyên:</h3>
+
+@using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
+{
+    <!-- Category -->
+    <center>
+    <div>
+        <span>Tra cứu theo Bộ sưu tập:</span><br />
+        <select name="DocumentCategory">
+            <option value="0" selected="selected">Tất cả</option>
+            @{
+        
+        
+        foreach (var itemVar in QML.Web.UI.Helpers.FrontLayoutHelper.populateDropdown(0,1))
+        {                    
+                        <option value="@itemVar.CategoryID">@itemVar.CategoryName</option>                    
+        }    
+}
+        </select>
+    </div>
+    <!-- Format -->
+    <div>
+        <input name="DocumentType" value="0" type="radio" checked="checked"/><label>Toàn bộ</label>
+        @{
+            IEnumerable<QML.Web.UI.DocumentFormat> formats = db.DocumentFormats.ToList();
+            foreach (var item in formats)
+            {
+                <input name="DocumentType" value="@item.DocumentFormatID" type="radio" /><label>@item.Name</label>
+            }
+        }
+    </div>
+    <table>
+        <!-- Truong tim kiem -->
+        <tr>
+            <td>
+               <select name="Attribute">        
+                    <option value="0" selected=selected>Tất cả</option>
+                    <option value="1">Nhan đề</option>
+                    <option value="2">Tác giả</option>
+                    <option value="3">Chủ đề</option>                    
+                    <option value="4">Tác giả phụ</option>    
+                    <option value="5">Năm xuất bản</option>    
+                    <option value="6">Loại tài liệu</option>    
+                    <option value="7">Mô tả vật lý</option>    
+                    <option value="8">Định danh</option>    
+                    <option value="9">Liên kết</option>    
+                    <option value="10">Nguồn</option>                  
+                    <option value="11">Ngôn ngữ</option>                        
+                    <option value="12">Bản quyền</option>                        
+                    <option value="13">Tóm tắt</option>                        
+                    <option value="14">Nhà xuất bản</option>    
+                    <option value="15">Địa chỉ lưu trữ</option>    
+                </select>
+            </td>
+            <td>
+                <input type="text" name="Keyword" style="width:40em"/>
+            </td>
+        </tr>
+    </table>
+    </center>
+    
+    <!-- Dang an pham mien phi/tra phi -->
+    <div>
+        <center>
+        Dạng ấn phẩm điện tử:<br />
+             <input name="FeeType" value="1" type="radio" checked="checked"/><label>Miễn phí</label>
+             <input name="FeeType" value="2" type="radio"/><label>Trả phí</label>
+            <!--
+        <select name="FeeType" style="width: 150px">
+            <option selected="selected" value="0">Tất cả</option>
+            <option value="1">Miễn phí</option>
+            <option value="2">Trả phí</option>
+        </select>
+                -->
+        </center>
+    </div>
+    
+    <!-- Huong dan -->
+    <div>
+        <center><a href="" id="searchGuide">Hướng dẫn tìm kiếm</a></center>
+    </div>
+    <input type="hidden" name="filterLimited" value="filterUnlimited"/>
+    <!-- Tim kiem gan day -->
+    <div>
+    <center>
+        Các từ khoá tìm kiếm gần đây nhất: <br />
+        @foreach (var item in ViewBag.History)
+        {
+            <a href="@Url.Action("NormalSearch", new { keyword = item.Keyword })">@item.Keyword</a>
+        }
+    </center>
+    </div>
+    <center>
+    <div>
+        <input type="submit" name="submit" value="Tìm kiếm" />
+        <span>&nbsp&nbsp</span>
+        <input type="reset" name="reset" value="Đặt lại" />
+    </div>
+    </center>
+}
+
+<br />
+<!-- Search by google -->
+<h3>Tìm kiếm sử dụng Google:</h3>
+@Html.Partial("_CustomSearch")
+</div>

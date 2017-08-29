@@ -1,0 +1,223 @@
+C:\inetpub\wwwroot\QML.Web.UI\bin\QML.Web.UI.dll
+C:\inetpub\wwwroot\QML.Web.UI\bin\QML.Web.UI.pdb
+C:\inetpub\wwwroot\QML.Web.UI\obj\Release\ResolveAssemblyReference.cache
+C:\inetpub\wwwroot\QML.Web.UI\obj\Release\QML.Web.UI.dll
+C:\inetpub\wwwroot\QML.Web.UI\obj\Release\QML.Web.UI.pdb
+F:\NC\NET\2012\Elib\BackUp\svn\bin\QML.Web.UI.dll
+F:\NC\NET\2012\Elib\BackUp\svn\bin\QML.Web.UI.pdb
+F:\NC\NET\2012\Elib\BackUp\svn\obj\Release\QML.Web.UI.dll
+F:\NC\NET\2012\Elib\BackUp\svn\obj\Release\QML.Web.UI.pdb
+F:\NC\NET\2012\Elib\BackUp\svn\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+E:\data_code_elib\data_code_elib\code\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+E:\data_code_elib\data_code_elib\code\obj\Release\QML.Web.UI.dll
+E:\data_code_elib\data_code_elib\code\bin\QML.Web.UI.dll
+E:\data_code_elib\data_code_elib\code\bin\QML.Web.UI.pdb
+E:\data_code_elib\data_code_elib\code\bin\EntityFramework.dll
+E:\data_code_elib\data_code_elib\code\bin\EntityFramework.xml
+E:\data_code_elib\data_code_elib\code\obj\Release\QML.Web.UI.pdb
+E:\code\bin\QML.Web.UI.dll
+E:\code\bin\QML.Web.UI.pdb
+E:\code\bin\EntityFramework.dll
+E:\code\bin\EntityFramework.xml
+E:\code\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+E:\code\obj\Release\QML.Web.UI.dll
+E:\code\obj\Release\QML.Web.UI.pdb
+E:\code thư viện khoa\bin\QML.Web.UI.dll
+E:\code thư viện khoa\bin\QML.Web.UI.pdb
+E:\code thư viện khoa\bin\EntityFramework.dll
+E:\code thư viện khoa\bin\EntityFramework.xml
+E:\code thư viện khoa\obj\Release\QML.Web.UI.dll
+E:\code thư viện khoa\obj\Release\QML.Web.UI.pdb
+E:\code thư viện khoa\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\obj\Release\QML.Web.UI.csproj.App.config
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\QML.Web.UI.dll.config
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\QML.Web.UI.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\QML.Web.UI.pdb
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\EntityFramework.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\EntityFramework.SqlServer.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\Microsoft.Web.Helpers.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.IO.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.Extensions.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.Primitives.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.WebRequest.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Runtime.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Threading.Tasks.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.Helpers.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.Mvc.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.Razor.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.WebPages.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\Telerik.Web.Mvc.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\WebMatrix.Data.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\WebMatrix.WebData.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\EntityFramework.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\EntityFramework.SqlServer.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.IO.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.Extensions.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.Primitives.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Net.Http.WebRequest.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Runtime.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Threading.Tasks.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.Helpers.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.Mvc.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.Razor.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.WebPages.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\WebMatrix.Data.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\bin\WebMatrix.WebData.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\obj\Release\QML.Web.UI.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\obj\Release\QML.Web.UI.pdb
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\code thư viện khoa\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\QML.Web.UI.dll.config
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\QML.Web.UI.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\QML.Web.UI.pdb
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\EntityFramework.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\EntityFramework.SqlServer.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\itextsharp.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\Microsoft.Web.Helpers.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.IO.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.Extensions.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.Primitives.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.WebRequest.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Runtime.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Threading.Tasks.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.Helpers.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.Mvc.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.Razor.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.WebPages.Deployment.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.WebPages.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\Telerik.Web.Mvc.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\WebMatrix.Data.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\WebMatrix.WebData.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\EntityFramework.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\EntityFramework.SqlServer.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\itextsharp.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.IO.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.Extensions.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.Primitives.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Net.Http.WebRequest.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Runtime.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Threading.Tasks.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.Helpers.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.Mvc.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.Razor.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.WebPages.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\System.Web.WebPages.Deployment.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\WebMatrix.Data.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\WebMatrix.WebData.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\obj\Release\QML.Web.UI.csproj.App.config
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\obj\Release\QML.Web.UI.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\obj\Release\QML.Web.UI.pdb
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\PagedList.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\PagedList.Mvc.dll
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\PagedList.xml
+C:\Users\ThinhNguyen\Downloads\Documents\Spring 2015\SS2\elib_mvc\bin\PagedList.Mvc.xml
+E:\elib_mvc\bin\QML.Web.UI.dll.config
+E:\elib_mvc\bin\QML.Web.UI.dll
+E:\elib_mvc\bin\QML.Web.UI.pdb
+E:\elib_mvc\bin\EntityFramework.dll
+E:\elib_mvc\bin\itextsharp.dll
+E:\elib_mvc\bin\Microsoft.Web.Helpers.dll
+E:\elib_mvc\bin\Microsoft.Web.Infrastructure.dll
+E:\elib_mvc\bin\PagedList.dll
+E:\elib_mvc\bin\PagedList.Mvc.dll
+E:\elib_mvc\bin\System.IO.dll
+E:\elib_mvc\bin\System.Net.Http.dll
+E:\elib_mvc\bin\System.Net.Http.Extensions.dll
+E:\elib_mvc\bin\System.Net.Http.Primitives.dll
+E:\elib_mvc\bin\System.Net.Http.WebRequest.dll
+E:\elib_mvc\bin\System.Runtime.dll
+E:\elib_mvc\bin\System.Threading.Tasks.dll
+E:\elib_mvc\bin\System.Web.Helpers.dll
+E:\elib_mvc\bin\System.Web.Mvc.dll
+E:\elib_mvc\bin\System.Web.Razor.dll
+E:\elib_mvc\bin\System.Web.WebPages.Deployment.dll
+E:\elib_mvc\bin\System.Web.WebPages.dll
+E:\elib_mvc\bin\Telerik.Web.Mvc.dll
+E:\elib_mvc\bin\WebMatrix.Data.dll
+E:\elib_mvc\bin\WebMatrix.WebData.dll
+E:\elib_mvc\bin\EntityFramework.xml
+E:\elib_mvc\bin\itextsharp.xml
+E:\elib_mvc\bin\PagedList.xml
+E:\elib_mvc\bin\PagedList.Mvc.xml
+E:\elib_mvc\bin\System.IO.xml
+E:\elib_mvc\bin\System.Net.Http.xml
+E:\elib_mvc\bin\System.Net.Http.Extensions.xml
+E:\elib_mvc\bin\System.Net.Http.Primitives.xml
+E:\elib_mvc\bin\System.Net.Http.WebRequest.xml
+E:\elib_mvc\bin\System.Runtime.xml
+E:\elib_mvc\bin\System.Threading.Tasks.xml
+E:\elib_mvc\bin\System.Web.Helpers.xml
+E:\elib_mvc\bin\System.Web.Mvc.xml
+E:\elib_mvc\bin\System.Web.Razor.xml
+E:\elib_mvc\bin\System.Web.WebPages.xml
+E:\elib_mvc\bin\System.Web.WebPages.Deployment.xml
+E:\elib_mvc\bin\WebMatrix.Data.xml
+E:\elib_mvc\bin\WebMatrix.WebData.xml
+E:\elib_mvc\obj\Release\QML.Web.UI.csproj.App.config
+E:\elib_mvc\obj\Release\QML.Web.UI.dll
+E:\elib_mvc\obj\Release\QML.Web.UI.pdb
+E:\elib_mvc\bin\EPPlus.dll
+E:\elib_mvc\bin\EPPlus.xml
+E:\elib_mvc\bin\Ionic.Zip.dll
+E:\elib_mvc\bin\Ionic.Zip.xml
+E:\elib_mvc\bin\GhostscriptSharp.dll
+E:\elib_mvc\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\QML.Web.UI.dll.config
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\QML.Web.UI.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\QML.Web.UI.pdb
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\EntityFramework.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\EPPlus.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\GhostscriptSharp.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\Ionic.Zip.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\itextsharp.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\Microsoft.Web.Helpers.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\Microsoft.Web.Infrastructure.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\PagedList.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\PagedList.Mvc.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.IO.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.Extensions.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.Primitives.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.WebRequest.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Runtime.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Threading.Tasks.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.Helpers.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.Mvc.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.Razor.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.WebPages.Deployment.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.WebPages.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\Telerik.Web.Mvc.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\WebMatrix.Data.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\WebMatrix.WebData.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\EntityFramework.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\EPPlus.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\Ionic.Zip.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\itextsharp.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\PagedList.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\PagedList.Mvc.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.IO.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.Extensions.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.Primitives.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Net.Http.WebRequest.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Runtime.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Threading.Tasks.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.Helpers.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.Mvc.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.Razor.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.WebPages.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\System.Web.WebPages.Deployment.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\WebMatrix.Data.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\bin\WebMatrix.WebData.xml
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\obj\Release\QML.Web.UI.csproj.App.config
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\obj\Release\QML.Web.UI.csprojResolveAssemblyReference.cache
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\obj\Release\QML.Web.UI.dll
+D:\Code Projects\SS2 Elib Full Package - Thinh, Vu, Huy, My\elib_mvc\obj\Release\QML.Web.UI.pdb

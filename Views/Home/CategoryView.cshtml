@@ -1,0 +1,66 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocumentEssential>
+@{
+    ViewBag.Title = "Xem tài liệu theo danh sách";
+}
+
+<!-- Main contents -->
+<div id="main">
+	<!-- Insert content here -->
+    <h2 style="text-align:center; font-weight:bold">Tài nguyên số</h2>
+	<div id="left-panel" style="font-size:smaller">
+		<div>
+			<h3 class="categogies">Bộ sưu tập</h3>
+			<ul class="cat_list">
+                @{
+                    var str = QML.Web.UI.Helpers.FrontLayoutHelper.BuildRightCategoryTree(Url);
+                    WriteLiteral(str);                       
+                } 
+			</ul>
+		</div>
+		<div>
+			<h3 class="formats">Dạng tài liệu</h3>
+			<ul class="format_list">
+            @foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetBookFormat())
+            {
+                <li>@Html.ActionLink(item.Name, "ViewByFormat", new { id = item.DocumentFormatID })</li>
+            }				
+			</ul>
+		</div>	
+        <div>
+			<h3 class="mostviewed">Tài liệu đọc nhiều nhất</h3>
+            <ul class="mv_list">
+                @foreach (var item in QML.Web.UI.Helpers.FrontLayoutHelper.GetMostViewBooks())
+                {
+                    if (Html.GetAuthManager().GetUser() != null)
+                    {
+                        if (Html.GetAuthManager().GetUser().Roles.Count != 0
+                            && Html.GetAuthManager().GetUser().Roles.SingleOrDefault(p => p.RoleName == "Premium") != null
+                            || Html.GetAuthManager().GetUser().IsSuperUser)
+                        {
+                            <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })" onclick="view_confirmation(@item.BookFee)">@item.Title</a></li>
+                        }
+                        else
+                        {
+                            if (item.BookFee == 0)
+                            {
+                                <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (item.BookFee == 0)
+                        {
+                            <li><a href="@Url.Action("ViewBook", "Home", new { id = item.DocumentID })">@item.Title</a></li>
+                        }
+                    }
+                }
+            </ul>
+		</div>
+	</div>
+	<div id="right-panel">
+		<div>
+            <h3>Vui lòng chọn bộ sưu tập bên cột trái</h3>	
+		</div>
+	</div>
+</div>

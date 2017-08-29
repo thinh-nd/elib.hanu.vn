@@ -1,0 +1,37 @@
+﻿@model IEnumerable<QML.Web.UI.DocumentFormat>
+
+@{
+    ViewBag.Title = "QUẢN LÝ ĐỊNH DẠNG TÀI LIỆU";
+}
+
+<h2>Danh sách</h2>
+<!--
+<p>
+    @Html.ActionLink("Thêm mới", "Create", "DocumentFormat", null, new { @class = "link-button-green" })
+</p>
+-->
+<ul id="browser" class="filetree">
+ @MvcHtmlString.Create(ViewBag.tree_cate)
+</ul>
+
+
+@{
+    var grid = new WebGrid(
+        source: Model.ToList(),
+        rowsPerPage: 10
+        );
+}
+@grid.GetHtml(
+    tableStyle: "datatable",                
+    columns: grid.Columns(
+        grid.Column(columnName: "Name", header: "Tên định dạng"),
+        grid.Column(columnName: "Description", header: "Mô tả"),
+        grid.Column(columnName: "MIME", header: "MIME"),
+        grid.Column(columnName: "FileFormat", header: "Đuôi định dạng"),
+        grid.Column(header: "Icon", format: @<text><img src="@Url.Content("~/uploads/" + @item.Avatar)" style="width:64px; height:64px" alt="" /></text>)
+        //grid.Column(header: "Hành động", format: 
+        //@<text>@Html.ActionLink("Xóa", "Delete", new { id = item.DocumentFormatID })</text>)
+    ),
+    htmlAttributes: new { cellpadding = "0", cellspacing = "0", width = "100%" },
+    footerStyle: "pagination"
+)

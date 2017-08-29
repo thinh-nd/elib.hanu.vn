@@ -1,0 +1,27 @@
+﻿@{
+    QML.Web.UI.Controllers.EssentialController ec = new QML.Web.UI.Controllers.EssentialController();
+    QML.Web.UI.Controllers.HomeController eh = new QML.Web.UI.Controllers.HomeController();
+    ViewBag.Title = "Unauthorized";
+}
+<script type="text/javascript">
+    @if (ec.IsPremium()){
+    Layout = "~/Views/Shared/_IndexLayout.cshtml";
+    <text>
+    $(document).ready(function () {
+        window.location = "../../Home/Index";
+    });
+    </text>
+    }
+</script>
+@if (ec.IsPremium())
+{
+    //if this page got redirected after logon
+    //do nothing
+}
+else if (Html.GetAuthManager().GetUser() != null)
+{
+    //nếu không phải là sinh viên trả phí
+    <p><b>@Html.Localize("Bạn không đủ quyền hạn để thực hiện chức năng này")</b></p>
+}
+
+

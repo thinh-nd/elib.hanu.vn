@@ -1,0 +1,20 @@
+﻿@{   
+    QML.Web.UI.Controllers.EssentialController ec = new QML.Web.UI.Controllers.EssentialController();
+    QML.Web.UI.Controllers.HomeController eh = new QML.Web.UI.Controllers.HomeController();
+    ViewBag.Title = "Unauthorized";    
+}
+<script type="text/javascript">
+    @if (ec.IsPremium()){
+    <text>
+    $(document).ready(function () {
+        window.location = "../../Home/Index";
+    });
+    </text>
+    }
+</script>
+@if(Html.GetAuthManager().GetUser()!=null){
+    //nếu không phải là sinh viên trả phí    
+    <p>@Html.Localize("You don't have permission to access this page.")</p>    
+}
+
+

@@ -1,0 +1,76 @@
+﻿@model QML.Web.UI.Areas.Core.Models.PermissionForm
+@{
+    ViewBag.Title = "Role Permissions";
+}
+@using (Html.BeginForm())
+{
+    <p>
+        <input type="submit" class="button button-green" value="@Html.Localize("Save")" />
+        <a href="@Url.Action("RolesList")" class="button button-gray">@Html.Localize("Back")</a>
+    </p>
+    @Html.HiddenFor(m => m.RoleId)
+    <table class="datatable full">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Localize("Controller")
+                </th>
+                <th>
+                    @Html.Localize("Actions")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Controllers.Count(); i++)
+            {
+                var actions = Model.Controllers.ElementAt(i).Actions;
+                <tr>
+                    <td>
+                        @Model.Controllers.ElementAt(i).Area/@Model.Controllers.ElementAt(i).ControllerName
+                        @Html.HiddenFor(m => m.Controllers[i].ControllerName)
+                        @Html.HiddenFor(m => m.Controllers[i].Area)
+                    </td>
+                    <td>
+                        <table class="datatable full">
+                            <thead>
+                                <tr>
+                                    <th>
+                                    </th>
+                                    <th style="width: 20px;">
+                                        <input type="checkbox" class="checkAll" />
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int j = 0; j < actions.Count(); j++)
+                                { 
+                                    <tr>
+                                        <td>
+                                            @(Html.Localize(actions.ElementAt(j).ActionName) + " (" + actions.ElementAt(j).ActionName + ")")
+                                        </td>
+                                        <td>
+                                            @Html.HiddenFor(m => m.Controllers[i].Actions[j].ActionName)
+                                            &nbsp;&nbsp;@Html.CheckBoxFor(m => m.Controllers[i].Actions[j].IsAuthorized)
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <input type="submit" class="button button-green" value="@Html.Localize("Save")" />
+        <a href="@Url.Action("RolesList")" class="button button-gray">@Html.Localize("Back")</a>
+    </p>
+}
+<script type="text/javascript">
+    $(function () {
+        $('.checkAll').change(function () {
+            var chk = $(this);
+            $(this).closest('table').find('input[type=checkbox]').attr('checked', chk.is(':checked'));
+        });
+    });
+</script>

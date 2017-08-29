@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QmlModel1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="QmlModel1StoreContainer">
+    <EntitySet Name="Article_Static_Items" EntityType="QmlModel1.Store.Article_Static_Items" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="display_Banner" EntityType="QmlModel1.Store.display_Banner" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="display_BannerItems" EntityType="QmlModel1.Store.display_BannerItems" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="display_SideLogos" EntityType="QmlModel1.Store.display_SideLogos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="display_StaticTexts" EntityType="QmlModel1.Store.display_StaticTexts" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_display_BannerItems_display_Banner" Association="QmlModel1.Store.FK_display_BannerItems_display_Banner">
+      <End Role="display_Banner" EntitySet="display_Banner" />
+      <End Role="display_BannerItems" EntitySet="display_BannerItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_display_SideLogos_Article_Static_Items" Association="QmlModel1.Store.FK_display_SideLogos_Article_Static_Items">
+      <End Role="Article_Static_Items" EntitySet="Article_Static_Items" />
+      <End Role="display_SideLogos" EntitySet="display_SideLogos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Article_Static_Items">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Body" Type="ntext" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="display_Banner">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="IsMain" Type="bit" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="display_BannerItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BannerID" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="250" />
+    <Property Name="Position" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="display_SideLogos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="ImagePath" Type="nvarchar" MaxLength="250" />
+    <Property Name="Position" Type="int" Nullable="false" />
+    <Property Name="StaticArticleID" Type="bigint" />
+  </EntityType>
+  <EntityType Name="display_StaticTexts">
+    <Key>
+      <PropertyRef Name="Code" />
+    </Key>
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Body" Type="ntext" />
+  </EntityType>
+  <Association Name="FK_display_BannerItems_display_Banner">
+    <End Role="display_Banner" Type="QmlModel1.Store.display_Banner" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="display_BannerItems" Type="QmlModel1.Store.display_BannerItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="display_Banner">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="display_BannerItems">
+        <PropertyRef Name="BannerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_display_SideLogos_Article_Static_Items">
+    <End Role="Article_Static_Items" Type="QmlModel1.Store.Article_Static_Items" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="display_SideLogos" Type="QmlModel1.Store.display_SideLogos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Article_Static_Items">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="display_SideLogos">
+        <PropertyRef Name="StaticArticleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

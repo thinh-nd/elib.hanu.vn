@@ -1,0 +1,186 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocumentEssential>
+@{
+    ViewBag.Title = "Kết quả tìm kiếm cho " + ViewBag.Keyword;    
+}
+@helper TruncateString(string input, int length)
+    {
+        if (input != null)
+        {
+            if (input.Length <= length)
+            {
+    @input
+            }
+            else
+            {
+    @input.Substring(0, length)<text>...</text>
+            }
+        }
+}
+<div class="search">
+    <script type="text/javascript">
+        function view_confirmation(fee) {
+            if (fee != 0) {
+                alert('Tài liệu có giá ' + fee + ' VNĐ sẽ được trừ vào tài khoản của bạn.');
+            }
+        }
+    </script>
+    <script type="text/javascript" src='@Url.Content("~/js/Pagination.js")'></script>
+    <script type="text/javascript" src='@Url.Content("~/js/jPages.min.js")'></script>
+    <h2>
+        Kết quả tìm kiếm theo từ khoá <i>"@ViewBag.Keyword"</i>(@Model.Count() kết quả)</h2>
+    <br />
+    <!-- Phân trang -->
+    <div class="pages">
+    </div>
+    <div class="gotoPage" style="margin-top: 1px">
+        Tới trang:
+        <input type="text" class="goTo" style="width: 50px" /></div>
+    <!-- Phân trang -->
+    <div>
+        <center>
+            Các từ khoá tìm kiếm gần đây nhất:
+            <br />
+            @foreach (var item in ViewBag.History)
+            {
+                <a href="@Url.Action("NormalSearch", new { keyword = item.Keyword })">@item.Keyword</a>
+            }
+        </center>
+    </div>
+    <br />
+    <ul id="search-result">
+        @if (Model.Count() == 0)
+        {
+            <span>Không tìm thấy kết quả nào cho từ khoá "@ViewBag.Keyword"</span>
+        }
+        @foreach (var item in Model)
+        {
+            <li class="paragraph" id="1123" style="position: relative">
+                <div class="bookDetailInfo" style="padding: 16px 10px 13px 5px">
+                    <div class="img">
+                        <img src="@Url.Content("~/uploads/" + @item.Thumbnail)" width="80px" height="100px" alt="image" style="float:left"/>
+                    </div>
+                    <div class="box_info">
+                        <!-- Book Info -->
+                        <div class="book_info">
+                            <br />
+                            <b>Mô tả:</b><i> @TruncateString(item.Description, 25)</i>
+                            <br />
+                            <b>Ngôn ngữ:</b><i> @item.Language</i>
+                            <br />
+                            <b>Loại:</b><i> @item.Type</i>
+                        </div>
+                        <!-- end Book Info-->
+                        @if (Html.GetAuthManager().GetUser() != null)
+                        {
+                            if (QML.Web.UI.Helpers.FrontLayoutHelper.getViewHistory(Html.GetAuthManager().GetUser().UserId, item.DocumentID) == true)
+                            {
+                            <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" ><span style="font-size: 13px;
+                                font-weight: bold; color: #0094FF;">@item.Title</span> <span style="font-size: 11px;
+                                    font-weight: normal; color: black;">/ @item.Creator .-
+                                    @item.Publisher, @item.Date.Value.ToShortDateString() </span></a>
+                            <br />
+                            <span style="font-size: 10px"><b>Giá:</b> @item.BookFee (VNĐ)</span>
+                            <br />
+                            <a href="@Url.Action("ViewBookDetail", new { id = @item.DocumentID })" >
+                                <img src="@Url.Content("~/images/btn_detail.jpg")" border="0" />
+                            </a> <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })">
+                                <img src="@Url.Content("~/images/button-xem.jpg")" border="0" /></a>
+                            }
+                            else
+                            { 
+                            <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                                <span style="font-size: 13px; font-weight: bold; color: #0094FF;">@item.Title</span>
+                                <span style="font-size: 11px; font-weight: normal; color: black;">/ @item.Creator .-
+                                    @item.Publisher, @item.Date.Value.ToShortDateString() </span></a>
+                            <br />
+                            <span style="font-size: 10px"><b>Giá:</b> @item.BookFee (VNĐ)</span>
+                            <br />
+                            <a href="@Url.Action("ViewBookDetail", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                                <img src="@Url.Content("~/images/btn_detail.jpg")" border="0" /></a> <a href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                                    <img src="@Url.Content("~/images/button-xem.jpg")" border="0" /></a>
+                            }
+                        }
+                        //nếu chưa đăng nhập
+                        else
+                        { 
+                            <a id="111" href="@Url.Action("ViewBook", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                                <span style="font-size: 13px; font-weight: bold; color: #0094FF;">@item.Title</span>
+                                <span style="font-size: 11px; font-weight: normal; color: black;">/ @item.Creator .-
+                                    @item.Publisher, @item.Date.Value.ToShortDateString() </span></a>
+                            <br />
+                            <span style="font-size: 10px"><b>Giá:</b> @item.BookFee (VNĐ)</span>
+                            <br />
+                            <a href="@Url.Action("ViewBookDetail", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                                <img src="@Url.Content("~/images/btn_detail.jpg")" border="0" /></a> <a href="@Url.Action("LoginMessage", new { id = @item.DocumentID })" onclick="view_confirmation(@item.BookFee)">
+                                    <img src="@Url.Content("~/images/button-xem.jpg")" border="0" /></a>
+                        }
+                        <!-- search ra item -->
+                    </div>
+                </div>
+            </li>
+        }
+    </ul>
+        <!-- Phân trang-->
+    <div class="pages">
+    </div>
+    <div class="gotoPage" style="margin-top: 1px">
+        Tới trang:
+        <input type="text" class="goTo" style="width: 50px" /></div>
+    <!-- Hết phân trang-->
+
+    @Html.ActionLink("Trở về trang tìm kiếm", "Search")
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $(".pages").jPages({
+            containerID: "search-result",
+            perPage: 10,
+            keyBrowse: true,
+            scrollBrowse: true
+        });
+    });
+	
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".goTo").change(function () {
+            $(".goTo").val($(this).val());
+            if ($(this).val() != "" && !isNaN($(this).val())) {
+                // It's a number
+                numValue = parseInt($(this).val());
+                $(".pages").jPages(numValue);
+            } else {
+                alert('Số trang phải là số');
+            }
+        });
+    });
+</script>
+
+<style type="text/css">    
+    .jp-previous
+    {
+        margin-right: 12px;
+    }
+    
+    .jp-current
+    {
+        color: Red !important;
+    }
+    .jp-next
+    {
+        margin-left: 12px;
+    }
+    
+    .pages a
+    {
+        margin: 0 12px;
+    }
+    .book_info
+    {
+        top: 33px;
+        left: 240px;
+        z-index: 1000;
+    }
+</style>

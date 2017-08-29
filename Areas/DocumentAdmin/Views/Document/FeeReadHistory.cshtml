@@ -1,0 +1,45 @@
+﻿@model IEnumerable<QML.Web.UI.FeeHistoryView>
+@{
+    ViewBag.Title = "Lịch sử lần đọc mất phí";
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#userForm").change(function () {
+            //on-change code goes in here.
+            //variable "this" references the state dropdown element
+            $("#userForm").submit();
+
+        });
+    });
+</script>
+<h2>Lịch sử lần đọc mất phí</h2>
+<div id="ss_form">
+    @using (Html.BeginForm("FeeReadHistory", "Document", FormMethod.Get, new { id = "userForm"}))
+    {
+        <p>
+            <span class="form_field">Người dùng: <input type="text" name="username" value="@ViewBag.uName"/></span>                        
+            <span class="form_field">Tháng: @Html.DropDownList("month", (IEnumerable<SelectListItem>)ViewBag.Month)</span>            
+            <span class="form_field">Năm: @Html.DropDownList("year", (IEnumerable<SelectListItem>)ViewBag.Year)</span>
+        </p>                                            
+    }
+</div>
+
+
+           @{
+                var grid = new WebGrid(
+                    source: Model.ToList(), 
+                    rowsPerPage: 10
+                    );
+		    }
+
+            @grid.GetHtml(
+            tableStyle: "datatable",
+            columns: grid.Columns(
+                                     grid.Column(columnName: "UserId", header: "Người đọc", format: @<text> @Html.Label((string)QML.Web.UI.Helpers.FrontLayoutHelper.getUsername(item.userID)) </text>),
+                                                                       grid.Column(columnName: "DocumentID", header: "Tài liệu đọc", format: @<text> @Html.Label((string)QML.Web.UI.Helpers.FrontLayoutHelper.getDocumentTitle(item.DocumentID)) </text>),                                     
+                                     grid.Column(columnName: "Fee", header: "Phí đọc tài liệu(VNĐ)"),
+                                     grid.Column(columnName: "TimeRecorded", header: "Ngày đọc tài liệu")
+                                 ),
+                                     htmlAttributes: new { id = "hoho", cellpadding = "0", cellspacing = "0", width = "100%" },
+                                 footerStyle: "pagination"
+                             )

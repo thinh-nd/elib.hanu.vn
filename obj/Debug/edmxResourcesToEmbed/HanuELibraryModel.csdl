@@ -1,0 +1,831 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QML.Web.UI" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="HanuELibraryEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="app_Applications" EntityType="QML.Web.UI.app_Applications" />
+    <EntitySet Name="app_Features" EntityType="QML.Web.UI.app_Features" />
+    <EntitySet Name="app_PageModules" EntityType="QML.Web.UI.app_PageModules" />
+    <EntitySet Name="app_Pages" EntityType="QML.Web.UI.app_Pages" />
+    <EntitySet Name="app_PartialViews" EntityType="QML.Web.UI.app_PartialViews" />
+    <EntitySet Name="app_StaticItems" EntityType="QML.Web.UI.app_StaticItems" />
+    <EntitySet Name="auth_RolePermissions" EntityType="QML.Web.UI.auth_RolePermissions" />
+    <EntitySet Name="auth_Roles" EntityType="QML.Web.UI.auth_Roles" />
+    <EntitySet Name="auth_Users" EntityType="QML.Web.UI.auth_Users" />
+    <EntitySet Name="core_Actions" EntityType="QML.Web.UI.core_Actions" />
+    <EntitySet Name="core_Areas" EntityType="QML.Web.UI.core_Areas" />
+    <EntitySet Name="core_Configs" EntityType="QML.Web.UI.core_Configs" />
+    <EntitySet Name="core_Controllers" EntityType="QML.Web.UI.core_Controllers" />
+    <EntitySet Name="core_Frontend_Menu" EntityType="QML.Web.UI.core_Frontend_Menu" />
+    <EntitySet Name="core_Frontend_MenuItems" EntityType="QML.Web.UI.core_Frontend_MenuItems" />
+    <EntitySet Name="core_Locales" EntityType="QML.Web.UI.core_Locales" />
+    <EntitySet Name="core_Translations" EntityType="QML.Web.UI.core_Translations" />
+    <EntitySet Name="DocumentCategories" EntityType="QML.Web.UI.DocumentCategory" />
+    <EntitySet Name="DocumentFormats" EntityType="QML.Web.UI.DocumentFormat" />
+    <EntitySet Name="DocumentOrders" EntityType="QML.Web.UI.DocumentOrder" />
+    <EntitySet Name="Documents" EntityType="QML.Web.UI.Document" />
+    <EntitySet Name="DocumentsFiles" EntityType="QML.Web.UI.DocumentsFile" />
+    <EntitySet Name="DocumentStatistics" EntityType="QML.Web.UI.DocumentStatistic" />
+    <EntitySet Name="DocWeights" EntityType="QML.Web.UI.DocWeight" />
+    <EntitySet Name="DocWords" EntityType="QML.Web.UI.DocWord" />
+    <EntitySet Name="FeeHistoryViews" EntityType="QML.Web.UI.FeeHistoryView" />
+    <EntitySet Name="MoneyLogs" EntityType="QML.Web.UI.MoneyLog" />
+    <EntitySet Name="Profiles" EntityType="QML.Web.UI.Profile" />
+    <EntitySet Name="SearchHistories" EntityType="QML.Web.UI.SearchHistory" />
+    <EntitySet Name="sysdiagrams" EntityType="QML.Web.UI.sysdiagram" />
+    <EntitySet Name="UserGroups" EntityType="QML.Web.UI.UserGroup" />
+    <EntitySet Name="ViewHistories" EntityType="QML.Web.UI.ViewHistory" />
+    <AssociationSet Name="FK_app_Pages_app_Applications" Association="QML.Web.UI.FK_app_Pages_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_Pages" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_article_Static_Items_app_Applications" Association="QML.Web.UI.FK_article_Static_Items_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_StaticItems" EntitySet="app_StaticItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Roles_core_Applications" Association="QML.Web.UI.FK_auth_Roles_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Users_core_Applications" Association="QML.Web.UI.FK_auth_Users_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Users" EntitySet="auth_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Locales_core_Applications" Association="QML.Web.UI.FK_core_Locales_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="core_Locales" EntitySet="core_Locales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_app_Pages" Association="QML.Web.UI.FK_app_PageModules_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_core_Actions" Association="QML.Web.UI.FK_app_PageModules_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_Pages_app_Pages" Association="QML.Web.UI.FK_app_Pages_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_Pages1" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PartialViews_core_Actions" Association="QML.Web.UI.FK_app_PartialViews_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PartialViews" EntitySet="app_PartialViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_RolePermissions_auth_Roles" Association="QML.Web.UI.FK_core_RolePermissions_auth_Roles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_RolePermissions" EntitySet="auth_RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentOrders_auth_Users" Association="QML.Web.UI.FK_DocumentOrders_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="DocumentOrder" EntitySet="DocumentOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profile_auth_Users" Association="QML.Web.UI.FK_Profile_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="Profile" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Actions_core_Controllers" Association="QML.Web.UI.FK_core_Actions_core_Controllers">
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+      <End Role="core_Actions" EntitySet="core_Actions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_core_Actions" Association="QML.Web.UI.FK_Frontend_MenuItems_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Controllers_core_Areas" Association="QML.Web.UI.FK_core_Controllers_core_Areas">
+      <End Role="core_Areas" EntitySet="core_Areas" />
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_Frontend_Menu" Association="QML.Web.UI.FK_Frontend_MenuItems_Frontend_Menu">
+      <End Role="core_Frontend_Menu" EntitySet="core_Frontend_Menu" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems" Association="QML.Web.UI.FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+      <End Role="core_Frontend_MenuItems1" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Translations_Locales" Association="QML.Web.UI.FK_Translations_Locales">
+      <End Role="core_Locales" EntitySet="core_Locales" />
+      <End Role="core_Translations" EntitySet="core_Translations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentCategories" Association="QML.Web.UI.FK_DocumentsFile_DocumentCategories">
+      <End Role="DocumentCategory" EntitySet="DocumentCategories" />
+      <End Role="DocumentsFile" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentStatistic_DocumentCategories" Association="QML.Web.UI.FK_DocumentStatistic_DocumentCategories">
+      <End Role="DocumentCategory" EntitySet="DocumentCategories" />
+      <End Role="DocumentStatistic" EntitySet="DocumentStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentFormat" Association="QML.Web.UI.FK_DocumentsFile_DocumentFormat">
+      <End Role="DocumentFormat" EntitySet="DocumentFormats" />
+      <End Role="DocumentsFile" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentsFile" Association="QML.Web.UI.FK_Documents_DocumentsFile">
+      <End Role="DocumentsFile" EntitySet="DocumentsFiles" />
+      <End Role="Document" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="app_ApplicationFeatures" Association="QML.Web.UI.app_ApplicationFeatures">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_Features" EntitySet="app_Features" />
+    </AssociationSet>
+    <AssociationSet Name="app_FeatureControllers" Association="QML.Web.UI.app_FeatureControllers">
+      <End Role="app_Features" EntitySet="app_Features" />
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+    </AssociationSet>
+    <AssociationSet Name="auth_UsersInRoles" Association="QML.Web.UI.auth_UsersInRoles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_Users" EntitySet="auth_Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="app_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="DomainName" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CurrentTheme" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="app_Pages" Relationship="QML.Web.UI.FK_app_Pages_app_Applications" FromRole="app_Applications" ToRole="app_Pages" />
+    <NavigationProperty Name="app_StaticItems" Relationship="QML.Web.UI.FK_article_Static_Items_app_Applications" FromRole="app_Applications" ToRole="app_StaticItems" />
+    <NavigationProperty Name="auth_Roles" Relationship="QML.Web.UI.FK_auth_Roles_core_Applications" FromRole="app_Applications" ToRole="auth_Roles" />
+    <NavigationProperty Name="auth_Users" Relationship="QML.Web.UI.FK_auth_Users_core_Applications" FromRole="app_Applications" ToRole="auth_Users" />
+    <NavigationProperty Name="core_Locales" Relationship="QML.Web.UI.FK_core_Locales_core_Applications" FromRole="app_Applications" ToRole="core_Locales" />
+    <NavigationProperty Name="app_Features" Relationship="QML.Web.UI.app_ApplicationFeatures" FromRole="app_Applications" ToRole="app_Features" />
+  </EntityType>
+  <EntityType Name="app_Features">
+    <Key>
+      <PropertyRef Name="FeatureId" />
+    </Key>
+    <Property Type="Int64" Name="FeatureId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="app_Applications" Relationship="QML.Web.UI.app_ApplicationFeatures" FromRole="app_Features" ToRole="app_Applications" />
+    <NavigationProperty Name="core_Controllers" Relationship="QML.Web.UI.app_FeatureControllers" FromRole="app_Features" ToRole="core_Controllers" />
+  </EntityType>
+  <EntityType Name="app_PageModules">
+    <Key>
+      <PropertyRef Name="PageModuleId" />
+    </Key>
+    <Property Type="Int64" Name="PageModuleId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="PageId" Nullable="false" />
+    <Property Type="Int64" Name="ActionId" Nullable="false" />
+    <Property Type="String" Name="PositionCode" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Order" />
+    <NavigationProperty Name="app_Pages" Relationship="QML.Web.UI.FK_app_PageModules_app_Pages" FromRole="app_PageModules" ToRole="app_Pages" />
+    <NavigationProperty Name="core_Actions" Relationship="QML.Web.UI.FK_app_PageModules_core_Actions" FromRole="app_PageModules" ToRole="core_Actions" />
+  </EntityType>
+  <EntityType Name="app_Pages">
+    <Key>
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Type="Int64" Name="PageId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ParentId" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="CustomUrl" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Order" />
+    <Property Type="String" Name="Alias" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="app_Applications" Relationship="QML.Web.UI.FK_app_Pages_app_Applications" FromRole="app_Pages" ToRole="app_Applications" />
+    <NavigationProperty Name="app_PageModules" Relationship="QML.Web.UI.FK_app_PageModules_app_Pages" FromRole="app_Pages" ToRole="app_PageModules" />
+    <NavigationProperty Name="app_Pages1" Relationship="QML.Web.UI.FK_app_Pages_app_Pages" FromRole="app_Pages" ToRole="app_Pages1" />
+    <NavigationProperty Name="app_Pages2" Relationship="QML.Web.UI.FK_app_Pages_app_Pages" FromRole="app_Pages1" ToRole="app_Pages" />
+  </EntityType>
+  <EntityType Name="app_PartialViews">
+    <Key>
+      <PropertyRef Name="PartialViewId" />
+    </Key>
+    <Property Type="Int64" Name="PartialViewId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ActionId" Nullable="false" />
+    <Property Type="String" Name="Theme" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Name" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="core_Actions" Relationship="QML.Web.UI.FK_app_PartialViews_core_Actions" FromRole="app_PartialViews" ToRole="core_Actions" />
+  </EntityType>
+  <EntityType Name="app_StaticItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Code" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Title" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="Position" />
+    <NavigationProperty Name="app_Applications" Relationship="QML.Web.UI.FK_article_Static_Items_app_Applications" FromRole="app_StaticItems" ToRole="app_Applications" />
+  </EntityType>
+  <EntityType Name="auth_RolePermissions">
+    <Key>
+      <PropertyRef Name="RolePermissionId" />
+    </Key>
+    <Property Type="Int64" Name="RolePermissionId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="Action" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Controller" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Area" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="auth_Roles" Relationship="QML.Web.UI.FK_core_RolePermissions_auth_Roles" FromRole="auth_RolePermissions" ToRole="auth_Roles" />
+  </EntityType>
+  <EntityType Name="auth_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Type="Int64" Name="RoleId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ApplicationId" />
+    <Property Type="String" Name="RoleName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="app_Applications" Relationship="QML.Web.UI.FK_auth_Roles_core_Applications" FromRole="auth_Roles" ToRole="app_Applications" />
+    <NavigationProperty Name="auth_RolePermissions" Relationship="QML.Web.UI.FK_core_RolePermissions_auth_Roles" FromRole="auth_Roles" ToRole="auth_RolePermissions" />
+    <NavigationProperty Name="auth_Users" Relationship="QML.Web.UI.auth_UsersInRoles" FromRole="auth_Roles" ToRole="auth_Users" />
+  </EntityType>
+  <EntityType Name="auth_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Int64" Name="UserId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ApplicationId" />
+    <Property Type="String" Name="Username" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="DateTime" Name="LastLoginDate" />
+    <Property Type="String" Name="AuthToken" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Faculty" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="StudentID" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StudentClass" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ActualName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DueDate" />
+    <Property Type="Int32" Name="UserGroup" />
+    <NavigationProperty Name="app_Applications" Relationship="QML.Web.UI.FK_auth_Users_core_Applications" FromRole="auth_Users" ToRole="app_Applications" />
+    <NavigationProperty Name="DocumentOrders" Relationship="QML.Web.UI.FK_DocumentOrders_auth_Users" FromRole="auth_Users" ToRole="DocumentOrder" />
+    <NavigationProperty Name="Profile" Relationship="QML.Web.UI.FK_Profile_auth_Users" FromRole="auth_Users" ToRole="Profile" />
+    <NavigationProperty Name="auth_Roles" Relationship="QML.Web.UI.auth_UsersInRoles" FromRole="auth_Users" ToRole="auth_Roles" />
+  </EntityType>
+  <EntityType Name="core_Actions">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Type="Int64" Name="ActionId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ControllerId" Nullable="false" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Template" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="app_PageModules" Relationship="QML.Web.UI.FK_app_PageModules_core_Actions" FromRole="core_Actions" ToRole="app_PageModules" />
+    <NavigationProperty Name="app_PartialViews" Relationship="QML.Web.UI.FK_app_PartialViews_core_Actions" FromRole="core_Actions" ToRole="app_PartialViews" />
+    <NavigationProperty Name="core_Controllers" Relationship="QML.Web.UI.FK_core_Actions_core_Controllers" FromRole="core_Actions" ToRole="core_Controllers" />
+    <NavigationProperty Name="core_Frontend_MenuItems" Relationship="QML.Web.UI.FK_Frontend_MenuItems_core_Actions" FromRole="core_Actions" ToRole="core_Frontend_MenuItems" />
+  </EntityType>
+  <EntityType Name="core_Areas">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Type="Int64" Name="AreaId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="core_Controllers" Relationship="QML.Web.UI.FK_core_Controllers_core_Areas" FromRole="core_Areas" ToRole="core_Controllers" />
+  </EntityType>
+  <EntityType Name="core_Configs">
+    <Key>
+      <PropertyRef Name="ConfigId" />
+    </Key>
+    <Property Type="Int64" Name="ConfigId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Key" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Value" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="core_Controllers">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+    </Key>
+    <Property Type="Int64" Name="ControllerId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="AreaId" />
+    <Property Type="String" Name="Name" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="core_Actions" Relationship="QML.Web.UI.FK_core_Actions_core_Controllers" FromRole="core_Controllers" ToRole="core_Actions" />
+    <NavigationProperty Name="core_Areas" Relationship="QML.Web.UI.FK_core_Controllers_core_Areas" FromRole="core_Controllers" ToRole="core_Areas" />
+    <NavigationProperty Name="app_Features" Relationship="QML.Web.UI.app_FeatureControllers" FromRole="core_Controllers" ToRole="app_Features" />
+  </EntityType>
+  <EntityType Name="core_Frontend_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsMain" />
+    <Property Type="String" Name="Code" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="core_Frontend_MenuItems" Relationship="QML.Web.UI.FK_Frontend_MenuItems_Frontend_Menu" FromRole="core_Frontend_Menu" ToRole="core_Frontend_MenuItems" />
+  </EntityType>
+  <EntityType Name="core_Frontend_MenuItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="MenuID" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="ParentID" />
+    <Property Type="Int32" Name="Position" Nullable="false" />
+    <Property Type="Int64" Name="ActionId" />
+    <Property Type="String" Name="CustomUrl" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsCutom" />
+    <Property Type="String" Name="Parameters" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="core_Actions" Relationship="QML.Web.UI.FK_Frontend_MenuItems_core_Actions" FromRole="core_Frontend_MenuItems" ToRole="core_Actions" />
+    <NavigationProperty Name="core_Frontend_Menu" Relationship="QML.Web.UI.FK_Frontend_MenuItems_Frontend_Menu" FromRole="core_Frontend_MenuItems" ToRole="core_Frontend_Menu" />
+    <NavigationProperty Name="core_Frontend_MenuItems1" Relationship="QML.Web.UI.FK_core_Frontend_MenuItems_core_Frontend_MenuItems" FromRole="core_Frontend_MenuItems" ToRole="core_Frontend_MenuItems1" />
+    <NavigationProperty Name="core_Frontend_MenuItems2" Relationship="QML.Web.UI.FK_core_Frontend_MenuItems_core_Frontend_MenuItems" FromRole="core_Frontend_MenuItems1" ToRole="core_Frontend_MenuItems" />
+  </EntityType>
+  <EntityType Name="core_Locales">
+    <Key>
+      <PropertyRef Name="LocaleId" />
+    </Key>
+    <Property Type="Int64" Name="LocaleId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ApplicationId" />
+    <Property Type="String" Name="Name" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Icon" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="app_Applications" Relationship="QML.Web.UI.FK_core_Locales_core_Applications" FromRole="core_Locales" ToRole="app_Applications" />
+    <NavigationProperty Name="core_Translations" Relationship="QML.Web.UI.FK_Translations_Locales" FromRole="core_Locales" ToRole="core_Translations" />
+  </EntityType>
+  <EntityType Name="core_Translations">
+    <Key>
+      <PropertyRef Name="TranslationId" />
+    </Key>
+    <Property Type="Int64" Name="TranslationId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Key" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="LocaleId" Nullable="false" />
+    <Property Type="String" Name="Value" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Type" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="core_Locales" Relationship="QML.Web.UI.FK_Translations_Locales" FromRole="core_Translations" ToRole="core_Locales" />
+  </EntityType>
+  <EntityType Name="DocumentCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Type="Int32" Name="CategoryID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="ParentID" Nullable="false" />
+    <Property Type="String" Name="CategoryName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Position" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="Int64" Name="CreatedUser" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Int64" Name="LastModifiedUser" />
+    <NavigationProperty Name="DocumentsFiles" Relationship="QML.Web.UI.FK_DocumentsFile_DocumentCategories" FromRole="DocumentCategory" ToRole="DocumentsFile" />
+    <NavigationProperty Name="DocumentStatistics" Relationship="QML.Web.UI.FK_DocumentStatistic_DocumentCategories" FromRole="DocumentCategory" ToRole="DocumentStatistic" />
+  </EntityType>
+  <EntityType Name="DocumentFormat">
+    <Key>
+      <PropertyRef Name="DocumentFormatID" />
+    </Key>
+    <Property Type="Int32" Name="DocumentFormatID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Name" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MIME" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="FileFormat" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Avatar" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="Status" />
+    <NavigationProperty Name="DocumentsFiles" Relationship="QML.Web.UI.FK_DocumentsFile_DocumentFormat" FromRole="DocumentFormat" ToRole="DocumentsFile" />
+  </EntityType>
+  <EntityType Name="DocumentOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Type="Int64" Name="OrderID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="UserId" Nullable="false" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <Property Type="String" Name="OrderContent" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="Int64" Name="CreatedUser" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Int64" Name="LastModifiedUser" />
+    <Property Type="String" Name="UserEmail" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DocumentName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DocumentType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DocumentCategory" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DocumentCreator" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DocumentPublisher" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PublishedYear" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Delivery" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="auth_Users" Relationship="QML.Web.UI.FK_DocumentOrders_auth_Users" FromRole="DocumentOrder" ToRole="auth_Users" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Type="Int64" Name="DocumentID" Nullable="false" />
+    <Property Type="String" Name="Title" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Creator" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Subject" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Publisher" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contributor" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Date" />
+    <Property Type="String" Name="Type" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Format" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Identifier" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Resource" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Language" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Relation" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Coverage" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Right" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DocumentsFile" Relationship="QML.Web.UI.FK_Documents_DocumentsFile" FromRole="Document" ToRole="DocumentsFile" />
+  </EntityType>
+  <EntityType Name="DocumentsFile">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Type="Int64" Name="DocumentID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="FileName" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CategoryID" />
+    <Property Type="Int32" Name="FormatID" />
+    <Property Type="String" Name="FileSource" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Thumbnail" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="BookFee" />
+    <Property Type="Double" Name="Size" />
+    <Property Type="Int64" Name="ViewCount" />
+    <Property Type="String" Name="Status" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsHasInfo" />
+    <Property Type="Boolean" Name="IsDeleted" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="String" Name="CreatedUser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="String" Name="LastModifiedUser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsIndexed" Nullable="false" />
+    <NavigationProperty Name="DocumentCategory" Relationship="QML.Web.UI.FK_DocumentsFile_DocumentCategories" FromRole="DocumentsFile" ToRole="DocumentCategory" />
+    <NavigationProperty Name="DocumentFormat" Relationship="QML.Web.UI.FK_DocumentsFile_DocumentFormat" FromRole="DocumentsFile" ToRole="DocumentFormat" />
+    <NavigationProperty Name="Document" Relationship="QML.Web.UI.FK_Documents_DocumentsFile" FromRole="DocumentsFile" ToRole="Document" />
+  </EntityType>
+  <EntityType Name="DocumentStatistic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int32" Name="ID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Double" Name="Value" />
+    <Property Type="Int32" Name="CateID" />
+    <Property Type="String" Name="Type" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Year" />
+    <NavigationProperty Name="DocumentCategory" Relationship="QML.Web.UI.FK_DocumentStatistic_DocumentCategories" FromRole="DocumentStatistic" ToRole="DocumentCategory" />
+  </EntityType>
+  <EntityType Name="DocWeight">
+    <Key>
+      <PropertyRef Name="DocID" />
+      <PropertyRef Name="WordID" />
+      <PropertyRef Name="Weight" />
+    </Key>
+    <Property Type="Int64" Name="DocID" Nullable="false" />
+    <Property Type="Int64" Name="WordID" Nullable="false" />
+    <Property Type="Int32" Name="Weight" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocWord">
+    <Key>
+      <PropertyRef Name="WordID" />
+    </Key>
+    <Property Type="Int64" Name="WordID" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="Word" MaxLength="250" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FeeHistoryView">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="UserId" />
+    <Property Type="Int64" Name="DocumentID" />
+    <Property Type="Double" Name="Fee" />
+    <Property Type="DateTime" Name="TimeRecorded" />
+    <Property Type="Int32" Name="month" />
+    <Property Type="Int32" Name="year" />
+  </EntityType>
+  <EntityType Name="MoneyLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="Int64" Name="id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="userID" />
+    <Property Type="Double" Name="feeLog" />
+    <Property Type="DateTime" Name="dateInput" />
+    <Property Type="Int32" Name="month" />
+    <Property Type="Int32" Name="year" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Type="Int64" Name="UserId" Nullable="false" />
+    <Property Type="Double" Name="Balance" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="Int64" Name="CreatedUser" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="Int64" Name="LastModifiedUser" />
+    <Property Type="Boolean" Name="Status" Nullable="false" />
+    <Property Type="String" Name="Email" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="auth_Users" Relationship="QML.Web.UI.FK_Profile_auth_Users" FromRole="Profile" ToRole="auth_Users" />
+  </EntityType>
+  <EntityType Name="SearchHistory">
+    <Key>
+      <PropertyRef Name="SearchHistoryId" />
+    </Key>
+    <Property Type="Int64" Name="SearchHistoryId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="UserId" Nullable="false" />
+    <Property Type="String" Name="Keyword" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="SearchDate" Nullable="false" />
+    <Property Type="String" Name="ResultSet" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="principal_id" Nullable="false" />
+    <Property Type="Int32" Name="diagram_id" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int32" Name="version" />
+    <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="groupId" />
+    </Key>
+    <Property Type="Int32" Name="groupId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="String" Name="group_name" MaxLength="100" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ViewHistory">
+    <Key>
+      <PropertyRef Name="ViewHistoryId" />
+    </Key>
+    <Property Type="Int64" Name="ViewHistoryId" Nullable="false" a:StoreGeneratedPattern="Identity" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Type="Int64" Name="UserId" Nullable="false" />
+    <Property Type="Int64" Name="BookId" Nullable="false" />
+    <Property Type="DateTime" Name="ViewDate" Nullable="false" />
+    <Property Type="String" Name="DocumentTitle" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="DocumentPublisher" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="CatId" />
+    <Property Type="String" Name="Type" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Type="Double" Name="Fee" Nullable="false" />
+    <Property Type="Int32" Name="Year" />
+    <Property Type="Int32" Name="Month" />
+  </EntityType>
+  <Association Name="FK_app_Pages_app_Applications">
+    <End Type="QML.Web.UI.app_Applications" Role="app_Applications" Multiplicity="1" />
+    <End Type="QML.Web.UI.app_Pages" Role="app_Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_Pages">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_article_Static_Items_app_Applications">
+    <End Type="QML.Web.UI.app_Applications" Role="app_Applications" Multiplicity="1" />
+    <End Type="QML.Web.UI.app_StaticItems" Role="app_StaticItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_StaticItems">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Roles_core_Applications">
+    <End Type="QML.Web.UI.app_Applications" Role="app_Applications" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.auth_Roles" Role="auth_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Users_core_Applications">
+    <End Type="QML.Web.UI.app_Applications" Role="app_Applications" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.auth_Users" Role="auth_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Locales_core_Applications">
+    <End Type="QML.Web.UI.app_Applications" Role="app_Applications" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.core_Locales" Role="core_Locales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="core_Locales">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_app_Pages">
+    <End Type="QML.Web.UI.app_Pages" Role="app_Pages" Multiplicity="1" />
+    <End Type="QML.Web.UI.app_PageModules" Role="app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_core_Actions">
+    <End Type="QML.Web.UI.core_Actions" Role="core_Actions" Multiplicity="1" />
+    <End Type="QML.Web.UI.app_PageModules" Role="app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_Pages_app_Pages">
+    <End Type="QML.Web.UI.app_Pages" Role="app_Pages" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.app_Pages" Role="app_Pages1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_Pages1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PartialViews_core_Actions">
+    <End Type="QML.Web.UI.core_Actions" Role="core_Actions" Multiplicity="1" />
+    <End Type="QML.Web.UI.app_PartialViews" Role="app_PartialViews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PartialViews">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_RolePermissions_auth_Roles">
+    <End Type="QML.Web.UI.auth_Roles" Role="auth_Roles" Multiplicity="1" />
+    <End Type="QML.Web.UI.auth_RolePermissions" Role="auth_RolePermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="auth_RolePermissions">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentOrders_auth_Users">
+    <End Type="QML.Web.UI.auth_Users" Role="auth_Users" Multiplicity="1" />
+    <End Type="QML.Web.UI.DocumentOrder" Role="DocumentOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DocumentOrder">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profile_auth_Users">
+    <End Type="QML.Web.UI.auth_Users" Role="auth_Users" Multiplicity="1" />
+    <End Type="QML.Web.UI.Profile" Role="Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Actions_core_Controllers">
+    <End Type="QML.Web.UI.core_Controllers" Role="core_Controllers" Multiplicity="1" />
+    <End Type="QML.Web.UI.core_Actions" Role="core_Actions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Controllers">
+        <PropertyRef Name="ControllerId" />
+      </Principal>
+      <Dependent Role="core_Actions">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_core_Actions">
+    <End Type="QML.Web.UI.core_Actions" Role="core_Actions" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.core_Frontend_MenuItems" Role="core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Controllers_core_Areas">
+    <End Type="QML.Web.UI.core_Areas" Role="core_Areas" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.core_Controllers" Role="core_Controllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Areas">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="core_Controllers">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_Frontend_Menu">
+    <End Type="QML.Web.UI.core_Frontend_Menu" Role="core_Frontend_Menu" Multiplicity="1" />
+    <End Type="QML.Web.UI.core_Frontend_MenuItems" Role="core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+    <End Type="QML.Web.UI.core_Frontend_MenuItems" Role="core_Frontend_MenuItems" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.core_Frontend_MenuItems" Role="core_Frontend_MenuItems1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Translations_Locales">
+    <End Type="QML.Web.UI.core_Locales" Role="core_Locales" Multiplicity="1" />
+    <End Type="QML.Web.UI.core_Translations" Role="core_Translations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Locales">
+        <PropertyRef Name="LocaleId" />
+      </Principal>
+      <Dependent Role="core_Translations">
+        <PropertyRef Name="LocaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentCategories">
+    <End Type="QML.Web.UI.DocumentCategory" Role="DocumentCategory" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.DocumentsFile" Role="DocumentsFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentsFile">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentStatistic_DocumentCategories">
+    <End Type="QML.Web.UI.DocumentCategory" Role="DocumentCategory" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.DocumentStatistic" Role="DocumentStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategory">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentStatistic">
+        <PropertyRef Name="CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentFormat">
+    <End Type="QML.Web.UI.DocumentFormat" Role="DocumentFormat" Multiplicity="0..1" />
+    <End Type="QML.Web.UI.DocumentsFile" Role="DocumentsFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentFormat">
+        <PropertyRef Name="DocumentFormatID" />
+      </Principal>
+      <Dependent Role="DocumentsFile">
+        <PropertyRef Name="FormatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentsFile">
+    <End Type="QML.Web.UI.DocumentsFile" Role="DocumentsFile" Multiplicity="1" />
+    <End Type="QML.Web.UI.Document" Role="Document" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentsFile">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="Document">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_ApplicationFeatures">
+    <End Type="QML.Web.UI.app_Applications" Role="app_Applications" Multiplicity="*" />
+    <End Type="QML.Web.UI.app_Features" Role="app_Features" Multiplicity="*" />
+  </Association>
+  <Association Name="app_FeatureControllers">
+    <End Type="QML.Web.UI.app_Features" Role="app_Features" Multiplicity="*" />
+    <End Type="QML.Web.UI.core_Controllers" Role="core_Controllers" Multiplicity="*" />
+  </Association>
+  <Association Name="auth_UsersInRoles">
+    <End Type="QML.Web.UI.auth_Roles" Role="auth_Roles" Multiplicity="*" />
+    <End Type="QML.Web.UI.auth_Users" Role="auth_Users" Multiplicity="*" />
+  </Association>
+</Schema>

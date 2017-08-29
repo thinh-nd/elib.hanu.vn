@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QmlModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="QmlModelStoreContainer">
+    <EntitySet Name="app_Applications" EntityType="QmlModel.Store.app_Applications" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Attributes" EntityType="QmlModel.Store.ec_Attributes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_AttributeValues" EntityType="QmlModel.Store.ec_AttributeValues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Businesses" EntityType="QmlModel.Store.ec_Businesses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_BusinessesToCategories" EntityType="QmlModel.Store.ec_BusinessesToCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_BusinessesToSectors" EntityType="QmlModel.Store.ec_BusinessesToSectors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_BusinessTypes" EntityType="QmlModel.Store.ec_BusinessTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Categories" EntityType="QmlModel.Store.ec_Categories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_CategoryPermissions" EntityType="QmlModel.Store.ec_CategoryPermissions" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Districts" EntityType="QmlModel.Store.ec_Districts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Manufacturers" EntityType="QmlModel.Store.ec_Manufacturers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_ManufacturersToCategories" EntityType="QmlModel.Store.ec_ManufacturersToCategories" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_ManufacturersToSectors" EntityType="QmlModel.Store.ec_ManufacturersToSectors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_ProductMediaFiles" EntityType="QmlModel.Store.ec_ProductMediaFiles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Products" EntityType="QmlModel.Store.ec_Products" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Provinces" EntityType="QmlModel.Store.ec_Provinces" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ec_Sectors" EntityType="QmlModel.Store.ec_Sectors" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ec_Attributes_ec_Categories" Association="QmlModel.Store.FK_ec_Attributes_ec_Categories">
+      <End Role="ec_Categories" EntitySet="ec_Categories" />
+      <End Role="ec_Attributes" EntitySet="ec_Attributes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_AttributeValues_ec_Attributes" Association="QmlModel.Store.FK_ec_AttributeValues_ec_Attributes">
+      <End Role="ec_Attributes" EntitySet="ec_Attributes" />
+      <End Role="ec_AttributeValues" EntitySet="ec_AttributeValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_AttributeValues_ec_Products" Association="QmlModel.Store.FK_ec_AttributeValues_ec_Products">
+      <End Role="ec_Products" EntitySet="ec_Products" />
+      <End Role="ec_AttributeValues" EntitySet="ec_AttributeValues" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Businesses_core_Applications" Association="QmlModel.Store.FK_ec_Businesses_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="ec_Businesses" EntitySet="ec_Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Businesses_ec_BusinessTypes" Association="QmlModel.Store.FK_ec_Businesses_ec_BusinessTypes">
+      <End Role="ec_BusinessTypes" EntitySet="ec_BusinessTypes" />
+      <End Role="ec_Businesses" EntitySet="ec_Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Businesses_ec_Districts" Association="QmlModel.Store.FK_ec_Businesses_ec_Districts">
+      <End Role="ec_Districts" EntitySet="ec_Districts" />
+      <End Role="ec_Businesses" EntitySet="ec_Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Businesses_ec_Provinces" Association="QmlModel.Store.FK_ec_Businesses_ec_Provinces">
+      <End Role="ec_Provinces" EntitySet="ec_Provinces" />
+      <End Role="ec_Businesses" EntitySet="ec_Businesses" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_BusinessesToCategories_ec_Businesses" Association="QmlModel.Store.FK_ec_BusinessesToCategories_ec_Businesses">
+      <End Role="ec_Businesses" EntitySet="ec_Businesses" />
+      <End Role="ec_BusinessesToCategories" EntitySet="ec_BusinessesToCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_BusinessesToCategories_ec_Categories" Association="QmlModel.Store.FK_ec_BusinessesToCategories_ec_Categories">
+      <End Role="ec_Categories" EntitySet="ec_Categories" />
+      <End Role="ec_BusinessesToCategories" EntitySet="ec_BusinessesToCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_BusinessesToSectors_ec_Businesses" Association="QmlModel.Store.FK_ec_BusinessesToSectors_ec_Businesses">
+      <End Role="ec_Businesses" EntitySet="ec_Businesses" />
+      <End Role="ec_BusinessesToSectors" EntitySet="ec_BusinessesToSectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_BusinessesToSectors_ec_Sectors" Association="QmlModel.Store.FK_ec_BusinessesToSectors_ec_Sectors">
+      <End Role="ec_Sectors" EntitySet="ec_Sectors" />
+      <End Role="ec_BusinessesToSectors" EntitySet="ec_BusinessesToSectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_BusinessTypes_core_Applications" Association="QmlModel.Store.FK_ec_BusinessTypes_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="ec_BusinessTypes" EntitySet="ec_BusinessTypes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Categories_ec_Categories" Association="QmlModel.Store.FK_ec_Categories_ec_Categories">
+      <End Role="ec_Categories" EntitySet="ec_Categories" />
+      <End Role="ec_Categories1" EntitySet="ec_Categories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_CategoryPermissions_ec_Categories" Association="QmlModel.Store.FK_ec_CategoryPermissions_ec_Categories">
+      <End Role="ec_Categories" EntitySet="ec_Categories" />
+      <End Role="ec_CategoryPermissions" EntitySet="ec_CategoryPermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Districts_ec_Provinces" Association="QmlModel.Store.FK_ec_Districts_ec_Provinces">
+      <End Role="ec_Provinces" EntitySet="ec_Provinces" />
+      <End Role="ec_Districts" EntitySet="ec_Districts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Manufacturers_core_Applications" Association="QmlModel.Store.FK_ec_Manufacturers_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="ec_Manufacturers" EntitySet="ec_Manufacturers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_ManufacturersToCategories_ec_Categories" Association="QmlModel.Store.FK_ec_ManufacturersToCategories_ec_Categories">
+      <End Role="ec_Categories" EntitySet="ec_Categories" />
+      <End Role="ec_ManufacturersToCategories" EntitySet="ec_ManufacturersToCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_ManufacturersToCategories_ec_Manufacturers" Association="QmlModel.Store.FK_ec_ManufacturersToCategories_ec_Manufacturers">
+      <End Role="ec_Manufacturers" EntitySet="ec_Manufacturers" />
+      <End Role="ec_ManufacturersToCategories" EntitySet="ec_ManufacturersToCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_ManufacturersToSectors_ec_Manufacturers" Association="QmlModel.Store.FK_ec_ManufacturersToSectors_ec_Manufacturers">
+      <End Role="ec_Manufacturers" EntitySet="ec_Manufacturers" />
+      <End Role="ec_ManufacturersToSectors" EntitySet="ec_ManufacturersToSectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_ManufacturersToSectors_ec_Sectors" Association="QmlModel.Store.FK_ec_ManufacturersToSectors_ec_Sectors">
+      <End Role="ec_Sectors" EntitySet="ec_Sectors" />
+      <End Role="ec_ManufacturersToSectors" EntitySet="ec_ManufacturersToSectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_ProductMediaFiles_ec_Products" Association="QmlModel.Store.FK_ec_ProductMediaFiles_ec_Products">
+      <End Role="ec_Products" EntitySet="ec_Products" />
+      <End Role="ec_ProductMediaFiles" EntitySet="ec_ProductMediaFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Products_ec_Categories" Association="QmlModel.Store.FK_ec_Products_ec_Categories">
+      <End Role="ec_Categories" EntitySet="ec_Categories" />
+      <End Role="ec_Products" EntitySet="ec_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Products_ec_Manufacturers" Association="QmlModel.Store.FK_ec_Products_ec_Manufacturers">
+      <End Role="ec_Manufacturers" EntitySet="ec_Manufacturers" />
+      <End Role="ec_Products" EntitySet="ec_Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Sectors_core_Applications" Association="QmlModel.Store.FK_ec_Sectors_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="ec_Sectors" EntitySet="ec_Sectors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ec_Sectors_ec_Sectors" Association="QmlModel.Store.FK_ec_Sectors_ec_Sectors">
+      <End Role="ec_Sectors" EntitySet="ec_Sectors" />
+      <End Role="ec_Sectors1" EntitySet="ec_Sectors" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="app_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="DomainName" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="CurrentTheme" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ec_Attributes">
+    <Key>
+      <PropertyRef Name="AttributeId" />
+    </Key>
+    <Property Name="AttributeId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="DataType" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="Unit" Type="nvarchar" MaxLength="50" />
+    <Property Name="RegExValidation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ec_AttributeValues">
+    <Key>
+      <PropertyRef Name="AttributeValueId" />
+    </Key>
+    <Property Name="AttributeValueId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="bigint" Nullable="false" />
+    <Property Name="AttributeId" Type="bigint" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ec_Businesses">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+    </Key>
+    <Property Name="BusinessId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="BusinessTypeId" Type="bigint" Nullable="false" />
+    <Property Name="ProvinceId" Type="bigint" />
+    <Property Name="DistrictId" Type="bigint" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Logo" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="FaxNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Website" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="TaxNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="ec_BusinessesToCategories">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="BusinessId" Type="bigint" Nullable="false" />
+    <Property Name="CategoryId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ec_BusinessesToSectors">
+    <Key>
+      <PropertyRef Name="BusinessId" />
+      <PropertyRef Name="SectorId" />
+    </Key>
+    <Property Name="BusinessId" Type="bigint" Nullable="false" />
+    <Property Name="SectorId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ec_BusinessTypes">
+    <Key>
+      <PropertyRef Name="BusinessTypeId" />
+    </Key>
+    <Property Name="BusinessTypeId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="BusinessTypeName" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ec_Categories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="bigint" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Order" Type="int" />
+    <Property Name="Image" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="ec_CategoryPermissions">
+    <Key>
+      <PropertyRef Name="CategoryPermissionId" />
+    </Key>
+    <Property Name="CategoryPermissionId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryId" Type="bigint" Nullable="false" />
+    <Property Name="RoleId" Type="bigint" Nullable="false" />
+    <Property Name="Permission" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ec_Districts">
+    <Key>
+      <PropertyRef Name="DistrictId" />
+    </Key>
+    <Property Name="DistrictId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProvinceId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ec_Manufacturers">
+    <Key>
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="ManufacturerId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="FaxNumber" Type="nvarchar" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" MaxLength="150" />
+    <Property Name="Website" Type="nvarchar" MaxLength="150" />
+    <Property Name="Logo" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="nvarchar" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="ec_ManufacturersToCategories">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="CategoryId" Type="bigint" Nullable="false" />
+    <Property Name="ManufacturerId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ec_ManufacturersToSectors">
+    <Key>
+      <PropertyRef Name="SectorId" />
+      <PropertyRef Name="ManufacturerId" />
+    </Key>
+    <Property Name="SectorId" Type="bigint" Nullable="false" />
+    <Property Name="ManufacturerId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ec_ProductMediaFiles">
+    <Key>
+      <PropertyRef Name="MediaId" />
+    </Key>
+    <Property Name="MediaId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" />
+    <Property Name="Path" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="ec_Products">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ManufacturerId" Type="bigint" />
+    <Property Name="CategoryId" Type="bigint" Nullable="false" />
+    <Property Name="CodeSystem" Type="nvarchar" MaxLength="100" />
+    <Property Name="CodeManufacturer" Type="nvarchar" MaxLength="100" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="256" />
+    <Property Name="Thumbnail" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Cost" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="Position" Type="int" />
+    <Property Name="WarehousePosition" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedUser" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="LastModifiedUser" Type="nvarchar" MaxLength="256" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="StickyDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ec_Provinces">
+    <Key>
+      <PropertyRef Name="ProvinceId" />
+    </Key>
+    <Property Name="ProvinceId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ec_Sectors">
+    <Key>
+      <PropertyRef Name="SectorId" />
+    </Key>
+    <Property Name="SectorId" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="bigint" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="SectorName" Type="nvarchar" Nullable="false" MaxLength="100" />
+    <Property Name="Position" Type="int" />
+  </EntityType>
+  <Association Name="FK_ec_Attributes_ec_Categories">
+    <End Role="ec_Categories" Type="QmlModel.Store.ec_Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_Attributes" Type="QmlModel.Store.ec_Attributes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_Attributes">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_AttributeValues_ec_Attributes">
+    <End Role="ec_Attributes" Type="QmlModel.Store.ec_Attributes" Multiplicity="1" />
+    <End Role="ec_AttributeValues" Type="QmlModel.Store.ec_AttributeValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Attributes">
+        <PropertyRef Name="AttributeId" />
+      </Principal>
+      <Dependent Role="ec_AttributeValues">
+        <PropertyRef Name="AttributeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_AttributeValues_ec_Products">
+    <End Role="ec_Products" Type="QmlModel.Store.ec_Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_AttributeValues" Type="QmlModel.Store.ec_AttributeValues" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ec_AttributeValues">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Businesses_core_Applications">
+    <End Role="app_Applications" Type="QmlModel.Store.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_Businesses" Type="QmlModel.Store.ec_Businesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ec_Businesses">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Businesses_ec_BusinessTypes">
+    <End Role="ec_BusinessTypes" Type="QmlModel.Store.ec_BusinessTypes" Multiplicity="1" />
+    <End Role="ec_Businesses" Type="QmlModel.Store.ec_Businesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_BusinessTypes">
+        <PropertyRef Name="BusinessTypeId" />
+      </Principal>
+      <Dependent Role="ec_Businesses">
+        <PropertyRef Name="BusinessTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Businesses_ec_Districts">
+    <End Role="ec_Districts" Type="QmlModel.Store.ec_Districts" Multiplicity="0..1" />
+    <End Role="ec_Businesses" Type="QmlModel.Store.ec_Businesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Districts">
+        <PropertyRef Name="DistrictId" />
+      </Principal>
+      <Dependent Role="ec_Businesses">
+        <PropertyRef Name="DistrictId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Businesses_ec_Provinces">
+    <End Role="ec_Provinces" Type="QmlModel.Store.ec_Provinces" Multiplicity="0..1" />
+    <End Role="ec_Businesses" Type="QmlModel.Store.ec_Businesses" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Provinces">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="ec_Businesses">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_BusinessesToCategories_ec_Businesses">
+    <End Role="ec_Businesses" Type="QmlModel.Store.ec_Businesses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_BusinessesToCategories" Type="QmlModel.Store.ec_BusinessesToCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Businesses">
+        <PropertyRef Name="BusinessId" />
+      </Principal>
+      <Dependent Role="ec_BusinessesToCategories">
+        <PropertyRef Name="BusinessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_BusinessesToCategories_ec_Categories">
+    <End Role="ec_Categories" Type="QmlModel.Store.ec_Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_BusinessesToCategories" Type="QmlModel.Store.ec_BusinessesToCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_BusinessesToCategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_BusinessesToSectors_ec_Businesses">
+    <End Role="ec_Businesses" Type="QmlModel.Store.ec_Businesses" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_BusinessesToSectors" Type="QmlModel.Store.ec_BusinessesToSectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Businesses">
+        <PropertyRef Name="BusinessId" />
+      </Principal>
+      <Dependent Role="ec_BusinessesToSectors">
+        <PropertyRef Name="BusinessId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_BusinessesToSectors_ec_Sectors">
+    <End Role="ec_Sectors" Type="QmlModel.Store.ec_Sectors" Multiplicity="1" />
+    <End Role="ec_BusinessesToSectors" Type="QmlModel.Store.ec_BusinessesToSectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Sectors">
+        <PropertyRef Name="SectorId" />
+      </Principal>
+      <Dependent Role="ec_BusinessesToSectors">
+        <PropertyRef Name="SectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_BusinessTypes_core_Applications">
+    <End Role="app_Applications" Type="QmlModel.Store.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_BusinessTypes" Type="QmlModel.Store.ec_BusinessTypes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ec_BusinessTypes">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Categories_ec_Categories">
+    <End Role="ec_Categories" Type="QmlModel.Store.ec_Categories" Multiplicity="0..1" />
+    <End Role="ec_Categories1" Type="QmlModel.Store.ec_Categories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_Categories1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_CategoryPermissions_ec_Categories">
+    <End Role="ec_Categories" Type="QmlModel.Store.ec_Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_CategoryPermissions" Type="QmlModel.Store.ec_CategoryPermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_CategoryPermissions">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Districts_ec_Provinces">
+    <End Role="ec_Provinces" Type="QmlModel.Store.ec_Provinces" Multiplicity="1" />
+    <End Role="ec_Districts" Type="QmlModel.Store.ec_Districts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Provinces">
+        <PropertyRef Name="ProvinceId" />
+      </Principal>
+      <Dependent Role="ec_Districts">
+        <PropertyRef Name="ProvinceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Manufacturers_core_Applications">
+    <End Role="app_Applications" Type="QmlModel.Store.app_Applications" Multiplicity="1" />
+    <End Role="ec_Manufacturers" Type="QmlModel.Store.ec_Manufacturers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ec_Manufacturers">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_ManufacturersToCategories_ec_Categories">
+    <End Role="ec_Categories" Type="QmlModel.Store.ec_Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_ManufacturersToCategories" Type="QmlModel.Store.ec_ManufacturersToCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_ManufacturersToCategories">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_ManufacturersToCategories_ec_Manufacturers">
+    <End Role="ec_Manufacturers" Type="QmlModel.Store.ec_Manufacturers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_ManufacturersToCategories" Type="QmlModel.Store.ec_ManufacturersToCategories" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Manufacturers">
+        <PropertyRef Name="ManufacturerId" />
+      </Principal>
+      <Dependent Role="ec_ManufacturersToCategories">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_ManufacturersToSectors_ec_Manufacturers">
+    <End Role="ec_Manufacturers" Type="QmlModel.Store.ec_Manufacturers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_ManufacturersToSectors" Type="QmlModel.Store.ec_ManufacturersToSectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Manufacturers">
+        <PropertyRef Name="ManufacturerId" />
+      </Principal>
+      <Dependent Role="ec_ManufacturersToSectors">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_ManufacturersToSectors_ec_Sectors">
+    <End Role="ec_Sectors" Type="QmlModel.Store.ec_Sectors" Multiplicity="1" />
+    <End Role="ec_ManufacturersToSectors" Type="QmlModel.Store.ec_ManufacturersToSectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Sectors">
+        <PropertyRef Name="SectorId" />
+      </Principal>
+      <Dependent Role="ec_ManufacturersToSectors">
+        <PropertyRef Name="SectorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_ProductMediaFiles_ec_Products">
+    <End Role="ec_Products" Type="QmlModel.Store.ec_Products" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_ProductMediaFiles" Type="QmlModel.Store.ec_ProductMediaFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Products">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="ec_ProductMediaFiles">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Products_ec_Categories">
+    <End Role="ec_Categories" Type="QmlModel.Store.ec_Categories" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ec_Products" Type="QmlModel.Store.ec_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Categories">
+        <PropertyRef Name="CategoryId" />
+      </Principal>
+      <Dependent Role="ec_Products">
+        <PropertyRef Name="CategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Products_ec_Manufacturers">
+    <End Role="ec_Manufacturers" Type="QmlModel.Store.ec_Manufacturers" Multiplicity="0..1" />
+    <End Role="ec_Products" Type="QmlModel.Store.ec_Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Manufacturers">
+        <PropertyRef Name="ManufacturerId" />
+      </Principal>
+      <Dependent Role="ec_Products">
+        <PropertyRef Name="ManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Sectors_core_Applications">
+    <End Role="app_Applications" Type="QmlModel.Store.app_Applications" Multiplicity="1" />
+    <End Role="ec_Sectors" Type="QmlModel.Store.ec_Sectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="ec_Sectors">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ec_Sectors_ec_Sectors">
+    <End Role="ec_Sectors" Type="QmlModel.Store.ec_Sectors" Multiplicity="0..1" />
+    <End Role="ec_Sectors1" Type="QmlModel.Store.ec_Sectors" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ec_Sectors">
+        <PropertyRef Name="SectorId" />
+      </Principal>
+      <Dependent Role="ec_Sectors1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ec_FilterAttribute" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="attributeIds" Type="varchar" Mode="In" />
+    <Parameter Name="command" Type="varchar" Mode="In" />
+    <Parameter Name="value" Type="bigint" Mode="In" />
+  </Function>
+</Schema>

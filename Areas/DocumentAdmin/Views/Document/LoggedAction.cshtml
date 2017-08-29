@@ -1,0 +1,125 @@
+﻿@model List<QML.Web.UI.Areas.DocumentAdmin.Models.ActionModel>
+@{
+    ViewBag.Title = "Lịch sử các thao tác";
+}
+
+<link href="@Url.Content("~/Content/Admin/css/simplePagination.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src=@Url.Content("~/Content/Admin/js/jquery.simplePagination.js")></script>
+
+<script type="text/javascript">
+    $(function() {
+        @if (TempData["alertMsg"] != null) {
+            if (TempData["alertMsg"] == "1") {
+                <text>jAlert("Định dạng ngày tháng không chính xác", "Error");</text>
+            }
+        }
+    });
+
+    $(function() {
+        @if (ViewBag.Area != null)
+        {
+            <text>$("#area").val("@ViewBag.Area");</text>
+        }
+    });
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "filter" }))
+{
+    <div>Thời gian:</div>
+    <div>từ</div><input type="text" name="timeFrom" size="7" value="@ViewBag.TimeFrom" placeholder="d/M/yyyy" />
+    <div>đến</div><input type="text" name="timeTo" size="7" value="@ViewBag.TimeTo" placeholder="d/M/yyyy" />
+    <div>Hành động</div>
+    <select id="area" name="area">
+        <option value="">Tất cả</option>
+        <option value="docAdmin">Quản lý tài liệu</option>
+        <option value="userAdmin">Quản lý người dùng</option>
+        <option value="manageRequest">Xử lý yêu cầu tài liệu</option>
+        <option value="facultyAdmin">Quản lý các khoa</option>
+        <option value="viewBook">Xem tài liệu</option>
+        <option value="changePass">Thông tin cá nhân</option>
+        <option value="requestDoc">Yêu cầu tài liệu</option>
+    </select>
+    <div>Thực hiện bởi</div>
+    <input type="text" name="user" size="15" value="@ViewBag.User"/>
+    <br /><br />
+    <div>Từ khóa</div>
+    <input type="text" name="object" size="40" value="@ViewBag.Object"/>
+    <div><input type="submit" value="Tìm kiếm" class="button button-green" /></div>
+}
+
+<br /><br />
+
+<table id="all" class="datatable">
+    <thead>
+        <tr>
+            <th width="15%">Thời gian thực hiện</th>
+            <th width="10%">Thực hiện bởi</th>
+            <th width="20%">Thao tác</th>
+            <th width="20%">Đối tượng</th>
+            <th width="35%">Thông tin chi tiết</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var action in Model)
+        {
+            <tr>
+                <td>@action.ActionTime.Value.ToString("dd/MM/yyyy H:mm:ss.FF")</td>
+                <td>@action.UserName</td>
+                <td>@action.Description</td>
+                <td>@action.ObjectName</td>
+                <td>@action.ExtraInfo</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<div class="pager"></div>
+<script type="text/javascript">
+    jQuery(function($) {
+        // consider adding an id to your table,
+        // just incase a second table ever enters the picture..?
+        var items = $("table#all tbody tr");
+
+        var numItems = @Model.Count;
+        var perPage = 25;
+
+        // only show the first 2 (or "first per_page") items initially
+        items.slice(perPage).hide();
+
+        // now setup your pagination
+        // you need that .pagination-page div before/after your table
+        $(".pager").pagination({
+            items: numItems,
+            itemsOnPage: perPage,
+            cssStyle: "compact-theme",
+            onPageClick: function(pageNumber) { // this is where the magic happens
+                // someone changed page, lets hide/show trs appropriately
+                var showFrom = perPage * (pageNumber - 1);
+                var showTo = showFrom + perPage;
+
+                items.hide() // first hide everything, then show for the new page
+                     .slice(showFrom, showTo).show();
+            }
+        });
+    });
+</script>
+<style>
+    form#filter > div {
+        display: inline-block;
+        margin: 5px;
+        font-weight: bold;
+    }
+
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+    th, td {
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+    }
+</style>

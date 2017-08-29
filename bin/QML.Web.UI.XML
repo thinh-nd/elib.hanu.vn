@@ -1,0 +1,2569 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>QML.Web.UI</name>
+    </assembly>
+    <members>
+        <member name="T:Resources.EditorLocalization">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Bold">
+            <summary>
+              Looks up a localized string similar to Bold.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.CreateLink">
+            <summary>
+              Looks up a localized string similar to Insert hyperlink.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.DeleteFile">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to delete &quot;{0}&quot;?.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.DirectoryNotFound">
+            <summary>
+              Looks up a localized string similar to A directory with this name was not found..
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.EmptyFolder">
+            <summary>
+              Looks up a localized string similar to Empty Folder.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.FontName">
+            <summary>
+              Looks up a localized string similar to Select font family.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.FontNameInherit">
+            <summary>
+              Looks up a localized string similar to (inherited font).
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.FontSize">
+            <summary>
+              Looks up a localized string similar to Select font size.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.FontSizeInherit">
+            <summary>
+              Looks up a localized string similar to (inherited size).
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.FormatBlock">
+            <summary>
+              Looks up a localized string similar to Select block type.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Indent">
+            <summary>
+              Looks up a localized string similar to Indent.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.InsertHtml">
+            <summary>
+              Looks up a localized string similar to Insert HTML.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.InsertImage">
+            <summary>
+              Looks up a localized string similar to Insert image.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.InsertOrderedList">
+            <summary>
+              Looks up a localized string similar to Insert ordered list.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.InsertUnorderedList">
+            <summary>
+              Looks up a localized string similar to Insert unordered list.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.InvalidFileType">
+            <summary>
+              Looks up a localized string similar to The selected file \&quot;{0}\&quot; is not valid. Supported file types are {1}..
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Italic">
+            <summary>
+              Looks up a localized string similar to Italic.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.JustifyCenter">
+            <summary>
+              Looks up a localized string similar to Center text.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.JustifyFull">
+            <summary>
+              Looks up a localized string similar to Justify.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.JustifyLeft">
+            <summary>
+              Looks up a localized string similar to Align text left.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.JustifyRight">
+            <summary>
+              Looks up a localized string similar to Align text right.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.OrderBy">
+            <summary>
+              Looks up a localized string similar to Arrange by:.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.OrderByName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.OrderBySize">
+            <summary>
+              Looks up a localized string similar to Size.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Outdent">
+            <summary>
+              Looks up a localized string similar to Outdent.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.OverwriteFile">
+            <summary>
+              Looks up a localized string similar to &apos;A file with name &quot;{0}&quot; already exists in the current directory. Do you want to overwrite it?.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Strikethrough">
+            <summary>
+              Looks up a localized string similar to Strikethrough.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Style">
+            <summary>
+              Looks up a localized string similar to Styles.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Underline">
+            <summary>
+              Looks up a localized string similar to Underline.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.Unlink">
+            <summary>
+              Looks up a localized string similar to Remove hyperlink.
+            </summary>
+        </member>
+        <member name="P:Resources.EditorLocalization.UploadFile">
+            <summary>
+              Looks up a localized string similar to Upload.
+            </summary>
+        </member>
+        <member name="T:Resources.GridLocalization">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.AddNew">
+            <summary>
+              Looks up a localized string similar to Add new record.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Cancel">
+            <summary>
+              Looks up a localized string similar to Cancel.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.CancelChanges">
+            <summary>
+              Looks up a localized string similar to Cancel changes.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Delete">
+            <summary>
+              Looks up a localized string similar to Delete.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.DeleteConfirmation">
+            <summary>
+              Looks up a localized string similar to Are you sure you want to delete this record?.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.DisplayingItems">
+            <summary>
+              Looks up a localized string similar to Displaying items {0} - {1} of {2}.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Edit">
+            <summary>
+              Looks up a localized string similar to Edit.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Filter">
+            <summary>
+              Looks up a localized string similar to Filter.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterAnd">
+            <summary>
+              Looks up a localized string similar to And.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterBoolIsFalse">
+            <summary>
+              Looks up a localized string similar to is false.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterBoolIsTrue">
+            <summary>
+              Looks up a localized string similar to is true.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterClear">
+            <summary>
+              Looks up a localized string similar to Clear Filter.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterDateEq">
+            <summary>
+              Looks up a localized string similar to Is equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterDateGe">
+            <summary>
+              Looks up a localized string similar to Is after or equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterDateGt">
+            <summary>
+              Looks up a localized string similar to Is after.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterDateLe">
+            <summary>
+              Looks up a localized string similar to Is before or equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterDateLt">
+            <summary>
+              Looks up a localized string similar to Is before.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterDateNe">
+            <summary>
+              Looks up a localized string similar to Is not equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterEnumEq">
+            <summary>
+              Looks up a localized string similar to Is equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterEnumNe">
+            <summary>
+              Looks up a localized string similar to Is not equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterNumberEq">
+            <summary>
+              Looks up a localized string similar to Is equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterNumberGe">
+            <summary>
+              Looks up a localized string similar to Is greater than or equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterNumberGt">
+            <summary>
+              Looks up a localized string similar to Is greater than.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterNumberLe">
+            <summary>
+              Looks up a localized string similar to Is less than or equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterNumberLt">
+            <summary>
+              Looks up a localized string similar to Is less than.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterNumberNe">
+            <summary>
+              Looks up a localized string similar to Is not equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterSelectValue">
+            <summary>
+              Looks up a localized string similar to -Select value-.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterShowRows">
+            <summary>
+              Looks up a localized string similar to Show rows with value that.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterStringEndsWith">
+            <summary>
+              Looks up a localized string similar to Ends with.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterStringEq">
+            <summary>
+              Looks up a localized string similar to Is equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterStringNe">
+            <summary>
+              Looks up a localized string similar to Is not equal to.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterStringStartsWith">
+            <summary>
+              Looks up a localized string similar to Starts with.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.FilterStringSubstringOf">
+            <summary>
+              Looks up a localized string similar to Contains.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.GroupHint">
+            <summary>
+              Looks up a localized string similar to Drag a column header and drop it here to group by that column.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Insert">
+            <summary>
+              Looks up a localized string similar to Insert.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.NoRecords">
+            <summary>
+              Looks up a localized string similar to No records to display..
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Page">
+            <summary>
+              Looks up a localized string similar to Page .
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.PageOf">
+            <summary>
+              Looks up a localized string similar to of {0}.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Refresh">
+            <summary>
+              Looks up a localized string similar to Refresh.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.SaveChanges">
+            <summary>
+              Looks up a localized string similar to Save changes.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Select">
+            <summary>
+              Looks up a localized string similar to Select.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.SortedAsc">
+            <summary>
+              Looks up a localized string similar to sorted ascending.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.SortedDesc">
+            <summary>
+              Looks up a localized string similar to sorted descending.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.UnGroup">
+            <summary>
+              Looks up a localized string similar to ungroup.
+            </summary>
+        </member>
+        <member name="P:Resources.GridLocalization.Update">
+            <summary>
+              Looks up a localized string similar to Update.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.Controllers.EssentialController.SearchResult(System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            All about searching
+            
+        </member>
+        <member name="M:QML.Web.UI.Controllers.HomeController.SearchByTitle(System.Web.Mvc.FormCollection)">
+             Search by document title
+            
+        </member>
+        <member name="M:QML.Web.UI.Controllers.HomeController.History(System.Int64)">
+            History
+            
+        </member>
+        <member name="M:QML.Web.UI.Controllers.HomeController.LogOn(QML.Web.UI.Areas.Core.Models.LogOnModel,System.String)">
+            Unable to resolve! 
+        </member>
+        <member name="T:QML.Web.UI.HanuELibraryEntities">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.#ctor">
+            <summary>
+            Initializes a new HanuELibraryEntities object using the connection string found in the 'HanuELibraryEntities' section of the application configuration file.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.#ctor(System.String)">
+            <summary>
+            Initialize a new HanuELibraryEntities object.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.#ctor(System.Data.EntityClient.EntityConnection)">
+            <summary>
+            Initialize a new HanuELibraryEntities object.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToapp_Applications(QML.Web.UI.app_Applications)">
+            <summary>
+            Deprecated Method for adding a new object to the app_Applications EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToapp_Features(QML.Web.UI.app_Features)">
+            <summary>
+            Deprecated Method for adding a new object to the app_Features EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToapp_PageModules(QML.Web.UI.app_PageModules)">
+            <summary>
+            Deprecated Method for adding a new object to the app_PageModules EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToapp_Pages(QML.Web.UI.app_Pages)">
+            <summary>
+            Deprecated Method for adding a new object to the app_Pages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToapp_PartialViews(QML.Web.UI.app_PartialViews)">
+            <summary>
+            Deprecated Method for adding a new object to the app_PartialViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToapp_StaticItems(QML.Web.UI.app_StaticItems)">
+            <summary>
+            Deprecated Method for adding a new object to the app_StaticItems EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToauth_RolePermissions(QML.Web.UI.auth_RolePermissions)">
+            <summary>
+            Deprecated Method for adding a new object to the auth_RolePermissions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToauth_Roles(QML.Web.UI.auth_Roles)">
+            <summary>
+            Deprecated Method for adding a new object to the auth_Roles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToauth_Users(QML.Web.UI.auth_Users)">
+            <summary>
+            Deprecated Method for adding a new object to the auth_Users EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Actions(QML.Web.UI.core_Actions)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Actions EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Areas(QML.Web.UI.core_Areas)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Areas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Configs(QML.Web.UI.core_Configs)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Configs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Controllers(QML.Web.UI.core_Controllers)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Controllers EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Frontend_Menu(QML.Web.UI.core_Frontend_Menu)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Frontend_Menu EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Frontend_MenuItems(QML.Web.UI.core_Frontend_MenuItems)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Frontend_MenuItems EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Locales(QML.Web.UI.core_Locales)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Locales EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTocore_Translations(QML.Web.UI.core_Translations)">
+            <summary>
+            Deprecated Method for adding a new object to the core_Translations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocumentCategories(QML.Web.UI.DocumentCategory)">
+            <summary>
+            Deprecated Method for adding a new object to the DocumentCategories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocumentFormats(QML.Web.UI.DocumentFormat)">
+            <summary>
+            Deprecated Method for adding a new object to the DocumentFormats EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocumentOrders(QML.Web.UI.DocumentOrder)">
+            <summary>
+            Deprecated Method for adding a new object to the DocumentOrders EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocuments(QML.Web.UI.Document)">
+            <summary>
+            Deprecated Method for adding a new object to the Documents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocumentsFiles(QML.Web.UI.DocumentsFile)">
+            <summary>
+            Deprecated Method for adding a new object to the DocumentsFiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocumentStatistics(QML.Web.UI.DocumentStatistic)">
+            <summary>
+            Deprecated Method for adding a new object to the DocumentStatistics EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocWeights(QML.Web.UI.DocWeight)">
+            <summary>
+            Deprecated Method for adding a new object to the DocWeights EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToDocWords(QML.Web.UI.DocWord)">
+            <summary>
+            Deprecated Method for adding a new object to the DocWords EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToFeeHistoryViews(QML.Web.UI.FeeHistoryView)">
+            <summary>
+            Deprecated Method for adding a new object to the FeeHistoryViews EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToMoneyLogs(QML.Web.UI.MoneyLog)">
+            <summary>
+            Deprecated Method for adding a new object to the MoneyLogs EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToProfiles(QML.Web.UI.Profile)">
+            <summary>
+            Deprecated Method for adding a new object to the Profiles EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToSearchHistories(QML.Web.UI.SearchHistory)">
+            <summary>
+            Deprecated Method for adding a new object to the SearchHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddTosysdiagrams(QML.Web.UI.sysdiagram)">
+            <summary>
+            Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToUserGroups(QML.Web.UI.UserGroup)">
+            <summary>
+            Deprecated Method for adding a new object to the UserGroups EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.HanuELibraryEntities.AddToViewHistories(QML.Web.UI.ViewHistory)">
+            <summary>
+            Deprecated Method for adding a new object to the ViewHistories EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.app_Features">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.app_PageModules">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.app_Pages">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.app_PartialViews">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.app_StaticItems">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.auth_RolePermissions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.auth_Roles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.auth_Users">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Actions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Areas">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Configs">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Controllers">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Frontend_Menu">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Frontend_MenuItems">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Locales">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.core_Translations">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.DocumentCategories">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.DocumentFormats">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.DocumentOrders">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.Documents">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.DocumentsFiles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.DocumentStatistics">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.DocWeights">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.DocWords">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.FeeHistoryViews">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.MoneyLogs">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.Profiles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.SearchHistories">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.sysdiagrams">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.UserGroups">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.HanuELibraryEntities.ViewHistories">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.app_Applications.Createapp_Applications(System.Int64,System.String)">
+            <summary>
+            Create a new app_Applications object.
+            </summary>
+            <param name="applicationId">Initial value of the ApplicationId property.</param>
+            <param name="domainName">Initial value of the DomainName property.</param>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.ApplicationId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.DomainName">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.CurrentTheme">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.app_Pages">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.app_StaticItems">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.auth_Roles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.auth_Users">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.core_Locales">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Applications.app_Features">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.app_Features">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.app_Features.Createapp_Features(System.Int64)">
+            <summary>
+            Create a new app_Features object.
+            </summary>
+            <param name="featureId">Initial value of the FeatureId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.app_Features.FeatureId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Features.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Features.Description">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Features.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Features.core_Controllers">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.app_PageModules">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.app_PageModules.Createapp_PageModules(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            Create a new app_PageModules object.
+            </summary>
+            <param name="pageModuleId">Initial value of the PageModuleId property.</param>
+            <param name="pageId">Initial value of the PageId property.</param>
+            <param name="actionId">Initial value of the ActionId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.PageModuleId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.PageId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.ActionId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.PositionCode">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.Order">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.app_Pages">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.app_PagesReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.core_Actions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PageModules.core_ActionsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.app_Pages">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.app_Pages.Createapp_Pages(System.Int64,System.Int64)">
+            <summary>
+            Create a new app_Pages object.
+            </summary>
+            <param name="pageId">Initial value of the PageId property.</param>
+            <param name="applicationId">Initial value of the ApplicationId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.PageId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.ParentId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.ApplicationId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.CustomUrl">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.Title">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.Order">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.Alias">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.app_ApplicationsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.app_PageModules">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.app_Pages1">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.app_Pages2">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_Pages.app_Pages2Reference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.app_PartialViews">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.app_PartialViews.Createapp_PartialViews(System.Int64,System.Int64,System.String)">
+            <summary>
+            Create a new app_PartialViews object.
+            </summary>
+            <param name="partialViewId">Initial value of the PartialViewId property.</param>
+            <param name="actionId">Initial value of the ActionId property.</param>
+            <param name="theme">Initial value of the Theme property.</param>
+        </member>
+        <member name="P:QML.Web.UI.app_PartialViews.PartialViewId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PartialViews.ActionId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PartialViews.Theme">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PartialViews.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PartialViews.Content">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PartialViews.core_Actions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_PartialViews.core_ActionsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.app_StaticItems">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.app_StaticItems.Createapp_StaticItems(System.Int64,System.Int64,System.String)">
+            <summary>
+            Create a new app_StaticItems object.
+            </summary>
+            <param name="id">Initial value of the ID property.</param>
+            <param name="applicationId">Initial value of the ApplicationId property.</param>
+            <param name="code">Initial value of the Code property.</param>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.ID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.ApplicationId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.Code">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.Title">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.Body">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.Position">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.app_StaticItems.app_ApplicationsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.auth_RolePermissions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.auth_RolePermissions.Createauth_RolePermissions(System.Int64,System.Int64,System.String,System.String)">
+            <summary>
+            Create a new auth_RolePermissions object.
+            </summary>
+            <param name="rolePermissionId">Initial value of the RolePermissionId property.</param>
+            <param name="roleId">Initial value of the RoleId property.</param>
+            <param name="action">Initial value of the Action property.</param>
+            <param name="controller">Initial value of the Controller property.</param>
+        </member>
+        <member name="P:QML.Web.UI.auth_RolePermissions.RolePermissionId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_RolePermissions.RoleId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_RolePermissions.Action">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_RolePermissions.Controller">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_RolePermissions.Area">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_RolePermissions.auth_Roles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_RolePermissions.auth_RolesReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.auth_Roles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.auth_Roles.Createauth_Roles(System.Int64)">
+            <summary>
+            Create a new auth_Roles object.
+            </summary>
+            <param name="roleId">Initial value of the RoleId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.RoleId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.ApplicationId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.RoleName">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.Description">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.app_ApplicationsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.auth_RolePermissions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Roles.auth_Users">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.auth_Users">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.auth_Users.Createauth_Users(System.Int64,System.String,System.String)">
+            <summary>
+            Create a new auth_Users object.
+            </summary>
+            <param name="userId">Initial value of the UserId property.</param>
+            <param name="username">Initial value of the Username property.</param>
+            <param name="password">Initial value of the Password property.</param>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.UserId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.ApplicationId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.Username">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.Password">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.CreatedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.LastLoginDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.AuthToken">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.Faculty">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.StudentID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.StudentClass">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.ActualName">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.DueDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.UserGroup">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.app_ApplicationsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.DocumentOrders">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.Profile">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.ProfileReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.auth_Users.auth_Roles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Actions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Actions.Createcore_Actions(System.Int64,System.Int64)">
+            <summary>
+            Create a new core_Actions object.
+            </summary>
+            <param name="actionId">Initial value of the ActionId property.</param>
+            <param name="controllerId">Initial value of the ControllerId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.ActionId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.ControllerId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.Description">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.Template">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.app_PageModules">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.app_PartialViews">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.core_Controllers">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.core_ControllersReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Actions.core_Frontend_MenuItems">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Areas">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Areas.Createcore_Areas(System.Int64,System.String)">
+            <summary>
+            Create a new core_Areas object.
+            </summary>
+            <param name="areaId">Initial value of the AreaId property.</param>
+            <param name="name">Initial value of the Name property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Areas.AreaId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Areas.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Areas.core_Controllers">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Configs">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Configs.Createcore_Configs(System.Int64,System.String,System.String)">
+            <summary>
+            Create a new core_Configs object.
+            </summary>
+            <param name="configId">Initial value of the ConfigId property.</param>
+            <param name="key">Initial value of the Key property.</param>
+            <param name="value">Initial value of the Value property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Configs.ConfigId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Configs.Key">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Configs.Value">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Controllers">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Controllers.Createcore_Controllers(System.Int64)">
+            <summary>
+            Create a new core_Controllers object.
+            </summary>
+            <param name="controllerId">Initial value of the ControllerId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Controllers.ControllerId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Controllers.AreaId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Controllers.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Controllers.core_Actions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Controllers.core_Areas">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Controllers.core_AreasReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Controllers.app_Features">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Frontend_Menu">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Frontend_Menu.Createcore_Frontend_Menu(System.Int64)">
+            <summary>
+            Create a new core_Frontend_Menu object.
+            </summary>
+            <param name="id">Initial value of the ID property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_Menu.ID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_Menu.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_Menu.Description">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_Menu.IsMain">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_Menu.Code">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_Menu.core_Frontend_MenuItems">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Frontend_MenuItems">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Frontend_MenuItems.Createcore_Frontend_MenuItems(System.Int64,System.Int64,System.String,System.Int32)">
+            <summary>
+            Create a new core_Frontend_MenuItems object.
+            </summary>
+            <param name="id">Initial value of the ID property.</param>
+            <param name="menuID">Initial value of the MenuID property.</param>
+            <param name="name">Initial value of the Name property.</param>
+            <param name="position">Initial value of the Position property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.ID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.MenuID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.ParentID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.Position">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.ActionId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.CustomUrl">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.IsCutom">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.Parameters">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.core_Actions">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.core_ActionsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.core_Frontend_Menu">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.core_Frontend_MenuReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.core_Frontend_MenuItems1">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.core_Frontend_MenuItems2">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Frontend_MenuItems.core_Frontend_MenuItems2Reference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Locales">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Locales.Createcore_Locales(System.Int64)">
+            <summary>
+            Create a new core_Locales object.
+            </summary>
+            <param name="localeId">Initial value of the LocaleId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.LocaleId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.ApplicationId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.Description">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.Icon">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.app_Applications">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.app_ApplicationsReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Locales.core_Translations">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.core_Translations">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.core_Translations.Createcore_Translations(System.Int64,System.String,System.Int64)">
+            <summary>
+            Create a new core_Translations object.
+            </summary>
+            <param name="translationId">Initial value of the TranslationId property.</param>
+            <param name="key">Initial value of the Key property.</param>
+            <param name="localeId">Initial value of the LocaleId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.core_Translations.TranslationId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Translations.Key">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Translations.LocaleId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Translations.Value">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Translations.Type">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Translations.core_Locales">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.core_Translations.core_LocalesReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.Document">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.Document.CreateDocument(System.Int64)">
+            <summary>
+            Create a new Document object.
+            </summary>
+            <param name="documentID">Initial value of the DocumentID property.</param>
+        </member>
+        <member name="P:QML.Web.UI.Document.DocumentID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Title">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Creator">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Subject">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Description">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Publisher">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Contributor">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Date">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Type">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Format">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Identifier">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Resource">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Language">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Relation">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Coverage">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.Right">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.DocumentsFile">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Document.DocumentsFileReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.DocumentCategory">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.DocumentCategory.CreateDocumentCategory(System.Int32,System.Int64)">
+            <summary>
+            Create a new DocumentCategory object.
+            </summary>
+            <param name="categoryID">Initial value of the CategoryID property.</param>
+            <param name="parentID">Initial value of the ParentID property.</param>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.CategoryID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.ParentID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.CategoryName">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.Position">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.CreatedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.CreatedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.LastModifiedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.LastModifiedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.DocumentsFiles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentCategory.DocumentStatistics">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.DocumentFormat">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.DocumentFormat.CreateDocumentFormat(System.Int32)">
+            <summary>
+            Create a new DocumentFormat object.
+            </summary>
+            <param name="documentFormatID">Initial value of the DocumentFormatID property.</param>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.DocumentFormatID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.Name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.Description">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.MIME">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.FileFormat">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.Avatar">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.Status">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentFormat.DocumentsFiles">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.DocumentOrder">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.DocumentOrder.CreateDocumentOrder(System.Int64,System.Int64,System.Boolean,System.String)">
+            <summary>
+            Create a new DocumentOrder object.
+            </summary>
+            <param name="orderID">Initial value of the OrderID property.</param>
+            <param name="userId">Initial value of the UserId property.</param>
+            <param name="status">Initial value of the Status property.</param>
+            <param name="orderContent">Initial value of the OrderContent property.</param>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.OrderID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.UserId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.Status">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.OrderContent">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.CreatedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.CreatedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.LastModifiedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.LastModifiedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.UserEmail">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.DocumentName">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.DocumentType">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.DocumentCategory">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.DocumentCreator">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.DocumentPublisher">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.PublishedYear">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.Delivery">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.auth_Users">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentOrder.auth_UsersReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.DocumentsFile">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.DocumentsFile.CreateDocumentsFile(System.Int64,System.Boolean)">
+            <summary>
+            Create a new DocumentsFile object.
+            </summary>
+            <param name="documentID">Initial value of the DocumentID property.</param>
+            <param name="isIndexed">Initial value of the IsIndexed property.</param>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.DocumentID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.FileName">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.CategoryID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.FormatID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.FileSource">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.Thumbnail">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.BookFee">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.Size">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.ViewCount">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.Status">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.IsHasInfo">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.IsDeleted">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.CreatedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.CreatedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.LastModifiedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.LastModifiedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.IsIndexed">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.DocumentCategory">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.DocumentCategoryReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.DocumentFormat">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.DocumentFormatReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.Document">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentsFile.DocumentReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.DocumentStatistic">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.DocumentStatistic.CreateDocumentStatistic(System.Int32)">
+            <summary>
+            Create a new DocumentStatistic object.
+            </summary>
+            <param name="id">Initial value of the ID property.</param>
+        </member>
+        <member name="P:QML.Web.UI.DocumentStatistic.ID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentStatistic.Value">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentStatistic.CateID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentStatistic.Type">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentStatistic.Year">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentStatistic.DocumentCategory">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocumentStatistic.DocumentCategoryReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.DocWeight">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.DocWeight.CreateDocWeight(System.Int64,System.Int64,System.Int32)">
+            <summary>
+            Create a new DocWeight object.
+            </summary>
+            <param name="docID">Initial value of the DocID property.</param>
+            <param name="wordID">Initial value of the WordID property.</param>
+            <param name="weight">Initial value of the Weight property.</param>
+        </member>
+        <member name="P:QML.Web.UI.DocWeight.DocID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocWeight.WordID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocWeight.Weight">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.DocWord">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.DocWord.CreateDocWord(System.Int64)">
+            <summary>
+            Create a new DocWord object.
+            </summary>
+            <param name="wordID">Initial value of the WordID property.</param>
+        </member>
+        <member name="P:QML.Web.UI.DocWord.WordID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.DocWord.Word">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.FeeHistoryView">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.FeeHistoryView.CreateFeeHistoryView(System.Int64)">
+            <summary>
+            Create a new FeeHistoryView object.
+            </summary>
+            <param name="id">Initial value of the id property.</param>
+        </member>
+        <member name="P:QML.Web.UI.FeeHistoryView.id">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.FeeHistoryView.UserId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.FeeHistoryView.DocumentID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.FeeHistoryView.Fee">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.FeeHistoryView.TimeRecorded">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.FeeHistoryView.month">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.FeeHistoryView.year">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.MoneyLog">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.MoneyLog.CreateMoneyLog(System.Int64)">
+            <summary>
+            Create a new MoneyLog object.
+            </summary>
+            <param name="id">Initial value of the id property.</param>
+        </member>
+        <member name="P:QML.Web.UI.MoneyLog.id">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.MoneyLog.userID">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.MoneyLog.feeLog">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.MoneyLog.dateInput">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.MoneyLog.month">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.MoneyLog.year">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.Profile">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.Profile.CreateProfile(System.Int64,System.Double,System.Boolean,System.String)">
+            <summary>
+            Create a new Profile object.
+            </summary>
+            <param name="userId">Initial value of the UserId property.</param>
+            <param name="balance">Initial value of the Balance property.</param>
+            <param name="status">Initial value of the Status property.</param>
+            <param name="email">Initial value of the Email property.</param>
+        </member>
+        <member name="P:QML.Web.UI.Profile.UserId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.Balance">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.CreatedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.CreatedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.LastModifiedDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.LastModifiedUser">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.Status">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.Email">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.auth_Users">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.Profile.auth_UsersReference">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.SearchHistory">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.SearchHistory.CreateSearchHistory(System.Int64,System.Int64,System.String,System.DateTime)">
+            <summary>
+            Create a new SearchHistory object.
+            </summary>
+            <param name="searchHistoryId">Initial value of the SearchHistoryId property.</param>
+            <param name="userId">Initial value of the UserId property.</param>
+            <param name="keyword">Initial value of the Keyword property.</param>
+            <param name="searchDate">Initial value of the SearchDate property.</param>
+        </member>
+        <member name="P:QML.Web.UI.SearchHistory.SearchHistoryId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.SearchHistory.UserId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.SearchHistory.Keyword">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.SearchHistory.SearchDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.SearchHistory.ResultSet">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.sysdiagram">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.sysdiagram.Createsysdiagram(System.String,System.Int32,System.Int32)">
+            <summary>
+            Create a new sysdiagram object.
+            </summary>
+            <param name="name">Initial value of the name property.</param>
+            <param name="principal_id">Initial value of the principal_id property.</param>
+            <param name="diagram_id">Initial value of the diagram_id property.</param>
+        </member>
+        <member name="P:QML.Web.UI.sysdiagram.name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.sysdiagram.principal_id">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.sysdiagram.diagram_id">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.sysdiagram.version">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.sysdiagram.definition">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.UserGroup">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.UserGroup.CreateUserGroup(System.Int32)">
+            <summary>
+            Create a new UserGroup object.
+            </summary>
+            <param name="groupId">Initial value of the groupId property.</param>
+        </member>
+        <member name="P:QML.Web.UI.UserGroup.groupId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.UserGroup.group_name">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="T:QML.Web.UI.ViewHistory">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="M:QML.Web.UI.ViewHistory.CreateViewHistory(System.Int64,System.Int64,System.Int64,System.DateTime,System.String,System.Double)">
+            <summary>
+            Create a new ViewHistory object.
+            </summary>
+            <param name="viewHistoryId">Initial value of the ViewHistoryId property.</param>
+            <param name="userId">Initial value of the UserId property.</param>
+            <param name="bookId">Initial value of the BookId property.</param>
+            <param name="viewDate">Initial value of the ViewDate property.</param>
+            <param name="type">Initial value of the Type property.</param>
+            <param name="fee">Initial value of the Fee property.</param>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.ViewHistoryId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.UserId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.BookId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.ViewDate">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.DocumentTitle">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.DocumentPublisher">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.CatId">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.Type">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.Fee">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.Year">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+        <member name="P:QML.Web.UI.ViewHistory.Month">
+            <summary>
+            No Metadata Documentation available.
+            </summary>
+        </member>
+    </members>
+</doc>

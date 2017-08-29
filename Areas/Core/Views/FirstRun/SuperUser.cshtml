@@ -1,0 +1,35 @@
+﻿@model QML.Web.UI.Areas.Core.Models.RegisterModel
+@{
+    ViewBag.Title = "Create super user";
+}
+@using (Html.BeginForm())
+{ 
+    <fieldset class="form">
+        <legend>
+            @Html.Localize("Create super user")
+        </legend>
+        <label>
+            @Html.Localize("Username")
+            <small>@Html.ValidationMessageFor(m => m.UserName)</small>
+        </label>
+        @Html.EditorFor(m => m.UserName)
+        <label>
+            @Html.Localize("Email")
+            <small>@Html.ValidationMessageFor(m => m.Email)</small>
+        </label>
+        @Html.EditorFor(m => m.Email)
+        <label>
+            @Html.Localize("Password")
+            <small>@Html.ValidationMessageFor(m => m.Password)</small>
+        </label>
+        @Html.EditorFor(m => m.Password)
+        <label>
+            @Html.Localize("Confirm password")
+            <small>@Html.ValidationMessageFor(m => m.ConfirmPassword)</small>
+        </label>
+        @Html.EditorFor(m => m.ConfirmPassword)
+        <div class="action">
+            <button class="button button-green">@Html.Localize("Create")</button>
+        </div>
+    </fieldset>
+}

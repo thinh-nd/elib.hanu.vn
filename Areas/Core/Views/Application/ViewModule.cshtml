@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PartialView>
+@{
+    ViewBag.Title = "ViewModule";
+    var themes = ViewData["Themes"] as IEnumerable<string>;
+}
+@if (themes != null)
+{ 
+    <table class="datatable full">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Localize("No.")
+                </th>
+                <th>
+                    @Html.Localize("Theme")
+                </th>
+                <th>
+                    @Html.Localize("Actions")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < themes.Count(); i++)
+            {
+                var partial = Model.SingleOrDefault(p => p.Theme == themes.ElementAt(i));
+                <tr>
+                    <td>
+                        @(i + 1)
+                    </td>
+                    <td>
+                        @themes.ElementAt(i)
+                    </td>
+                    <td>
+                        @if (partial != null)
+                        { 
+                            <ul class="action-buttons">
+                                <li>
+                                    @Html.ActionLinkButtonSecured(Html.Localize("Edit"), "pencil", "EditPartial", "Application", "Core", new { area = "Core", id = partial.PartialViewId }, "no-text")
+                                </li>
+                                <li>
+                                    @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "bin", "DeletePartial", "Application", "Core", new { area = "Core", id = partial.PartialViewId }, "no-text confirm")
+                                </li>
+                            </ul>
+                        }
+                        else
+                        { 
+                            @Html.ActionLinkButtonSecured(Html.Localize("Create"), "add", "CreatePartial", "Application", "Core", new { area = "Core", actionId = ViewData["ModuleId"], theme = themes.ElementAt(i) })
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

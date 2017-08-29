@@ -1,0 +1,44 @@
+﻿@model IList<QML.Library.Data.MenuAction>
+@{
+    ViewBag.Title = "ActionParameters";
+}
+<div class="portlet gird_12 form">
+    <section>
+    @using (Html.BeginForm())
+    {
+        <table class="display">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.Localize("No.")
+                    </th>
+                    <th>
+                        @Html.Localize("Action")
+                    </th>
+                    <th>
+                        @Html.Localize("Parameters template")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    <tr class="@(i % 2 == 0 ? "odd" : "even")">
+                        <td>
+                            @(i + 1)
+                        </td>
+                        <td>
+                            @Model[i].Controller.Area.Name/@Model[i].Controller.Name/@Model[i].Name
+                        </td>
+                        <td>
+                            @Html.HiddenFor(m => m[i].ActionId)
+                            @Html.TextBoxFor(m => m[i].Template)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <input class="button" type="submit" value="@Html.Localize("Save")" />
+    }
+    </section>
+</div>

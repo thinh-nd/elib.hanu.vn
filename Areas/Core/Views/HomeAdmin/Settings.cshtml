@@ -1,0 +1,32 @@
+﻿@model QML.Web.UI.Areas.Core.Models.ChangePasswordModel
+@{
+    ViewBag.Title = "Settings";
+}
+@using (Html.BeginSecuredForm("ChangeLocale", "HomeAdmin", "Core"))
+{
+    var locales = LanguageHelper.GetLocaleDropDownData().ToList();
+    var config = Html.GetConfig();
+    locales.Where(l => l.Value == config.LocaleId.ToString()).SingleOrDefault().Selected = true;
+    <fieldset class="form">
+        <legend>@Html.Localize("Change locale")</legend>
+        <label class="form-label">@Html.Localize("Select locale")</label>
+        @Html.DropDownList("LocaleId", locales)
+        <div class="action">
+            <button class="button button-green" type="submit">@Html.Localize("Change")</button>
+        </div>
+    </fieldset>
+}
+@using (Html.BeginSecuredForm("ChangePassword", "HomeAdmin", "Core"))
+{ 
+    <fieldset class="form">
+        <legend>@Html.Localize("Change password")</legend>        
+        <label class="form-label">@Html.Localize("New password")</label>
+        @Html.EditorFor(m => m.NewPassword)
+        <label class="form-label">@Html.Localize("Confirm password")</label>
+        @Html.EditorFor(m => m.ConfirmPassword)
+        <div class="action">
+              <button class="button button-green" id="pwrd" type="submit">@Html.Localize("Change Password")</button>
+			@Html.ActionLinkButtonSecured(Html.Localize("Cancel"), null, "SuperUsers", "Config", "Core")
+        </div>
+    </fieldset>
+}

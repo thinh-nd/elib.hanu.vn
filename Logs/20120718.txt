@@ -1,0 +1,17 @@
+﻿/*
+================================================================================================
+Bugs Found
+===================================================================================================
+*/
+Url: http://localhost:8080/Elib/Home/SearchResult
+Des: User not logged in do search action - Object reference not set to an instance of an object.
+
+
+/*
+========================================================
+Change database
+=======================================================
+*/
+1. dob.SearchHistory
+Add new: 
+ResultSet-Text: store search result for a specific keywords

@@ -1,0 +1,133 @@
+﻿@{
+    var localizeTitle = ViewData["NoLocalize"] as string == null;
+    var title = localizeTitle ? Html.Localize(ViewData["Title"] as string) : ViewData["Title"] as string;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="Content-Type" />
+    <title>Admin - @title</title>
+    <link rel="icon" href="@Url.Content("~/uploads/favicon.ico")" />
+    <link href="@Url.Content("~/Content/Admin/css/reset.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/grid.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/style.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/messages.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/forms.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/tables.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/custom.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/css/jquery-ui.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/Admin/tree/jquery.treeview.css")" media="screen" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/jquery_alert/jquery.alerts.css")" media="screen" rel="stylesheet" />
+    <!--[if lt IE 8]>
+<link rel="stylesheet" media="screen" href="@Url.Content("~/Content/Admin/css/ie.css")" />
+<![endif]-->
+    <!-- jquerytools --> 
+    
+   <script type="text/javascript" src="@Url.Content("~/Content/Admin/js/jquery.tools.min.js")"></script> 
+    <script type="text/javascript" src="@Url.Content("~/Content/Admin/js/global.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+    
+    <!--[if lt IE 9]>
+<script type="text/javascript" src="@Url.Content("~/Content/Admin/js/html5.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Admin/js/PIE.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Admin/js/IE9.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Content/Admin/js/ie.js")"></script>
+<![endif]-->
+    <script type="text/javascript">
+        var uploadUrl = "@Url.Action("UploadImage", "HomeAdmin", new { area = "Core" })";
+        var imageUrl = "@Url.Content("~/Scripts/nicedit/nicEditorIcons.gif")";
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/nicedit/nicEdit.js")"></script>
+    @RenderSection("Header", false)
+</head>
+<body spellcheck="false">
+    <div id="wrapper">
+        <header>
+            <div class="container_8 clearfix">
+                <div class="grid_1"><a href="@Url.Action("Document", "DocumentAdmin", new { area = "" })"><img alt="Logo" src="@Url.Content("~/images/bg_logofix.jpg")" /></a></div>
+                <nav id="topnav" class="grid_5">
+                    <ul class="clearfix">
+                        <li><a href="@Url.Action("Index", "Home", new { area = "" })">@Html.Localize("Trang chủ")</a></li>
+                     
+                        @{
+                            var user = Html.GetAuthManager().GetUser();
+                            var c = Html.GetConfig();
+                        }
+                        <li class="fr fx">
+                        <a href="#">@(user != null ? user.Username : "Anonymous")@(Html.GetConfig().LocaleId > 0 ? " (" + Html.GetConfig().Locale.Name + ")" : "")<span class="arrow-down"></span></a>
+                            <ul>
+                                <li><a href="@Url.Action("Settings", "HomeAdmin", new { area = "Core" })">@Html.Localize("Settings")</a></li>
+                                <li><a href="@Url.Action("Logoff", "Account", new { area = "Core" })">@Html.Localize("Signout")</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <section>
+            <div class="container_8 clearfix">
+
+                <!-- Sidebar -->
+
+                <aside class="grid_1 leftnav" id="mainnav">
+                    @Html.Partial("_AdminMenu")
+                </aside>
+
+                <!-- Sidebar End -->
+                
+
+                <!-- Main Section -->
+
+                <section class="main-section grid_7">
+
+                    <div class="main-content">
+                        <header>
+                            <h2>
+                                @title
+                            </h2>
+                        </header>
+                        <section class="clearfix">
+                            @foreach (var item in MessageHelper.PageInformation)
+                            { 
+                                <div class="message closeable @item.TypeString">
+                                    @if (!string.IsNullOrWhiteSpace(item.Title))
+                                    { 
+                                        <h3>@(item.DoLocalize ? Html.Localize(item.Title) : item.Title)</h3>
+                                    }
+                                    <p>@(item.DoLocalize ? Html.Localize(item.Content) : item.Content)</p>
+                                </div>
+                            }
+                            @RenderBody()
+                        </section>
+                    </div>
+
+                </section>
+
+                <!-- Main Section End -->
+
+            </div>
+            <div id="push"></div>
+        </section>
+    </div>
+    <footer>
+        <div id="footer-inner" class="container_8 clearfix">
+            <div class="grid_8">
+                &copy; @DateTime.Now.Year.ToString() <a href="http://www.fit.hanu.vn">FIT HANU</a> . All rights reserved.
+            </div>
+        </div>
+    </footer>
+    @RenderSection("Footer", false)
+</body>
+</html>
+
+
+<script type="text/javascript">
+    $(function () {
+        $(".clearfix li a").click(function () {
+            if ($.contains($(this), "Quản lý người dùng")) {
+                window.location.replace("@Url.Action("UsersList", "User")"+"?pageSize=1");
+            }
+        })
+    })
+</script>

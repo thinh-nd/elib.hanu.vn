@@ -1,0 +1,932 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QML.Web.UI.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityType Name="ActionLog">
+    <Key>
+      <PropertyRef Name="log_id" />
+    </Key>
+    <Property Name="log_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user_id" Type="bigint" />
+    <Property Name="executed_user" Type="nvarchar" MaxLength="100" />
+    <Property Name="description" Type="nvarchar" MaxLength="300" />
+    <Property Name="object_name" Type="nvarchar" MaxLength="300" />
+    <Property Name="object_id" Type="nvarchar" MaxLength="100" />
+    <Property Name="area_name" Type="nvarchar" MaxLength="50" />
+    <Property Name="controller_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="action_name" Type="nvarchar" MaxLength="100" />
+    <Property Name="user_role" Type="nvarchar" MaxLength="100" />
+    <Property Name="executed_time" Type="datetime" />
+    <Property Name="additional_info" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="app_ApplicationFeatures">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+      <PropertyRef Name="FeatureId" />
+    </Key>
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="FeatureId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DomainName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CurrentTheme" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="app_FeatureControllers">
+    <Key>
+      <PropertyRef Name="FeatureId" />
+      <PropertyRef Name="ControllerId" />
+    </Key>
+    <Property Name="FeatureId" Type="bigint" Nullable="false" />
+    <Property Name="ControllerId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="app_Features">
+    <Key>
+      <PropertyRef Name="FeatureId" />
+    </Key>
+    <Property Name="FeatureId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="app_PageModules">
+    <Key>
+      <PropertyRef Name="PageModuleId" />
+    </Key>
+    <Property Name="PageModuleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageId" Type="bigint" Nullable="false" />
+    <Property Name="ActionId" Type="bigint" Nullable="false" />
+    <Property Name="PositionCode" Type="nvarchar" MaxLength="100" />
+    <Property Name="Order" Type="int" />
+  </EntityType>
+  <EntityType Name="app_Pages">
+    <Key>
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="PageId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentId" Type="bigint" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="CustomUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" />
+    <Property Name="Order" Type="int" />
+    <Property Name="Alias" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="app_PartialViews">
+    <Key>
+      <PropertyRef Name="PartialViewId" />
+    </Key>
+    <Property Name="PartialViewId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionId" Type="bigint" Nullable="false" />
+    <Property Name="Theme" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Content" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="app_StaticItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationId" Type="bigint" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="250" />
+    <Property Name="Body" Type="nvarchar(max)" />
+    <Property Name="Position" Type="int" />
+  </EntityType>
+  <EntityType Name="auth_RolePermissions">
+    <Key>
+      <PropertyRef Name="RolePermissionId" />
+    </Key>
+    <Property Name="RolePermissionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleId" Type="bigint" Nullable="false" />
+    <Property Name="Action" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Controller" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Area" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="auth_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationId" Type="bigint" />
+    <Property Name="RoleName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="auth_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationId" Type="bigint" />
+    <Property Name="Username" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="LastLoginDate" Type="datetime" />
+    <Property Name="AuthToken" Type="nvarchar" MaxLength="100" />
+    <Property Name="Faculty" Type="nvarchar" MaxLength="50" />
+    <Property Name="StudentID" Type="varchar" MaxLength="50" />
+    <Property Name="StudentClass" Type="nvarchar" MaxLength="50" />
+    <Property Name="ActualName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DueDate" Type="datetime" />
+    <Property Name="UserGroup" Type="int" />
+    <Property Name="YearLearnt" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="auth_UsersInRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="RoleId" Type="bigint" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="core_Actions">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ControllerId" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Template" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="core_Areas">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="core_Configs">
+    <Key>
+      <PropertyRef Name="ConfigId" />
+    </Key>
+    <Property Name="ConfigId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Value" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="core_Controllers">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+    </Key>
+    <Property Name="ControllerId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AreaId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="core_Frontend_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="IsMain" Type="bit" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="core_Frontend_MenuItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MenuID" Type="bigint" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" />
+    <Property Name="Position" Type="int" Nullable="false" />
+    <Property Name="ActionId" Type="bigint" />
+    <Property Name="CustomUrl" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsCutom" Type="bit" />
+    <Property Name="Parameters" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="core_Locales">
+    <Key>
+      <PropertyRef Name="LocaleId" />
+    </Key>
+    <Property Name="LocaleId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ApplicationId" Type="bigint" />
+    <Property Name="Name" Type="nvarchar" MaxLength="20" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+    <Property Name="Icon" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="core_Translations">
+    <Key>
+      <PropertyRef Name="TranslationId" />
+    </Key>
+    <Property Name="TranslationId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Key" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="LocaleId" Type="bigint" Nullable="false" />
+    <Property Name="Value" Type="nvarchar(max)" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="DocumentCategories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ParentID" Type="bigint" Nullable="false" />
+    <Property Name="CategoryName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Position" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DocumentFormats">
+    <Key>
+      <PropertyRef Name="DocumentFormatID" />
+    </Key>
+    <Property Name="DocumentFormatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" />
+    <Property Name="Description" Type="ntext" />
+    <Property Name="MIME" Type="nvarchar" MaxLength="250" />
+    <Property Name="FileFormat" Type="varchar" MaxLength="250" />
+    <Property Name="Avatar" Type="nvarchar" MaxLength="250" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="DocumentOrders">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="OrderContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentName" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentCategory" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentCreator" Type="nvarchar" MaxLength="50" />
+    <Property Name="DocumentPublisher" Type="nvarchar" MaxLength="50" />
+    <Property Name="PublishedYear" Type="nvarchar" MaxLength="50" />
+    <Property Name="Delivery" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Documents">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="bigint" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="500" />
+    <Property Name="Creator" Type="nvarchar" MaxLength="500" />
+    <Property Name="Subject" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="Publisher" Type="nvarchar" MaxLength="500" />
+    <Property Name="Contributor" Type="nvarchar" MaxLength="500" />
+    <Property Name="Date" Type="date" />
+    <Property Name="Type" Type="nvarchar" MaxLength="500" />
+    <Property Name="Format" Type="nvarchar" MaxLength="500" />
+    <Property Name="Identifier" Type="nvarchar" MaxLength="500" />
+    <Property Name="Resource" Type="nvarchar" MaxLength="500" />
+    <Property Name="Language" Type="nvarchar" MaxLength="100" />
+    <Property Name="Relation" Type="nvarchar" MaxLength="500" />
+    <Property Name="Coverage" Type="nvarchar" MaxLength="500" />
+    <Property Name="Right" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="DocumentsFiles">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FileName" Type="nvarchar" MaxLength="500" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="FormatID" Type="int" />
+    <Property Name="FileSource" Type="nvarchar" MaxLength="500" />
+    <Property Name="Thumbnail" Type="nvarchar" MaxLength="500" />
+    <Property Name="BookFee" Type="float" />
+    <Property Name="Size" Type="float" />
+    <Property Name="ViewCount" Type="bigint" />
+    <Property Name="Status" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsHasInfo" Type="bit" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsIndexed" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DocumentStatistic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Value" Type="float" />
+    <Property Name="CateID" Type="int" />
+    <Property Name="Type" Type="nvarchar" MaxLength="100" />
+    <Property Name="Year" Type="bigint" />
+  </EntityType>
+  <EntityType Name="FacultyGroup">
+    <Key>
+      <PropertyRef Name="fgroup_id" />
+    </Key>
+    <Property Name="fgroup_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fgroup_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FeeHistoryView">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="DocumentID" Type="bigint" />
+    <Property Name="Fee" Type="float" />
+    <Property Name="TimeRecorded" Type="datetime" />
+    <Property Name="month" Type="int" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <EntityType Name="MoneyLog">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="bigint" />
+    <Property Name="feeLog" Type="float" />
+    <Property Name="dateInput" Type="datetime" />
+    <Property Name="month" Type="int" />
+    <Property Name="year" Type="int" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Balance" Type="float" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedUser" Type="bigint" />
+    <Property Name="LastModifiedDate" Type="datetime" />
+    <Property Name="LastModifiedUser" Type="bigint" />
+    <Property Name="Status" Type="bit" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SearchHistories">
+    <Key>
+      <PropertyRef Name="SearchHistoryId" />
+    </Key>
+    <Property Name="SearchHistoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="Keyword" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SearchDate" Type="datetime" Nullable="false" />
+    <Property Name="ResultSet" Type="text" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserGroup">
+    <Key>
+      <PropertyRef Name="groupId" />
+    </Key>
+    <Property Name="groupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="group_name" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ViewHistory">
+    <Key>
+      <PropertyRef Name="ViewHistoryId" />
+    </Key>
+    <Property Name="ViewHistoryId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" Nullable="false" />
+    <Property Name="BookId" Type="bigint" Nullable="false" />
+    <Property Name="ViewDate" Type="datetime" Nullable="false" />
+    <Property Name="DocumentTitle" Type="nvarchar" MaxLength="100" />
+    <Property Name="DocumentPublisher" Type="nvarchar" MaxLength="100" />
+    <Property Name="CatId" Type="int" />
+    <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Fee" Type="float" Nullable="false" />
+    <Property Name="Year" Type="int" />
+    <Property Name="Month" Type="int" />
+  </EntityType>
+  <Association Name="FK_app_ApplicationFeatures_app_Applications">
+    <End Role="app_Applications" Type="Self.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_ApplicationFeatures" Type="Self.app_ApplicationFeatures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_ApplicationFeatures">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_ApplicationFeatures_app_Features">
+    <End Role="app_Features" Type="Self.app_Features" Multiplicity="1" />
+    <End Role="app_ApplicationFeatures" Type="Self.app_ApplicationFeatures" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Features">
+        <PropertyRef Name="FeatureId" />
+      </Principal>
+      <Dependent Role="app_ApplicationFeatures">
+        <PropertyRef Name="FeatureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_FeatureControllers_app_Features">
+    <End Role="app_Features" Type="Self.app_Features" Multiplicity="1" />
+    <End Role="app_FeatureControllers" Type="Self.app_FeatureControllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Features">
+        <PropertyRef Name="FeatureId" />
+      </Principal>
+      <Dependent Role="app_FeatureControllers">
+        <PropertyRef Name="FeatureId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_FeatureControllers_core_Controllers">
+    <End Role="core_Controllers" Type="Self.core_Controllers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_FeatureControllers" Type="Self.app_FeatureControllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Controllers">
+        <PropertyRef Name="ControllerId" />
+      </Principal>
+      <Dependent Role="app_FeatureControllers">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_app_Pages">
+    <End Role="app_Pages" Type="Self.app_Pages" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PageModules" Type="Self.app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_core_Actions">
+    <End Role="core_Actions" Type="Self.core_Actions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PageModules" Type="Self.app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_Pages_app_Applications">
+    <End Role="app_Applications" Type="Self.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_Pages" Type="Self.app_Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_Pages">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_Pages_app_Pages">
+    <End Role="app_Pages" Type="Self.app_Pages" Multiplicity="0..1" />
+    <End Role="app_Pages1" Type="Self.app_Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_Pages1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PartialViews_core_Actions">
+    <End Role="core_Actions" Type="Self.core_Actions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PartialViews" Type="Self.app_PartialViews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PartialViews">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_article_Static_Items_app_Applications">
+    <End Role="app_Applications" Type="Self.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_StaticItems" Type="Self.app_StaticItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_StaticItems">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Roles_core_Applications">
+    <End Role="app_Applications" Type="Self.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_Roles" Type="Self.auth_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Users_core_Applications">
+    <End Role="app_Applications" Type="Self.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_Users" Type="Self.auth_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_UsersInRoles_auth_Roles">
+    <End Role="auth_Roles" Type="Self.auth_Roles" Multiplicity="1" />
+    <End Role="auth_UsersInRoles" Type="Self.auth_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="auth_UsersInRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_UsersInRoles_auth_Users">
+    <End Role="auth_Users" Type="Self.auth_Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_UsersInRoles" Type="Self.auth_UsersInRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="auth_UsersInRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Actions_core_Controllers">
+    <End Role="core_Controllers" Type="Self.core_Controllers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Actions" Type="Self.core_Actions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Controllers">
+        <PropertyRef Name="ControllerId" />
+      </Principal>
+      <Dependent Role="core_Actions">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Controllers_core_Areas">
+    <End Role="core_Areas" Type="Self.core_Areas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Controllers" Type="Self.core_Controllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Areas">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="core_Controllers">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+    <End Role="core_Frontend_MenuItems" Type="Self.core_Frontend_MenuItems" Multiplicity="0..1" />
+    <End Role="core_Frontend_MenuItems1" Type="Self.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Locales_core_Applications">
+    <End Role="app_Applications" Type="Self.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Locales" Type="Self.core_Locales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="core_Locales">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_RolePermissions_auth_Roles">
+    <End Role="auth_Roles" Type="Self.auth_Roles" Multiplicity="1" />
+    <End Role="auth_RolePermissions" Type="Self.auth_RolePermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="auth_RolePermissions">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentOrders_auth_Users">
+    <End Role="auth_Users" Type="Self.auth_Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentOrders" Type="Self.DocumentOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DocumentOrders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentsFile">
+    <End Role="DocumentsFiles" Type="Self.DocumentsFiles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Documents" Type="Self.Documents" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentsFiles">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentCategories">
+    <End Role="DocumentCategories" Type="Self.DocumentCategories" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentsFiles" Type="Self.DocumentsFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentsFiles">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentFormat">
+    <End Role="DocumentFormats" Type="Self.DocumentFormats" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentsFiles" Type="Self.DocumentsFiles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentFormats">
+        <PropertyRef Name="DocumentFormatID" />
+      </Principal>
+      <Dependent Role="DocumentsFiles">
+        <PropertyRef Name="FormatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentStatistic_DocumentCategories">
+    <End Role="DocumentCategories" Type="Self.DocumentCategories" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentStatistic" Type="Self.DocumentStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentStatistic">
+        <PropertyRef Name="CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_core_Actions">
+    <End Role="core_Actions" Type="Self.core_Actions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Frontend_MenuItems" Type="Self.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_Frontend_Menu">
+    <End Role="core_Frontend_Menu" Type="Self.core_Frontend_Menu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Frontend_MenuItems" Type="Self.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profile_auth_Users">
+    <End Role="auth_Users" Type="Self.auth_Users" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Profile" Type="Self.Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Translations_Locales">
+    <End Role="core_Locales" Type="Self.core_Locales" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Translations" Type="Self.core_Translations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Locales">
+        <PropertyRef Name="LocaleId" />
+      </Principal>
+      <Dependent Role="core_Translations">
+        <PropertyRef Name="LocaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QMLWebUIStoreContainer">
+    <EntitySet Name="ActionLog" EntityType="Self.ActionLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_ApplicationFeatures" EntityType="Self.app_ApplicationFeatures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_Applications" EntityType="Self.app_Applications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_FeatureControllers" EntityType="Self.app_FeatureControllers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_Features" EntityType="Self.app_Features" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_PageModules" EntityType="Self.app_PageModules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_Pages" EntityType="Self.app_Pages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_PartialViews" EntityType="Self.app_PartialViews" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="app_StaticItems" EntityType="Self.app_StaticItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_RolePermissions" EntityType="Self.auth_RolePermissions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_Roles" EntityType="Self.auth_Roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_Users" EntityType="Self.auth_Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="auth_UsersInRoles" EntityType="Self.auth_UsersInRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Actions" EntityType="Self.core_Actions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Areas" EntityType="Self.core_Areas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Configs" EntityType="Self.core_Configs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Controllers" EntityType="Self.core_Controllers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Frontend_Menu" EntityType="Self.core_Frontend_Menu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Frontend_MenuItems" EntityType="Self.core_Frontend_MenuItems" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Locales" EntityType="Self.core_Locales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="core_Translations" EntityType="Self.core_Translations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentCategories" EntityType="Self.DocumentCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentFormats" EntityType="Self.DocumentFormats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentOrders" EntityType="Self.DocumentOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documents" EntityType="Self.Documents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentsFiles" EntityType="Self.DocumentsFiles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DocumentStatistic" EntityType="Self.DocumentStatistic" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FacultyGroup" EntityType="Self.FacultyGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FeeHistoryView" EntityType="Self.FeeHistoryView" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MoneyLog" EntityType="Self.MoneyLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Profile" EntityType="Self.Profile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SearchHistories" EntityType="Self.SearchHistories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserGroup" EntityType="Self.UserGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewHistory" EntityType="Self.ViewHistory" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_app_ApplicationFeatures_app_Applications" Association="Self.FK_app_ApplicationFeatures_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_ApplicationFeatures" EntitySet="app_ApplicationFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_ApplicationFeatures_app_Features" Association="Self.FK_app_ApplicationFeatures_app_Features">
+      <End Role="app_Features" EntitySet="app_Features" />
+      <End Role="app_ApplicationFeatures" EntitySet="app_ApplicationFeatures" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_FeatureControllers_app_Features" Association="Self.FK_app_FeatureControllers_app_Features">
+      <End Role="app_Features" EntitySet="app_Features" />
+      <End Role="app_FeatureControllers" EntitySet="app_FeatureControllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_FeatureControllers_core_Controllers" Association="Self.FK_app_FeatureControllers_core_Controllers">
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+      <End Role="app_FeatureControllers" EntitySet="app_FeatureControllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_app_Pages" Association="Self.FK_app_PageModules_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_core_Actions" Association="Self.FK_app_PageModules_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_Pages_app_Applications" Association="Self.FK_app_Pages_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_Pages" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_Pages_app_Pages" Association="Self.FK_app_Pages_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_Pages1" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PartialViews_core_Actions" Association="Self.FK_app_PartialViews_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PartialViews" EntitySet="app_PartialViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_article_Static_Items_app_Applications" Association="Self.FK_article_Static_Items_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_StaticItems" EntitySet="app_StaticItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Roles_core_Applications" Association="Self.FK_auth_Roles_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Users_core_Applications" Association="Self.FK_auth_Users_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Users" EntitySet="auth_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_UsersInRoles_auth_Roles" Association="Self.FK_auth_UsersInRoles_auth_Roles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_UsersInRoles" EntitySet="auth_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_UsersInRoles_auth_Users" Association="Self.FK_auth_UsersInRoles_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="auth_UsersInRoles" EntitySet="auth_UsersInRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Actions_core_Controllers" Association="Self.FK_core_Actions_core_Controllers">
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+      <End Role="core_Actions" EntitySet="core_Actions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Controllers_core_Areas" Association="Self.FK_core_Controllers_core_Areas">
+      <End Role="core_Areas" EntitySet="core_Areas" />
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems" Association="Self.FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+      <End Role="core_Frontend_MenuItems1" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Locales_core_Applications" Association="Self.FK_core_Locales_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="core_Locales" EntitySet="core_Locales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_RolePermissions_auth_Roles" Association="Self.FK_core_RolePermissions_auth_Roles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_RolePermissions" EntitySet="auth_RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentOrders_auth_Users" Association="Self.FK_DocumentOrders_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="DocumentOrders" EntitySet="DocumentOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentsFile" Association="Self.FK_Documents_DocumentsFile">
+      <End Role="DocumentsFiles" EntitySet="DocumentsFiles" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentCategories" Association="Self.FK_DocumentsFile_DocumentCategories">
+      <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+      <End Role="DocumentsFiles" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentFormat" Association="Self.FK_DocumentsFile_DocumentFormat">
+      <End Role="DocumentFormats" EntitySet="DocumentFormats" />
+      <End Role="DocumentsFiles" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentStatistic_DocumentCategories" Association="Self.FK_DocumentStatistic_DocumentCategories">
+      <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+      <End Role="DocumentStatistic" EntitySet="DocumentStatistic" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_core_Actions" Association="Self.FK_Frontend_MenuItems_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_Frontend_Menu" Association="Self.FK_Frontend_MenuItems_Frontend_Menu">
+      <End Role="core_Frontend_Menu" EntitySet="core_Frontend_Menu" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profile_auth_Users" Association="Self.FK_Profile_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="Profile" EntitySet="Profile" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Translations_Locales" Association="Self.FK_Translations_Locales">
+      <End Role="core_Locales" EntitySet="core_Locales" />
+      <End Role="core_Translations" EntitySet="core_Translations" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

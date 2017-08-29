@@ -1,0 +1,645 @@
+﻿@model IEnumerable<QML.Library.Data.User>
+@{
+    ViewBag.Title = "Quản lí người dùng";
+    
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+    List<QML.Web.UI.UserGroup> ls1 = db.UserGroups.ToList();
+    List<QML.Web.UI.FacultyGroup> fl1 = db.FacultyGroups.ToList();
+    QML.Web.UI.Controllers.EssentialController ec = new QML.Web.UI.Controllers.EssentialController();
+    List<User> user = new List<User>();
+    List<User> librarian = new List<User>();
+    List<User> none = new List<User>();
+    List<QML.Web.UI.auth_Roles> roles = db.auth_Roles.ToList();
+    var items = new SelectList(roles, "RoleId", "Description", 1);
+
+    int page = 1;
+    if (TempData["Page"] != null)
+    {
+        page = int.Parse(TempData["Page"].ToString());
+    }
+}
+
+<link href="@Url.Content("~/Content/Admin/css/simplePagination.css")" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src=@Url.Content("~/Content/Admin/js/jquery.simplePagination.js")></script>
+<script type="text/javascript" src="@Url.Content("~/Content/jquery_alert/jquery.alerts.js")"></script>
+<script type="text/javascript">
+    $(function() {
+        @if (TempData["alertMsg"] != null) {
+            if (TempData["alertMsg"] == "1") {
+                <text>jAlert("Không phải là số", "Error");</text>
+            }
+            else if (TempData["alertMsg"] == "0")
+            {
+                <text>jAlert("Nạp tiền thành công", "Success");</text>
+            }
+            else if (TempData["alertMsg"] == "2")
+            {
+                <text>jAlert("Cập nhật chức vụ thành công", "Sucess");</text>
+            }
+            else if (TempData["alertMsg"] == "3")
+            {
+                <text>jAlert("Nhập dữ liệu người dùng thất bại", "Error");</text>
+            }
+        }
+    });
+</script>
+
+@if (String.Equals(ViewBag.Message, "success", StringComparison.OrdinalIgnoreCase))
+{
+    <div class="message closeable success" style="display:none">
+        <span class="message-close"></span>
+        <h3>Thành công</h3>
+        <p>Người dùng được tạo mới thành công</p>
+    </div>
+}
+else
+{
+    <div class="message closeable failed" style="display:none">
+        <span class="message-close"></span>
+        <h3>Thất bại</h3>
+        <p>Không tạo được người dùng, tên đăng nhập hoặc mã số sinh viên đã tồn tại</p>
+    </div>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#toggleAllCheckBox").click(function () {
+            if ($(this).attr("value") == "Chọn tất cả") {
+                $(".check-box").attr("checked", true);
+                $(this).attr("value", "Bỏ chọn")
+
+            } else {
+                $(".check-box").attr("checked", false);
+                $(this).attr("value", "Chọn tất cả")
+            }
+        });
+        //xóa bản ghi
+        $("#DeletePermanent").click(function () {
+            if ($("#assignChkBx:checked").length < 1) {
+                jAlert('Bạn cần phải chọn một biểu ghi để thực hiện thao tác xóa hẳn file', 'Thông báo');
+            }
+            else {
+                var answer = confirm("Bạn có chắc chắn muốn xóa vĩnh viễn (những) bản ghi được chọn ?")
+                if (answer) {
+                    $("#actionControl").val("deletePermanent");
+                    var allVals = [];
+                    $("#assignChkBx:checked").each(function () {
+                        allVals.push($(this).val());
+                    });
+                    $('#listID').val(allVals)
+                    $("#manageLogin").submit();
+                }
+            }
+        });
+
+        //nạp tiền cho nhiều tài khoản cùng lúc
+        $("#ChargeMoneyBtn").click(function () {
+            if ($("#assignChkBx:checked").length < 1) {
+                jAlert('Bạn cần phải chọn một biểu ghi để thực hiện thao tác nạp tiền', 'Thông báo');
+            }
+            else {
+                $("#actionControl").val("chargeMoney");
+                var allVals = [];
+                $("#assignChkBx:checked").each(function () {
+                    allVals.push($(this).val());
+                });
+                $('#listID').val(allVals);
+
+                $("#manageLogin").submit();
+            }
+        });
+
+        //thay đổi chức vụ cho nhiều tài khoản cùng lúc
+        $("#ChangeRoleBtn").click(function () {
+            if ($("#assignChkBx:checked").length < 1) {
+                jAlert('Bạn cần phải chọn một biểu ghi để thực hiện thao tác thay đổi chức vụ', 'Thông báo');
+            }
+            else {
+                $("#actionControl").val("ChangeRole");
+                var allVals = [];
+                $("#assignChkBx:checked").each(function () {
+                    allVals.push($(this).val());
+                });
+                $('#listID').val(allVals);
+
+                $("#manageLogin").submit();
+            }
+        });
+
+        var pages;
+        //chọn người dùng
+        $(".all").show(); $(".user").hide(); $(".librarian").hide(); $(".none").hide();
+        $("#optionUser").change(function () {
+            $(".all").hide(); $(".user").hide(); $(".librarian").hide(); $(".none").hide();
+            $(".all,.user,.librarian,.none").removeClass("active");
+            if ($(this).val() == "all") {
+                $(".all").show();
+            } else if ($(this).val() == "user") {
+                $(".user").show();
+            } else if ($(this).val() == "librarian") {
+                $(".librarian").show();
+            } else {
+                $(".none").show();
+            }
+        });
+
+        $("#ChargeMoney").toggle(function () {
+            $("#sectionMoney").show();
+        }, function () {
+            $("#sectionMoney").hide();
+        });
+
+        $("#ChangeRole").toggle(function () {
+            $("#sectionRole").show();
+        }, function () {
+            $("#sectionRole").hide();
+        });
+
+        //nút thêm được ấn
+        $("#Filter").click(function () {
+            $("#userForm").submit();
+        })
+
+        $("#CancelFilter").click(function () {
+            $(location).reload(true);
+        })
+
+        $(".toggle").toggle(function () {
+            $("#ss_form").show();
+        }, function () {
+            $("#ss_form").hide();
+        });
+
+    });
+</script>
+<p>@Html.ActionLink("Thêm mới", "CreateUser", "UserEx", null, new { @class = "button button-green" })</p>
+<p style="font-size:small; font-weight:bold"><a href="#" class="toggle">Tìm kiếm nâng cao</a></p>
+<div id="ss_form" style="display:none;text-align:left">
+    @using (Html.BeginForm("FilterUser", "UserEx", new { pageSize = 20 }, FormMethod.Post, new { id = "userForm" }))
+    {
+        <input type="hidden" name="searchType" value="advanced" />
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="studentid" value="Mã sinh viên" disabled="disabled" /></span>
+            <span class="keyword">Từ khóa: @Html.Editor("keywordStudentid")</span>
+        </p>
+
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="username" value="Tên đăng nhập" disabled="disabled" /></span>
+            <span class="keyword">Từ khóa: @Html.Editor("keywordUsername")</span>
+        </p>
+
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="actualname" value="Họ và tên" disabled="disabled" /></span>
+            <span class="keyword">Từ khóa: @Html.Editor("keywordActualname")</span>
+        </p>
+
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="group" value="Nhóm người sử dụng" disabled="disabled" /></span>
+            <span class="keyword">Từ khóa: @Html.DropDownList("keywordGroup", new SelectList(ls1, "groupId", "group_name"), "--Chọn một--")</span>
+        </p>
+
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="faculty" value="Khoa" disabled="disabled" /></span>
+            <span class="keyword">Từ khóa: @Html.DropDownList("keywordFaculty", new SelectList(fl1, "fgroup_name", "fgroup_name"), "--Chọn một--")</span>
+        </p>
+
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="class" value="Lớp" disabled="disabled" /></span>
+            <span class="keyword">Từ khóa: @Html.Editor("keywordClass")</span>
+        </p>
+
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="duedate" value="Hạn sử dụng" disabled="disabled" /></span>
+            <span class="keyword">
+                Từ khóa: @Html.DropDownList("keywordDueDate", new List<SelectListItem>
+                 {
+                    new SelectListItem { Text="Còn hạn sử dụng", Value = "1" },
+                    new SelectListItem { Text="Hết hạn sử dụng", Value = "0" }
+                 }, "--Chọn một--")
+            </span>
+        </p>
+        
+        <p class="searchCriteria">
+            <span class="criteria">Lọc theo: <input type="text" name="class" value="Khóa" disabled="disabled" /></span>
+            <span class="keyword">Từ khóa: @Html.Editor("keywordYearStudy")</span>
+        </p>
+        
+        <div style="text-align:center">
+            <input type="button" name="Submit" value="Lọc" id="Filter" />
+            <input type="button" name="Submit" value="Hủy lọc" id="CancelFilter" />
+        </div>
+    }
+</div>
+
+<br />
+
+@Html.ActionLink("Quản lý khoa chuyên ngành", "Faculty", "UserEx", null, new { @Class = "button button-blue" })
+<br /><br />
+
+@using (Html.BeginForm("ExportUserData", "UserEx", FormMethod.Post, new { enctype = "multipart/form-data", style = "display:inline-block" }))
+{
+    <input type="submit" class="button button-blue" id="Import" value="Xuất dữ liệu ra excel" />
+}
+
+@Html.ActionLink("Nhập dữ liệu từ excel", "ImportUserData", "UserEx", null, new { @Class = "button button-blue", style = "display:inline-block" })
+<br /><br />
+
+@using (Html.BeginForm("Management", "UserEx", FormMethod.Post, new { id = "manageLogin" }))
+{
+    <input type="hidden" id="page" name="page" value="1" />
+    <div id="sectionCriteria" style="float:left;margin-right:20px">
+        <input type="button" id="toggleAllCheckBox" name="sbm" value="Chọn tất cả" class="button" />
+        <input type="hidden" id="actionControl" name="actionName" />
+        <input type="hidden" id="listID" name="idValue" />
+        <input type="button" class="button" id="DeletePermanent" name="sbm" value="Xóa" />
+        <input type="button" class="button" id="ChangeRole" value="Thay đổi chức vụ" />
+        <input type="button" class="button" id="ChargeMoney" value="Nạp tiền" />
+    </div>
+    <div id="sectionMoney" style="display:none">
+        <input type="text" id="moneyAmount" name="moneyAmount" />
+        <input type="button" id="ChargeMoneyBtn" name="chargeMoneyBtn" value="Nạp tiền" />
+    </div>
+    <div id="sectionRole" style="display:none">
+        <br /><br />
+        @Html.DropDownList("rolesList", items)
+        <input type="button" id="ChangeRoleBtn" name="ChangeRoleBtn" value="Thay đổi chức vụ" />
+    </div>
+}
+
+<br /><br />
+
+<div>
+    <div id="b4-table">
+        Lọc theo người dùng: <select id="optionUser" name="optionUser">
+            <option value="all">Tất cả</option>
+            <option value="user" selected>Người dùng</option>
+            <option value="librarian">Thủ thư</option>
+            <option value="none">Chưa phân quyền</option>
+        </select>
+    </div>
+
+    <div id="b4-table">
+        @using (Html.BeginForm("FilterUser", "UserEx", new { pageSize = 20 }, FormMethod.Post, new { id = "userForm" }))
+        {
+            <input type="hidden" name="searchType" value="normal" />
+            <label>Từ khóa: </label>
+            <input type="text" name="keyword" />
+            <input type="submit" value="Tìm kiếm" class="button" />
+        }
+    </div>
+
+
+    <div id="b4-table" style="float: right">
+        <span class="keyword" style="float:right;margin-right:23px">
+            Số lượng records mỗi trang: <select id="recordsPerPage" name="recordsPerPage" onchange="this.form.submit()">
+                <option>--</option>
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
+        </span>
+    </div>
+    <style>
+        #b4-table {
+            display: inline-block;
+            margin: 10px;
+        }
+    </style>
+</div>
+
+<br />
+
+<!-- Tat ca -->
+<div class="all active">
+    <table id="all" class="datatable">
+        <thead>
+            <tr class="grid-header">
+                <th>Chọn</th>
+                <th>Mã số sinh viên</th>
+                <th>Tên tài khoản</th>
+                <th>Tên</th>
+                <th>Khoa</th>
+                <th>Lớp</th>
+                <th>Hết hạn thẻ</th>
+                <th>Khóa</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="pagination4">
+            @foreach (var item in Model.ToList().OrderByDescending(m => m.CreatedDate))
+            {
+                var info = (from u in db.auth_Users where u.UserId == item.UserId select u).FirstOrDefault();
+                <tr class="itemContent4">
+                    <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>
+                    <td>@info.StudentID</td>
+                    <td>@item.Username</td>
+                    <td>@info.ActualName</td>
+                    <td>@info.Faculty</td>
+                    <td>@info.StudentClass</td>
+                    @if (@info.DueDate != null)
+                    {
+                        <td>@info.DueDate.Value.ToString("d/M/yyyy")</td>
+                    }
+                    else
+                    {
+                        <td>@info.DueDate</td>
+                    }
+                    <td>@info.YearLearnt</td>
+                    <td>
+                        @Html.ActionLink("Đổi mật khẩu", "ChangePasswordUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="pagination_4"></div>
+
+    <!-- Phân trang-->
+    <br />
+
+    @{
+        int pageSize = 20;
+        string sizeParam = Request.Params.Get("pageSize");
+        if (sizeParam != null)
+        {
+            pageSize = int.Parse(sizeParam);
+        }
+    }
+    <script type="text/javascript">
+        jQuery(function($) {
+            // consider adding an id to your table,
+            // just incase a second table ever enters the picture..?
+            var items = $("table#all tbody tr");
+
+            var numItems = @Model.ToList().Count;
+            var perPage = @pageSize;
+
+            // only show the first 2 (or "first per_page") items initially
+            items.slice(perPage).hide();
+
+            // now setup your pagination
+            // you need that .pagination-page div before/after your table
+            $(".pagination_4").pagination({
+                items: numItems,
+                itemsOnPage: perPage,
+                cssStyle: "compact-theme",
+                onPageClick: function(pageNumber) { // this is where the magic happens
+                    // someone changed page, lets hide/show trs appropriately
+                    var showFrom = perPage * (pageNumber - 1);
+                    var showTo = showFrom + perPage;
+
+                    items.hide() // first hide everything, then show for the new page
+                         .slice(showFrom, showTo).show();
+                    //get current page to pass to other actions
+                    var currPage = $(".pagination_4").pagination('getCurrentPage')
+                    $("input#page").val(currPage);
+                },
+            });
+            $(".pagination_4").pagination("selectPage", @page);
+        });
+    </script>
+
+
+</div>
+<!-- Nguoi dung-->
+<div class="user">
+
+    @foreach (var item in Model.ToList())
+    {
+        if (ec.getUserRole(item.UserId) == "Premium" || ec.getUserRole(item.UserId) == "Student")
+        {
+            user.Add(item);
+        }
+    }
+
+    <table id="user" class="datatable">
+        <thead>
+            <tr class="grid-header">
+                <th>Chọn</th>
+                <th>Mã số sinh viên</th>
+                <th>Tên tài khoản</th>
+                <th>Tên</th>
+                <th>Khoa</th>
+                <th>Lớp</th>
+                <th>Hết hạn thẻ</th>
+                <th>Khóa</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="pagination1">
+            @foreach (var item in user.ToList().OrderByDescending(m => m.CreatedDate))
+            {
+                var info = (from u in db.auth_Users where u.UserId == item.UserId select u).FirstOrDefault();
+                <tr class="itemContent1">
+                    <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>
+                    <td>@info.StudentID</td>
+                    <td>@item.Username</td>
+                    <td>@info.ActualName</td>
+                    <td>@info.Faculty</td>
+                    <td>@info.StudentClass</td>
+                    @if (@info.DueDate != null)
+                    {
+                        <td>@info.DueDate.Value.ToString("d/M/yyyy")</td>
+                    }
+                    else
+                    {
+                        <td>@info.DueDate</td>
+                    }
+                    <td>@info.YearLearnt</td>
+                    <td>
+                        @Html.ActionLink("Đổi mật khẩu", "ChangePasswordUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- Phân trang-->
+    <div class="pagination_1"></div>
+
+    <script type="text/javascript">
+        jQuery(function($) {
+            var items = $("table#user tbody tr");
+            var numItems = @user.Count;
+            var perPage = @pageSize;
+            items.slice(perPage).hide();
+
+            $(".pagination_1").pagination({
+                items: numItems,
+                itemsOnPage: perPage,
+                cssStyle: "compact-theme",
+                onPageClick: function(pageNumber) {
+                    var showFrom = perPage * (pageNumber - 1);
+                    var showTo = showFrom + perPage;
+                    items.hide().slice(showFrom, showTo).show();
+                }
+            });
+        });
+    </script>
+</div>
+<!-- Thu thu-->
+<div class="librarian">
+
+    @foreach (var item in Model.ToList())
+    {
+        if (ec.getUserRole(item.UserId) == "Librarian" || ec.getUserRole(item.UserId) == "Thủ thư" || ec.getUserRole(item.UserId) == "Thư kí viên"
+            || ec.getUserRole(item.UserId) == "Admin")
+        {
+            librarian.Add(item);
+        }
+    }
+
+    <table id="librarian" class="datatable">
+        <thead>
+            <tr class="grid-header">
+                <th>Chọn</th>
+                <th>Tên tài khoản</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="pagination2">
+            @foreach (var item in librarian.ToList())
+            {
+                <tr class="itemContent2">
+                    <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>
+                    <td>@item.Username</td>
+                    <td>
+                        @Html.ActionLink("Đổi mật khẩu", "ChangePasswordAdmin", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <!-- Phân trang-->
+    <div class="pagination_2"></div>
+
+    <script type="text/javascript">
+        jQuery(function($) {
+            var items = $("table#librarian tbody tr");
+            var numItems = @librarian.Count;
+            var perPage = @pageSize;
+            items.slice(perPage).hide();
+
+            $(".pagination_2").pagination({
+                items: numItems,
+                itemsOnPage: perPage,
+                cssStyle: "compact-theme",
+                onPageClick: function(pageNumber) {
+                    var showFrom = perPage * (pageNumber - 1);
+                    var showTo = showFrom + perPage;
+                    items.hide().slice(showFrom, showTo).show();
+                }
+            });
+        });
+    </script>
+</div>
+<!-- Chua phan quyen-->
+<div class="none">
+    @foreach (var item in Model.ToList())
+    {
+        if (ec.getUserRole(item.UserId) == null)
+        {
+            none.Add(item);
+        }
+    }
+
+    <table id="none" class="datatable">
+        <thead>
+            <tr class="grid-header">
+                <th>Chọn</th>
+                <th>Tên tài khoản</th>
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody id="pagination3">
+            @foreach (var item in none.ToList())
+            {
+                <tr class="itemContent3">
+                    <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>
+                    <td>@item.Username</td>
+                    <td>
+                        @Html.ActionLink("Đổi mật khẩu", "ChangePasswordAdmin", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+                        @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <!-- Phân trang-->
+    <div class="pagination_3"></div>
+
+    <script type="text/javascript">
+        jQuery(function($) {
+            var items = $("table#none tbody tr");
+            var numItems = @none.Count;
+            var perPage = @pageSize;
+            items.slice(perPage).hide();
+
+            $(".pagination_3").pagination({
+                items: numItems,
+                itemsOnPage: perPage,
+                cssStyle: "compact-theme",
+                onPageClick: function(pageNumber) {
+                    var showFrom = perPage * (pageNumber - 1);
+                    var showTo = showFrom + perPage;
+                    items.hide().slice(showFrom, showTo).show();
+                }
+            });
+        });
+    </script>
+</div>
+<!-- end tab -->
+
+<script type="text/javascript" src="@Url.Content("~/js/imtech_pager.js")"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#recordsPerPage").change(function () {
+            window.location.replace("@Url.Action("UsersList", "User")"+"?pageSize="+$(this).val());
+        });
+    });
+
+    $(document).ready(function(){
+        $('#optionUser').change(function(){
+            $('input:checkbox').removeAttr('checked','checked');
+            $('#toggleAllCheckbox').attr("value", "Chọn tất cả")
+        });
+    });
+</script>
+
+<style type="text/css">
+    .simplePagerNav li {
+        display: inline;
+        margin: 6px;
+    }
+
+    .simplePagerNav {
+        border-top: 1px solid #e1e1e1;
+        background: #f1f1f1;
+        margin-top: 12px;
+        font-size: 14px;
+        padding: 12px 12px;
+    }
+
+    .currentPage a {
+        color: Red;
+    }
+</style>

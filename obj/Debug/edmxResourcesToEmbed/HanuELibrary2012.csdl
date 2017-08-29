@@ -1,0 +1,845 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HanuElibrary2012Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="HanuELibraryEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="app_Applications" EntityType="HanuElibrary2012Model.app_Applications" />
+    <EntitySet Name="app_Features" EntityType="HanuElibrary2012Model.app_Features" />
+    <EntitySet Name="app_PageModules" EntityType="HanuElibrary2012Model.app_PageModules" />
+    <EntitySet Name="app_Pages" EntityType="HanuElibrary2012Model.app_Pages" />
+    <EntitySet Name="app_PartialViews" EntityType="HanuElibrary2012Model.app_PartialViews" />
+    <EntitySet Name="app_StaticItems" EntityType="HanuElibrary2012Model.app_StaticItems" />
+    <EntitySet Name="auth_RolePermissions" EntityType="HanuElibrary2012Model.auth_RolePermissions" />
+    <EntitySet Name="auth_Roles" EntityType="HanuElibrary2012Model.auth_Roles" />
+    <EntitySet Name="auth_Users" EntityType="HanuElibrary2012Model.auth_Users" />
+    <EntitySet Name="core_Actions" EntityType="HanuElibrary2012Model.core_Actions" />
+    <EntitySet Name="core_Areas" EntityType="HanuElibrary2012Model.core_Areas" />
+    <EntitySet Name="core_Configs" EntityType="HanuElibrary2012Model.core_Configs" />
+    <EntitySet Name="core_Controllers" EntityType="HanuElibrary2012Model.core_Controllers" />
+    <EntitySet Name="core_Frontend_Menu" EntityType="HanuElibrary2012Model.core_Frontend_Menu" />
+    <EntitySet Name="core_Frontend_MenuItems" EntityType="HanuElibrary2012Model.core_Frontend_MenuItems" />
+    <EntitySet Name="core_Locales" EntityType="HanuElibrary2012Model.core_Locales" />
+    <EntitySet Name="core_Translations" EntityType="HanuElibrary2012Model.core_Translations" />
+    <EntitySet Name="DocumentCategories" EntityType="HanuElibrary2012Model.DocumentCategory" />
+    <EntitySet Name="DocumentFormats" EntityType="HanuElibrary2012Model.DocumentFormat" />
+    <EntitySet Name="DocumentOrders" EntityType="HanuElibrary2012Model.DocumentOrder" />
+    <EntitySet Name="Documents" EntityType="HanuElibrary2012Model.Document" />
+    <EntitySet Name="DocumentsFiles" EntityType="HanuElibrary2012Model.DocumentsFile" />
+    <EntitySet Name="DocumentStatistics" EntityType="HanuElibrary2012Model.DocumentStatistic" />
+    <EntitySet Name="Profiles" EntityType="HanuElibrary2012Model.Profile" />
+    <EntitySet Name="SearchHistories" EntityType="HanuElibrary2012Model.SearchHistory" />
+    <EntitySet Name="sysdiagrams" EntityType="HanuElibrary2012Model.sysdiagram" />
+    <EntitySet Name="ViewHistories" EntityType="HanuElibrary2012Model.ViewHistory" />
+    <AssociationSet Name="FK_app_Pages_app_Applications" Association="HanuElibrary2012Model.FK_app_Pages_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_Pages" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_article_Static_Items_app_Applications" Association="HanuElibrary2012Model.FK_article_Static_Items_app_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_StaticItems" EntitySet="app_StaticItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Roles_core_Applications" Association="HanuElibrary2012Model.FK_auth_Roles_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_auth_Users_core_Applications" Association="HanuElibrary2012Model.FK_auth_Users_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="auth_Users" EntitySet="auth_Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Locales_core_Applications" Association="HanuElibrary2012Model.FK_core_Locales_core_Applications">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="core_Locales" EntitySet="core_Locales" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_app_Pages" Association="HanuElibrary2012Model.FK_app_PageModules_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PageModules_core_Actions" Association="HanuElibrary2012Model.FK_app_PageModules_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PageModules" EntitySet="app_PageModules" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_Pages_app_Pages" Association="HanuElibrary2012Model.FK_app_Pages_app_Pages">
+      <End Role="app_Pages" EntitySet="app_Pages" />
+      <End Role="app_Pages1" EntitySet="app_Pages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_app_PartialViews_core_Actions" Association="HanuElibrary2012Model.FK_app_PartialViews_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="app_PartialViews" EntitySet="app_PartialViews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_RolePermissions_auth_Roles" Association="HanuElibrary2012Model.FK_core_RolePermissions_auth_Roles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_RolePermissions" EntitySet="auth_RolePermissions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentOrders_auth_Users" Association="HanuElibrary2012Model.FK_DocumentOrders_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="DocumentOrders" EntitySet="DocumentOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Profile_auth_Users" Association="HanuElibrary2012Model.FK_Profile_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="Profile" EntitySet="Profiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SearchHistory_auth_Users" Association="HanuElibrary2012Model.FK_SearchHistory_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="SearchHistory" EntitySet="SearchHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewHistory_auth_Users" Association="HanuElibrary2012Model.FK_ViewHistory_auth_Users">
+      <End Role="auth_Users" EntitySet="auth_Users" />
+      <End Role="ViewHistory" EntitySet="ViewHistories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Actions_core_Controllers" Association="HanuElibrary2012Model.FK_core_Actions_core_Controllers">
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+      <End Role="core_Actions" EntitySet="core_Actions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_core_Actions" Association="HanuElibrary2012Model.FK_Frontend_MenuItems_core_Actions">
+      <End Role="core_Actions" EntitySet="core_Actions" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Controllers_core_Areas" Association="HanuElibrary2012Model.FK_core_Controllers_core_Areas">
+      <End Role="core_Areas" EntitySet="core_Areas" />
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Frontend_MenuItems_Frontend_Menu" Association="HanuElibrary2012Model.FK_Frontend_MenuItems_Frontend_Menu">
+      <End Role="core_Frontend_Menu" EntitySet="core_Frontend_Menu" />
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems" Association="HanuElibrary2012Model.FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+      <End Role="core_Frontend_MenuItems" EntitySet="core_Frontend_MenuItems" />
+      <End Role="core_Frontend_MenuItems1" EntitySet="core_Frontend_MenuItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Translations_Locales" Association="HanuElibrary2012Model.FK_Translations_Locales">
+      <End Role="core_Locales" EntitySet="core_Locales" />
+      <End Role="core_Translations" EntitySet="core_Translations" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentCategories" Association="HanuElibrary2012Model.FK_DocumentsFile_DocumentCategories">
+      <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+      <End Role="DocumentsFile" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentStatistic_DocumentCategories" Association="HanuElibrary2012Model.FK_DocumentStatistic_DocumentCategories">
+      <End Role="DocumentCategories" EntitySet="DocumentCategories" />
+      <End Role="DocumentStatistic" EntitySet="DocumentStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DocumentsFile_DocumentFormat" Association="HanuElibrary2012Model.FK_DocumentsFile_DocumentFormat">
+      <End Role="DocumentFormat" EntitySet="DocumentFormats" />
+      <End Role="DocumentsFile" EntitySet="DocumentsFiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documents_DocumentsFile" Association="HanuElibrary2012Model.FK_Documents_DocumentsFile">
+      <End Role="DocumentsFile" EntitySet="DocumentsFiles" />
+      <End Role="Documents" EntitySet="Documents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewHistory_Documents" Association="HanuElibrary2012Model.FK_ViewHistory_Documents">
+      <End Role="Documents" EntitySet="Documents" />
+      <End Role="ViewHistory" EntitySet="ViewHistories" />
+    </AssociationSet>
+    <AssociationSet Name="app_ApplicationFeatures" Association="HanuElibrary2012Model.app_ApplicationFeatures">
+      <End Role="app_Applications" EntitySet="app_Applications" />
+      <End Role="app_Features" EntitySet="app_Features" />
+    </AssociationSet>
+    <AssociationSet Name="app_FeatureControllers" Association="HanuElibrary2012Model.app_FeatureControllers">
+      <End Role="app_Features" EntitySet="app_Features" />
+      <End Role="core_Controllers" EntitySet="core_Controllers" />
+    </AssociationSet>
+    <AssociationSet Name="auth_UsersInRoles" Association="HanuElibrary2012Model.auth_UsersInRoles">
+      <End Role="auth_Roles" EntitySet="auth_Roles" />
+      <End Role="auth_Users" EntitySet="auth_Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="app_Applications">
+    <Key>
+      <PropertyRef Name="ApplicationId" />
+    </Key>
+    <Property Name="ApplicationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DomainName" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="CurrentTheme" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="app_Pages" Relationship="HanuElibrary2012Model.FK_app_Pages_app_Applications" FromRole="app_Applications" ToRole="app_Pages" />
+    <NavigationProperty Name="app_StaticItems" Relationship="HanuElibrary2012Model.FK_article_Static_Items_app_Applications" FromRole="app_Applications" ToRole="app_StaticItems" />
+    <NavigationProperty Name="auth_Roles" Relationship="HanuElibrary2012Model.FK_auth_Roles_core_Applications" FromRole="app_Applications" ToRole="auth_Roles" />
+    <NavigationProperty Name="auth_Users" Relationship="HanuElibrary2012Model.FK_auth_Users_core_Applications" FromRole="app_Applications" ToRole="auth_Users" />
+    <NavigationProperty Name="core_Locales" Relationship="HanuElibrary2012Model.FK_core_Locales_core_Applications" FromRole="app_Applications" ToRole="core_Locales" />
+    <NavigationProperty Name="app_Features" Relationship="HanuElibrary2012Model.app_ApplicationFeatures" FromRole="app_Applications" ToRole="app_Features" />
+  </EntityType>
+  <EntityType Name="app_Features">
+    <Key>
+      <PropertyRef Name="FeatureId" />
+    </Key>
+    <Property Name="FeatureId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="app_Applications" Relationship="HanuElibrary2012Model.app_ApplicationFeatures" FromRole="app_Features" ToRole="app_Applications" />
+    <NavigationProperty Name="core_Controllers" Relationship="HanuElibrary2012Model.app_FeatureControllers" FromRole="app_Features" ToRole="core_Controllers" />
+  </EntityType>
+  <EntityType Name="app_PageModules">
+    <Key>
+      <PropertyRef Name="PageModuleId" />
+    </Key>
+    <Property Name="PageModuleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageId" Type="Int64" Nullable="false" />
+    <Property Name="ActionId" Type="Int64" Nullable="false" />
+    <Property Name="PositionCode" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Order" Type="Int32" />
+    <NavigationProperty Name="app_Pages" Relationship="HanuElibrary2012Model.FK_app_PageModules_app_Pages" FromRole="app_PageModules" ToRole="app_Pages" />
+    <NavigationProperty Name="core_Actions" Relationship="HanuElibrary2012Model.FK_app_PageModules_core_Actions" FromRole="app_PageModules" ToRole="core_Actions" />
+  </EntityType>
+  <EntityType Name="app_Pages">
+    <Key>
+      <PropertyRef Name="PageId" />
+    </Key>
+    <Property Name="PageId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentId" Type="Int64" />
+    <Property Name="ApplicationId" Type="Int64" Nullable="false" />
+    <Property Name="CustomUrl" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Order" Type="Int32" />
+    <Property Name="Alias" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="app_Applications" Relationship="HanuElibrary2012Model.FK_app_Pages_app_Applications" FromRole="app_Pages" ToRole="app_Applications" />
+    <NavigationProperty Name="app_PageModules" Relationship="HanuElibrary2012Model.FK_app_PageModules_app_Pages" FromRole="app_Pages" ToRole="app_PageModules" />
+    <NavigationProperty Name="app_Pages1" Relationship="HanuElibrary2012Model.FK_app_Pages_app_Pages" FromRole="app_Pages" ToRole="app_Pages1" />
+    <NavigationProperty Name="app_Pages2" Relationship="HanuElibrary2012Model.FK_app_Pages_app_Pages" FromRole="app_Pages1" ToRole="app_Pages" />
+  </EntityType>
+  <EntityType Name="app_PartialViews">
+    <Key>
+      <PropertyRef Name="PartialViewId" />
+    </Key>
+    <Property Name="PartialViewId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActionId" Type="Int64" Nullable="false" />
+    <Property Name="Theme" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Name" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Content" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="core_Actions" Relationship="HanuElibrary2012Model.FK_app_PartialViews_core_Actions" FromRole="app_PartialViews" ToRole="core_Actions" />
+  </EntityType>
+  <EntityType Name="app_StaticItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="Int64" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Title" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Body" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Position" Type="Int32" />
+    <NavigationProperty Name="app_Applications" Relationship="HanuElibrary2012Model.FK_article_Static_Items_app_Applications" FromRole="app_StaticItems" ToRole="app_Applications" />
+  </EntityType>
+  <EntityType Name="auth_RolePermissions">
+    <Key>
+      <PropertyRef Name="RolePermissionId" />
+    </Key>
+    <Property Name="RolePermissionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleId" Type="Int64" Nullable="false" />
+    <Property Name="Action" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Controller" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Area" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="auth_Roles" Relationship="HanuElibrary2012Model.FK_core_RolePermissions_auth_Roles" FromRole="auth_RolePermissions" ToRole="auth_Roles" />
+  </EntityType>
+  <EntityType Name="auth_Roles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="Int64" />
+    <Property Name="RoleName" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="app_Applications" Relationship="HanuElibrary2012Model.FK_auth_Roles_core_Applications" FromRole="auth_Roles" ToRole="app_Applications" />
+    <NavigationProperty Name="auth_RolePermissions" Relationship="HanuElibrary2012Model.FK_core_RolePermissions_auth_Roles" FromRole="auth_Roles" ToRole="auth_RolePermissions" />
+    <NavigationProperty Name="auth_Users" Relationship="HanuElibrary2012Model.auth_UsersInRoles" FromRole="auth_Roles" ToRole="auth_Users" />
+  </EntityType>
+  <EntityType Name="auth_Users">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="Int64" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="LastLoginDate" Type="DateTime" />
+    <Property Name="AuthToken" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="app_Applications" Relationship="HanuElibrary2012Model.FK_auth_Users_core_Applications" FromRole="auth_Users" ToRole="app_Applications" />
+    <NavigationProperty Name="DocumentOrders" Relationship="HanuElibrary2012Model.FK_DocumentOrders_auth_Users" FromRole="auth_Users" ToRole="DocumentOrders" />
+    <NavigationProperty Name="Profile" Relationship="HanuElibrary2012Model.FK_Profile_auth_Users" FromRole="auth_Users" ToRole="Profile" />
+    <NavigationProperty Name="SearchHistories" Relationship="HanuElibrary2012Model.FK_SearchHistory_auth_Users" FromRole="auth_Users" ToRole="SearchHistory" />
+    <NavigationProperty Name="ViewHistories" Relationship="HanuElibrary2012Model.FK_ViewHistory_auth_Users" FromRole="auth_Users" ToRole="ViewHistory" />
+    <NavigationProperty Name="auth_Roles" Relationship="HanuElibrary2012Model.auth_UsersInRoles" FromRole="auth_Users" ToRole="auth_Roles" />
+  </EntityType>
+  <EntityType Name="core_Actions">
+    <Key>
+      <PropertyRef Name="ActionId" />
+    </Key>
+    <Property Name="ActionId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ControllerId" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Template" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="app_PageModules" Relationship="HanuElibrary2012Model.FK_app_PageModules_core_Actions" FromRole="core_Actions" ToRole="app_PageModules" />
+    <NavigationProperty Name="app_PartialViews" Relationship="HanuElibrary2012Model.FK_app_PartialViews_core_Actions" FromRole="core_Actions" ToRole="app_PartialViews" />
+    <NavigationProperty Name="core_Controllers" Relationship="HanuElibrary2012Model.FK_core_Actions_core_Controllers" FromRole="core_Actions" ToRole="core_Controllers" />
+    <NavigationProperty Name="core_Frontend_MenuItems" Relationship="HanuElibrary2012Model.FK_Frontend_MenuItems_core_Actions" FromRole="core_Actions" ToRole="core_Frontend_MenuItems" />
+  </EntityType>
+  <EntityType Name="core_Areas">
+    <Key>
+      <PropertyRef Name="AreaId" />
+    </Key>
+    <Property Name="AreaId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="core_Controllers" Relationship="HanuElibrary2012Model.FK_core_Controllers_core_Areas" FromRole="core_Areas" ToRole="core_Controllers" />
+  </EntityType>
+  <EntityType Name="core_Configs">
+    <Key>
+      <PropertyRef Name="ConfigId" />
+    </Key>
+    <Property Name="ConfigId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="core_Controllers">
+    <Key>
+      <PropertyRef Name="ControllerId" />
+    </Key>
+    <Property Name="ControllerId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AreaId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="core_Actions" Relationship="HanuElibrary2012Model.FK_core_Actions_core_Controllers" FromRole="core_Controllers" ToRole="core_Actions" />
+    <NavigationProperty Name="core_Areas" Relationship="HanuElibrary2012Model.FK_core_Controllers_core_Areas" FromRole="core_Controllers" ToRole="core_Areas" />
+    <NavigationProperty Name="app_Features" Relationship="HanuElibrary2012Model.app_FeatureControllers" FromRole="core_Controllers" ToRole="app_Features" />
+  </EntityType>
+  <EntityType Name="core_Frontend_Menu">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="IsMain" Type="Boolean" />
+    <Property Name="Code" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="core_Frontend_MenuItems" Relationship="HanuElibrary2012Model.FK_Frontend_MenuItems_Frontend_Menu" FromRole="core_Frontend_Menu" ToRole="core_Frontend_MenuItems" />
+  </EntityType>
+  <EntityType Name="core_Frontend_MenuItems">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MenuID" Type="Int64" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="ParentID" Type="Int64" />
+    <Property Name="Position" Type="Int32" Nullable="false" />
+    <Property Name="ActionId" Type="Int64" />
+    <Property Name="CustomUrl" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="IsCutom" Type="Boolean" />
+    <Property Name="Parameters" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="core_Actions" Relationship="HanuElibrary2012Model.FK_Frontend_MenuItems_core_Actions" FromRole="core_Frontend_MenuItems" ToRole="core_Actions" />
+    <NavigationProperty Name="core_Frontend_Menu" Relationship="HanuElibrary2012Model.FK_Frontend_MenuItems_Frontend_Menu" FromRole="core_Frontend_MenuItems" ToRole="core_Frontend_Menu" />
+    <NavigationProperty Name="core_Frontend_MenuItems1" Relationship="HanuElibrary2012Model.FK_core_Frontend_MenuItems_core_Frontend_MenuItems" FromRole="core_Frontend_MenuItems" ToRole="core_Frontend_MenuItems1" />
+    <NavigationProperty Name="core_Frontend_MenuItems2" Relationship="HanuElibrary2012Model.FK_core_Frontend_MenuItems_core_Frontend_MenuItems" FromRole="core_Frontend_MenuItems1" ToRole="core_Frontend_MenuItems" />
+  </EntityType>
+  <EntityType Name="core_Locales">
+    <Key>
+      <PropertyRef Name="LocaleId" />
+    </Key>
+    <Property Name="LocaleId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicationId" Type="Int64" />
+    <Property Name="Name" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Icon" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="app_Applications" Relationship="HanuElibrary2012Model.FK_core_Locales_core_Applications" FromRole="core_Locales" ToRole="app_Applications" />
+    <NavigationProperty Name="core_Translations" Relationship="HanuElibrary2012Model.FK_Translations_Locales" FromRole="core_Locales" ToRole="core_Translations" />
+  </EntityType>
+  <EntityType Name="core_Translations">
+    <Key>
+      <PropertyRef Name="TranslationId" />
+    </Key>
+    <Property Name="TranslationId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Key" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="LocaleId" Type="Int64" Nullable="false" />
+    <Property Name="Value" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Type" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="core_Locales" Relationship="HanuElibrary2012Model.FK_Translations_Locales" FromRole="core_Translations" ToRole="core_Locales" />
+  </EntityType>
+  <EntityType Name="DocumentCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ParentID" Type="Int64" Nullable="false" />
+    <Property Name="CategoryName" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Position" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="CreatedUser" Type="Int64" />
+    <Property Name="LastModifiedDate" Type="DateTime" />
+    <Property Name="LastModifiedUser" Type="Int64" />
+    <NavigationProperty Name="DocumentsFiles" Relationship="HanuElibrary2012Model.FK_DocumentsFile_DocumentCategories" FromRole="DocumentCategories" ToRole="DocumentsFile" />
+    <NavigationProperty Name="DocumentStatistics" Relationship="HanuElibrary2012Model.FK_DocumentStatistic_DocumentCategories" FromRole="DocumentCategories" ToRole="DocumentStatistic" />
+  </EntityType>
+  <EntityType Name="DocumentFormat">
+    <Key>
+      <PropertyRef Name="DocumentFormatID" />
+    </Key>
+    <Property Name="DocumentFormatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="MIME" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="FileFormat" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="Avatar" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Boolean" />
+    <NavigationProperty Name="DocumentsFiles" Relationship="HanuElibrary2012Model.FK_DocumentsFile_DocumentFormat" FromRole="DocumentFormat" ToRole="DocumentsFile" />
+  </EntityType>
+  <EntityType Name="DocumentOrder">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="OrderContent" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="CreatedUser" Type="Int64" />
+    <Property Name="LastModifiedDate" Type="DateTime" />
+    <Property Name="LastModifiedUser" Type="Int64" />
+    <Property Name="UserEmail" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="auth_Users" Relationship="HanuElibrary2012Model.FK_DocumentOrders_auth_Users" FromRole="DocumentOrders" ToRole="auth_Users" />
+  </EntityType>
+  <EntityType Name="Document">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="Int64" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Creator" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Subject" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+    <Property Name="Publisher" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Contributor" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Date" Type="DateTime" />
+    <Property Name="Type" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Format" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Identifier" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Resource" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Language" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Relation" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Coverage" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Right" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DocumentsFile" Relationship="HanuElibrary2012Model.FK_Documents_DocumentsFile" FromRole="Documents" ToRole="DocumentsFile" />
+    <NavigationProperty Name="ViewHistories" Relationship="HanuElibrary2012Model.FK_ViewHistory_Documents" FromRole="Documents" ToRole="ViewHistory" />
+  </EntityType>
+  <EntityType Name="DocumentsFile">
+    <Key>
+      <PropertyRef Name="DocumentID" />
+    </Key>
+    <Property Name="DocumentID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FileName" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="FormatID" Type="Int32" />
+    <Property Name="FileSource" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="Thumbnail" Type="String" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="BookFee" Type="Double" />
+    <Property Name="Size" Type="Double" />
+    <Property Name="ViewCount" Type="Int64" />
+    <Property Name="Status" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="IsHasInfo" Type="Boolean" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="CreatedUser" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <Property Name="LastModifiedDate" Type="DateTime" />
+    <Property Name="LastModifiedUser" Type="String" MaxLength="250" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="DocumentCategory" Relationship="HanuElibrary2012Model.FK_DocumentsFile_DocumentCategories" FromRole="DocumentsFile" ToRole="DocumentCategories" />
+    <NavigationProperty Name="DocumentFormat" Relationship="HanuElibrary2012Model.FK_DocumentsFile_DocumentFormat" FromRole="DocumentsFile" ToRole="DocumentFormat" />
+    <NavigationProperty Name="Document" Relationship="HanuElibrary2012Model.FK_Documents_DocumentsFile" FromRole="DocumentsFile" ToRole="Documents" />
+  </EntityType>
+  <EntityType Name="DocumentStatistic">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="Double" />
+    <Property Name="CateID" Type="Int32" />
+    <Property Name="Type" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Year" Type="Int64" />
+    <NavigationProperty Name="DocumentCategory" Relationship="HanuElibrary2012Model.FK_DocumentStatistic_DocumentCategories" FromRole="DocumentStatistic" ToRole="DocumentCategories" />
+  </EntityType>
+  <EntityType Name="Profile">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Balance" Type="Double" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" />
+    <Property Name="CreatedUser" Type="Int64" />
+    <Property Name="LastModifiedDate" Type="DateTime" />
+    <Property Name="LastModifiedUser" Type="Int64" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="auth_Users" Relationship="HanuElibrary2012Model.FK_Profile_auth_Users" FromRole="Profile" ToRole="auth_Users" />
+  </EntityType>
+  <EntityType Name="SearchHistory">
+    <Key>
+      <PropertyRef Name="SearchHistoryId" />
+    </Key>
+    <Property Name="SearchHistoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="Keyword" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="SearchDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="auth_Users" Relationship="HanuElibrary2012Model.FK_SearchHistory_auth_Users" FromRole="SearchHistory" ToRole="auth_Users" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="ViewHistory">
+    <Key>
+      <PropertyRef Name="ViewHistoryId" />
+    </Key>
+    <Property Name="ViewHistoryId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" Nullable="false" />
+    <Property Name="BookId" Type="Int64" Nullable="false" />
+    <Property Name="ViewDate" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="auth_Users" Relationship="HanuElibrary2012Model.FK_ViewHistory_auth_Users" FromRole="ViewHistory" ToRole="auth_Users" />
+    <NavigationProperty Name="Document" Relationship="HanuElibrary2012Model.FK_ViewHistory_Documents" FromRole="ViewHistory" ToRole="Documents" />
+  </EntityType>
+  <Association Name="FK_app_Pages_app_Applications">
+    <End Role="app_Applications" Type="HanuElibrary2012Model.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_Pages" Type="HanuElibrary2012Model.app_Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_Pages">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_article_Static_Items_app_Applications">
+    <End Role="app_Applications" Type="HanuElibrary2012Model.app_Applications" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_StaticItems" Type="HanuElibrary2012Model.app_StaticItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="app_StaticItems">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Roles_core_Applications">
+    <End Role="app_Applications" Type="HanuElibrary2012Model.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_Roles" Type="HanuElibrary2012Model.auth_Roles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Roles">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_auth_Users_core_Applications">
+    <End Role="app_Applications" Type="HanuElibrary2012Model.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="auth_Users" Type="HanuElibrary2012Model.auth_Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="auth_Users">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Locales_core_Applications">
+    <End Role="app_Applications" Type="HanuElibrary2012Model.app_Applications" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Locales" Type="HanuElibrary2012Model.core_Locales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Applications">
+        <PropertyRef Name="ApplicationId" />
+      </Principal>
+      <Dependent Role="core_Locales">
+        <PropertyRef Name="ApplicationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_app_Pages">
+    <End Role="app_Pages" Type="HanuElibrary2012Model.app_Pages" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PageModules" Type="HanuElibrary2012Model.app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="PageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PageModules_core_Actions">
+    <End Role="core_Actions" Type="HanuElibrary2012Model.core_Actions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PageModules" Type="HanuElibrary2012Model.app_PageModules" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PageModules">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_Pages_app_Pages">
+    <End Role="app_Pages" Type="HanuElibrary2012Model.app_Pages" Multiplicity="0..1" />
+    <End Role="app_Pages1" Type="HanuElibrary2012Model.app_Pages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="app_Pages">
+        <PropertyRef Name="PageId" />
+      </Principal>
+      <Dependent Role="app_Pages1">
+        <PropertyRef Name="ParentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_app_PartialViews_core_Actions">
+    <End Role="core_Actions" Type="HanuElibrary2012Model.core_Actions" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="app_PartialViews" Type="HanuElibrary2012Model.app_PartialViews" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="app_PartialViews">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_RolePermissions_auth_Roles">
+    <End Role="auth_Roles" Type="HanuElibrary2012Model.auth_Roles" Multiplicity="1" />
+    <End Role="auth_RolePermissions" Type="HanuElibrary2012Model.auth_RolePermissions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Roles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="auth_RolePermissions">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentOrders_auth_Users">
+    <End Role="auth_Users" Type="HanuElibrary2012Model.auth_Users" Multiplicity="1" />
+    <End Role="DocumentOrders" Type="HanuElibrary2012Model.DocumentOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="DocumentOrders">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Profile_auth_Users">
+    <End Role="auth_Users" Type="HanuElibrary2012Model.auth_Users" Multiplicity="1" />
+    <End Role="Profile" Type="HanuElibrary2012Model.Profile" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Profile">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SearchHistory_auth_Users">
+    <End Role="auth_Users" Type="HanuElibrary2012Model.auth_Users" Multiplicity="1" />
+    <End Role="SearchHistory" Type="HanuElibrary2012Model.SearchHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="SearchHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewHistory_auth_Users">
+    <End Role="auth_Users" Type="HanuElibrary2012Model.auth_Users" Multiplicity="1" />
+    <End Role="ViewHistory" Type="HanuElibrary2012Model.ViewHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="auth_Users">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="ViewHistory">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Actions_core_Controllers">
+    <End Role="core_Controllers" Type="HanuElibrary2012Model.core_Controllers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Actions" Type="HanuElibrary2012Model.core_Actions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Controllers">
+        <PropertyRef Name="ControllerId" />
+      </Principal>
+      <Dependent Role="core_Actions">
+        <PropertyRef Name="ControllerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_core_Actions">
+    <End Role="core_Actions" Type="HanuElibrary2012Model.core_Actions" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Frontend_MenuItems" Type="HanuElibrary2012Model.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Actions">
+        <PropertyRef Name="ActionId" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ActionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Controllers_core_Areas">
+    <End Role="core_Areas" Type="HanuElibrary2012Model.core_Areas" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Controllers" Type="HanuElibrary2012Model.core_Controllers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Areas">
+        <PropertyRef Name="AreaId" />
+      </Principal>
+      <Dependent Role="core_Controllers">
+        <PropertyRef Name="AreaId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Frontend_MenuItems_Frontend_Menu">
+    <End Role="core_Frontend_Menu" Type="HanuElibrary2012Model.core_Frontend_Menu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Frontend_MenuItems" Type="HanuElibrary2012Model.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_Menu">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems">
+        <PropertyRef Name="MenuID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_core_Frontend_MenuItems_core_Frontend_MenuItems">
+    <End Role="core_Frontend_MenuItems" Type="HanuElibrary2012Model.core_Frontend_MenuItems" Multiplicity="0..1" />
+    <End Role="core_Frontend_MenuItems1" Type="HanuElibrary2012Model.core_Frontend_MenuItems" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Frontend_MenuItems">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="core_Frontend_MenuItems1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Translations_Locales">
+    <End Role="core_Locales" Type="HanuElibrary2012Model.core_Locales" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="core_Translations" Type="HanuElibrary2012Model.core_Translations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="core_Locales">
+        <PropertyRef Name="LocaleId" />
+      </Principal>
+      <Dependent Role="core_Translations">
+        <PropertyRef Name="LocaleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentCategories">
+    <End Role="DocumentCategories" Type="HanuElibrary2012Model.DocumentCategory" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentsFile" Type="HanuElibrary2012Model.DocumentsFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentsFile">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentStatistic_DocumentCategories">
+    <End Role="DocumentCategories" Type="HanuElibrary2012Model.DocumentCategory" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentStatistic" Type="HanuElibrary2012Model.DocumentStatistic" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="DocumentStatistic">
+        <PropertyRef Name="CateID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DocumentsFile_DocumentFormat">
+    <End Role="DocumentFormat" Type="HanuElibrary2012Model.DocumentFormat" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DocumentsFile" Type="HanuElibrary2012Model.DocumentsFile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentFormat">
+        <PropertyRef Name="DocumentFormatID" />
+      </Principal>
+      <Dependent Role="DocumentsFile">
+        <PropertyRef Name="FormatID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Documents_DocumentsFile">
+    <End Role="DocumentsFile" Type="HanuElibrary2012Model.DocumentsFile" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Documents" Type="HanuElibrary2012Model.Document" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="DocumentsFile">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewHistory_Documents">
+    <End Role="Documents" Type="HanuElibrary2012Model.Document" Multiplicity="1" />
+    <End Role="ViewHistory" Type="HanuElibrary2012Model.ViewHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Documents">
+        <PropertyRef Name="DocumentID" />
+      </Principal>
+      <Dependent Role="ViewHistory">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="app_ApplicationFeatures">
+    <End Role="app_Applications" Type="HanuElibrary2012Model.app_Applications" Multiplicity="*" />
+    <End Role="app_Features" Type="HanuElibrary2012Model.app_Features" Multiplicity="*" />
+  </Association>
+  <Association Name="app_FeatureControllers">
+    <End Role="app_Features" Type="HanuElibrary2012Model.app_Features" Multiplicity="*" />
+    <End Role="core_Controllers" Type="HanuElibrary2012Model.core_Controllers" Multiplicity="*" />
+  </Association>
+  <Association Name="auth_UsersInRoles">
+    <End Role="auth_Roles" Type="HanuElibrary2012Model.auth_Roles" Multiplicity="*" />
+    <End Role="auth_Users" Type="HanuElibrary2012Model.auth_Users" Multiplicity="*" />
+  </Association>
+</Schema>

@@ -1,0 +1,79 @@
+﻿@model PartialView
+@{
+    ViewBag.Title = ViewBag.ModuleName + " - " + Model.Theme;
+    ViewBag.NoLocalize = "true";
+}
+@using (Html.BeginForm(Model.PartialViewId > 0 ? "EditPartial" : "CreatePartial", null))
+{ 
+    @Html.HiddenFor(m => m.PartialViewId)
+    @Html.HiddenFor(m => m.Theme)
+    @Html.HiddenFor(m => m.ActionId)
+    @Html.HiddenFor(m => m.Name)
+    @Html.TextAreaFor(m => m.Content)
+    <a href="javascript:autoFormatSelection()">[@Html.Localize("Autoformat")] (Ctrl-Shift-F)</a>
+    <p>
+        <button class="button button-green">@Html.Localize(Model.PartialViewId > 0 ? "Save" : "Create")</button>
+    </p>
+}
+@section Header
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/codemirror/lib/codemirror.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/codemirror/lib/util/formatting.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/codemirror/mode/javascript/javascript.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/codemirror/mode/css/css.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/codemirror/mode/xml/xml.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/codemirror/mode/htmlmixed/htmlmixed.js")"></script>
+    <link type="text/css" rel="Stylesheet" href="@Url.Content("~/Scripts/codemirror/lib/codemirror.css")" />
+    <style>
+        .CodeMirror
+        {
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+            font-family: Consolas, Monospace;
+            font-size: 10pt;
+            line-height: 11pt;
+        }
+        .CodeMirror-scroll
+        {
+            min-height: 250px;
+            height: auto;
+            overflow-y: hidden;
+            overflow-x: auto;
+            width: 100%;
+        }
+        .activeline
+        {
+            background: #f0fcff !important;
+        }
+    </style>
+}
+@section Footer
+{
+    <script type="text/javascript">
+        var editor = CodeMirror.fromTextArea(document.getElementById("Content"),
+        {
+            mode: "htmlmixed",
+            tabMode: "indent",
+            lineNumbers: true,
+            indentUnit: 4,
+            extraKeys: { "Shift-Ctrl-F": autoFormatSelection },
+            onCursorActivity: function () {
+                editor.setLineClass(hlLine, null);
+                hlLine = editor.setLineClass(editor.getCursor().line, "activeline");
+            }
+        });
+        var hlLine = editor.setLineClass(0, "activeline");
+        function getSelectedRange() {
+            var _f = editor.getCursor(true);
+            var _t = editor.getCursor(false);
+            if (_f.line == _t.line && _f.ch == _t.ch)
+                CodeMirror.commands["selectAll"](editor);
+            return { from: editor.getCursor(true), to: editor.getCursor(false) };
+        }
+
+        function autoFormatSelection() {
+            var range = getSelectedRange();
+            editor.autoFormatRange(range.from, range.to);
+        }
+    </script>
+}

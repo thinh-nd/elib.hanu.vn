@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "DeleteFaculty";
+}
+
+<fieldset>
+    <legend>Xóa thông tin khoa chuyên ngành</legend>
+    @using (Html.BeginForm())
+    {
+        <input name="Id" type="hidden" value="@Model.FacultyId" />
+
+        <label style="margin-right: 23px">Tên cũ</label>
+        <input name="name" type="text" size="50" value="@Model.FacultyName" readonly />
+        <br />
+        <p>Bạn có chắc chắn muốn xóa khoa chuyên ngành này? Hiện có @ViewBag.UserCount bạn đọc thuộc chuyên ngành này</p>
+        <div class="action">
+            <button class="button button-red">@Html.Localize("Xóa")</button>
+            @Html.ActionLinkButtonSecured(Html.Localize("Quay lại"), null, "Faculty", "UserEx", "Core")
+        </div>
+    }
+</fieldset>

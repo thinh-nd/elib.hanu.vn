@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Thống kê các tài liệu theo Danh mục";
+}
+<script type="text/javascript" src="@Url.Content("~/Content/jquery_alert/jquery.alerts.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.cookie.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.treeview.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/demo.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/demo.js")"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Year").change(function () {
+            //on-change code goes in here.
+            //variable "this" references the state dropdown element
+            $("#ByYearForm").submit();
+
+        });
+    });
+</script>
+<div style="width:100%;text-align:center;">
+@using (Html.BeginForm("StatisticDocumentNum", "Document", FormMethod.Get, new { id = "ByYearForm" }))
+        {
+            <b>Xem theo năm: </b>@Html.DropDownList("Year", (IEnumerable<SelectListItem>)@ViewBag.YearList, "Tất cả các năm")
+        }
+</div>
+<br />
+<div>
+<ul id="browser" class="filetree">
+   <li><span class="folder">@Html.ActionLink("Toàn bộ", "#"): lưu trữ <b style="color:Red;">@ViewBag.Total</b> tài liệu</span>
+   <ul>
+         @MvcHtmlString.Create(ViewBag.tree_cate)
+   </ul>
+   </li>
+</ul>
+</div>

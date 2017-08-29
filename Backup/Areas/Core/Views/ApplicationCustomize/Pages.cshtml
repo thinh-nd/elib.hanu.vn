@@ -1,0 +1,51 @@
+﻿@model IEnumerable<QML.Library.Data.Page>
+@{
+    ViewBag.Title = "Pages";
+}
+<table class="datatable full">
+    <thead>
+        <tr>
+            <th>@Html.Localize("No.")
+            </th>
+            <th>@Html.Localize("Title")
+            </th>
+            <th>@Html.Localize("Url")
+            </th>
+            <th>@Html.Localize("Actions")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var item = Model.ElementAt(i);
+            <tr>
+                <td>
+                    @(i + 1)
+                </td>
+                <td>
+                    @item.TranslatedTitle
+                </td>
+                <td>
+                    @item.CustomUrl
+                </td>
+                <td>
+                    <ul class="action-buttons">
+                        <li>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Modules"), "view-list", "PageModules", "ApplicationCustomize", "Core", new { area = "Core", id = item.PageId }, "no-text")
+                        </li>
+                        <li>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Edit"), "pencil", "EditPage", "ApplicationCustomize", "Core", new { area = "Core", id = item.PageId }, "no-text")
+                        </li>
+                        <li>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "bin", "DeletePage", "ApplicationCustomize", "Core", new { area = "Core", id = item.PageId }, "no-text")
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    @Html.ActionLinkButtonSecured(Html.Localize("Add page"), "add", "CreatePage", "ApplicationCustomize", "Core", new { area = "Core" })
+</p>

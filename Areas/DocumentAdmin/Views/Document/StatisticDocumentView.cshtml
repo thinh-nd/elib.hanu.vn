@@ -1,0 +1,110 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocumentSatisticModel>
+@{
+    ViewBag.Title = "Lượt xem hàng năm";
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#Cate_Id,#yearView").change(function () {
+            //on-change code goes in here.
+            //variable "this" references the state dropdown element
+            $("#ByCateForm").submit();
+        });
+    });   
+</script>
+<style type="text/css">
+    .highcharts-container
+    {
+        width:1000px!important;
+        }
+</style>
+<div style="width:100%;text-align:center;">
+
+@using (Html.BeginForm("StatisticDocumentView", "Document", FormMethod.Get, new { id = "ByCateForm" }))
+        {
+    <p>
+            <span>Theo danh mục</span>@Html.DropDownList("Cate_Id", (IEnumerable<SelectListItem>)@ViewBag.ParentList, "Tất cả danh mục")        
+            <span>Theo năm</span>@Html.DropDownList("yearView", (IEnumerable<SelectListItem>)@ViewBag.YearList, "Tất cả")
+            </p>
+        }
+</div>
+
+<input type="hidden" id="year" value="@ViewBag.paramYear" />
+<input type="hidden" id="feedoc" value="@ViewBag.feedoc" />
+<input type="hidden" id="freedoc" value="@ViewBag.freedoc" />
+		<script type="text/javascript">
+		    $(function () {
+		        var chart;
+		        $(document).ready(function () {
+		          
+		            var options = {
+		                chart: {
+		                    renderTo: 'container',
+		                    type: 'line'
+		                },
+		                title: {
+		                    text: 'Theo dõi lượt xem tài liệu'
+		                },
+		                subtitle: {
+		                    text: 'Hàng năm'
+		                },
+		                xAxis: {
+		                    categories: []
+		                },
+		                yAxis: {
+		                    title: {
+
+		                        text: 'Lượt xem'
+		                    },
+		                    min: 0
+		                },
+		                tooltip: {
+		                    enabled: true,
+		                    formatter: function () {
+		                        return '<b>' + this.series.name + '</b><br/>' +
+                        this.x + ': ' + this.y + ' Lượt xem';
+		                    }
+		                },
+		                plotOptions: {
+		                    line: {
+		                        dataLabels: {
+		                            enabled: true
+		                        },
+		                        enableMouseTracking: true
+		                    }
+		                },
+		                series: [{
+		                    name: 'Tài liệu mất phí',
+		                    data: []
+		                }, {
+		                    name: 'Tài liệu miễn phí',
+		                    data: []
+		                }]
+		            };
+		            var year = $("#year").val().split(",");
+		            for (i = 0; i <= year.length; i++) {
+		                options.xAxis.categories.push(year[i]);
+		            }
+
+		            var feedoc = $("#feedoc").val().split(",");
+		            feedoc.pop();
+		            for (i = 0; i < feedoc.length; i++) {
+		                options.series[0].data.push(parseFloat(feedoc[i]));
+		            }
+
+		            var freedoc = $("#freedoc").val().split(",");
+		            freedoc.pop();
+		            for (i = 0; i < freedoc.length; i++) {
+		                options.series[1].data.push(parseFloat(freedoc[i]));
+		            }
+
+		            //options.series[0].data.push(5000);
+		            chart = new Highcharts.Chart(options);
+		        });
+
+		    });
+</script>
+<script src="@Url.Content("~/Content/highchart/highcharts.js")"></script>
+<script src="@Url.Content("~/Content/highchart/modules/exporting.js")"></script>
+
+<div id="container" style="min-width: 400px; min-height: 400px; margin: 0 auto"></div>

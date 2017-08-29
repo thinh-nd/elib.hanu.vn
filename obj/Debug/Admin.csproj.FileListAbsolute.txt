@@ -1,0 +1,11 @@
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\QML.Website.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\QML.Website.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\EntityFramework.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\Microsoft.Web.Helpers.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\QML.Library.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\Telerik.Web.Mvc.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\EntityFramework.xml
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\bin\QML.Library.pdb
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\obj\Debug\QML.Website.dll
+D:\Projects\Personal\QmlFrameworkNextGen\Admin\obj\Debug\QML.Website.pdb

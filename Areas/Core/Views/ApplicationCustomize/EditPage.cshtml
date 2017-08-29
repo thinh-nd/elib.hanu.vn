@@ -1,0 +1,21 @@
+﻿@model QML.Library.Data.Page
+@{
+    ViewBag.Title = "EditPage";
+}
+@using (Html.BeginForm(Model.PageId > 0 ? "EditPage" : "CreatePage", null))
+{ 
+    @Html.HiddenFor(m => m.ApplicationId)
+    @Html.HiddenFor(m => m.PageId)
+    @Html.HiddenFor(m => m.Title)
+    <fieldset class="form">
+        <label>@Html.Localize("Title")</label>
+        @Html.TextBoxFor(m => m.TranslatedTitle)
+        <label>@Html.Localize("Url")</label>
+        @Html.TextBoxFor(m => m.CustomUrl)
+        <label>@Html.Localize("Alias")</label>
+        @Html.TextBoxFor(m => m.Alias)
+        <div class="action">
+            <button class="button button-green">@Html.Localize(Model.PageId > 0 ? "Save" : "Create")</button>
+        </div>
+    </fieldset>
+}

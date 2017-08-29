@@ -1,0 +1,22 @@
+﻿@model Feature
+@{
+    ViewBag.Title = (Model.FeatureId > 0 ? "Edit" : "Add") + " feature";
+    var controllers = (ViewData["Controllers"] as IEnumerable<CoreController>).Select(c => new SelectListItem { Text = (c.Area != null ? c.Area.Name : "") + " -> " + c.Name, Value = c.ControllerId.ToString() });
+}
+@using (Html.BeginForm(Model.FeatureId > 0 ? "EditFeature" : "CreateFeature", null))
+{ 
+    @Html.HiddenFor(m => m.FeatureId)
+    @Html.HiddenFor(m => m.Name)
+    @Html.HiddenFor(m => m.Description)
+    <fieldset class="form">
+        <label>@Html.Localize("Name")</label>
+        @Html.TextBoxFor(m => m.TranslatedName)
+        <label>@Html.Localize("Description")</label>
+        @Html.TextAreaFor(m => m.TranslatedDescription)
+        <label>@Html.Localize("Controllers")</label>
+        @Html.DropDownList("ControllerId", controllers)
+        <div class="action">
+            <button class="button button-green">@Html.Localize(Model.FeatureId > 0 ? "Save" : "Create")</button>
+        </div>
+    </fieldset>
+}

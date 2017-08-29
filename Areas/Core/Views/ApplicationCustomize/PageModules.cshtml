@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PageModule>
+@{
+    ViewBag.NoLocalize = "true";
+}
+<table class="datatable full">
+    <thead>
+        <tr>
+            <th>@Html.Localize("No.")
+            </th>
+            <th>@Html.Localize("Position")
+            </th>
+            <th>@Html.Localize("Module")
+            </th>
+            <th>@Html.Localize("Description")
+            </th>
+            <th>@Html.Localize("Actions")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        {
+            var item = Model.ElementAt(i);
+            <tr>
+                <td>
+                    @(i + 1)
+                </td>
+                <td>
+                    @item.PositionCode
+                </td>
+                <td>
+                    @item.Action.Name
+                </td>
+                <td>
+                    @item.Action.Description
+                </td>
+                <td>
+                    <ul class="action-buttons">
+                        <li>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Move up"), "up", "MoveModuleUp", "ApplicationCustomize", "Core", new { area = "Core", id = item.PageModuleId }, "no-text")
+                        </li>
+                        <li>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Move down"), "down", "MoveModuleDown", "ApplicationCustomize", "Core", new { area = "Core", id = item.PageModuleId }, "no-text")
+                        </li>
+                        <li>
+                            @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "bin", "DeleteModule", "ApplicationCustomize", "Core", new { area = "Core", id = item.PageModuleId }, "no-text confirm")
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>
+    @Html.ActionLinkButtonSecured(Html.Localize("Add module"), "add", "AddModule", "ApplicationCustomize", "Core", new { area = "Core", pageId = ViewData["PageId"] })
+</p>

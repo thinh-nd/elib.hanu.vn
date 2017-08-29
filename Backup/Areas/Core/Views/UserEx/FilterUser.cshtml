@@ -1,0 +1,503 @@
+﻿@model IEnumerable<QML.Web.UI.auth_Users>
+@{
+    ViewBag.Title = "Quản lí người dùng";
+    /* List<SelectListItem> ls = new List<SelectListItem>();
+     ls.Add(new SelectListItem(){ Text = "Tên đăng nhập", Value = "1"} );
+     ls.Add(new SelectListItem(){ Text = "Họ và tên", Value = "2"} );
+     ls.Add(new SelectListItem(){ Text = "Nhóm người sử dụng", Value = "3"} );
+     ls.Add(new SelectListItem(){ Text = "Khoa", Value = "4"} );
+     ls.Add(new SelectListItem(){ Text = "Lớp", Value = "5"} );
+     ls.Add(new SelectListItem() { Text = "Hạn sử dụng thẻ", Value = "6" });
+     */
+    QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+    List<QML.Web.UI.UserGroup> ls1 = db.UserGroups.ToList();
+    QML.Web.UI.Controllers.EssentialController ec = new QML.Web.UI.Controllers.EssentialController();
+    List<QML.Web.UI.auth_Users> user = new List<QML.Web.UI.auth_Users>();
+    List<QML.Web.UI.auth_Users> thuThu = new List<QML.Web.UI.auth_Users>();
+    List<QML.Web.UI.auth_Users> none = new List<QML.Web.UI.auth_Users>();
+}
+
+
+<script type="text/javascript">
+
+    $(function () {    
+
+    @if(@TempData["alertMsg"]!=null){
+    if(TempData["alertMsg"]=="1"){
+    <text>alert("Không phải là số");</text>
+    }else{
+    <text>alert("Nạp tiền thành công");</text>
+    }
+    }
+    //next/prev link  
+
+    });    
+</script>
+
+@if (String.Equals(ViewBag.Message, "success", StringComparison.OrdinalIgnoreCase))
+{
+<div class="message closeable success" style="display:none"><span class="message-close"></span>
+                                        <h3>Thành công</h3>
+                                    <p>Người dùng được tạo mới thành công</p>
+                                </div>
+}
+else
+{
+<div class="message closeable failed" style="display:none"><span class="message-close"></span>
+                                        <h3>Thất bại</h3>
+                                    <p>Không tạo được người dùng</p>
+                                </div>
+}
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $("#toggleAllCheckBox").click(function () {
+            if ($(this).attr("value") == "Chọn tất cả") {
+                $(".check-box").attr("checked", true);
+                $(this).attr("value", "Bỏ chọn")
+
+            } else {
+                $(".check-box").attr("checked", false);
+                $(this).attr("value", "Chọn tất cả")
+            }
+        });
+        //xóa bản ghi
+        $("#DeletePermanent").click(function () {
+            if ($("#assignChkBx:checked").length < 1) {
+                jAlert('Bạn cần phải chọn một biểu ghi để thực hiện thao tác xóa hẳn file', 'Thông báo');
+            }
+            else {
+                var answer = confirm("Bạn có chắc chắn muốn xóa vĩnh viễn (những) bản ghi được chọn ?")
+                if (answer) {
+                    $("#actionControl").val("deletePermanent");
+                    var allVals = [];
+                    $("#assignChkBx:checked").each(function () {
+                        allVals.push($(this).val());
+                    });
+                    $('#listID').val(allVals)
+                    $("#manageLogin").submit();
+                }
+            }
+        });
+
+        //nạp tiền cho nhiều tài khoản cùng lúc
+        $("#ChargeMoneyBtn").click(function () {
+            if ($("#assignChkBx:checked").length < 1) {
+                jAlert('Bạn cần phải chọn một biểu ghi để thực hiện thao tác nạp tiền', 'Thông báo');
+            }
+            else {
+                $("#actionControl").val("chargeMoney");
+                var allVals = [];
+                $("#assignChkBx:checked").each(function () {
+                    allVals.push($(this).val());
+                });
+                $('#listID').val(allVals);
+
+                $("#manageLogin").submit();
+            }
+        });
+        var pages;
+        //chọn người dùng
+        $(".all").show(); $(".user").hide(); $(".thuthu").hide(); $(".none").hide();
+        $("#optionUser").change(function () {
+            $(".all").hide(); $(".user").hide(); $(".thuthu").hide(); $(".none").hide();
+            $(".all,.user,.thuthu,.none").removeClass("active");
+            if ($(this).val() == "all") {
+                $(".all").show();
+            } else if ($(this).val() == "user") {
+                $(".user").show();
+            } else if ($(this).val() == "thuthu") {
+                $(".thuthu").show();
+            } else {
+                $(".none").show();
+
+            }
+        });
+
+
+
+        $("#ChargeMoney").toggle(function () {
+            $("#sectionMoney").show();
+        }, function () {
+            $("#sectionMoney").hide();
+        });
+
+
+        //nút thêm được ấn
+        $("#Filter").click(function () {
+            $("#userForm").submit();
+        })
+
+        $("#CancelFilter").click(function () {
+            $(location).reload(true);
+        })
+
+        $(".toggle").toggle(function () {
+            $("#ss_form").show();
+        }, function () {
+            $("#ss_form").hide();
+        });
+
+    });
+</script>
+<p>@Html.ActionLink("Thêm mới", "CreateUser", "UserEx", null, new { @class = "link-button-green" })</p>
+<p><a href="#" class="toggle">Click để ẩn/hiện bảng lọc</a></p>
+<div id="ss_form" style="display:none;">
+    @using (Html.BeginForm("FilterUser", "UserEx", new { pageSize = 20 }, FormMethod.Post, new { id = "userForm" }))
+    {        
+        <p class="searchCriteria">                        
+            <span class="criteria">Lọc theo: <input type="text" name="username" value="Tên đăng nhập" disabled="disabled" /></span>                                    
+            <span class="keyword">Từ khóa: @Html.Editor("keywordUsername")</span>                                                
+        </p>                                            
+        <!-- -->
+        <p class="searchCriteria">                        
+            <span class="criteria">Lọc theo: <input type="text" name="actualname" value="Họ và tên" disabled="disabled" /></span>                                    
+            <span class="keyword">Từ khóa: @Html.Editor("keywordActualname")</span>                                                
+        </p>                                            
+        <!-- -->
+        <p class="searchCriteria">                        
+            <span class="criteria">Lọc theo: <input type="text" name="group" value="Nhóm người sử dụng" disabled="disabled" /></span>                                    
+            <span class="keyword">Từ khóa: @Html.DropDownList("keywordGroup", new SelectList(ls1, "groupId", "group_name"), "--Chọn một--")</span>                                                
+        </p>                                            
+        <!-- -->
+        <p class="searchCriteria">                        
+            <span class="criteria">Lọc theo: <input type="text" name="faculty" value="Khoa" disabled="disabled" /></span>                                    
+            <span class="keyword">Từ khóa: @Html.Editor("keywordFaculty")</span>                                                
+        </p>                                            
+        <!-- -->
+        <p class="searchCriteria">                        
+            <span class="criteria">Lọc theo: <input type="text" name="class" value="Lớp" disabled="disabled" /></span>                                    
+            <span class="keyword">Từ khóa: @Html.Editor("keywordClass")</span>                                                
+        </p>                                            
+        <!-- -->
+        <p class="searchCriteria">                        
+            <span class="criteria">Lọc theo: <input type="text" name="duedate" value="Hạn sử dụng" disabled="disabled" /></span>                                    
+            <span class="keyword">Từ khóa: @Html.DropDownList("keywordDueDate", new List<SelectListItem>
+
+                 {                    
+                    new SelectListItem{ Text="Còn hạn sử dụng", Value = "1" },
+                    new SelectListItem{ Text="Hết hạn sử dụng", Value = "0" }
+                 }, "--Chọn một--") </span>                                                
+        </p>   
+        <p class="searchCriteria">                        
+            <span class="criteria">Lọc theo: <input type="text" name="class" value="Khóa" disabled="disabled"/></span>                                    
+            <span class="keyword">Từ khóa: @Html.Editor("keywordYearStudy")</span>                                                
+        </p>                                         
+        <!-- -->
+                                                
+        
+        <input type="button" name="Submit" value="Lọc" id="Filter"/>
+        <input type="button" name="Submit" value="Hủy lọc" id="CancelFilter"/>
+    }
+</div>
+ 
+        <br />
+
+<!-- Tab -->
+
+
+@using (Html.BeginForm("Management", "UserEx", FormMethod.Post, new { id = "manageLogin" }))
+{
+    <div id="sectionCriteria" style="float:left;margin-right:20px">
+            <input type="button" id="toggleAllCheckBox" name="sbm" value="Chọn tất cả" class="button"/>
+            <input type="hidden" id="actionControl" name="actionName" />
+            <input type="hidden" id="listID" name="idValue" /> 
+            <input type="button" id="DeletePermanent" name="sbm" value="Xóa" class="button"/>          
+            <input type="button" class="button" id="ChargeMoney"  value="Nạp tiền" />
+            </div>
+            <div id="sectionMoney" style="display:none">
+            <input type="text" id="moneyAmount" name="moneyAmount" />
+            <input type="button" id="ChargeMoneyBtn" name="chargeMoneyBtn" value="Nạp tiền" />
+            </div><br />
+} 
+<br /><br />
+<div >
+Lọc theo người dùng: <select id="optionUser" name="optionUser">
+            <option value="all" selected="selected">Tất cả</option>
+            <option value="user">Người dùng</option>
+            <option value="thuthu">Thủ thư</option>            
+            <option value="none">Chưa phân quyền</option> 
+            </select>
+
+ 
+        <span class="keyword" style="float:right;margin-right:23px">Số lượng records mỗi trang: <select id="recordsPerPage" name="recordsPerPage" onchange="this.form.submit()">            
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+            <option value="50">50</option>
+            </select></span> 
+ 
+ </div>
+
+ <br />
+ 
+<!-- Tat ca -->
+<div class="all active">
+        
+       <table class="datatable">
+       <thead>
+       <tr class="grid-header">
+       <th>Chọn</th>
+       <th>Tên đăng nhập</th>
+       <th>Ngày tạo</th>
+       <th>Hành động</th>
+       </tr>
+       </thead>
+       <tbody id="pagination4">
+       @foreach (var item in Model.ToList())
+       {
+           <text>
+           <tr class="itemContent4">
+           <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>           
+           <td>@item.Username</td>           
+           <td>@item.CreatedDate</td>           
+           <td>
+           @Html.ActionLink("Đổi mật khẩu", "ChangePasswordAdmin", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Quản lí chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+           </td>           
+           </tr>
+           </text>
+       }
+       </tbody>
+       
+       </table>
+
+  <div class="pagination_4"></div>
+
+       <!-- Phân trang-->
+       <br />
+<script type="text/javascript" src='@Url.Content("~/js/quickpager.jquery.js")'></script>              	    	   
+<script type="text/javascript">
+    $(document).ready(function(){
+        var _pageSize ;                
+        if (@Request.QueryString["pageSize"]!=null) {           
+            $("#recordsPerPage").val("@Request.QueryString["pageSize"]");
+             _pageSize = @Request.QueryString["pageSize"];
+        } else {
+             $("#pagination4").quickPager({
+            pageSize: 2,            
+            });
+        }
+
+        
+
+        $("#pagination4").quickPager({
+            pageSize: _pageSize,            
+        });
+    })(jQuery);
+</script>  
+
+
+    </div>
+    <!-- Nguoi dung-->
+    <div class="user">       
+        
+
+          @foreach (var item in @Model.ToList())
+          {
+              if (ec.getUserRole(item.UserId) == "Premium" || ec.getUserRole(item.UserId) == "Student")
+              {
+                  user.Add(item);
+              }
+          }  
+
+        <table class="datatable">
+       <thead>
+       <tr class="grid-header">
+       <th>Chọn</th>
+       <th>Tên đăng nhập</th>
+       <th>Ngày tạo</th>
+       <th>Hành động</th>
+       </tr>
+       </thead>
+       <tbody id="pagination1">
+       @foreach (var item in user.ToList())
+       {
+           <text>
+           <tr class="itemContent1">
+           <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>           
+           <td>@item.Username</td>           
+           <td>@item.CreatedDate</td>           
+           <td>
+           @Html.ActionLink("Đổi mật khẩu", "ChangePasswordAdmin", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Quản lí chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+           </td>           
+           </tr>
+           </text>
+       }
+       </tbody>
+       
+       </table>
+       <!-- Phân trang-->
+       <br />       
+       <script type="text/javascript">
+           (function ($) {       
+            if (@Request.QueryString["pageSize"]!=null) {           
+            $("#recordsPerPage").val("@Request.QueryString["pageSize"]");
+             var _pageSize = @Request.QueryString["pageSize"];
+        } else {
+            var _pageSize = 2;
+        }
+        $("#pagination1").quickPager({
+            pageSize: _pageSize
+        });
+    })(jQuery);
+        </script>  
+    </div>
+    <!--  -->
+    
+    <div class="thuthu">         
+
+    @foreach (var item in @Model.ToList())
+    {
+        if (ec.getUserRole(item.UserId) == "Librarian" || ec.getUserRole(item.UserId) == "Thủ thư" || ec.getUserRole(item.UserId) == "Thư kí viên"
+            || ec.getUserRole(item.UserId) == "Admin")
+        {
+            thuThu.Add(item);
+        }
+    }  
+
+        <table class="datatable">
+       <thead>
+       <tr class="grid-header">
+       <th>Chọn</th>
+       <th>Tên đăng nhập</th>
+       <th>Ngày tạo</th>
+       <th>Hành động</th>
+       </tr>
+       </thead>
+       <tbody id="pagination2">
+       @foreach (var item in thuThu.ToList())
+       {
+           <text>
+           <tr class="itemContent2">
+           <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>           
+           <td>@item.Username</td>           
+           <td>@item.CreatedDate</td>           
+           <td>
+           @Html.ActionLink("Đổi mật khẩu", "ChangePasswordAdmin", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Quản lí chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+           </td>           
+           </tr>
+           </text>
+       }
+       </tbody>
+       
+       </table>
+       <!-- Phân trang-->
+       <br />       	              
+    
+    </div>
+      <script type="text/javascript">
+          (function ($) {    
+           if (@Request.QueryString["pageSize"]!=null) {           
+            $("#recordsPerPage").val("@Request.QueryString["pageSize"]");
+             var _pageSize = @Request.QueryString["pageSize"];
+        } else {
+            var _pageSize = 2;
+        }   
+        $("#pagination3").quickPager({
+            pageSize: _pageSize
+        });
+    })(jQuery);
+        </script>  
+
+    <div class="none">
+    @foreach (var item in @Model.ToList())
+    {
+        if (ec.getUserRole(item.UserId) == null)
+        {
+            none.Add(item);
+        }
+    }  
+
+        <table class="datatable">
+       <thead>
+       <tr class="grid-header">
+       <th>Chọn</th>
+       <th>Tên đăng nhập</th>
+       <th>Ngày tạo</th>
+       <th>Hành động</th>
+       </tr>
+       </thead>
+       <tbody id="pagination3">
+       @foreach (var item in none.ToList())
+       {
+           <text>
+           <tr class="itemContent3">
+           <td><input class="check-box" id="assignChkBx" name="chkID" type="checkbox" value="@item.UserId"></td>           
+           <td>@item.Username</td>           
+           <td>@item.CreatedDate</td>           
+           <td>
+           @Html.ActionLink("Đổi mật khẩu", "ChangePasswordAdmin", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Quản lí chức vụ", "UserRoles", "User", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Tài khoản", "Edit", "Profile", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Sửa", "EditUser", "UserEx", new { id = @item.UserId }, new { @class = "button-gray button" })
+           @Html.ActionLink("Xóa", "DeleteUser", "Profile", new { id = @item.UserId }, new { @class = "confirm button-gray button" })
+           </td>           
+           </tr>
+           </text>
+       }
+       </tbody>       
+       </table>
+       <!-- Phân trang-->
+       
+       <br />
+
+    </div>
+<!-- end tab -->  
+<script type="text/javascript">
+    (function ($) {        
+     if (@Request.QueryString["pageSize"]!=null) {           
+            $("#recordsPerPage").val("@Request.QueryString["pageSize"]");
+             var _pageSize = @Request.QueryString["pageSize"];
+        } else {
+            var _pageSize = 2;
+        }
+        $("#pagination3").quickPager({
+            pageSize: _pageSize
+        });
+    })(jQuery);
+        </script> 
+
+
+<script type="text/javascript" src="@Url.Content("~/js/imtech_pager.js")"></script>    
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#recordsPerPage").change(function () {
+            window.location.replace("@Url.Action("FilterUser", "UserEx")"+"?pageSize="+$(this).val());
+        });
+        
+    });
+</script>
+
+<style type="text/css">
+.simplePagerNav li
+{
+    display:inline;
+    margin:6px;
+    }
+    .simplePagerNav
+    {
+        border-top: 1px solid #e1e1e1;
+background: #f1f1f1;
+margin-top:12px;
+font-size:14px;
+padding:12px 12px ;     
+        }
+
+        .currentPage a
+        {
+            color:Red;
+            }            
+</style>

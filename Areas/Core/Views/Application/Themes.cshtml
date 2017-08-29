@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Feature>
+@{
+    ViewBag.Title = "Themes";
+    var themes = ViewData["Themes"] as IEnumerable<string>;
+}
+<table class="datatable full">
+    <thead>
+        <tr>
+            <th>@Html.Localize("Theme")
+            </th>
+            <th>@Html.Localize("Feature")
+            </th>
+            <th>@Html.Localize("Module")
+            </th>
+            <th>@Html.Localize("Actions")
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var theme in themes)
+        {
+            <tr>
+                <td>@theme
+                </td>
+                <td>
+                    @foreach (var feature in Model)
+                    { 
+                        <table class="datatable full">
+                            <tbody>
+                                <tr>
+                                    <td>@feature.TranslatedName
+                                    </td>
+                                    <td>
+                                        <table class="datatable full">
+                                            <tbody>
+                                                @foreach (var module in feature.Modules)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @module.TranslatedName
+                                                        </td>
+                                                    </tr>
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

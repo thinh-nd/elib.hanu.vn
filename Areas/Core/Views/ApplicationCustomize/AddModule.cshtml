@@ -1,0 +1,20 @@
+﻿@model PageModule
+@{
+    ViewBag.Title = "AddModule";
+    var modules = ViewData["Modules"] as IEnumerable<CoreAction>;
+    var positions = ViewData["Positions"] as IEnumerable<string>;
+}
+@using (Html.BeginForm())
+{ 
+    <fieldset class="form">
+        @Html.HiddenFor(m => m.PageId)
+        <label>@Html.Localize("Position")</label>
+        @Html.DropDownListFor(m => m.PositionCode, positions.Select(p => new SelectListItem { Text = p, Value = p }))
+        <label>@Html.Localize("Module")</label>
+        @Html.DropDownListFor(m => m.ActionId, modules.Select(m => new SelectListItem { Text = m.Name, Value = m.ActionId.ToString() }))
+        <div class="action">
+            <button type="submit" class="button button-green">
+                <span class="add"></span>@Html.Localize("Add")</button>
+        </div>
+    </fieldset>
+}

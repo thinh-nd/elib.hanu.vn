@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "UploadSWF";
+}
+
+<h2>Tải file SWF</h2>
+   <fieldset class="form">
+      <legend>Thông tin bổ sung</legend> 
+            @using (Html.BeginForm("UploadSWF", "Document", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+            {          
+            <label style="padding-top:5px;">
+            @Html.Localize("Upload SWF file")
+            </label>
+            <input type="file" name="file" />                        
+             <div class="action">
+              <button class="button button-green">@Html.Localize("Tải lên")</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                @Html.ActionLinkButtonSecured(Html.Localize("Hủy bỏ"), null, "Index", "Document", "DocumentAdmin")
+            </div>
+        
+            }
+   </fieldset> 
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

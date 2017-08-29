@@ -1,0 +1,46 @@
+﻿@model IEnumerable<QML.Library.Data.User>
+@{
+    ViewBag.Title = "Super Users";
+    var appUsers = ViewData["AppUsers"] as IEnumerable<User>;
+}
+@using (Html.BeginSecuredForm("AddSuperUser", "Config", "Core"))
+{
+    <fieldset>
+        <legend>@Html.Localize("Add super user")</legend>
+        <label>@Html.Localize("Username")</label>
+        @Html.DropDownList("userId", appUsers.Select(u => new SelectListItem { Text = u.Username, Value = u.UserId.ToString() }))
+        <button type="submit" class="button button-green no-fix">
+            <span class="accept"></span>@Html.Localize("Add")</button>
+    </fieldset>
+}
+<table class="datatable normal">
+    <thead>
+        <tr>
+            <th>
+                No.
+            </th>
+            <th>
+                Username
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count(); i++)
+        { 
+            <tr>
+                <td>
+                    @(i + 1)
+                </td>
+                <td>
+                    @Model.ElementAt(i).Username
+                </td>
+                <td>
+                    @Html.ActionLinkButtonSecured(Html.Localize("Delete"), "bin", "DeleteSuperUser", "Config", "Core", new { userId = Model.ElementAt(i).UserId, area = "Core" }, "confirm")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

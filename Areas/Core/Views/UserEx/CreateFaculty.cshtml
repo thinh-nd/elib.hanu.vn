@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "CreateFaculty";
+}
+
+<fieldset>
+    <legend>Tên khoa chuyên ngành mới</legend>
+    @using (Html.BeginForm())
+    {
+        <input name="newFaculty" type="text" size="50"/><br /><br />
+        <div class="action">
+            <button class="button button-green">@Html.Localize("Thêm")</button>
+            @Html.ActionLinkButtonSecured(Html.Localize("Quay lại"), null, "UsersList", "User", "Core")
+        </div>
+    }
+</fieldset>

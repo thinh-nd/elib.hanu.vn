@@ -1,0 +1,24 @@
+﻿@using QML.Web.UI.Helpers
+<ul>
+	<li @QML.Web.UI.Helpers.MenuHelper.IsCurrent("Index", ViewContext)><a href='@Url.Action("Index", "Home")'>Trang chủ</a></li>
+    <li @QML.Web.UI.Helpers.MenuHelper.IsCurrent("Search", ViewContext)><a href='@Url.Action("Search", "Home")'>Tìm kiếm nâng cao</a></li>
+    <li @QML.Web.UI.Helpers.MenuHelper.IsCurrent("CategoryView", ViewContext)><a href='@Url.Action("CategoryView", "Home")'>Tài nguyên số</a></li>   
+	@if (Html.GetAuthManager().GetUser() != null)
+    {
+        <li @QML.Web.UI.Helpers.MenuHelper.IsCurrent("OrderDocument", ViewContext)><a href="@Url.Action("OrderDocument", "Home")">Yêu cầu tài liệu</a></li>        
+        <li><a href="@Url.Action("ChangePassword", "Home", new { id = Html.GetAuthManager().GetUser().UserId })">Tài khoản cá nhân</a></li>
+        <!--<li><a href="@Url.Action("BoughtDocument", "Home", new { id = Html.GetAuthManager().GetUser().UserId })">Tài liệu đã mua</a></li>
+        <li @QML.Web.UI.Helpers.MenuHelper.IsCurrent("History", ViewContext)><a href="@Url.Action("History", "Home", new { id = Html.GetAuthManager().GetUser().UserId })">Lịch sử truy cập</a></li>-->
+    }
+    
+@if (Html.GetAuthManager().GetUser() != null)
+{
+    QML.Web.UI.Controllers.EssentialController ec = new QML.Web.UI.Controllers.EssentialController();
+    //nếu k phải là sinh viên
+    if (!ec.IsPremium())
+    {       
+	    <li><a href="@Url.Action("Index", "Document", new { Area = "DocumentAdmin" })">Quản lý<span class="tab-l"></span><span class="tab-r"></span></a></li>
+    }
+    }
+	
+</ul>

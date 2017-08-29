@@ -1,0 +1,24 @@
+﻿@model QML.Library.Data.Role
+@using (Html.BeginSecuredForm("AddRole", "User", "Core"))
+{ 
+    <fieldset class="form">
+        <label>
+            @Html.Localize("Role name")</label>
+        @Html.TextBoxFor(m => m.RoleName)
+        <label>
+            @Html.Localize("Description")</label>
+        @Html.TextAreaFor(m => m.Description)
+        @if (Html.GetAuthManager().GetUser().IsSuperUser)
+        {
+            <label>@Html.Localize("Is Global")<small>@Html.Localize("Availabe in all applications")</small></label>
+            @Html.CheckBox("isGlobal")
+        }
+        else
+        { 
+            @Html.Hidden("isGlobal", false);
+        }
+        <div class="action">
+            <button class="button button-green">@Html.Localize("Add")</button>
+        </div>
+    </fieldset>
+}

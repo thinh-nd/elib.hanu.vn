@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="all,follow" />
+    <!-- Style sheets -->
+    <!--[if lt IE 8]><link rel="stylesheet" href="@Url.Content("~/Content/K-144/css/ie.css")" type="text/css" media="screen, projection"><![endif]-->
+    <link rel="stylesheet" media="print" type="text/css" href="@Url.Content("~/Content/K-144/css/print.css")" />
+    <link rel="stylesheet" media="screen, projection" type="text/css" href="@Url.Content("~/Content/K-144/css/screen.css")" />
+    <link rel="stylesheet" media="screen, projection" type="text/css" href="@Url.Content("~/Content/K-144/css/style.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/K-144/css/menu_styles.css")" />
+    <!-- Scripts -->
+    <script type="text/javascript" src="@Url.Content("~/Content/K-144/js/jquery-1.7.2.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/K-144/js/jquery-ui-1.8.21.custom.min.js.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/K-144/js/custom.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/js/flexpaper_flash.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/mediaplayer/jwplayer.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/mediaplayer/flowplayer-3.2.9.min.js")"></script>
+    <title>THƯ VIỆN SỐ TRƯỜNG ĐẠI HỌC HÀ NỘI | HANU DIGITAL LIBRARY 2012</title>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="wrapper2">
+            <!-- Header -->
+            <div id="header">
+                <div id="wrapper3">
+                    <!-- Logo -->
+                    <div id="logo">
+                        <img src="@Url.Content("~/Content/K-144/images/logo.png")" alt="HANULogo" width="75px"/>
+                        <h1 style="width: 66%">
+                            THƯ VIỆN SỐ TRƯỜNG ĐẠI HỌC HÀ NỘI</h1>
+                        <h2 style="font-size: 1.2em;">
+                            HANOI UNIVERSITY DIGITAL LIBRARY</h2>
+                    </div>                    
+                        <div id="user-info" style="font-size:12px">
+                            @Html.Partial("_UserInfo")
+                        </div>
+                        
+                    
+                </div>
+            </div>
+            <!-- Main content -->
+            <div id="content">
+                <!-- Menu -->
+                <div id="menu">
+                    @Html.Partial("_MenuPartial")
+                </div>
+                @RenderBody()
+            </div>
+        </div>
+        <!-- Footer -->
+        <div id="footer">
+            <p id="copyright">
+                Bản quyền thuộc về <a href="mailto:my@mail.com">Khoa CNTT - Trường Đại học Hà Nội</a>
+                &copy; 2012
+            </p>
+            <div style="font-size: 1em; color: transparent; text-decoration: none; text-shadow: 0px 0px 0px transparent;">
+                Được thiết kế bởi Nguyễn Quang Khuê
+            </div>
+        </div>
+    </div>
+</body>
+</html>

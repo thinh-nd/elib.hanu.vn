@@ -1,0 +1,41 @@
+﻿@model QML.Web.UI.Areas.Core.Models.UserRolesForm
+@{
+    ViewBag.Title = "User Roles";
+}
+@using (Html.BeginForm())
+{ 
+    @Html.HiddenFor(m => m.UserId)
+    <table class="datatable full">
+        <thead>
+            <tr>
+                <th>@Html.Localize("Role")
+                </th>
+                <th>@Html.Localize("Description")
+                </th>
+                <th>@Html.Localize("Is in role")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Roles.Count; i++)
+            { 
+                <tr>
+                    <td>
+                        @Model.Roles[i].Role.RoleName
+                        @Html.HiddenFor(m => m.Roles[i].Role.RoleId)
+                    </td>
+                    <td>
+                        @Model.Roles[i].Role.Description
+                    </td>
+                    <td>
+                        @Html.CheckBoxFor(m => m.Roles[i].IsInRole)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <p>
+        <button class="button button-green" type="submit">@Html.Localize("Save")</button>
+        @Html.ActionLinkButtonSecured(Html.Localize("Back"), null, "UsersList", "User", "Core")
+    </p>
+}

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<QML.Web.UI.ViewHistory>
+
+@{
+    ViewBag.Title = "Lịch sử đọc sách của bạn - Hanoi University | E-Library";    
+}
+<div id="common-wrapper">
+    <h2>Lịch sử truy cập tài liệu của bạn</h2>
+
+    @{
+        var grid = new WebGrid(source: Model.ToList(), rowsPerPage: 20);
+    }
+
+    @using (Html.BeginForm("History", "Home", FormMethod.Get))
+    {            
+        @grid.GetHtml(
+            tableStyle: "sortable",
+            columns: grid.Columns(
+            grid.Column(columnName: "ViewDate", header: "Ngày xem sách"),
+                grid.Column(columnName: "DocumentTitle", header: "Tiêu đề sách"),
+                grid.Column(columnName: "DocumentPublisher", header: "Nhà xuất bản"),
+                grid.Column(header: "Thao tác", format: @<text>
+                    @Html.ActionLink("Xem", "ViewBook", new { id = item.BookId }, new { onclick = "view_confirmation(@item.BookFee)" })               
+                </text>
+                )
+            ),
+                htmlAttributes: new { id = "hoho", cellpadding = "0", cellspacing = "0", width = "100%" },
+            footerStyle: "pagination"
+        )
+    }
+</div>

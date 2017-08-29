@@ -1,0 +1,22 @@
+﻿@model QML.Web.UI.Areas.DocumentAdmin.Models.DocumentEssential
+
+@{
+    ViewBag.Title = Model.Title + " - Đọc sách Online - Hanoi University | E-Library";    
+}
+<div id="common-wrapper">
+    <h2 style="text-shadow: 0px 0px 5px red; text-align: center;">@Model.Title</h2>
+    <div class="bookDetail">      
+        <h4><b>Tác giả:</b> <i>@Model.Creator</i></h4>
+        <h4><b>Nhà xuất bản:</b> <i>@Model.Publisher</i></h4>
+        <h4><b>Ngôn ngữ:</b> <i>@Model.Language</i></h4>
+        <h4><b>Định dạng:</b> <i>@Model.Format</i></h4>
+        <h4><b>Năm xuất bản:</b> <i>@Model.Year</i></h4>
+        <h4><b>Mô tả:</b><i>@Model.Description</i></h4>
+    </div>
+  
+    <br />
+    <center>
+        @Html.ActionLink("Quay về trang chủ", "Index", null, new { style="font-size: 1.5em;" })
+    </center>
+</div>
+

@@ -1,0 +1,184 @@
+﻿<div class="search">
+    @{
+        QML.Web.UI.HanuELibraryEntities db = new QML.Web.UI.HanuELibraryEntities();
+    }
+    @{
+        ViewBag.Title = "Tìm kiếm tài liệu";
+    }
+    <!-- Search in Elib -->
+    <h3>Tra cứu tài nguyên:</h3>
+    @using (Html.BeginForm("SearchResult", "Home", FormMethod.Post))
+    {
+    <!-- Category -->
+        <div>
+            <span>Tra cứu theo Bộ sưu tập:</span><br />
+            <select name="DocumentCategory">
+                <option value="0" selected>Tất cả</option>
+                @{
+                    foreach (var itemVar in QML.Web.UI.Helpers.FrontLayoutHelper.populateDropdown(0, 1))
+                    {
+                        <option value="@itemVar.CategoryID">@itemVar.CategoryName</option>
+                    }
+                }
+            </select>
+        </div>
+    <!-- Format -->
+        <div>
+            <strong>Dạng tài liệu:</strong>
+            <input name="DocumentType" value="All" type="radio" checked/><label>Toàn bộ</label>
+            <input name="DocumentType" value="Document" type="radio" checked /><label>Tài liệu</label>
+            <input name="DocumentType" value="Audio" type="radio" checked /><label>Audio</label>
+            <input name="DocumentType" value="Video" type="radio" checked /><label>Video</label>
+            <br />
+            <input name="FeeType" value="0" type="radio" checked /><label>Tất cả</label>
+            <input name="FeeType" value="1" type="radio" /><label>Miễn phí</label>
+            <input name="FeeType" value="2" type="radio" /><label>Trả phí</label>
+        </div>
+        <table>
+            <tr>
+                <td style="visibility: hidden">
+                    <select name="Boolean0">
+                        <option value="0" selected>AND</option>
+                        <option value="1">OR</option>
+                        <option value="2">NOT</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Attribute0">
+                        <option value="0" selected>Tất cả</option>
+                        <option value="1">Nhan đề</option>
+                        <option value="2">Tác giả</option>
+                        <option value="3">Chủ đề</option>
+                        <option value="4">Năm xuất bản</option>
+                        <option value="5">Ngôn ngữ</option>
+                        <option value="6">Nhà xuất bản</option>
+                        <option value="7">Tóm tắt</option>
+                        <option value="8">Bộ sưu tập</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="Keyword0" style="width:38em" />
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <select name="Boolean1">
+                        <option value="0" selected>AND</option>
+                        <option value="1">OR</option>
+                        <option value="2">NOT</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Attribute1">
+                        <option value="0" selected>Tất cả</option>
+                        <option value="1">Nhan đề</option>
+                        <option value="2">Tác giả</option>
+                        <option value="3">Chủ đề</option>
+                        <option value="4">Năm xuất bản</option>
+                        <option value="5">Ngôn ngữ</option>
+                        <option value="6">Nhà xuất bản</option>
+                        <option value="7">Tóm tắt</option>
+                        <option value="8">Bộ sưu tập</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="Keyword1" style="width:38em" />
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <select name="Boolean2">
+                        <option value="0" selected>AND</option>
+                        <option value="1">OR</option>
+                        <option value="2">NOT</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Attribute2">
+                        <option value="0" selected>Tất cả</option>
+                        <option value="1">Nhan đề</option>
+                        <option value="2">Tác giả</option>
+                        <option value="3">Chủ đề</option>
+                        <option value="4">Năm xuất bản</option>
+                        <option value="5">Ngôn ngữ</option>
+                        <option value="6">Nhà xuất bản</option>
+                        <option value="7">Tóm tắt</option>
+                        <option value="8">Bộ sưu tập</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="Keyword2" style="width:38em" />
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <select name="Boolean3">
+                        <option value="0" selected>AND</option>
+                        <option value="1">OR</option>
+                        <option value="2">NOT</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="Attribute3">
+                        <option value="0" selected>Tất cả</option>
+                        <option value="1">Nhan đề</option>
+                        <option value="2">Tác giả</option>
+                        <option value="3">Chủ đề</option>
+                        <option value="4">Năm xuất bản</option>
+                        <option value="5">Ngôn ngữ</option>
+                        <option value="6">Nhà xuất bản</option>
+                        <option value="7">Tóm tắt</option>
+                        <option value="8">Bộ sưu tập</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="Keyword3" style="width:38em" />
+                </td>
+            </tr>
+        </table>
+
+        <div>
+            <strong>Sắp xếp theo: </strong>
+            <select name="OrderBy">
+                <option value="0" selected>Xem nhiều nhất</option>
+                <option value="1">Mới nhất</option>
+                <option value="2">Phí tài liệu</option>
+            </select>
+        </div>
+    <!-- Huong dan -->
+        <div>
+            <input type="button" id="searchHelp" value="Hướng dẫn tìm kiếm" class="link-button-orange" /><br />
+            <div id="helpText" style="text-align:left; display:none">
+                <ul>
+                    <li>Tìm từ khóa sử dụng dấu ngoặc kép, ví dụ: "Project Managment for Dummies" để tìm chính xác từ khóa (Không áp dụng khi tìm kiếm năm xuất bản)</li>
+                    <li>Sử dụng các từ khóa AND, OR, NOT để kết hợp các kết quả. Ví dụ: "design" AND "mobile" sẽ trả về các tài liệu gôm cả 2 từ khóa "design" và "mobile" (các kết quả chỉ chưa 1 từ khóa "design" hoặc "mobile" sẽ bị loại), "design" OR "mobile" sẽ trả về các tài liệu chứa một trong hai từ khóa trên, "design" NOT "mobile" sẽ trả về các kết quả chưa từ khóa "design" nhưng không chứa từ khóa "mobile"</li>
+                    <li>Để tìm kiếm tài liệu thuộc bộ sưu tập nhất định hiệu quả, tham khảo danh sách bộ sưu tập tại @Html.ActionLink("đây", "CategoryView")</li>
+                    <li>Ô tìm kiếm đầu tiên là bắt buộc</li>
+                </ul>
+            </div>
+        </div>
+
+        <center>
+            <div>
+                <br />
+                <input type="submit" name="submit" value="Tìm kiếm" />
+                <span>&nbsp&nbsp</span>
+                <input type="reset" name="reset" value="Đặt lại" />
+            </div>
+        </center>
+    }
+    <br />
+</div>
+<script>
+    $('#searchHelp').toggle(function () {
+        $('#helpText').show();
+    }, function () {
+        $('#helpText').hide();
+    })
+</script>

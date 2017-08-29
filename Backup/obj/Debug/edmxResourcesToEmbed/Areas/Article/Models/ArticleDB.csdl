@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QmlModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="QmlArticleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ArticleCategories" EntityType="QmlModel.ArticleCategory" />
+    <EntitySet Name="ArticleItems" EntityType="QmlModel.ArticleItem" />
+    <AssociationSet Name="FK_article_Categories_article_Categories" Association="QmlModel.FK_article_Categories_article_Categories">
+      <End Role="article_Categories" EntitySet="ArticleCategories" />
+      <End Role="article_Categories1" EntitySet="ArticleCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_article_Items_article_Categories" Association="QmlModel.FK_article_Items_article_Categories">
+      <End Role="article_Categories" EntitySet="ArticleCategories" />
+      <End Role="article_Items" EntitySet="ArticleItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ArticleCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="ParentID" />
+    <Property Type="Int64" Name="ApplicationId" Nullable="false" />
+    <Property Type="String" Name="Name" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Code" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int64" Name="Position" />
+    <NavigationProperty Name="Children" Relationship="QmlModel.FK_article_Categories_article_Categories" FromRole="article_Categories" ToRole="article_Categories1" />
+    <NavigationProperty Name="Parent" Relationship="QmlModel.FK_article_Categories_article_Categories" FromRole="article_Categories1" ToRole="article_Categories" />
+    <NavigationProperty Name="ArticleItems" Relationship="QmlModel.FK_article_Items_article_Categories" FromRole="article_Categories" ToRole="article_Items" />
+  </EntityType>
+  <EntityType Name="ArticleItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int64" Name="CategoryID" Nullable="false" />
+    <Property Type="String" Name="Title" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Teaser" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Avatar" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="PublishedDate" />
+    <Property Type="DateTime" Name="CreatedDate" />
+    <Property Type="String" Name="CreatedUser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="LastModifiedDate" />
+    <Property Type="String" Name="LastModifiedUser" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ArticleCategory" Relationship="QmlModel.FK_article_Items_article_Categories" FromRole="article_Items" ToRole="article_Categories" />
+  </EntityType>
+  <Association Name="FK_article_Categories_article_Categories">
+    <End Type="QmlModel.ArticleCategory" Role="article_Categories" Multiplicity="0..1" />
+    <End Type="QmlModel.ArticleCategory" Role="article_Categories1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="article_Categories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="article_Categories1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_article_Items_article_Categories">
+    <End Type="QmlModel.ArticleCategory" Role="article_Categories" Multiplicity="1" />
+    <End Type="QmlModel.ArticleItem" Role="article_Items" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="article_Categories">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="article_Items">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

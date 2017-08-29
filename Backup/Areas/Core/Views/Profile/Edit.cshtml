@@ -1,0 +1,68 @@
+﻿@model QML.Web.UI.Profile
+
+@{
+    ViewBag.Title = "Quản lý tài khoản đăng nhập";
+}
+
+<ul class="tabs">
+    <li><a class="tab" href="#">@Html.Localize("Tài khoản")</a></li>
+    <li><a class="tab" href="#">@Html.Localize("Nạp tiền vào tài khoản")</a></li>
+</ul>
+
+<div class="panes clearfix">
+<section>
+<h2>Quản lý tài khoản đăng nhập của user "@ViewBag.Username"</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+    <fieldset>
+        <legend>Thông tin tài khoản của user @ViewBag.Username</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="editor-label">
+            Số dư tài khoản (VNĐ)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Balance, new { disabled = "disabled" })
+            @Html.ValidationMessageFor(model => model.Balance)
+        </div>       
+        
+    </fieldset>
+    <input type="button" value="Quay lại" class="back"/>
+</section>
+<section>
+<h2>Quản lý tài khoản đăng nhập</h2>
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>Nạp tiền vào tài khoản</legend>
+
+        @Html.HiddenFor(model => model.UserId)
+
+        <div class="editor-label">
+           Số tiền nạp vào (VNĐ)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.Balance, new { @Value = "0" })
+            @Html.ValidationMessageFor(model => model.Balance)
+        </div>
+               
+        
+    </fieldset>
+ <p><input type="submit" value="Lưu" /><input type="button" value="Quay lại" class="back"/></p>
+}
+</section>
+</div><!-- end .panes-clearfix-->
+
+<style type="text/css">
+a.tab{width:141px !important;}
+</style>
+<script type="text/javascript">
+    $(function () {
+        $(".back").click(function () {
+           window.location.replace("@Url.Action("UsersList", "User")"+"?pageSize=20");
+        })
+    })
+</script>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<QML.Web.UI.Areas.DocumentAdmin.Models.DocWeightModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+    @foreach (var item in Model)
+    {
+       <p>@item.DocID : @item.Weight</p>
+    }
+    </div>
+</body>
+</html>

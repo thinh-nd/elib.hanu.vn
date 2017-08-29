@@ -1,0 +1,58 @@
+﻿@model QML.Web.UI.DocumentOrder
+
+@{
+    ViewBag.Title = "Xoá yêu cầu tài liệu";
+}
+
+<h2>Xoá yêu cầu tài liệu</h2>
+
+<h3>Bạn thực sự muốn xoá yêu cầu này?</h3>
+<fieldset>
+    <legend>Thông tin yêu cầu tài liệu</legend>
+
+    <div class="display-label">Người yêu cầu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.auth_Users.Username)
+    </div>
+
+    <div class="display-label">Đã duyệt?</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+
+    <div class="display-label">Loại tài liệu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DocumentType)
+    </div>
+
+    <div class="display-label">Tên tài liệu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DocumentName)
+    </div>
+
+    <div class="display-label">Tác giả</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DocumentCreator)
+    </div>
+
+    <div class="display-label">Nội dung yêu cầu</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.OrderContent)
+    </div>
+
+    <div class="display-label">Ngày tạo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedDate)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Xoá" /> |
+        @Html.ActionLink("Trở về danh sách", "Index")
+    </p>
+}
+<style>
+    .display-label{
+        font-weight:bold;
+    }
+</style>

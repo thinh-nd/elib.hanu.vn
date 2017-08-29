@@ -1,0 +1,16 @@
+﻿@model QML.Web.UI.Models.PagerModel
+@if (Model.PageCount > 1)
+{
+    <ul class="pagination clearfix">
+        @for (int i = 1; i <= Model.PageCount; i++)
+        {
+            var rvd = new RouteValueDictionary(ViewContext.RouteData.Values);
+            foreach (string key in Request.QueryString.Keys)
+            {
+                rvd[key] = Request.QueryString[key];
+            }
+            rvd["page"] = i;
+            <li><a href="@Url.Action(ViewContext.RouteData.Values["action"] as string, ViewContext.RouteData.Values["controller"] as string, rvd)" class="button-gray @(i == Model.CurrentPage ? "current" : "")">@i</a></li>
+        }
+    </ul>
+}

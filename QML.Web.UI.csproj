@@ -1,0 +1,1685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76E7AFDC-3952-4F42-80A0-13367E129DC8}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>QML.Web.UI</RootNamespace>
+    <AssemblyName>QML.Web.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <TargetFrameworkProfile />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\QML.Web.UI.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>packages\EPPlus.4.0.4\lib\net20\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="GhostscriptSharp">
+      <HintPath>packages\GhostScriptSharp.1.3.1.4\lib\net40\GhostscriptSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>packages\DotNetZip.1.9.3\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>packages\iTextSharp.5.5.5\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\microsoft-web-helpers.2.1.20710.2\lib\net40\Microsoft.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="QML.Library, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\QML.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="QML.Web.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\QML.Web.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IO">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.Net.Http.2.2.29\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>packages\Microsoft.Bcl.1.1.10\lib\net40\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Telerik.Web.Mvc, Version=2013.2.611.340, Culture=neutral, PublicKeyToken=29ac1a93ec063d92, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\TelerikMvcExtensions.2013.2.611\lib\net40\Telerik.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.Data.2.0.20505.0\lib\net40\WebMatrix.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="WebMatrix.WebData, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.AspNet.WebPages.WebData.2.0.20505.0\lib\net40\WebMatrix.WebData.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\EditorLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.da-DK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.da-DK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\EditorLocalization.zh-CN.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditorLocalization.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.da-DK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.da-DK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.de-DE.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.de-DE.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.es-ES.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.es-ES.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.uk-UA.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.uk-UA.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\GridLocalization.zh-CN.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GridLocalization.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.bg-BG.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.bg-BG.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.da-DK.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.da-DK.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.en-US.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.en-US.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.fr-FR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.fr-FR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.nl-NL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.nl-NL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pl-PL.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pl-PL.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pt-BR.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pt-BR.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.pt-PT.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.pt-PT.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.ru-RU.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\UploadLocalization.zh-CN.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UploadLocalization.zh-CN.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Areas\Core\Controllers\HomeAdminPageController.cs" />
+    <Compile Include="Areas\Core\Controllers\RoutingController.cs" />
+    <Compile Include="Areas\Core\Controllers\UserExController.cs" />
+    <Compile Include="Areas\Core\CoreAreaRegistration.cs" />
+    <Compile Include="Areas\Core\Models\CoreModels.cs" />
+    <Compile Include="Areas\DocumentAdmin\Controllers\DocumentCategoryAdminController.cs" />
+    <Compile Include="Areas\DocumentAdmin\Controllers\DocumentController.cs" />
+    <Compile Include="Areas\DocumentAdmin\Controllers\DocumentFormatController.cs" />
+    <Compile Include="Areas\DocumentAdmin\Controllers\DocumentOrderController.cs" />
+    <Compile Include="Areas\Core\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\DocumentAdmin\Controllers\TopDocumentController.cs" />
+    <Compile Include="Areas\DocumentAdmin\DocumentAdminAreaRegistration.cs" />
+    <Compile Include="Areas\DocumentAdmin\Helpers\DocumentsHelper.cs" />
+    <Compile Include="Areas\DocumentAdmin\Helpers\TreeViewHelper.cs" />
+    <Compile Include="Areas\DocumentAdmin\Models\ActionModel.cs" />
+    <Compile Include="Areas\DocumentAdmin\Models\DocumentModels.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\EssentialController.cs" />
+    <Compile Include="Controllers\HomeController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Filters\AppFilters.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HanuELibraryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HanuELibraryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\FrontLayoutHelper.cs" />
+    <Compile Include="Helpers\MenuHelper.cs" />
+    <Content Include="Content\2013.2.611\Black\editor.png" />
+    <Content Include="Content\2013.2.611\Black\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Black\loading.gif" />
+    <Content Include="Content\2013.2.611\Black\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Black\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Black\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Black\sprite.png" />
+    <Content Include="Content\2013.2.611\Black\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Black\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Black\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Default\editor.png" />
+    <Content Include="Content\2013.2.611\Default\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Default\loading.gif" />
+    <Content Include="Content\2013.2.611\Default\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Default\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Default\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Default\sprite.png" />
+    <Content Include="Content\2013.2.611\Default\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Default\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Default\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Forest\editor.png" />
+    <Content Include="Content\2013.2.611\Forest\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Forest\loading.gif" />
+    <Content Include="Content\2013.2.611\Forest\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Forest\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Forest\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Forest\sprite.png" />
+    <Content Include="Content\2013.2.611\Forest\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Forest\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Forest\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Hay\editor.png" />
+    <Content Include="Content\2013.2.611\Hay\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Hay\loading.gif" />
+    <Content Include="Content\2013.2.611\Hay\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Hay\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Hay\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Hay\sprite.png" />
+    <Content Include="Content\2013.2.611\Hay\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Hay\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Hay\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Metro\editor.png" />
+    <Content Include="Content\2013.2.611\Metro\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Metro\loading.gif" />
+    <Content Include="Content\2013.2.611\Metro\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Metro\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Metro\sprite.png" />
+    <Content Include="Content\2013.2.611\Office2007\editor.png" />
+    <Content Include="Content\2013.2.611\Office2007\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Office2007\loading.gif" />
+    <Content Include="Content\2013.2.611\Office2007\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Office2007\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Office2007\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Office2007\sprite.png" />
+    <Content Include="Content\2013.2.611\Office2007\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Office2007\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Office2007\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Office2010Black\editor.png" />
+    <Content Include="Content\2013.2.611\Office2010Black\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Office2010Black\loading.gif" />
+    <Content Include="Content\2013.2.611\Office2010Black\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Office2010Black\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Office2010Black\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Office2010Black\sprite.png" />
+    <Content Include="Content\2013.2.611\Office2010Black\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Office2010Black\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Office2010Black\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Office2010Blue\editor.png" />
+    <Content Include="Content\2013.2.611\Office2010Blue\gradient.png" />
+    <Content Include="Content\2013.2.611\Office2010Blue\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Office2010Blue\loading.gif" />
+    <Content Include="Content\2013.2.611\Office2010Blue\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Office2010Blue\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Office2010Blue\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Office2010Blue\sprite.png" />
+    <Content Include="Content\2013.2.611\Office2010Silver\editor.png" />
+    <Content Include="Content\2013.2.611\Office2010Silver\gradient.png" />
+    <Content Include="Content\2013.2.611\Office2010Silver\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Office2010Silver\loading.gif" />
+    <Content Include="Content\2013.2.611\Office2010Silver\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Office2010Silver\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Office2010Silver\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Office2010Silver\sprite.png" />
+    <Content Include="Content\2013.2.611\Outlook\editor.png" />
+    <Content Include="Content\2013.2.611\Outlook\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Outlook\loading.gif" />
+    <Content Include="Content\2013.2.611\Outlook\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Outlook\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Outlook\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Outlook\sprite.png" />
+    <Content Include="Content\2013.2.611\Outlook\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Outlook\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Outlook\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Simple\editor.png" />
+    <Content Include="Content\2013.2.611\Simple\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Simple\loading.gif" />
+    <Content Include="Content\2013.2.611\Simple\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Simple\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Simple\sprite.png" />
+    <Content Include="Content\2013.2.611\Simple\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Simple\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Simple\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Sitefinity\editor.png" />
+    <Content Include="Content\2013.2.611\Sitefinity\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Sitefinity\loading.gif" />
+    <Content Include="Content\2013.2.611\Sitefinity\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Sitefinity\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Sitefinity\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Sitefinity\sprite.png" />
+    <Content Include="Content\2013.2.611\Sitefinity\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Sitefinity\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Sitefinity\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Sunset\editor.png" />
+    <Content Include="Content\2013.2.611\Sunset\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Sunset\loading.gif" />
+    <Content Include="Content\2013.2.611\Sunset\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Sunset\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Sunset\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Sunset\sprite.png" />
+    <Content Include="Content\2013.2.611\Sunset\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Sunset\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Sunset\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\telerik.black.min.css" />
+    <Content Include="Content\2013.2.611\telerik.common.min.css" />
+    <Content Include="Content\2013.2.611\telerik.default.min.css" />
+    <Content Include="Content\2013.2.611\telerik.forest.min.css" />
+    <Content Include="Content\2013.2.611\telerik.hay.min.css" />
+    <Content Include="Content\2013.2.611\telerik.metro.min.css" />
+    <Content Include="Content\2013.2.611\telerik.office2007.min.css" />
+    <Content Include="Content\2013.2.611\telerik.office2010black.min.css" />
+    <Content Include="Content\2013.2.611\telerik.office2010blue.min.css" />
+    <Content Include="Content\2013.2.611\telerik.office2010silver.min.css" />
+    <Content Include="Content\2013.2.611\telerik.outlook.min.css" />
+    <Content Include="Content\2013.2.611\telerik.rtl.min.css" />
+    <Content Include="Content\2013.2.611\telerik.simple.min.css" />
+    <Content Include="Content\2013.2.611\telerik.sitefinity.min.css" />
+    <Content Include="Content\2013.2.611\telerik.sunset.min.css" />
+    <Content Include="Content\2013.2.611\telerik.telerik.min.css" />
+    <Content Include="Content\2013.2.611\telerik.transparent.min.css" />
+    <Content Include="Content\2013.2.611\telerik.vista.min.css" />
+    <Content Include="Content\2013.2.611\telerik.web20.min.css" />
+    <Content Include="Content\2013.2.611\telerik.webblue.min.css" />
+    <Content Include="Content\2013.2.611\telerik.windows7.min.css" />
+    <Content Include="Content\2013.2.611\Telerik\editor.png" />
+    <Content Include="Content\2013.2.611\Telerik\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Telerik\loading.gif" />
+    <Content Include="Content\2013.2.611\Telerik\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Telerik\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Telerik\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Telerik\sprite.png" />
+    <Content Include="Content\2013.2.611\Telerik\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Telerik\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Telerik\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Transparent\active.png" />
+    <Content Include="Content\2013.2.611\Transparent\editor.png" />
+    <Content Include="Content\2013.2.611\Transparent\gradient.png" />
+    <Content Include="Content\2013.2.611\Transparent\group.png" />
+    <Content Include="Content\2013.2.611\Transparent\hover.png" />
+    <Content Include="Content\2013.2.611\Transparent\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Transparent\loading.gif" />
+    <Content Include="Content\2013.2.611\Transparent\selected.png" />
+    <Content Include="Content\2013.2.611\Transparent\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Transparent\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Transparent\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Transparent\sprite.png" />
+    <Content Include="Content\2013.2.611\Transparent\toolbar.png" />
+    <Content Include="Content\2013.2.611\Transparent\widget.png" />
+    <Content Include="Content\2013.2.611\Vista\editor.png" />
+    <Content Include="Content\2013.2.611\Vista\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Vista\loading.gif" />
+    <Content Include="Content\2013.2.611\Vista\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Vista\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Vista\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Vista\sprite.png" />
+    <Content Include="Content\2013.2.611\Web20\editor.png" />
+    <Content Include="Content\2013.2.611\Web20\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Web20\loading.gif" />
+    <Content Include="Content\2013.2.611\Web20\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Web20\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Web20\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Web20\sprite.png" />
+    <Content Include="Content\2013.2.611\Web20\treeview-line.png" />
+    <Content Include="Content\2013.2.611\Web20\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\Web20\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\WebBlue\editor.png" />
+    <Content Include="Content\2013.2.611\WebBlue\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\WebBlue\loading.gif" />
+    <Content Include="Content\2013.2.611\WebBlue\slider-h.gif" />
+    <Content Include="Content\2013.2.611\WebBlue\slider-v.gif" />
+    <Content Include="Content\2013.2.611\WebBlue\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\WebBlue\sprite.png" />
+    <Content Include="Content\2013.2.611\WebBlue\treeview-line.png" />
+    <Content Include="Content\2013.2.611\WebBlue\treeview-nodes-rtl.png" />
+    <Content Include="Content\2013.2.611\WebBlue\treeview-nodes.png" />
+    <Content Include="Content\2013.2.611\Windows7\editor.png" />
+    <Content Include="Content\2013.2.611\Windows7\imagebrowser.png" />
+    <Content Include="Content\2013.2.611\Windows7\loading.gif" />
+    <Content Include="Content\2013.2.611\Windows7\slider-h.gif" />
+    <Content Include="Content\2013.2.611\Windows7\slider-v.gif" />
+    <Content Include="Content\2013.2.611\Windows7\sprite-vertical.png" />
+    <Content Include="Content\2013.2.611\Windows7\sprite.png" />
+    <Content Include="Content\Admin\css\simplePagination.css" />
+    <Content Include="Content\Admin\js\jquery.simplePagination.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="js\quickpager.jquery.js" />
+    <Content Include="js\sesssion.js" />
+    <Compile Include="Helpers\PdfHelper.cs" />
+    <Compile Include="Models\ExtendRegisterModel.cs" />
+    <Compile Include="Models\SearchModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HanuElibrary2012.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\QML.Web.UI.dll" />
+    <Content Include="bin\QML.Web.UI.pdb" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\Admin\jqueryUI\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.all.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.base.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.button.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.core.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.datepicker.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.dialog.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.resizable.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.selectable.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.tabs.css" />
+    <Content Include="Content\Admin\jqueryUI\jquery.ui.theme.css" />
+    <Content Include="Content\Admin\css\custom.css" />
+    <Content Include="Content\Admin\css\forms.css" />
+    <Content Include="Content\Admin\css\fullcalendar.css" />
+    <Content Include="Content\Admin\css\grid.css" />
+    <Content Include="Content\Admin\css\ie.css" />
+    <Content Include="Content\Admin\css\messages.css" />
+    <Content Include="Content\Admin\css\reset.css" />
+    <Content Include="Content\Admin\css\style.css" />
+    <Content Include="Content\Admin\css\tables.css" />
+    <Content Include="Content\Admin\images\arrow-down.png" />
+    <Content Include="Content\Admin\images\arrow-left.png" />
+    <Content Include="Content\Admin\images\arrow-right.png" />
+    <Content Include="Content\Admin\images\arrow-up.png" />
+    <Content Include="Content\Admin\images\arrow-updown.png" />
+    <Content Include="Content\Admin\images\arrows.png" />
+    <Content Include="Content\Admin\images\asset1.jpg" />
+    <Content Include="Content\Admin\images\asset2.jpg" />
+    <Content Include="Content\Admin\images\asset3.jpg" />
+    <Content Include="Content\Admin\images\autumn\scottwills_autumn2_t.jpg" />
+    <Content Include="Content\Admin\images\autumn\scottwills_autumn4_t.jpg" />
+    <Content Include="Content\Admin\images\autumn\scottwills_autumn5_t.jpg" />
+    <Content Include="Content\Admin\images\autumn\scottwills_autumn6_t.jpg" />
+    <Content Include="Content\Admin\images\autumn\scottwills_autumnleaf_t.jpg" />
+    <Content Include="Content\Admin\images\autumn\scottwills_butterfly_t.jpg" />
+    <Content Include="Content\Admin\images\autumn\scottwills_farmhouse2_t.jpg" />
+    <Content Include="Content\Admin\images\close-icon.png" />
+    <Content Include="Content\Admin\images\icons\accept.png" />
+    <Content Include="Content\Admin\images\icons\add.png" />
+    <Content Include="Content\Admin\images\icons\application_view_list.png" />
+    <Content Include="Content\Admin\images\icons\application_view_tile.png" />
+    <Content Include="Content\Admin\images\icons\bin.png" />
+    <Content Include="Content\Admin\images\icons\book.png" />
+    <Content Include="Content\Admin\images\icons\building.png" />
+    <Content Include="Content\Admin\images\icons\calendar.png" />
+    <Content Include="Content\Admin\images\icons\calendar_view_day.png" />
+    <Content Include="Content\Admin\images\icons\email.png" />
+    <Content Include="Content\Admin\images\icons\help.png" />
+    <Content Include="Content\Admin\images\icons\house.png" />
+    <Content Include="Content\Admin\images\icons\note.png" />
+    <Content Include="Content\Admin\images\icons\pencil.png" />
+    <Content Include="Content\Admin\images\icons\phone.png" />
+    <Content Include="Content\Admin\images\icons\tag_blue.png" />
+    <Content Include="Content\Admin\images\icons\telephone.png" />
+    <Content Include="Content\Admin\images\icons\tick.png" />
+    <Content Include="Content\Admin\images\icons\time.png" />
+    <Content Include="Content\Admin\images\icons\vcard.png" />
+    <Content Include="Content\Admin\images\lightbulb_32.png" />
+    <Content Include="Content\Admin\images\line.png" />
+    <Content Include="Content\Admin\images\line_vert.png" />
+    <Content Include="Content\Admin\images\next.gif" />
+    <Content Include="Content\Admin\images\overlay\transparent.png" />
+    <Content Include="Content\Admin\images\overlay\white.png" />
+    <Content Include="Content\Admin\images\prev.gif" />
+    <Content Include="Content\Admin\images\users_business_32.png" />
+    <Content Include="Content\Admin\images\user_32.png" />
+    <Content Include="Content\Admin\js\fullcalendar.js" />
+    <Content Include="Content\Admin\js\gcal.js" />
+    <Content Include="Content\Admin\js\global.js" />
+    <Content Include="Content\Admin\js\html5.js" />
+    <Content Include="Content\Admin\js\ie.js" />
+    <Content Include="Content\Admin\js\IE9.js" />
+    <Content Include="Content\Admin\js\jquery.tables.js" />
+    <Content Include="Content\Admin\js\jquery.tools.min.js" />
+    <Content Include="Content\Admin\js\jquery.ui.min.js" />
+    <Content Include="Content\Admin\js\PIE.js" />
+    <Content Include="Content\Admin\tree\jquery.treeview.css" />
+    <Content Include="Content\alert.png" />
+    <Content Include="Content\Document\css\main-msie.css" />
+    <Content Include="Content\Document\css\main.css" />
+    <Content Include="Content\Document\css\print.css" />
+    <Content Include="Content\Document\images\bg.gif" />
+    <Content Include="Content\Document\images\bg_page.gif" />
+    <Content Include="Content\Document\images\bg_page_in.jpg" />
+    <Content Include="Content\Document\images\btn_more.gif" />
+    <Content Include="Content\Document\images\col_bg.gif" />
+    <Content Include="Content\Document\images\col_title_bg.gif" />
+    <Content Include="Content\Document\images\col_top.gif" />
+    <Content Include="Content\Document\images\content_article_bg.jpg" />
+    <Content Include="Content\Document\images\content_title_bg.gif" />
+    <Content Include="Content\Document\images\footer.jpg" />
+    <Content Include="Content\Document\images\header.jpg" />
+    <Content Include="Content\Document\images\ico_archive.gif" />
+    <Content Include="Content\Document\images\ico_archive2.gif" />
+    <Content Include="Content\Document\images\ico_cat.gif" />
+    <Content Include="Content\Document\images\ico_comments.gif" />
+    <Content Include="Content\Document\images\ico_date.gif" />
+    <Content Include="Content\Document\images\ico_links.gif" />
+    <Content Include="Content\Document\images\ico_list.gif" />
+    <Content Include="Content\Document\images\ico_rss.gif" />
+    <Content Include="Content\Document\images\ico_top.gif" />
+    <Content Include="Content\Document\images\ico_user.gif" />
+    <Content Include="Content\Document\images\logo.png" />
+    <Content Include="Content\Document\images\sample.gif" />
+    <Content Include="Content\Document\images\search_input.gif" />
+    <Content Include="Content\Document\images\search_submit.gif" />
+    <Content Include="Content\Document\images\tab_active_l.gif" />
+    <Content Include="Content\Document\images\tab_active_r.gif" />
+    <Content Include="Content\Document\images\tab_hover.gif" />
+    <Content Include="Content\Document\images\tab_hover_l.gif" />
+    <Content Include="Content\Document\images\tab_hover_r.gif" />
+    <Content Include="Content\Document\images\tab_link.gif" />
+    <Content Include="Content\Document\images\tab_link_l.gif" />
+    <Content Include="Content\Document\images\tab_link_r.gif" />
+    <Content Include="Content\Document\images\tmp_photo.gif" />
+    <Content Include="Content\error.png" />
+    <Content Include="Content\highchart\adapters\mootools-adapter.js" />
+    <Content Include="Content\highchart\adapters\mootools-adapter.src.js" />
+    <Content Include="Content\highchart\adapters\prototype-adapter.js" />
+    <Content Include="Content\highchart\adapters\prototype-adapter.src.js" />
+    <Content Include="Content\highchart\highcharts.js" />
+    <Content Include="Content\highchart\highcharts.src.js" />
+    <Content Include="Content\highchart\modules\canvas-tools.js" />
+    <Content Include="Content\highchart\modules\canvas-tools.src.js" />
+    <Content Include="Content\highchart\modules\exporting.js" />
+    <Content Include="Content\highchart\modules\exporting.src.js" />
+    <Content Include="Content\highchart\themes\dark-blue.js" />
+    <Content Include="Content\highchart\themes\dark-green.js" />
+    <Content Include="Content\highchart\themes\gray.js" />
+    <Content Include="Content\highchart\themes\grid.js" />
+    <Content Include="Content\highchart\themes\skies.js" />
+    <Content Include="Content\Images\no_image.gif" />
+    <Content Include="Content\Images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\Images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\Images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\Images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\Images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\Images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\Images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\Images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\Images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\Images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\Images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\Images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\Images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\Images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\Images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jquery-ui\css\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\jquery-ui\css\redmond\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\jquery-ui\development-bundle\AUTHORS.txt" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\collapsible.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\custom-icons.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\default.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\fillspace.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\hoverintent.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\index.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\mouseover.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\no-auto-height.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\accordion\sortable.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\demos.css" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\images\calendar.gif" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\images\demo-config-on-tile.gif" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\images\demo-config-on.gif" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\images\demo-spindown-closed.gif" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\images\demo-spindown-open.gif" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\images\icon-docs-info.gif" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\images\pbar-ani.gif" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\index.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\position\cycler.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\position\default.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\position\images\earth.jpg" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\position\images\flight.jpg" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\position\images\rocket.jpg" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\position\index.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\ajax.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\ajax\content1.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\ajax\content2.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\bottom.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\collapsible.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\cookie.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\default.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\index.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\manipulation.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\mouseover.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\sortable.html" />
+    <Content Include="Content\jquery-ui\development-bundle\demos\tabs\vertical.html" />
+    <Content Include="Content\jquery-ui\development-bundle\docs\accordion.html" />
+    <Content Include="Content\jquery-ui\development-bundle\docs\position.html" />
+    <Content Include="Content\jquery-ui\development-bundle\docs\tabs.html" />
+    <Content Include="Content\jquery-ui\development-bundle\external\jquery.bgiframe-2.1.2.js" />
+    <Content Include="Content\jquery-ui\development-bundle\external\jquery.cookie.js" />
+    <Content Include="Content\jquery-ui\development-bundle\external\jquery.metadata.js" />
+    <Content Include="Content\jquery-ui\development-bundle\external\qunit.css" />
+    <Content Include="Content\jquery-ui\development-bundle\external\qunit.js" />
+    <Content Include="Content\jquery-ui\development-bundle\GPL-LICENSE.txt" />
+    <Content Include="Content\jquery-ui\development-bundle\jquery-1.6.2.js" />
+    <Content Include="Content\jquery-ui\development-bundle\MIT-LICENSE.txt" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_flat_55_fbec88_40x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_glass_75_d0e5f5_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_glass_85_dfeffc_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-icons_217bc0_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-icons_469bdd_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-icons_6da8d5_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-icons_d8e7f3_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\images\ui-icons_f9bd01_256x240.png" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\jquery-ui-1.8.16.custom.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\jquery.ui.accordion.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\jquery.ui.all.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\jquery.ui.base.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\jquery.ui.core.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\jquery.ui.tabs.css" />
+    <Content Include="Content\jquery-ui\development-bundle\themes\redmond\jquery.ui.theme.css" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\jquery-ui-1.8.16.custom.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\jquery.ui.accordion.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\jquery.ui.core.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\jquery.ui.mouse.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\jquery.ui.position.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\jquery.ui.tabs.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\jquery.ui.widget.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\minified\jquery.ui.accordion.min.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\minified\jquery.ui.mouse.min.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\minified\jquery.ui.tabs.min.js" />
+    <Content Include="Content\jquery-ui\development-bundle\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Content\jquery-ui\development-bundle\version.txt" />
+    <Content Include="Content\jquery-ui\index.html" />
+    <Content Include="Content\jquery-ui\js\jquery-1.6.2.min.js" />
+    <Content Include="Content\jquery-ui\js\jquery-ui-1.8.16.custom.min.js" />
+    <Content Include="Content\jquery_alert\images\help.gif" />
+    <Content Include="Content\jquery_alert\images\important.gif" />
+    <Content Include="Content\jquery_alert\images\info.gif" />
+    <Content Include="Content\jquery_alert\images\title.gif" />
+    <Content Include="Content\jquery_alert\jquery.alerts.css" />
+    <Content Include="Content\jquery_alert\jquery.alerts.js" />
+    <Content Include="Content\K-144\css\ie.css" />
+    <Content Include="Content\K-144\css\images\blackback.png" />
+    <Content Include="Content\K-144\css\images\book.png" />
+    <Content Include="Content\K-144\css\images\book_1.png" />
+    <Content Include="Content\K-144\css\images\book_info.png" />
+    <Content Include="Content\K-144\css\images\header_background.jpg" />
+    <Content Include="Content\K-144\css\images\item_back.png" />
+    <Content Include="Content\K-144\css\images\logo.png" />
+    <Content Include="Content\K-144\css\images\overlay.png" />
+    <Content Include="Content\K-144\css\images\shelf.png" />
+    <Content Include="Content\K-144\css\images\Woodshelf.png" />
+    <Content Include="Content\K-144\css\images\wood_background.jpg" />
+    <Content Include="Content\K-144\css\images\wood_border.png" />
+    <Content Include="Content\K-144\css\menu_styles.css" />
+    <Content Include="Content\K-144\css\print.css" />
+    <Content Include="Content\K-144\css\screen.css" />
+    <Content Include="Content\K-144\css\style.css" />
+    <Content Include="Content\K-144\images\logo.png" />
+    <Content Include="Content\K-144\js\custom.js" />
+    <Content Include="Content\K-144\js\jquery-1.7.2.min.js" />
+    <Content Include="Content\K-144\js\jquery-ui-1.8.21.custom.min.js" />
+    <Content Include="Content\ok.png" />
+    <Content Include="Content\simplePagination.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\Uploads\System\Languages\flag_vi.png" />
+    <Content Include="Global.asax" />
+    <Content Include="images\adminicon.png" />
+    <Content Include="images\authoricon.png" />
+    <Content Include="images\bookcategoryicon.png" />
+    <Content Include="images\bookicon.png" />
+    <Content Include="images\btn_detail.jpg" />
+    <Content Include="images\button-xem.jpg" />
+    <Content Include="images\clockicon.png" />
+    <Content Include="images\createddateicon.png" />
+    <Content Include="images\excel.png" />
+    <Content Include="images\insertbookicon.png" />
+    <Content Include="images\insertcategoryicon.png" />
+    <Content Include="images\insertusericon.png" />
+    <Content Include="images\logo.gif" />
+    <Content Include="images\pagesicon.png" />
+    <Content Include="images\publishericon.png" />
+    <Content Include="images\usersicon.png" />
+    <Content Include="images\viewcounticon.png" />
+    <Content Include="images\word.png" />
+    <Content Include="js\jquery.tab.js" />
+    <Content Include="js\jquery-simple-pagination-plugin.js" />
+    <Content Include="js\pagination.list.js" />
+    <Content Include="js\imtech_pager.js" />
+    <Content Include="js\jPages.min.js" />
+    <Content Include="js\jquery-1.8.2.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.simplePagination.js" />
+    <Content Include="js\Pagination.js" />
+    <Content Include="mediaplayer\fp3.2.12\flowplayer-3.2.11.min.js" />
+    <Content Include="mediaplayer\fp3.2.12\flowplayer-3.2.12.swf" />
+    <Content Include="mediaplayer\fp3.2.12\flowplayer.controls-3.2.12.swf" />
+    <Content Include="mediaplayer\jwplayer.js" />
+    <Content Include="mediaplayer\license.txt" />
+    <Content Include="mediaplayer\player.swf" />
+    <Content Include="mediaplayer\preview.jpg" />
+    <Content Include="mediaplayer\readme.html" />
+    <Content Include="mediaplayer\video.mp4" />
+    <Content Include="obj\Debug\Admin.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\QML.Web.UI.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\QML.Web.UI.dll" />
+    <Content Include="obj\Debug\QML.Web.UI.pdb" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.bg-BG.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.de-DE.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.en-US.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.fr-FR.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.nl-NL.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.pl-PL.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.pt-BR.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.ru-RU.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.EditorLocalization.uk-UA.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.bg-BG.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.de-DE.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.en-US.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.es-ES.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.fr-FR.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.pl-PL.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.pt-BR.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.pt-PT.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.ru-RU.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.GridLocalization.uk-UA.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.UploadLocalization.bg-BG.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.UploadLocalization.en-US.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.UploadLocalization.pl-PL.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\App_GlobalResources.UploadLocalization.ru-RU.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Article.Models.ArticleDB1.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Article.Models.ArticleDB2.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.Category.Models.CMS.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.CMSCategory.Models.DataClasses1.designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.eCommerce.Models.ECommerce.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Areas.eCommerce.Models.ECommerce1.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\HanuElib.cs.dll" />
+    <Content Include="obj\Debug\TempPE\HanuElib.Designer.cs.dll" />
+    <Content Include="obj\Debug\TempPE\HanuELibrary.Designer.cs.dll" />
+    <Content Include="obj\Debug\Website.csproj.FileListAbsolute.txt" />
+    <Content Include="officetopdf.exe" />
+    <Content Include="pdf.js\api.js" />
+    <Content Include="pdf.js\bidi.js" />
+    <Content Include="pdf.js\canvas.js" />
+    <Content Include="pdf.js\charsets.js" />
+    <Content Include="pdf.js\cidmaps.js" />
+    <Content Include="pdf.js\colorspace.js" />
+    <Content Include="pdf.js\compatibility.js" />
+    <Content Include="pdf.js\core.js" />
+    <Content Include="pdf.js\crypto.js" />
+    <Content Include="pdf.js\debugger.js" />
+    <Content Include="pdf.js\evaluator.js" />
+    <Content Include="pdf.js\fonts.js" />
+    <Content Include="pdf.js\function.js" />
+    <Content Include="pdf.js\glyphlist.js" />
+    <Content Include="pdf.js\image.js" />
+    <Content Include="pdf.js\images\annotation-check.svg" />
+    <Content Include="pdf.js\images\annotation-comment.svg" />
+    <Content Include="pdf.js\images\annotation-help.svg" />
+    <Content Include="pdf.js\images\annotation-insert.svg" />
+    <Content Include="pdf.js\images\annotation-key.svg" />
+    <Content Include="pdf.js\images\annotation-newparagraph.svg" />
+    <Content Include="pdf.js\images\annotation-note.svg" />
+    <Content Include="pdf.js\images\annotation-paragraph.svg" />
+    <Content Include="pdf.js\images\findbarButton-next-rtl.png" />
+    <Content Include="pdf.js\images\findbarButton-next.png" />
+    <Content Include="pdf.js\images\findbarButton-previous-rtl.png" />
+    <Content Include="pdf.js\images\findbarButton-previous.png" />
+    <Content Include="pdf.js\images\loading-icon.gif" />
+    <Content Include="pdf.js\images\loading-small.png" />
+    <Content Include="pdf.js\images\texture.png" />
+    <Content Include="pdf.js\images\toolbarButton-bookmark.png" />
+    <Content Include="pdf.js\images\toolbarButton-download.png" />
+    <Content Include="pdf.js\images\toolbarButton-fullscreen.png" />
+    <Content Include="pdf.js\images\toolbarButton-menuArrows.png" />
+    <Content Include="pdf.js\images\toolbarButton-openFile.png" />
+    <Content Include="pdf.js\images\toolbarButton-pageDown-rtl.png" />
+    <Content Include="pdf.js\images\toolbarButton-pageDown.png" />
+    <Content Include="pdf.js\images\toolbarButton-pageUp-rtl.png" />
+    <Content Include="pdf.js\images\toolbarButton-pageUp.png" />
+    <Content Include="pdf.js\images\toolbarButton-print.png" />
+    <Content Include="pdf.js\images\toolbarButton-search.png" />
+    <Content Include="pdf.js\images\toolbarButton-sidebarToggle.png" />
+    <Content Include="pdf.js\images\toolbarButton-viewOutline.png" />
+    <Content Include="pdf.js\images\toolbarButton-viewThumbnail.png" />
+    <Content Include="pdf.js\images\toolbarButton-zoomIn.png" />
+    <Content Include="pdf.js\images\toolbarButton-zoomOut.png" />
+    <Content Include="pdf.js\jbig2.js" />
+    <Content Include="pdf.js\jpg.js" />
+    <Content Include="pdf.js\jpx.js" />
+    <Content Include="pdf.js\l10n.js" />
+    <Content Include="pdf.js\metadata.js" />
+    <Content Include="pdf.js\metrics.js" />
+    <Content Include="pdf.js\obj.js" />
+    <Content Include="pdf.js\parser.js" />
+    <Content Include="pdf.js\pattern.js" />
+    <Content Include="pdf.js\pdf.js" />
+    <Content Include="pdf.js\stream.js" />
+    <Content Include="pdf.js\util.js" />
+    <Content Include="pdf.js\viewer.css" />
+    <Content Include="pdf.js\viewer.js" />
+    <Content Include="pdf.js\worker.js" />
+    <Content Include="pdf.js\worker_loader.js" />
+    <Content Include="player.swf" />
+    <Content Include="Resources\AWS_Running_Databases_in_the_Cloud.swf" />
+    <Content Include="Resources\dasfaa.swf" />
+    <Content Include="images\excel_sample.png" />
+    <Content Include="Resources\OTT-Challenges-Opportunities-Report.swf" />
+    <Content Include="Resources\riskcoal.swf" />
+    <Content Include="Scripts\2013.2.611\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\2013.2.611\jquery.validate.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.all.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.autocomplete.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.calendar.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.chart.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.combobox.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.common.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.datepicker.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.datetimepicker.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.draganddrop.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.editor.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.grid.editing.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.grid.filtering.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.grid.grouping.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.grid.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.grid.reordering.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.grid.resizing.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.imagebrowser.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.list.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.menu.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.panelbar.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.slider.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.splitter.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.tabstrip.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.textbox.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.timepicker.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.treeview.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.upload.min.js" />
+    <Content Include="Scripts\2013.2.611\telerik.window.min.js" />
+    <Content Include="Scripts\codemirror\keymap\emacs.js" />
+    <Content Include="Scripts\codemirror\keymap\vim.js" />
+    <Content Include="Scripts\codemirror\lib\codemirror.css" />
+    <Content Include="Scripts\codemirror\lib\codemirror.js" />
+    <Content Include="Scripts\codemirror\lib\util\dialog.css" />
+    <Content Include="Scripts\codemirror\lib\util\dialog.js" />
+    <Content Include="Scripts\codemirror\lib\util\foldcode.js" />
+    <Content Include="Scripts\codemirror\lib\util\formatting.js" />
+    <Content Include="Scripts\codemirror\lib\util\javascript-hint.js" />
+    <Content Include="Scripts\codemirror\lib\util\overlay.js" />
+    <Content Include="Scripts\codemirror\lib\util\runmode.js" />
+    <Content Include="Scripts\codemirror\lib\util\search.js" />
+    <Content Include="Scripts\codemirror\lib\util\searchcursor.js" />
+    <Content Include="Scripts\codemirror\lib\util\simple-hint.css" />
+    <Content Include="Scripts\codemirror\lib\util\simple-hint.js" />
+    <Content Include="Scripts\codemirror\mode\clike\clike.js" />
+    <Content Include="Scripts\codemirror\mode\clike\index.html" />
+    <Content Include="Scripts\codemirror\mode\clojure\clojure.js" />
+    <Content Include="Scripts\codemirror\mode\clojure\index.html" />
+    <Content Include="Scripts\codemirror\mode\coffeescript\coffeescript.js" />
+    <Content Include="Scripts\codemirror\mode\coffeescript\index.html" />
+    <Content Include="Scripts\codemirror\mode\css\css.js" />
+    <Content Include="Scripts\codemirror\mode\css\index.html" />
+    <Content Include="Scripts\codemirror\mode\diff\diff.css" />
+    <Content Include="Scripts\codemirror\mode\diff\diff.js" />
+    <Content Include="Scripts\codemirror\mode\diff\index.html" />
+    <Content Include="Scripts\codemirror\mode\gfm\gfm.js" />
+    <Content Include="Scripts\codemirror\mode\gfm\index.html" />
+    <Content Include="Scripts\codemirror\mode\groovy\groovy.js" />
+    <Content Include="Scripts\codemirror\mode\groovy\index.html" />
+    <Content Include="Scripts\codemirror\mode\haskell\haskell.js" />
+    <Content Include="Scripts\codemirror\mode\haskell\index.html" />
+    <Content Include="Scripts\codemirror\mode\htmlembedded\htmlembedded.js" />
+    <Content Include="Scripts\codemirror\mode\htmlembedded\index.html" />
+    <Content Include="Scripts\codemirror\mode\htmlmixed\htmlmixed.js" />
+    <Content Include="Scripts\codemirror\mode\htmlmixed\index.html" />
+    <Content Include="Scripts\codemirror\mode\javascript\index.html" />
+    <Content Include="Scripts\codemirror\mode\javascript\javascript.js" />
+    <Content Include="Scripts\codemirror\mode\jinja2\index.html" />
+    <Content Include="Scripts\codemirror\mode\jinja2\jinja2.js" />
+    <Content Include="Scripts\codemirror\mode\lua\index.html" />
+    <Content Include="Scripts\codemirror\mode\lua\lua.js" />
+    <Content Include="Scripts\codemirror\mode\markdown\index.html" />
+    <Content Include="Scripts\codemirror\mode\markdown\markdown.js" />
+    <Content Include="Scripts\codemirror\mode\ntriples\index.html" />
+    <Content Include="Scripts\codemirror\mode\ntriples\ntriples.js" />
+    <Content Include="Scripts\codemirror\mode\pascal\index.html" />
+    <Content Include="Scripts\codemirror\mode\pascal\pascal.js" />
+    <Content Include="Scripts\codemirror\mode\perl\index.html" />
+    <Content Include="Scripts\codemirror\mode\perl\perl.js" />
+    <Content Include="Scripts\codemirror\mode\php\index.html" />
+    <Content Include="Scripts\codemirror\mode\php\php.js" />
+    <Content Include="Scripts\codemirror\mode\plsql\index.html" />
+    <Content Include="Scripts\codemirror\mode\plsql\plsql.js" />
+    <Content Include="Scripts\codemirror\mode\python\index.html" />
+    <Content Include="Scripts\codemirror\mode\python\LICENSE.txt" />
+    <Content Include="Scripts\codemirror\mode\python\python.js" />
+    <Content Include="Scripts\codemirror\mode\razor\razor.css" />
+    <Content Include="Scripts\codemirror\mode\razor\razor.js" />
+    <Content Include="Scripts\codemirror\mode\rpm\changes\changes.js" />
+    <Content Include="Scripts\codemirror\mode\rpm\changes\index.html" />
+    <Content Include="Scripts\codemirror\mode\rpm\spec\index.html" />
+    <Content Include="Scripts\codemirror\mode\rpm\spec\spec.css" />
+    <Content Include="Scripts\codemirror\mode\rpm\spec\spec.js" />
+    <Content Include="Scripts\codemirror\mode\rst\index.html" />
+    <Content Include="Scripts\codemirror\mode\rst\rst.js" />
+    <Content Include="Scripts\codemirror\mode\ruby\index.html" />
+    <Content Include="Scripts\codemirror\mode\ruby\ruby.js" />
+    <Content Include="Scripts\codemirror\mode\rust\index.html" />
+    <Content Include="Scripts\codemirror\mode\rust\rust.js" />
+    <Content Include="Scripts\codemirror\mode\r\index.html" />
+    <Content Include="Scripts\codemirror\mode\r\r.js" />
+    <Content Include="Scripts\codemirror\mode\scheme\index.html" />
+    <Content Include="Scripts\codemirror\mode\scheme\scheme.js" />
+    <Content Include="Scripts\codemirror\mode\smalltalk\index.html" />
+    <Content Include="Scripts\codemirror\mode\smalltalk\smalltalk.js" />
+    <Content Include="Scripts\codemirror\mode\sparql\index.html" />
+    <Content Include="Scripts\codemirror\mode\sparql\sparql.js" />
+    <Content Include="Scripts\codemirror\mode\stex\index.html" />
+    <Content Include="Scripts\codemirror\mode\stex\stex.js" />
+    <Content Include="Scripts\codemirror\mode\tiddlywiki\index.html" />
+    <Content Include="Scripts\codemirror\mode\tiddlywiki\tiddlywiki.css" />
+    <Content Include="Scripts\codemirror\mode\tiddlywiki\tiddlywiki.js" />
+    <Content Include="Scripts\codemirror\mode\velocity\index.html" />
+    <Content Include="Scripts\codemirror\mode\velocity\velocity.js" />
+    <Content Include="Scripts\codemirror\mode\xmlpure\index.html" />
+    <Content Include="Scripts\codemirror\mode\xmlpure\xmlpure.js" />
+    <Content Include="Scripts\codemirror\mode\xml\index.html" />
+    <Content Include="Scripts\codemirror\mode\xml\xml.js" />
+    <Content Include="Scripts\codemirror\mode\yaml\index.html" />
+    <Content Include="Scripts\codemirror\mode\yaml\yaml.js" />
+    <Content Include="Scripts\codemirror\theme\cobalt.css" />
+    <Content Include="Scripts\codemirror\theme\eclipse.css" />
+    <Content Include="Scripts\codemirror\theme\elegant.css" />
+    <Content Include="Scripts\codemirror\theme\monokai.css" />
+    <Content Include="Scripts\codemirror\theme\neat.css" />
+    <Content Include="Scripts\codemirror\theme\night.css" />
+    <Content Include="Scripts\codemirror\theme\rubyblue.css" />
+    <Content Include="Scripts\demo.js" />
+    <Content Include="Scripts\EditorHookup.js" />
+    <Content Include="Content\Admin\tree\images\ajax-loader.gif" />
+    <Content Include="Content\Admin\tree\images\file.gif" />
+    <Content Include="Content\Admin\tree\images\folder-closed.gif" />
+    <Content Include="Content\Admin\tree\images\folder.gif" />
+    <Content Include="Content\Admin\tree\images\minus.gif" />
+    <Content Include="Content\Admin\tree\images\plus.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-black-line.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-black.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-default-line.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-default.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-famfamfam-line.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-famfamfam.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-gray-line.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-gray.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-red-line.gif" />
+    <Content Include="Content\Admin\tree\images\treeview-red.gif" />
+    <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.5.1.js" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-simple-pagination-plugin.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.tablesorter.min.js" />
+    <Content Include="Scripts\jquery.treeview.async.js" />
+    <Content Include="Scripts\jquery.treeview.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Scripts\nicedit\nicEditorIcons.gif" />
+    <Content Include="Scripts\nicedit\nicEdit.js" />
+    <Content Include="uploads\avi.png" />
+    <Content Include="uploads\mp3.png" />
+    <Content Include="uploads\pdf.png" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_AdminPager.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Core\Views\Shared\" />
+    <Folder Include="Areas\DocumentAdmin\Views\Shared\" />
+    <Folder Include="aspnet_client\system_web\2_0_50727\" />
+    <Folder Include="aspnet_client\system_web\4_0_30319\" />
+    <Folder Include="obj\Debug\Package\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Core\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Core\Views\Account\ChangePassword.cshtml" />
+    <Content Include="Areas\Core\Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Areas\Core\Views\Account\LogOn.cshtml" />
+    <Content Include="Areas\Core\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Core\Views\Application\EditFeature.cshtml" />
+    <Content Include="Areas\Core\Views\Application\EditPartial.cshtml" />
+    <Content Include="Areas\Core\Views\Application\Features.cshtml" />
+    <Content Include="Areas\Core\Views\Application\Modules.cshtml" />
+    <Content Include="Areas\Core\Views\Application\Themes.cshtml" />
+    <Content Include="Areas\Core\Views\Application\ViewModule.cshtml" />
+    <Content Include="Areas\Core\Views\ApplicationCustomize\EditPage.cshtml" />
+    <Content Include="Areas\Core\Views\ApplicationCustomize\PageModules.cshtml" />
+    <Content Include="Areas\Core\Views\ApplicationCustomize\Pages.cshtml" />
+    <Content Include="Areas\Core\Views\Config\ExecuteSQL.cshtml" />
+    <Content Include="Areas\Core\Views\Config\RestrictedControllers.cshtml" />
+    <Content Include="Areas\Core\Views\Config\SuperUsers.cshtml" />
+    <Content Include="Areas\Core\Views\Error\Unauthorized.cshtml" />
+    <Content Include="Areas\Core\Views\FirstRun\AddLocale.cshtml" />
+    <Content Include="Areas\Core\Views\FirstRun\SuperUser.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\ActionParameters.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\Create.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\Delete.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\Edit.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\Index.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\ItemCreate.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\ItemEdit.cshtml" />
+    <Content Include="Areas\Core\Views\FrontendMenu\ItemList.cshtml" />
+    <Content Include="Areas\Core\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\Core\Views\HomeAdmin\Settings.cshtml" />
+    <Content Include="Areas\Core\Views\HomeAdmin\SyncControllerItems.cshtml" />
+    <Content Include="Areas\Core\Views\HomeAdmin\UploadImage.cshtml" />
+    <Content Include="Areas\Core\Views\Language\EditLocale.cshtml" />
+    <Content Include="Areas\Core\Views\Language\Index.cshtml" />
+    <Content Include="Areas\Core\Views\Language\Locales.cshtml" />
+    <Content Include="Areas\Core\Views\User\_EditRole.cshtml" />
+    <Content Include="Areas\Core\Views\User\ChangePasswordAdmin.cshtml" />
+    <Content Include="Areas\Core\Views\User\CreateUser.cshtml" />
+    <Content Include="Areas\Core\Views\User\RolePermissions.cshtml" />
+    <Content Include="Areas\Core\Views\User\RolesList.cshtml" />
+    <Content Include="Areas\Core\Views\User\RoleUsers.cshtml" />
+    <Content Include="Areas\Core\Views\User\UserRoles.cshtml" />
+    <Content Include="Areas\Core\Views\User\UsersList.cshtml" />
+    <Content Include="Areas\Core\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Core\Views\ApplicationCustomize\AddModule.cshtml" />
+    <Content Include="Areas\Core\Views\Application\Applications.cshtml" />
+    <Content Include="Areas\Core\Views\Application\EditApplication.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\DocumentAdmin\Views\Web.config" />
+    <Content Include="Areas\DocumentAdmin\_ViewStart.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentCategoryAdmin\Index.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentCategoryAdmin\Create.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentCategoryAdmin\Edit.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentCategoryAdmin\Delete.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\Index.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\Create.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\EditorTemplates_\Date.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\ExtraInfo.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentOrder\Index.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentOrder\Details.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentOrder\Delete.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentFormat\Index.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\moveCate.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\setFee.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\setStatus.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\StatisticDocumentView.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\DocumentStatistic.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\StatisticDocumentNum.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\StatisticIncome.cshtml" />
+    <Content Include="Areas\Core\Views\Profile\Edit.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\TopDocument\Index.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\SystemStatistics.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentFormat\Create.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\DocumentFormat\Delete.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\CreateUser.cshtml" />
+    <Content Include="Areas\Core\Views\HomeAdminPage\Index.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\FeeReadHistory.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\MoneyLogHistory.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\EditUser.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\FilterUser.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\Pagination.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\RolePermissions.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\Faculty.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\CreateFaculty.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\EditFaculty.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\DeleteFaculty.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\ImportUserData.cshtml" />
+    <Content Include="Areas\Core\Views\UserEx\ChangePasswordUser.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\CreateGroup.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\LoggedAction.cshtml" />
+    <Content Include="Areas\DocumentAdmin\Views\Document\ExtraInfoMultipleFile.cshtml" />
+    <None Include="Content\jquery-ui\development-bundle\demos\tabs\ajax\content3-slow.php" />
+    <None Include="Content\jquery-ui\development-bundle\demos\tabs\ajax\content4-broken.php" />
+    <Content Include="mediaplayer\comet.zip" />
+    <EntityDeploy Include="HanuELibraryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>HanuELibraryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="mediaplayer\JW Player Quick Start Guide.pdf" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\Article\Models\ArticleDB.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\Article\Models\ArticleDB.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\Article\Models\ArticleDB.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\Display\Models\DisplayEntities.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\Display\Models\DisplayEntities.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\Display\Models\DisplayEntities.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\eCommerce\Models\ECommerce.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\eCommerce\Models\ECommerce.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Areas\eCommerce\Models\ECommerce.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HanuElib.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HanuElib.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HanuElib.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HanuELibrary.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HanuELibrary.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\HanuELibrary.ssdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Models\ECommerce.csdl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Models\ECommerce.msl" />
+    <None Include="obj\Debug\edmxResourcesToEmbed\Models\ECommerce.ssdl" />
+    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
+    <None Include="Scripts\codemirror\mode\coffeescript\LICENSE" />
+    <None Include="Scripts\codemirror\mode\pascal\LICENSE" />
+    <None Include="Scripts\codemirror\mode\perl\LICENSE" />
+    <None Include="Scripts\codemirror\mode\ruby\LICENSE" />
+    <None Include="Scripts\codemirror\mode\r\LICENSE" />
+    <Content Include="Views\Shared\_AdminMenu.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Home\History.cshtml" />
+    <Content Include="Views\Home\ViewBook.cshtml" />
+    <Content Include="Views\Home\ViewByCategory.cshtml" />
+    <Content Include="Views\Shared\_Breadcrumb.cshtml" />
+    <Content Include="Views\Shared\_FrontLayout.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_MenuPartial.cshtml" />
+    <Content Include="Views\Shared\_SearchPager.cshtml" />
+    <Content Include="Views\Home\ViewMedia.cshtml" />
+    <Content Include="Views\Home\AuthWarning.cshtml" />
+    <Content Include="Views\Home\BalanceWarning.cshtml" />
+    <Content Include="Views\Home\ViewByFormat.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\SearchResult.cshtml" />
+    <Content Include="Views\Home\NormalSearch.cshtml" />
+    <Content Include="Views\Home\OrderDocument.cshtml" />
+    <Content Include="Views\Shared\_IndexLayout.cshtml" />
+    <Content Include="Views\Shared\_UserInfo.cshtml" />
+    <Content Include="Views\Home\CategoryView.cshtml" />
+    <Content Include="Views\Home\ViewBookDetail.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\BoughtDocument.cshtml" />
+    <Content Include="Views\Home\LoginMessage.cshtml" />
+    <Content Include="Views\Home\LogOn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.zh-CN.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.da-DK.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.da-DK.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\UploadLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>UploadLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.zh-CN.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.es-ES.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.es-ES.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.de-DE.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.da-DK.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.da-DK.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GridLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GridLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.zh-CN.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.uk-UA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.uk-UA.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.ru-RU.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.ru-RU.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pt-PT.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pt-PT.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pt-BR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pt-BR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.pl-PL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.pl-PL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.nl-NL.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.nl-NL.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.fr-FR.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.fr-FR.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.en-US.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.en-US.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.de-DE.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.de-DE.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.da-DK.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.da-DK.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\EditorLocalization.bg-BG.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>EditorLocalization.bg-BG.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64064</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/QML.Web.UI</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "ls '$(SolutionDir)\packages\GhostScriptSharp.*\Tools\gsdll32.dll' | Sort -Descending | Select -First 1 | cp -Destination '$(TargetDir)'; exit 0"</PostBuildEvent>
+  </PropertyGroup>
+</Project>
